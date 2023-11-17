@@ -20,6 +20,14 @@ absfuyu.util.json\_method module
    :undoc-members:
    :show-inheritance:
 
+absfuyu.util.lunar module
+-------------------------
+
+.. automodule:: absfuyu.util.lunar
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 absfuyu.util.path module
 ------------------------
 
@@ -32,6 +40,14 @@ absfuyu.util.performance module
 -------------------------------
 
 .. automodule:: absfuyu.util.performance
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.util.pkl module
+-----------------------
+
+.. automodule:: absfuyu.util.pkl
    :members:
    :undoc-members:
    :show-inheritance:
