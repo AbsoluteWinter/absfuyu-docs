@@ -20,6 +20,14 @@ absfuyu.game.tictactoe module
    :undoc-members:
    :show-inheritance:
 
+absfuyu.game.tictactoe2 module
+------------------------------
+
+.. automodule:: absfuyu.game.tictactoe2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 absfuyu.game.wordle module
 --------------------------
 

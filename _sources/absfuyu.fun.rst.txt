@@ -4,14 +4,6 @@ absfuyu.fun package
 Submodules
 ----------
 
-absfuyu.fun.WGS module
-----------------------
-
-.. automodule:: absfuyu.fun.WGS
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 absfuyu.fun.tarot module
 ------------------------
 

@@ -1,7 +1,6 @@
 absfuyu.config package
 ======================
 
-
 Module contents
 ---------------
 

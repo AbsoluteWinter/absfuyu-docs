@@ -4,18 +4,19 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.collections package &mdash; absfuyu 2.6.0 documentation</title>
+  <title>absfuyu.collections package &mdash; absfuyu 2.8.0.dev0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=ae39cb24"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,7 +36,7 @@
             absfuyu
           </a>
               <div class="version">
-                2.6.0
+                2.8.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,7 +53,6 @@
 <li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">absfuyu.collections package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.contrib.html">absfuyu.contrib package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.html">absfuyu.extensions package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
@@ -62,7 +62,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.calculation">absfuyu.calculation module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.core">absfuyu.core module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.everything">absfuyu.everything module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.logger">absfuyu.logger module</a></li>
@@ -101,42 +100,42 @@
            <div itemprop="articleBody">
              
   <section id="absfuyu-collections-package">
-<h1>absfuyu.collections package<a class="headerlink" href="#absfuyu-collections-package" title="Link to this heading"></a></h1>
+<h1>absfuyu.collections package<a class="headerlink" href="#absfuyu-collections-package" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-absfuyu.collections.content">
-<span id="absfuyu-collections-content-module"></span><h2>absfuyu.collections.content module<a class="headerlink" href="#module-absfuyu.collections.content" title="Link to this heading"></a></h2>
+<span id="absfuyu-collections-content-module"></span><h2>absfuyu.collections.content module<a class="headerlink" href="#module-absfuyu.collections.content" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Content
 —
 Handle .txt file</p>
-<p>Version: 1.2.0
-Date updated: 13/05/2023 (dd/mm/yyyy)</p>
+<p>Version: 1.2.1
+Date updated: 18/11/2023 (dd/mm/yyyy)</p>
 <p>Features:
 - Content
 - ContentLoader</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.collections.content.ContentLoader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.content.</span></span><span class="sig-name descname"><span class="pre">ContentLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">characteristic_detect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag_dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment_symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'|'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag_separate_symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">','</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.content.ContentLoader" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.content.</span></span><span class="sig-name descname"><span class="pre">ContentLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">characteristic_detect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag_dictionary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comment_symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'#'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'|'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag_separate_symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">','</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.content.ContentLoader" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This load data from .txt file</p>
 <p>Content format:
 <cite>&lt;content&gt;&lt;split_symbol&gt;&lt;tags separated by &lt;tag_separate_symbol&gt;&gt;</cite></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.content.ContentLoader.content_format">
-<span class="sig-name descname"><span class="pre">content_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.collections.content.ContentLoader.content_format" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">content_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.collections.content.ContentLoader.content_format" title="Permalink to this definition"></a></dt>
 <dd><p>Current content format</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.content.ContentLoader.load">
-<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.collections.content.ContentLoader.load" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.collections.content.ContentLoader.load" title="Permalink to this definition"></a></dt>
 <dd><p>Load content from file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.content.ContentLoader.load_content">
-<span class="sig-name descname"><span class="pre">load_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">LoadedContent</span></span></span><a class="headerlink" href="#absfuyu.collections.content.ContentLoader.load_content" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">LoadedContent</span></span></span><a class="headerlink" href="#absfuyu.collections.content.ContentLoader.load_content" title="Permalink to this definition"></a></dt>
 <dd><p>Load data into a list of <cite>Content</cite> class</p>
 </dd></dl>
 
@@ -144,12 +143,12 @@ Date updated: 13/05/2023 (dd/mm/yyyy)</p>
 
 </section>
 <section id="module-absfuyu.collections.data_extension">
-<span id="absfuyu-collections-data-extension-module"></span><h2>absfuyu.collections.data_extension module<a class="headerlink" href="#module-absfuyu.collections.data_extension" title="Link to this heading"></a></h2>
+<span id="absfuyu-collections-data-extension-module"></span><h2>absfuyu.collections.data_extension module<a class="headerlink" href="#module-absfuyu.collections.data_extension" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Data extension
 —
 Extension for data type such as <cite>list</cite>, <cite>str</cite>, …</p>
-<p>Version: 1.3.0
-Date updated: 16/06/2023 (dd/mm/yyyy)</p>
+<p>Version: 1.3.1
+Date updated: 18/11/2023 (dd/mm/yyyy)</p>
 <p>Features:
 - Text
 - ListKai
@@ -157,18 +156,18 @@ Date updated: 16/06/2023 (dd/mm/yyyy)</p>
 - IntNumber</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.DictKai">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.data_extension.</span></span><span class="sig-name descname"><span class="pre">DictKai</span></span><a class="headerlink" href="#absfuyu.collections.data_extension.DictKai" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.data_extension.</span></span><span class="sig-name descname"><span class="pre">DictKai</span></span><a class="headerlink" href="#absfuyu.collections.data_extension.DictKai" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
 <p><cite>dict</cite> extension</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.DictKai.analyze">
-<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.DictKai.analyze" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.DictKai.analyze" title="Permalink to this definition"></a></dt>
 <dd><p>Analyze all the key values (int, float) in dict then return highest/lowest index</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.DictKai.swap_items">
-<span class="sig-name descname"><span class="pre">swap_items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.DictKai.swap_items" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">swap_items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.DictKai.swap_items" title="Permalink to this definition"></a></dt>
 <dd><p>Swap keys with values</p>
 </dd></dl>
 
@@ -176,12 +175,12 @@ Date updated: 16/06/2023 (dd/mm/yyyy)</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.data_extension.</span></span><span class="sig-name descname"><span class="pre">IntNumber</span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.data_extension.</span></span><span class="sig-name descname"><span class="pre">IntNumber</span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
 <p><cite>int</cite> extension</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.add_to_one_digit">
-<span class="sig-name descname"><span class="pre">add_to_one_digit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.add_to_one_digit" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_to_one_digit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.add_to_one_digit" title="Permalink to this definition"></a></dt>
 <dd><p>Convert <cite>self</cite> into 1-digit number by add all of the digits together</p>
 <dl class="simple">
 <dt>master_number: bool</dt><dd><p>Break when sum = 22 or 11 (numerology)</p>
@@ -191,7 +190,7 @@ Date updated: 16/06/2023 (dd/mm/yyyy)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.is_narcissistic">
-<span class="sig-name descname"><span class="pre">is_narcissistic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_narcissistic" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_narcissistic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_narcissistic" title="Permalink to this definition"></a></dt>
 <dd><p>Check if a narcissistic number</p>
 <blockquote>
 <div><p>In number theory, a narcissistic number
@@ -205,7 +204,7 @@ each raised to the power of the number of digits.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.is_palindromic">
-<span class="sig-name descname"><span class="pre">is_palindromic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_palindromic" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_palindromic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_palindromic" title="Permalink to this definition"></a></dt>
 <dd><p>A palindromic number (also known as a numeral palindrome
 or a numeric palindrome) is a number (such as 16461)
 that remains the same when its digits are reversed.</p>
@@ -213,15 +212,15 @@ that remains the same when its digits are reversed.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.is_palindromic_prime">
-<span class="sig-name descname"><span class="pre">is_palindromic_prime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_palindromic_prime" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_palindromic_prime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_palindromic_prime" title="Permalink to this definition"></a></dt>
 <dd><p>A palindormic prime is a number which is both palindromic and prime</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.is_perfect">
-<span class="sig-name descname"><span class="pre">is_perfect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_perfect" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_perfect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_perfect" title="Permalink to this definition"></a></dt>
 <dd><section id="summary">
-<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h3>
+<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this heading"></a></h3>
 <p>Check if integer is perfect number</p>
 <blockquote>
 <div><p>Perfect number: a positive integer that is
@@ -243,9 +242,9 @@ Other perfect numbers are 28, 496, and 8,128.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.is_prime">
-<span class="sig-name descname"><span class="pre">is_prime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_prime" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_prime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_prime" title="Permalink to this definition"></a></dt>
 <dd><section id="id1">
-<h3>Summary<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h3>Summary<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <p>Check if the integer is a prime number or not</p>
 <blockquote>
 <div><p>A prime number is a natural number greater than 1
@@ -266,7 +265,7 @@ is called a composite number.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.is_twisted_prime">
-<span class="sig-name descname"><span class="pre">is_twisted_prime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_twisted_prime" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_twisted_prime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.is_twisted_prime" title="Permalink to this definition"></a></dt>
 <dd><p>A number is said to be twisted prime if
 it is a prime number and
 reverse of the number is also a prime number</p>
@@ -274,31 +273,31 @@ reverse of the number is also a prime number</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.lcm">
-<span class="sig-name descname"><span class="pre">lcm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.lcm" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">lcm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.lcm" title="Permalink to this definition"></a></dt>
 <dd><p>Least common multiple of <cite>self</cite> and <cite>with_number</cite></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.reverse">
-<span class="sig-name descname"><span class="pre">reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.reverse" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.reverse" title="Permalink to this definition"></a></dt>
 <dd><p>Reverse a number</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.to_binary">
-<span class="sig-name descname"><span class="pre">to_binary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.to_binary" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_binary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.to_binary" title="Permalink to this definition"></a></dt>
 <dd><p>Convert to binary number</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.to_celcius_degree">
-<span class="sig-name descname"><span class="pre">to_celcius_degree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.to_celcius_degree" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_celcius_degree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.to_celcius_degree" title="Permalink to this definition"></a></dt>
 <dd><p>Convert into Celcius degree as if <cite>self</cite> is Fahrenheit degree</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.IntNumber.to_fahrenheit_degree">
-<span class="sig-name descname"><span class="pre">to_fahrenheit_degree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.to_fahrenheit_degree" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_fahrenheit_degree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.IntNumber.to_fahrenheit_degree" title="Permalink to this definition"></a></dt>
 <dd><p>Convert into Fahrenheit degree as if <cite>self</cite> is Celcius degree</p>
 </dd></dl>
 
@@ -306,18 +305,18 @@ reverse of the number is also a prime number</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.data_extension.</span></span><span class="sig-name descname"><span class="pre">ListKai</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.data_extension.</span></span><span class="sig-name descname"><span class="pre">ListKai</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable=()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
 <p><cite>list</cite> extension</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.apply" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.apply" title="Permalink to this definition"></a></dt>
 <dd><p>Apply function to each entry</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai.freq">
-<span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_first_char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appear_increment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.freq" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_first_char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appear_increment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.freq" title="Permalink to this definition"></a></dt>
 <dd><p>Find frequency of each item in list</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -344,7 +343,7 @@ appear_increment = [2, 3, 5, 6, 7, 8]</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai.group_by_pair_value">
-<span class="sig-name descname"><span class="pre">group_by_pair_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_loop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.group_by_pair_value" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">group_by_pair_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_loop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.group_by_pair_value" title="Permalink to this definition"></a></dt>
 <dd><p>Assume each <cite>list</cite> in <cite>list</cite> is a pair value,
 returns a <cite>list</cite> contain all paired value</p>
 <p>max_loop: times to run functions (minimum: 3)</p>
@@ -365,7 +364,7 @@ returns a <cite>list</cite> contain all paired value</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai.group_by_unique">
-<span class="sig-name descname"><span class="pre">group_by_unique</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.group_by_unique" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">group_by_unique</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.group_by_unique" title="Permalink to this definition"></a></dt>
 <dd><p>Group duplicated elements into list</p>
 <p class="rubric">Example</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListKai</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
@@ -377,31 +376,31 @@ returns a <cite>list</cite> contain all paired value</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai.len_items">
-<span class="sig-name descname"><span class="pre">len_items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.len_items" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">len_items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.len_items" title="Permalink to this definition"></a></dt>
 <dd><p><cite>len()</cite> for every item in <cite>list[str]</cite></p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai.mean_len">
-<span class="sig-name descname"><span class="pre">mean_len</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.mean_len" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">mean_len</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.mean_len" title="Permalink to this definition"></a></dt>
 <dd><p>Average length of every item</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai.pick_one">
-<span class="sig-name descname"><span class="pre">pick_one</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.pick_one" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pick_one</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.pick_one" title="Permalink to this definition"></a></dt>
 <dd><p>Pick one random items from list</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai.slice_points">
-<span class="sig-name descname"><span class="pre">slice_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.slice_points" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">slice_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.slice_points" title="Permalink to this definition"></a></dt>
 <dd><p>Slices a list at specific indices into constituent lists.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai.sorts">
-<span class="sig-name descname"><span class="pre">sorts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.sorts" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">sorts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.sorts" title="Permalink to this definition"></a></dt>
 <dd><p>Sort all items (with different type) in list</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -418,9 +417,9 @@ returns a <cite>list</cite> contain all paired value</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai.stringify">
-<span class="sig-name descname"><span class="pre">stringify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.stringify" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">stringify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.stringify" title="Permalink to this definition"></a></dt>
 <dd><section id="id2">
-<h3>Summary<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<h3>Summary<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <p>Convert all item in list into string</p>
 <dl class="field-list simple">
 <dt class="field-odd">returns<span class="colon">:</span></dt>
@@ -435,7 +434,7 @@ returns a <cite>list</cite> contain all paired value</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.ListKai.unique">
-<span class="sig-name descname"><span class="pre">unique</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.unique" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">unique</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.ListKai.unique" title="Permalink to this definition"></a></dt>
 <dd><p>Remove duplicates</p>
 </dd></dl>
 
@@ -443,14 +442,14 @@ returns a <cite>list</cite> contain all paired value</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.Text">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.data_extension.</span></span><span class="sig-name descname"><span class="pre">Text</span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.data_extension.</span></span><span class="sig-name descname"><span class="pre">Text</span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
 <p><cite>str</cite> extension</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.Text.analyze">
-<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.analyze" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.analyze" title="Permalink to this definition"></a></dt>
 <dd><section id="id3">
-<h3>Summary<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<h3>Summary<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <p>String analyze (count number of type of character)</p>
 <dl class="field-list simple">
 <dt class="field-odd">returns<span class="colon">:</span></dt>
@@ -467,9 +466,9 @@ special character</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.Text.divide">
-<span class="sig-name descname"><span class="pre">divide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string_split_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.divide" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">divide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string_split_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.divide" title="Permalink to this definition"></a></dt>
 <dd><section id="id4">
-<h3>Summary<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<h3>Summary<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
 <p>Divide long string into smaller size</p>
 <dl class="field-list simple">
 <dt class="field-odd">param string_split_size<span class="colon">:</span></dt>
@@ -493,9 +492,9 @@ string with the size of string_split_size
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.Text.divide_with_variable">
-<span class="sig-name descname"><span class="pre">divide_with_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_var_len</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_var_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.divide_with_variable" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">divide_with_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_var_len</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_var_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.divide_with_variable" title="Permalink to this definition"></a></dt>
 <dd><section id="id5">
-<h3>Summary<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<h3>Summary<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <p>Divide long string into smaller size,
 then assign a random variable to splited
 string for later use</p>
@@ -539,9 +538,9 @@ and a way to concaternate them (when using print)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.Text.is_palindrome">
-<span class="sig-name descname"><span class="pre">is_palindrome</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.is_palindrome" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_palindrome</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.is_palindrome" title="Permalink to this definition"></a></dt>
 <dd><section id="id6">
-<h3>Summary<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<h3>Summary<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <p>Check if string is a palindrome</p>
 <blockquote>
 <div><p>A palindrome is a word, verse, or sentence
@@ -560,9 +559,9 @@ or a number that reads the same backward or forward</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.Text.is_pangram">
-<span class="sig-name descname"><span class="pre">is_pangram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.is_pangram" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_pangram</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.is_pangram" title="Permalink to this definition"></a></dt>
 <dd><section id="id7">
-<h3>Summary<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<h3>Summary<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
 <p>Check if string is a pangram</p>
 <blockquote>
 <div><p>A pangram is a unique sentence in which
@@ -581,7 +580,7 @@ every letter of the alphabet is used at least once</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.Text.random_capslock">
-<span class="sig-name descname"><span class="pre">random_capslock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.random_capslock" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">random_capslock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.random_capslock" title="Permalink to this definition"></a></dt>
 <dd><p>Randomly capslock letter in string</p>
 <dl class="simple">
 <dt>probability<span class="classifier">int</span></dt><dd><p>probability in range [0, 100]
@@ -592,15 +591,15 @@ every letter of the alphabet is used at least once</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.Text.reverse">
-<span class="sig-name descname"><span class="pre">reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.reverse" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.reverse" title="Permalink to this definition"></a></dt>
 <dd><p>Reverse string</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.data_extension.Text.to_hex">
-<span class="sig-name descname"><span class="pre">to_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.to_hex" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.collections.data_extension.Text.to_hex" title="Permalink to this definition"></a></dt>
 <dd><section id="id8">
-<h3>Summary<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<h3>Summary<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
 <p>Convert string to hex form</p>
 <dl class="field-list simple">
 <dt class="field-odd">param raw<span class="colon">:</span></dt>
@@ -624,78 +623,78 @@ True: normal hex string</p>
 
 </section>
 <section id="module-absfuyu.collections.generator">
-<span id="absfuyu-collections-generator-module"></span><h2>absfuyu.collections.generator module<a class="headerlink" href="#module-absfuyu.collections.generator" title="Link to this heading"></a></h2>
+<span id="absfuyu-collections-generator-module"></span><h2>absfuyu.collections.generator module<a class="headerlink" href="#module-absfuyu.collections.generator" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Generator
 —
 This generate stuff (Not python’s generator)</p>
-<p>Version: 1.0.2
-Date updated: 25/05/2023 (dd/mm/yyyy)</p>
+<p>Version: 1.0.3
+Date updated: 18/11/2023 (dd/mm/yyyy)</p>
 <p>Features:
 - Generate random string
 - Generate key
 - Generate check digit</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Charset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.generator.</span></span><span class="sig-name descname"><span class="pre">Charset</span></span><a class="headerlink" href="#absfuyu.collections.generator.Charset" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.generator.</span></span><span class="sig-name descname"><span class="pre">Charset</span></span><a class="headerlink" href="#absfuyu.collections.generator.Charset" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Character set data class</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Charset.ALL">
-<span class="sig-name descname"><span class="pre">ALL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~</span> <span class="pre">\t\n\r\x0b\x0c'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.ALL" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ALL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~</span> <span class="pre">\t\n\r\x0b\x0c'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.ALL" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Charset.ALPHABET">
-<span class="sig-name descname"><span class="pre">ALPHABET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.ALPHABET" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ALPHABET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.ALPHABET" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Charset.DEFAULT">
-<span class="sig-name descname"><span class="pre">DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.DEFAULT" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.DEFAULT" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Charset.DIGIT">
-<span class="sig-name descname"><span class="pre">DIGIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0123456789'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.DIGIT" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">DIGIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0123456789'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.DIGIT" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Charset.FULL">
-<span class="sig-name descname"><span class="pre">FULL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.FULL" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">FULL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.FULL" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Charset.LOWERCASE">
-<span class="sig-name descname"><span class="pre">LOWERCASE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyz'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.LOWERCASE" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">LOWERCASE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyz'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.LOWERCASE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Charset.PRODUCT_KEY">
-<span class="sig-name descname"><span class="pre">PRODUCT_KEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BCDFGHJKMNPQRTVWXY2346789'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.PRODUCT_KEY" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">PRODUCT_KEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BCDFGHJKMNPQRTVWXY2346789'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.PRODUCT_KEY" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Charset.SPECIAL">
-<span class="sig-name descname"><span class="pre">SPECIAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.SPECIAL" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">SPECIAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.SPECIAL" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Charset.UPPERCASE">
-<span class="sig-name descname"><span class="pre">UPPERCASE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.UPPERCASE" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">UPPERCASE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span></em><a class="headerlink" href="#absfuyu.collections.generator.Charset.UPPERCASE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Generator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.generator.</span></span><span class="sig-name descname"><span class="pre">Generator</span></span><a class="headerlink" href="#absfuyu.collections.generator.Generator" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.generator.</span></span><span class="sig-name descname"><span class="pre">Generator</span></span><a class="headerlink" href="#absfuyu.collections.generator.Generator" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Generator class</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Generator.generate_check_digit">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_check_digit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#absfuyu.collections.generator.Generator.generate_check_digit" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_check_digit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#absfuyu.collections.generator.Generator.generate_check_digit" title="Permalink to this definition"></a></dt>
 <dd><section id="id9">
-<h3>Summary<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<h3>Summary<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
 <p>Check digit generator</p>
 <blockquote>
 <div><p>“A check digit is a form of redundancy check used for
@@ -731,7 +730,7 @@ of two successive digits.” (Wikipedia)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Generator.generate_key">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'BCDFGHJKMNPQRTVWXY2346789'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">letter_per_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.generator.Generator.generate_key" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'BCDFGHJKMNPQRTVWXY2346789'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">letter_per_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.generator.Generator.generate_key" title="Permalink to this definition"></a></dt>
 <dd><p>charset: Character set
 letter_per_block: number of letter per key block
 number_of_block: number of key block
@@ -740,9 +739,9 @@ sep: key block separator</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.generator.Generator.generate_string">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_type_if_1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.generator.Generator.generate_string" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_type_if_1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.generator.Generator.generate_string" title="Permalink to this definition"></a></dt>
 <dd><section id="id10">
-<h3>Summary<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<h3>Summary<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
 <p>Generate a list of random string from character set (Random string generator)</p>
 <dl class="field-list simple">
 <dt class="field-odd">param charset<span class="colon">:</span></dt>
@@ -800,32 +799,32 @@ sep: key block separator</p>
 
 </section>
 <section id="module-absfuyu.collections.human">
-<span id="absfuyu-collections-human-module"></span><h2>absfuyu.collections.human module<a class="headerlink" href="#module-absfuyu.collections.human" title="Link to this heading"></a></h2>
+<span id="absfuyu-collections-human-module"></span><h2>absfuyu.collections.human module<a class="headerlink" href="#module-absfuyu.collections.human" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Human
 —
 Human related stuff</p>
-<p>Version: 1.2.1
-Date updated: 14/07/2023 (dd/mm/yyyy)</p>
+<p>Version: 1.2.2
+Date updated: 18/11/2023 (dd/mm/yyyy)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Human">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.human.</span></span><span class="sig-name descname"><span class="pre">Human</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">birthday</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">birth_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gender</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.human.Human" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.human.</span></span><span class="sig-name descname"><span class="pre">Human</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">birthday</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">birth_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gender</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.human.Human" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Basic human data</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Human.JohnDoe">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">JohnDoe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.human.Human.JohnDoe" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">JohnDoe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.human.Human.JohnDoe" title="Permalink to this definition"></a></dt>
 <dd><p>Dummy Human for test</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Human.age">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">age</span></span><a class="headerlink" href="#absfuyu.collections.human.Human.age" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">age</span></span><a class="headerlink" href="#absfuyu.collections.human.Human.age" title="Permalink to this definition"></a></dt>
 <dd><p>Calculate age based on birthday</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Human.bmi">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bmi</span></span><a class="headerlink" href="#absfuyu.collections.human.Human.bmi" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bmi</span></span><a class="headerlink" href="#absfuyu.collections.human.Human.bmi" title="Permalink to this definition"></a></dt>
 <dd><p>Body Mass Index (kg/m^2)</p>
 <p>Formula: $frac{weight (kg)}{height (m)^2}$</p>
 <ul class="simple">
@@ -837,19 +836,19 @@ Date updated: 14/07/2023 (dd/mm/yyyy)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Human.dir_">
-<span class="sig-name descname"><span class="pre">dir_</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.human.Human.dir_" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dir_</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.human.Human.dir_" title="Permalink to this definition"></a></dt>
 <dd><p>List property</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Human.is_adult">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_adult</span></span><a class="headerlink" href="#absfuyu.collections.human.Human.is_adult" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_adult</span></span><a class="headerlink" href="#absfuyu.collections.human.Human.is_adult" title="Permalink to this definition"></a></dt>
 <dd><p>Check if age &gt;= 18</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Human.is_male">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_male</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#absfuyu.collections.human.Human.is_male" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_male</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#absfuyu.collections.human.Human.is_male" title="Permalink to this definition"></a></dt>
 <dd><p>Female</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -863,7 +862,7 @@ Date updated: 14/07/2023 (dd/mm/yyyy)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Human.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.collections.human.Human.update" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.collections.human.Human.update" title="Permalink to this definition"></a></dt>
 <dd><p>Update Human data</p>
 </dd></dl>
 
@@ -871,29 +870,29 @@ Date updated: 14/07/2023 (dd/mm/yyyy)</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Person">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.human.</span></span><span class="sig-name descname"><span class="pre">Person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">birthday</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">birth_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gender</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.human.Person" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.human.</span></span><span class="sig-name descname"><span class="pre">Person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">birthday</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">birth_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gender</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.human.Person" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#absfuyu.collections.human.Human" title="absfuyu.collections.human.Human"><code class="xref py py-class docutils literal notranslate"><span class="pre">Human</span></code></a></p>
 <p>More detail Human data</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Person.numerology">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numerology</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.collections.human.Person.numerology" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numerology</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.collections.human.Person.numerology" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Person.zodiac_sign">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zodiac_sign</span></span><a class="headerlink" href="#absfuyu.collections.human.Person.zodiac_sign" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zodiac_sign</span></span><a class="headerlink" href="#absfuyu.collections.human.Person.zodiac_sign" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="absfuyu.collections.human.Person.zodiac_sign_13">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zodiac_sign_13</span></span><a class="headerlink" href="#absfuyu.collections.human.Person.zodiac_sign_13" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zodiac_sign_13</span></span><a class="headerlink" href="#absfuyu.collections.human.Person.zodiac_sign_13" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-absfuyu.collections">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu.collections" title="Link to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu.collections" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Collections
 —
 Collection of useful classes</p>
@@ -906,26 +905,26 @@ Date updated: 09/06/2023 (dd/mm/yyyy)</p>
 - human</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.collections.ClassBase">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.</span></span><span class="sig-name descname"><span class="pre">ClassBase</span></span><a class="headerlink" href="#absfuyu.collections.ClassBase" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.</span></span><span class="sig-name descname"><span class="pre">ClassBase</span></span><a class="headerlink" href="#absfuyu.collections.ClassBase" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class base for other class</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.collections.Dummy">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.</span></span><span class="sig-name descname"><span class="pre">Dummy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.Dummy" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.collections.</span></span><span class="sig-name descname"><span class="pre">Dummy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.Dummy" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Dummy class that has nothing</p>
 <p>Update attribute through dict</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.Dummy.dir_">
-<span class="sig-name descname"><span class="pre">dir_</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.Dummy.dir_" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dir_</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.collections.Dummy.dir_" title="Permalink to this definition"></a></dt>
 <dd><p>List property</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.collections.Dummy.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.collections.Dummy.update" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.collections.Dummy.update" title="Permalink to this definition"></a></dt>
 <dd><p>Update with dict data</p>
 </dd></dl>
 

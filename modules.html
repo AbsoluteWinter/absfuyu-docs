@@ -4,18 +4,19 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu &mdash; absfuyu 2.6.0 documentation</title>
+  <title>absfuyu &mdash; absfuyu 2.8.0.dev0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=ae39cb24"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,7 +36,7 @@
             absfuyu
           </a>
               <div class="version">
-                2.6.0
+                2.8.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -77,7 +78,7 @@
            <div itemprop="articleBody">
              
   <section id="absfuyu">
-<h1>absfuyu<a class="headerlink" href="#absfuyu" title="Link to this heading"></a></h1>
+<h1>absfuyu<a class="headerlink" href="#absfuyu" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul>
@@ -95,13 +96,6 @@
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html#module-absfuyu.config">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.contrib.html">absfuyu.contrib package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.contrib.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.contrib.html#module-absfuyu.contrib.basic_lunar_calendar">absfuyu.contrib.basic_lunar_calendar module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.contrib.html#absfuyu-contrib-color-extract-module">absfuyu.contrib.color_extract module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.contrib.html#module-absfuyu.contrib">Module contents</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.extensions.html">absfuyu.extensions package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.html#submodules">Submodules</a></li>
@@ -111,7 +105,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html#module-absfuyu.fun.WGS">absfuyu.fun.WGS module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html#module-absfuyu.fun.tarot">absfuyu.fun.tarot module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html#module-absfuyu.fun">Module contents</a></li>
 </ul>
@@ -120,6 +113,7 @@
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#module-absfuyu.game.sudoku">absfuyu.game.sudoku module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#module-absfuyu.game.tictactoe">absfuyu.game.tictactoe module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#module-absfuyu.game.tictactoe2">absfuyu.game.tictactoe2 module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#module-absfuyu.game.wordle">absfuyu.game.wordle module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#module-absfuyu.game">Module contents</a></li>
 </ul>
@@ -153,13 +147,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="absfuyu.html#module-absfuyu.calculation">absfuyu.calculation module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu.calculation.add_to_one_digit"><code class="docutils literal notranslate"><span class="pre">add_to_one_digit()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu.calculation.lcm"><code class="docutils literal notranslate"><span class="pre">lcm()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu.calculation.toCelcius"><code class="docutils literal notranslate"><span class="pre">toCelcius()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu.calculation.toFahrenheit"><code class="docutils literal notranslate"><span class="pre">toFahrenheit()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.html#module-absfuyu.core">absfuyu.core module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu.core.CLITextColor"><code class="docutils literal notranslate"><span class="pre">CLITextColor</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.core.CLITextColor.BLACK"><code class="docutils literal notranslate"><span class="pre">CLITextColor.BLACK</span></code></a></li>
@@ -188,7 +175,6 @@
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.logger.LogLevel.WARNING"><code class="docutils literal notranslate"><span class="pre">LogLevel.WARNING</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu.logger.log_debug"><code class="docutils literal notranslate"><span class="pre">log_debug()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.html#module-absfuyu.sort">absfuyu.sort module</a><ul>
@@ -197,8 +183,25 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.html#module-absfuyu.version">absfuyu.version module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu-s-current-version">absfuyu’s current version</a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu.version.check_for_update"><code class="docutils literal notranslate"><span class="pre">check_for_update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu.version.ReleaseLevel"><code class="docutils literal notranslate"><span class="pre">ReleaseLevel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.version.ReleaseLevel.DEV"><code class="docutils literal notranslate"><span class="pre">ReleaseLevel.DEV</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.version.ReleaseLevel.FINAL"><code class="docutils literal notranslate"><span class="pre">ReleaseLevel.FINAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.version.ReleaseLevel.RC"><code class="docutils literal notranslate"><span class="pre">ReleaseLevel.RC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.version.ReleaseLevel.all_level"><code class="docutils literal notranslate"><span class="pre">ReleaseLevel.all_level()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu.version.ReleaseOption"><code class="docutils literal notranslate"><span class="pre">ReleaseOption</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.version.ReleaseOption.MAJOR"><code class="docutils literal notranslate"><span class="pre">ReleaseOption.MAJOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.version.ReleaseOption.MINOR"><code class="docutils literal notranslate"><span class="pre">ReleaseOption.MINOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.version.ReleaseOption.PATCH"><code class="docutils literal notranslate"><span class="pre">ReleaseOption.PATCH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.version.ReleaseOption.all_option"><code class="docutils literal notranslate"><span class="pre">ReleaseOption.all_option()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu.version.Version"><code class="docutils literal notranslate"><span class="pre">Version</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.version.Version.from_tuple"><code class="docutils literal notranslate"><span class="pre">Version.from_tuple()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.html#absfuyu.version.Version.version"><code class="docutils literal notranslate"><span class="pre">Version.version</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.html#module-absfuyu">Module contents</a></li>

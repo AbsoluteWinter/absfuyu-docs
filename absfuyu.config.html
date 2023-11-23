@@ -4,22 +4,23 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.config package &mdash; absfuyu 2.6.0 documentation</title>
+  <title>absfuyu.config package &mdash; absfuyu 2.8.0.dev0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=ae39cb24"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="absfuyu.contrib package" href="absfuyu.contrib.html" />
+    <link rel="next" title="absfuyu.extensions package" href="absfuyu.extensions.html" />
     <link rel="prev" title="absfuyu.collections package" href="absfuyu.collections.html" /> 
 </head>
 
@@ -35,7 +36,7 @@
             absfuyu
           </a>
               <div class="version">
-                2.6.0
+                2.8.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,7 +53,6 @@
 <li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.collections.html">absfuyu.collections package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">absfuyu.config package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.contrib.html">absfuyu.contrib package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.html">absfuyu.extensions package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
@@ -62,7 +62,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.calculation">absfuyu.calculation module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.core">absfuyu.core module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.everything">absfuyu.everything module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.logger">absfuyu.logger module</a></li>
@@ -101,43 +100,76 @@
            <div itemprop="articleBody">
              
   <section id="absfuyu-config-package">
-<h1>absfuyu.config package<a class="headerlink" href="#absfuyu-config-package" title="Link to this heading"></a></h1>
+<h1>absfuyu.config package<a class="headerlink" href="#absfuyu-config-package" title="Permalink to this heading"></a></h1>
 <section id="module-absfuyu.config">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu.config" title="Link to this heading"></a></h2>
-<section id="absfuyu">
-<h3>ABSFUYU<a class="headerlink" href="#absfuyu" title="Link to this heading"></a></h3>
-<p>Configuration</p>
-</section>
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.config.change_cfg">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.config.</span></span><span class="sig-name descname"><span class="pre">change_cfg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.config.change_cfg" title="Link to this definition"></a></dt>
-<dd><p>Change setting in config</p>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu.config" title="Permalink to this heading"></a></h2>
+<p>Absfuyu: Configuration
+—
+Package configuration module</p>
+<p>Version: 2.0.0
+Date updated: 22/11/2023 (dd/mm/yyyy)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.config.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.config.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.config.Config" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Config handling</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.config.Config.add_setting">
+<span class="sig-name descname"><span class="pre">add_setting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">help_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.config.Config.add_setting" title="Permalink to this definition"></a></dt>
+<dd><p>Add setting if not exist</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.config.reset_cfg">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.config.</span></span><span class="sig-name descname"><span class="pre">reset_cfg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.config.reset_cfg" title="Link to this definition"></a></dt>
-<dd><p>Reset config to default value</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.config.Config.change_setting">
+<span class="sig-name descname"><span class="pre">change_setting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.config.Config.change_setting" title="Permalink to this definition"></a></dt>
+<dd><p>Change setting</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.config.show_cfg">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.config.</span></span><span class="sig-name descname"><span class="pre">show_cfg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.config.show_cfg" title="Link to this definition"></a></dt>
-<dd><p>Show value of setting</p>
-<p>If raw = True then return the raw value</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.config.Config.del_setting">
+<span class="sig-name descname"><span class="pre">del_setting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.config.Config.del_setting" title="Permalink to this definition"></a></dt>
+<dd><p>Delete setting</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.config.toggle_setting">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.config.</span></span><span class="sig-name descname"><span class="pre">toggle_setting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.config.toggle_setting" title="Link to this definition"></a></dt>
-<dd><p>Toggle on/off for each setting</p>
-<p>If setting type is bool</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.config.Config.reset_config">
+<span class="sig-name descname"><span class="pre">reset_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.config.Config.reset_config" title="Permalink to this definition"></a></dt>
+<dd><p>Reset all settings to default value</p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.config.welcome">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.config.</span></span><span class="sig-name descname"><span class="pre">welcome</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.config.welcome" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.config.Config.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.config.Config.save" title="Permalink to this definition"></a></dt>
+<dd><p>Save config to <cite>.json</cite> file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.config.Config.show_settings">
+<span class="sig-name descname"><span class="pre">show_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.config.Config.show_settings" title="Permalink to this definition"></a></dt>
+<dd><p>Print list of available settings
+(wrapper for <cite>Config.settings</cite>)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.config.Config.toggle_setting">
+<span class="sig-name descname"><span class="pre">toggle_setting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.config.Config.toggle_setting" title="Permalink to this definition"></a></dt>
+<dd><p>Special <cite>change_setting()</cite> method.
+Turn on/off if <cite>type(setting) is bool</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.config.Config.update_version">
+<span class="sig-name descname"><span class="pre">update_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.config.Config.update_version" title="Permalink to this definition"></a></dt>
+<dd><p>Update version</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.config.Config.welcome">
+<span class="sig-name descname"><span class="pre">welcome</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.config.Config.welcome" title="Permalink to this definition"></a></dt>
+<dd><p>Welcome</p>
+</dd></dl>
+
+</dd></dl>
 
 </section>
 </section>
@@ -147,7 +179,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="absfuyu.collections.html" class="btn btn-neutral float-left" title="absfuyu.collections package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="absfuyu.contrib.html" class="btn btn-neutral float-right" title="absfuyu.contrib package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="absfuyu.extensions.html" class="btn btn-neutral float-right" title="absfuyu.extensions package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

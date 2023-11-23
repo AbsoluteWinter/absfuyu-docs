@@ -4,18 +4,19 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.tools package &mdash; absfuyu 2.6.0 documentation</title>
+  <title>absfuyu.tools package &mdash; absfuyu 2.8.0.dev0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=ae39cb24"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,7 +36,7 @@
             absfuyu
           </a>
               <div class="version">
-                2.6.0
+                2.8.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,7 +53,6 @@
 <li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.collections.html">absfuyu.collections package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.contrib.html">absfuyu.contrib package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.html">absfuyu.extensions package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
@@ -62,7 +62,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.calculation">absfuyu.calculation module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.core">absfuyu.core module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.everything">absfuyu.everything module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.logger">absfuyu.logger module</a></li>
@@ -101,26 +100,46 @@
            <div itemprop="articleBody">
              
   <section id="absfuyu-tools-package">
-<h1>absfuyu.tools package<a class="headerlink" href="#absfuyu-tools-package" title="Link to this heading"></a></h1>
+<h1>absfuyu.tools package<a class="headerlink" href="#absfuyu-tools-package" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-absfuyu.tools.converter">
-<span id="absfuyu-tools-converter-module"></span><h2>absfuyu.tools.converter module<a class="headerlink" href="#module-absfuyu.tools.converter" title="Link to this heading"></a></h2>
+<span id="absfuyu-tools-converter-module"></span><h2>absfuyu.tools.converter module<a class="headerlink" href="#module-absfuyu.tools.converter" title="Permalink to this heading"></a></h2>
 <p>Absufyu: Converter
 —
 Convert stuff</p>
-<p>Version: 1.0.0
-Date updated: 27/05/2023 (dd/mm/yyyy)</p>
+<p>Version: 1.1.0
+Date updated: 23/11/2023 (dd/mm/yyyy)</p>
 <p>Feature:
-- Text2Chemistry</p>
+- Text2Chemistry
+- Str2Pixel</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.tools.converter.Str2Pixel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.converter.</span></span><span class="sig-name descname"><span class="pre">Str2Pixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_symbol_overwrite</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.converter.Str2Pixel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Convert str into pixel</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.converter.Str2Pixel.PIXEL">
+<span class="sig-name descname"><span class="pre">PIXEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'█'</span></em><a class="headerlink" href="#absfuyu.tools.converter.Str2Pixel.PIXEL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.converter.Str2Pixel.convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line_break</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.converter.Str2Pixel.convert" title="Permalink to this definition"></a></dt>
+<dd><p>Convert data into pixel</p>
+<p>line_break: add <cite>n</cite> at the end of line</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.tools.converter.Text2Chemistry">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.converter.</span></span><span class="sig-name descname"><span class="pre">Text2Chemistry</span></span><a class="headerlink" href="#absfuyu.tools.converter.Text2Chemistry" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.converter.</span></span><span class="sig-name descname"><span class="pre">Text2Chemistry</span></span><a class="headerlink" href="#absfuyu.tools.converter.Text2Chemistry" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.converter.Text2Chemistry.convert">
-<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ChemistryElement</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.tools.converter.Text2Chemistry.convert" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">ChemistryElement</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.tools.converter.Text2Chemistry.convert" title="Permalink to this definition"></a></dt>
 <dd><p>Convert text to chemistry symbol</p>
 <p>text: desired text</p>
 <p>returns: list (empty list when failed to convert)</p>
@@ -128,7 +147,7 @@ Date updated: 27/05/2023 (dd/mm/yyyy)</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="absfuyu.tools.converter.Text2Chemistry.unvailable_characters">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unvailable_characters</span></span><a class="headerlink" href="#absfuyu.tools.converter.Text2Chemistry.unvailable_characters" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unvailable_characters</span></span><a class="headerlink" href="#absfuyu.tools.converter.Text2Chemistry.unvailable_characters" title="Permalink to this definition"></a></dt>
 <dd><p>Characters that can not be converted (unvailable chemistry symbol)</p>
 </dd></dl>
 
@@ -136,7 +155,7 @@ Date updated: 27/05/2023 (dd/mm/yyyy)</p>
 
 </section>
 <section id="module-absfuyu.tools.keygen">
-<span id="absfuyu-tools-keygen-module"></span><h2>absfuyu.tools.keygen module<a class="headerlink" href="#module-absfuyu.tools.keygen" title="Link to this heading"></a></h2>
+<span id="absfuyu-tools-keygen-module"></span><h2>absfuyu.tools.keygen module<a class="headerlink" href="#module-absfuyu.tools.keygen" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Keygen
 —
 Mod7 product key generator (90’s)</p>
@@ -145,12 +164,12 @@ Mod7 product key generator (90’s)</p>
 Date updated: 09/06/2023 (dd/mm/yyyy)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.tools.keygen.Keygen">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.keygen.</span></span><span class="sig-name descname"><span class="pre">Keygen</span></span><a class="headerlink" href="#absfuyu.tools.keygen.Keygen" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.keygen.</span></span><span class="sig-name descname"><span class="pre">Keygen</span></span><a class="headerlink" href="#absfuyu.tools.keygen.Keygen" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Key generator</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.keygen.Keygen.mod7_11_digit_key">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mod7_11_digit_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fast</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.keygen.Keygen.mod7_11_digit_key" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mod7_11_digit_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fast</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.keygen.Keygen.mod7_11_digit_key" title="Permalink to this definition"></a></dt>
 <dd><p>11-digit CD Key generator</p>
 <p>Format: <cite>XXXX-XXXXXXX</cite>
 - <cite>XXXX</cite>: Can be anything from <cite>0001</cite> to <cite>9991</cite>.
@@ -174,7 +193,7 @@ str:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.keygen.Keygen.mod7_cd_key">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mod7_cd_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fast</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.keygen.Keygen.mod7_cd_key" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mod7_cd_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fast</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.keygen.Keygen.mod7_cd_key" title="Permalink to this definition"></a></dt>
 <dd><p>CD Key generator</p>
 <p>Format: <cite>XXX-XXXXXXX</cite>                              Rules:
 - Last seven digits must add to be divisible by <cite>7</cite>
@@ -197,7 +216,7 @@ str:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.keygen.Keygen.mod7_combo">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mod7_combo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fast</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.keygen.Keygen.mod7_combo" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mod7_combo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fast</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.keygen.Keygen.mod7_combo" title="Permalink to this definition"></a></dt>
 <dd><p>A combo that consist of CD, 11-digit, and OEM Key</p>
 <p>Parameters:
 —
@@ -216,7 +235,7 @@ dict:</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.keygen.Keygen.mod7_oem_key">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mod7_oem_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fast</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.keygen.Keygen.mod7_oem_key" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mod7_oem_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fast</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.keygen.Keygen.mod7_oem_key" title="Permalink to this definition"></a></dt>
 <dd><p>OEM Key generator</p>
 <p>Format: <cite>ABCYY-OEM-0XXXXXX-XXXXX</cite>
 - <cite>ABC</cite>: The day of the year. It can be any value from <cite>001</cite> to <cite>366</cite>
@@ -242,26 +261,26 @@ str:</p>
 
 </section>
 <section id="module-absfuyu.tools.obfuscator">
-<span id="absfuyu-tools-obfuscator-module"></span><h2>absfuyu.tools.obfuscator module<a class="headerlink" href="#module-absfuyu.tools.obfuscator" title="Link to this heading"></a></h2>
+<span id="absfuyu-tools-obfuscator-module"></span><h2>absfuyu.tools.obfuscator module<a class="headerlink" href="#module-absfuyu.tools.obfuscator" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Obfuscator
 —
 Obfuscate code</p>
-<p>Version: 2.0.0
-Date updated: 05/06/2023 (dd/mm/yyyy)</p>
+<p>Version: 2.0.1
+Date updated: 18/11/2023 (dd/mm/yyyy)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.tools.obfuscator.Obfuscator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.obfuscator.</span></span><span class="sig-name descname"><span class="pre">Obfuscator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base64_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_every</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fake_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.obfuscator.Obfuscator" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.obfuscator.</span></span><span class="sig-name descname"><span class="pre">Obfuscator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base64_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_every</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fake_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.obfuscator.Obfuscator" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Obfuscate code</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.obfuscator.Obfuscator.obfuscate">
-<span class="sig-name descname"><span class="pre">obfuscate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.obfuscator.Obfuscator.obfuscate" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">obfuscate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.obfuscator.Obfuscator.obfuscate" title="Permalink to this definition"></a></dt>
 <dd><p>Obfuscate code</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.obfuscator.Obfuscator.to_single_line">
-<span class="sig-name descname"><span class="pre">to_single_line</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.obfuscator.Obfuscator.to_single_line" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_single_line</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.obfuscator.Obfuscator.to_single_line" title="Permalink to this definition"></a></dt>
 <dd><p>Convert multiple lines of code into one line</p>
 </dd></dl>
 
@@ -269,7 +288,7 @@ Date updated: 05/06/2023 (dd/mm/yyyy)</p>
 
 </section>
 <section id="module-absfuyu.tools.stats">
-<span id="absfuyu-tools-stats-module"></span><h2>absfuyu.tools.stats module<a class="headerlink" href="#module-absfuyu.tools.stats" title="Link to this heading"></a></h2>
+<span id="absfuyu-tools-stats-module"></span><h2>absfuyu.tools.stats module<a class="headerlink" href="#module-absfuyu.tools.stats" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Stats
 —
 List’s stats</p>
@@ -277,49 +296,49 @@ List’s stats</p>
 Date updated: 05/06/2023 (dd/mm/yyyy)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.tools.stats.ListStats">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.stats.</span></span><span class="sig-name descname"><span class="pre">ListStats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.stats.ListStats" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.stats.</span></span><span class="sig-name descname"><span class="pre">ListStats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable=()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.stats.ListStats" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]</p>
 <p>Stats</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.stats.ListStats.mean">
-<span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.mean" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.mean" title="Permalink to this definition"></a></dt>
 <dd><p>Mean/Average</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.stats.ListStats.median">
-<span class="sig-name descname"><span class="pre">median</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.median" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">median</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.median" title="Permalink to this definition"></a></dt>
 <dd><p>Median - Middle value</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.stats.ListStats.mode">
-<span class="sig-name descname"><span class="pre">mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.mode" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.mode" title="Permalink to this definition"></a></dt>
 <dd><p>Mode:</p>
 <p>The Mode value is the value that appears the most number of times</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.stats.ListStats.percentile">
-<span class="sig-name descname"><span class="pre">percentile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.percentile" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">percentile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.percentile" title="Permalink to this definition"></a></dt>
 <dd><p>Percentile</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.stats.ListStats.std">
-<span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.std" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.std" title="Permalink to this definition"></a></dt>
 <dd><p>Standard deviation</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.stats.ListStats.summary">
-<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.summary" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.summary" title="Permalink to this definition"></a></dt>
 <dd><p>Quick summary of data</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.tools.stats.ListStats.var">
-<span class="sig-name descname"><span class="pre">var</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.var" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">var</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.tools.stats.ListStats.var" title="Permalink to this definition"></a></dt>
 <dd><p>Variance</p>
 </dd></dl>
 
@@ -327,7 +346,7 @@ Date updated: 05/06/2023 (dd/mm/yyyy)</p>
 
 </section>
 <section id="module-absfuyu.tools.web">
-<span id="absfuyu-tools-web-module"></span><h2>absfuyu.tools.web module<a class="headerlink" href="#module-absfuyu.tools.web" title="Link to this heading"></a></h2>
+<span id="absfuyu-tools-web-module"></span><h2>absfuyu.tools.web module<a class="headerlink" href="#module-absfuyu.tools.web" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Web
 —
 Web, request, BeautifulSoup stuff</p>
@@ -335,19 +354,19 @@ Web, request, BeautifulSoup stuff</p>
 Date updated: 25/05/2023 (dd/mm/yyyy)</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.tools.web.gen_random_commit_msg">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.tools.web.</span></span><span class="sig-name descname"><span class="pre">gen_random_commit_msg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.web.gen_random_commit_msg" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.tools.web.</span></span><span class="sig-name descname"><span class="pre">gen_random_commit_msg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.web.gen_random_commit_msg" title="Permalink to this definition"></a></dt>
 <dd><p>Generate random commit message</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.tools.web.soup_link">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.tools.web.</span></span><span class="sig-name descname"><span class="pre">soup_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">link</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">BeautifulSoup</span></span></span><a class="headerlink" href="#absfuyu.tools.web.soup_link" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.tools.web.</span></span><span class="sig-name descname"><span class="pre">soup_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">link</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">BeautifulSoup</span></span></span><a class="headerlink" href="#absfuyu.tools.web.soup_link" title="Permalink to this definition"></a></dt>
 <dd><p>‘BeautifulSoup’ the link</p>
 </dd></dl>
 
 </section>
 <section id="module-absfuyu.tools">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu.tools" title="Link to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu.tools" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Tools
 —
 Some useful tools</p>

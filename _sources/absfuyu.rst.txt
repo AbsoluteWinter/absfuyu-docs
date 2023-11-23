@@ -9,7 +9,6 @@ Subpackages
 
    absfuyu.collections
    absfuyu.config
-   absfuyu.contrib
    absfuyu.extensions
    absfuyu.fun
    absfuyu.game
@@ -19,14 +18,6 @@ Subpackages
 
 Submodules
 ----------
-
-absfuyu.calculation module
---------------------------
-
-.. automodule:: absfuyu.calculation
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 absfuyu.core module
 -------------------
@@ -60,7 +51,6 @@ absfuyu.sort module
    :undoc-members:
    :show-inheritance:
 
-
 absfuyu.version module
 ----------------------
 
@@ -68,7 +58,6 @@ absfuyu.version module
    :members:
    :undoc-members:
    :show-inheritance:
-
 
 Module contents
 ---------------

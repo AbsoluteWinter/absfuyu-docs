@@ -4,18 +4,19 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu package &mdash; absfuyu 2.6.0 documentation</title>
+  <title>absfuyu package &mdash; absfuyu 2.8.0.dev0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=ae39cb24"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,7 +36,7 @@
             absfuyu
           </a>
               <div class="version">
-                2.6.0
+                2.8.0.dev0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,7 +53,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.collections.html">absfuyu.collections package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.contrib.html">absfuyu.contrib package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.html">absfuyu.extensions package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
@@ -62,13 +62,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-absfuyu.calculation">absfuyu.calculation module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#absfuyu.calculation.add_to_one_digit"><code class="docutils literal notranslate"><span class="pre">add_to_one_digit()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#absfuyu.calculation.lcm"><code class="docutils literal notranslate"><span class="pre">lcm()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#absfuyu.calculation.toCelcius"><code class="docutils literal notranslate"><span class="pre">toCelcius()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#absfuyu.calculation.toFahrenheit"><code class="docutils literal notranslate"><span class="pre">toFahrenheit()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-absfuyu.core">absfuyu.core module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#absfuyu.core.CLITextColor"><code class="docutils literal notranslate"><span class="pre">CLITextColor</span></code></a></li>
 </ul>
@@ -76,7 +69,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-absfuyu.everything">absfuyu.everything module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-absfuyu.logger">absfuyu.logger module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#absfuyu.logger.LogLevel"><code class="docutils literal notranslate"><span class="pre">LogLevel</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#absfuyu.logger.log_debug"><code class="docutils literal notranslate"><span class="pre">log_debug()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-absfuyu.sort">absfuyu.sort module</a><ul>
@@ -85,8 +77,9 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-absfuyu.version">absfuyu.version module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#absfuyu-s-current-version">absfuyu’s current version</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#absfuyu.version.check_for_update"><code class="docutils literal notranslate"><span class="pre">check_for_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#absfuyu.version.ReleaseLevel"><code class="docutils literal notranslate"><span class="pre">ReleaseLevel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#absfuyu.version.ReleaseOption"><code class="docutils literal notranslate"><span class="pre">ReleaseOption</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#absfuyu.version.Version"><code class="docutils literal notranslate"><span class="pre">Version</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-absfuyu">Module contents</a></li>
@@ -121,9 +114,9 @@
            <div itemprop="articleBody">
              
   <section id="absfuyu-package">
-<h1>absfuyu package<a class="headerlink" href="#absfuyu-package" title="Link to this heading"></a></h1>
+<h1>absfuyu package<a class="headerlink" href="#absfuyu-package" title="Permalink to this heading"></a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.collections.html">absfuyu.collections package</a><ul>
@@ -238,32 +231,27 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.config.html#module-absfuyu.config">Module contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.config.html#absfuyu">ABSFUYU</a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.change_cfg"><code class="docutils literal notranslate"><span class="pre">change_cfg()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.reset_cfg"><code class="docutils literal notranslate"><span class="pre">reset_cfg()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.show_cfg"><code class="docutils literal notranslate"><span class="pre">show_cfg()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.toggle_setting"><code class="docutils literal notranslate"><span class="pre">toggle_setting()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.welcome"><code class="docutils literal notranslate"><span class="pre">welcome()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.Config.add_setting"><code class="docutils literal notranslate"><span class="pre">Config.add_setting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.Config.change_setting"><code class="docutils literal notranslate"><span class="pre">Config.change_setting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.Config.del_setting"><code class="docutils literal notranslate"><span class="pre">Config.del_setting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.Config.reset_config"><code class="docutils literal notranslate"><span class="pre">Config.reset_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.Config.save"><code class="docutils literal notranslate"><span class="pre">Config.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.Config.show_settings"><code class="docutils literal notranslate"><span class="pre">Config.show_settings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.Config.toggle_setting"><code class="docutils literal notranslate"><span class="pre">Config.toggle_setting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.Config.update_version"><code class="docutils literal notranslate"><span class="pre">Config.update_version()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html#absfuyu.config.Config.welcome"><code class="docutils literal notranslate"><span class="pre">Config.welcome()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="absfuyu.contrib.html">absfuyu.contrib package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="absfuyu.contrib.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="absfuyu.contrib.html#module-absfuyu.contrib.basic_lunar_calendar">absfuyu.contrib.basic_lunar_calendar module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.contrib.html#absfuyu.contrib.basic_lunar_calendar.L2S"><code class="docutils literal notranslate"><span class="pre">L2S()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.contrib.html#absfuyu.contrib.basic_lunar_calendar.S2L"><code class="docutils literal notranslate"><span class="pre">S2L()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="absfuyu.contrib.html#absfuyu-contrib-color-extract-module">absfuyu.contrib.color_extract module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="absfuyu.contrib.html#module-absfuyu.contrib">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.extensions.html">absfuyu.extensions package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.extensions.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.extensions.extra.html">absfuyu.extensions.extra package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.extra.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.extra.html#absfuyu-extensions-extra-data-analysis-module">absfuyu.extensions.extra.data_analysis module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.extra.html#module-absfuyu.extensions.extra.data_analysis">absfuyu.extensions.extra.data_analysis module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.extra.html#module-absfuyu.extensions.extra">Module contents</a></li>
 </ul>
 </li>
@@ -271,7 +259,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.extensions.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.extensions.html#module-absfuyu.extensions.beautiful">absfuyu.extensions.beautiful module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.extensions.html#absfuyu-s-beautiful">ABSFUYU’S BEAUTIFUL</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.extensions.html#absfuyu.extensions.beautiful.beautiful_output"><code class="docutils literal notranslate"><span class="pre">beautiful_output()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.extensions.html#absfuyu.extensions.beautiful.demo"><code class="docutils literal notranslate"><span class="pre">demo()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.extensions.html#absfuyu.extensions.beautiful.print"><code class="docutils literal notranslate"><span class="pre">print()</span></code></a></li>
@@ -286,14 +273,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.fun.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="absfuyu.fun.html#module-absfuyu.fun.WGS">absfuyu.fun.WGS module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.fun.html#absfuyu.fun.WGS.WGS"><code class="docutils literal notranslate"><span class="pre">WGS</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html#absfuyu.fun.WGS.WGS.pixel_art"><code class="docutils literal notranslate"><span class="pre">WGS.pixel_art()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html#absfuyu.fun.WGS.WGS.text_art"><code class="docutils literal notranslate"><span class="pre">WGS.text_art()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.fun.html#module-absfuyu.fun.tarot">absfuyu.fun.tarot module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.fun.html#absfuyu.fun.tarot.Tarot"><code class="docutils literal notranslate"><span class="pre">Tarot</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html#absfuyu.fun.tarot.Tarot.random_card"><code class="docutils literal notranslate"><span class="pre">Tarot.random_card()</span></code></a></li>
@@ -313,7 +292,6 @@
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.game.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.game.html#module-absfuyu.game.sudoku">absfuyu.game.sudoku module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.game.html#sudoku-module">SUDOKU MODULE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.sudoku.Sudoku"><code class="docutils literal notranslate"><span class="pre">Sudoku</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.sudoku.Sudoku.export_to_string"><code class="docutils literal notranslate"><span class="pre">Sudoku.export_to_string()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.sudoku.Sudoku.from_string"><code class="docutils literal notranslate"><span class="pre">Sudoku.from_string()</span></code></a></li>
@@ -325,9 +303,27 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.game.html#module-absfuyu.game.tictactoe">absfuyu.game.tictactoe module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.game.html#absfuyu-game-tic-tac-toe">ABSFUYU-GAME: TIC TAC TOE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe.GameMode"><code class="docutils literal notranslate"><span class="pre">GameMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe.GameMode.BOT_V_BOT"><code class="docutils literal notranslate"><span class="pre">GameMode.BOT_V_BOT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe.GameMode.ONE_V_BOT"><code class="docutils literal notranslate"><span class="pre">GameMode.ONE_V_BOT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe.GameMode.ONE_V_ONE"><code class="docutils literal notranslate"><span class="pre">GameMode.ONE_V_ONE</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe.bot_ttt"><code class="docutils literal notranslate"><span class="pre">bot_ttt()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe.game_tictactoe"><code class="docutils literal notranslate"><span class="pre">game_tictactoe()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.game.html#module-absfuyu.game.tictactoe2">absfuyu.game.tictactoe2 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe2.GameMode"><code class="docutils literal notranslate"><span class="pre">GameMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe2.GameMode.BOT_V_BOT"><code class="docutils literal notranslate"><span class="pre">GameMode.BOT_V_BOT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe2.GameMode.ONE_V_BOT"><code class="docutils literal notranslate"><span class="pre">GameMode.ONE_V_BOT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe2.GameMode.ONE_V_ONE"><code class="docutils literal notranslate"><span class="pre">GameMode.ONE_V_ONE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe2.TicTacToe"><code class="docutils literal notranslate"><span class="pre">TicTacToe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.tictactoe2.TicTacToe.play"><code class="docutils literal notranslate"><span class="pre">TicTacToe.play()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.game.html#module-absfuyu.game.wordle">absfuyu.game.wordle module</a><ul>
@@ -339,7 +335,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.game.html#module-absfuyu.game">Module contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.game.html#absfuyu">ABSFUYU</a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.game_RockPaperScissors"><code class="docutils literal notranslate"><span class="pre">game_RockPaperScissors()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.game.html#absfuyu.game.game_escapeLoop"><code class="docutils literal notranslate"><span class="pre">game_escapeLoop()</span></code></a></li>
 </ul>
@@ -348,11 +343,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.pkg_data.html">absfuyu.pkg_data package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.pkg_data.html#module-absfuyu.pkg_data">Module contents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.pkg_data.html#absfuyu.pkg_data.DataList"><code class="docutils literal notranslate"><span class="pre">DataList</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html#absfuyu.pkg_data.DataList.DUMMY"><code class="docutils literal notranslate"><span class="pre">DataList.DUMMY</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html#absfuyu.pkg_data.DataList.PWIN"><code class="docutils literal notranslate"><span class="pre">DataList.PWIN</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.pkg_data.html#absfuyu.pkg_data.PkgData"><code class="docutils literal notranslate"><span class="pre">PkgData</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html#absfuyu.pkg_data.PkgData.load_dat_data"><code class="docutils literal notranslate"><span class="pre">PkgData.load_dat_data()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html#absfuyu.pkg_data.PkgData.update_data"><code class="docutils literal notranslate"><span class="pre">PkgData.update_data()</span></code></a></li>
@@ -365,6 +355,11 @@
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.tools.html">absfuyu.tools package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.html#module-absfuyu.tools.converter">absfuyu.tools.converter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.html#absfuyu.tools.converter.Str2Pixel"><code class="docutils literal notranslate"><span class="pre">Str2Pixel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.tools.html#absfuyu.tools.converter.Str2Pixel.PIXEL"><code class="docutils literal notranslate"><span class="pre">Str2Pixel.PIXEL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.tools.html#absfuyu.tools.converter.Str2Pixel.convert"><code class="docutils literal notranslate"><span class="pre">Str2Pixel.convert()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.html#absfuyu.tools.converter.Text2Chemistry"><code class="docutils literal notranslate"><span class="pre">Text2Chemistry</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.tools.html#absfuyu.tools.converter.Text2Chemistry.convert"><code class="docutils literal notranslate"><span class="pre">Text2Chemistry.convert()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.tools.html#absfuyu.tools.converter.Text2Chemistry.unvailable_characters"><code class="docutils literal notranslate"><span class="pre">Text2Chemistry.unvailable_characters</span></code></a></li>
@@ -419,12 +414,14 @@
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html#absfuyu.util.api.APIRequest.fetch_data_only"><code class="docutils literal notranslate"><span class="pre">APIRequest.fetch_data_only()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.html#absfuyu.util.api.ping_windows"><code class="docutils literal notranslate"><span class="pre">ping_windows()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.util.html#module-absfuyu.util.json_method">absfuyu.util.json_method module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.util.html#absfuyu.util.json_method.JsonFile"><code class="docutils literal notranslate"><span class="pre">JsonFile</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html#absfuyu.util.json_method.JsonFile.load_json"><code class="docutils literal notranslate"><span class="pre">JsonFile.load_json()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html#absfuyu.util.json_method.JsonFile.save_json"><code class="docutils literal notranslate"><span class="pre">JsonFile.save_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html#absfuyu.util.json_method.JsonFile.update_data"><code class="docutils literal notranslate"><span class="pre">JsonFile.update_data()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -495,262 +492,150 @@
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
-</section>
-<section id="module-absfuyu.calculation">
-<span id="absfuyu-calculation-module"></span><h2>absfuyu.calculation module<a class="headerlink" href="#module-absfuyu.calculation" title="Link to this heading"></a></h2>
-<p>Absfuyu: Calculation
-—
-Use to calculate small thing</p>
-<p>Version: 1.5.0
-Date updated: 25/05/2023 (dd/mm/yyyy)</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.calculation.add_to_one_digit">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.calculation.</span></span><span class="sig-name descname"><span class="pre">add_to_one_digit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.calculation.add_to_one_digit" title="Link to this definition"></a></dt>
-<dd><p>Convert int number into 1-digit number by add all of the digit together</p>
-<dl class="simple">
-<dt>master_number: bool</dt><dd><p>Break when sum = 22 or 11 (numerology)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.calculation.lcm">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.calculation.</span></span><span class="sig-name descname"><span class="pre">lcm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.calculation.lcm" title="Link to this definition"></a></dt>
-<dd><section id="summary">
-<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h3>
-<p>Least common multiple of a and b</p>
-<dl class="field-list simple">
-<dt class="field-odd">param a<span class="colon">:</span></dt>
-<dd class="field-odd"><p>First number</p>
-</dd>
-<dt class="field-even">type a<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
-</dd>
-<dt class="field-odd">param b<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Second number</p>
-</dd>
-<dt class="field-even">type b<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
-</dd>
-<dt class="field-odd">returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>lcm</p>
-</dd>
-<dt class="field-even">rtype<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.calculation.toCelcius">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.calculation.</span></span><span class="sig-name descname"><span class="pre">toCelcius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roundup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Number</span></span></span><a class="headerlink" href="#absfuyu.calculation.toCelcius" title="Link to this definition"></a></dt>
-<dd><section id="id1">
-<h3>Summary<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
-<p>Convert Fahrenheit to Celcius</p>
-<dl class="field-list simple">
-<dt class="field-odd">param number<span class="colon">:</span></dt>
-<dd class="field-odd"><p>F degree</p>
-</dd>
-<dt class="field-even">type number<span class="colon">:</span></dt>
-<dd class="field-even"><p>Number</p>
-</dd>
-<dt class="field-odd">param roundup<span class="colon">:</span></dt>
-<dd class="field-odd"><p>round the figure to .2f if True
-(default: True)</p>
-</dd>
-<dt class="field-even">type roundup<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-<dt class="field-odd">returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>C degree</p>
-</dd>
-<dt class="field-even">rtype<span class="colon">:</span></dt>
-<dd class="field-even"><p>Number</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.calculation.toFahrenheit">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.calculation.</span></span><span class="sig-name descname"><span class="pre">toFahrenheit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roundup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Number</span></span></span><a class="headerlink" href="#absfuyu.calculation.toFahrenheit" title="Link to this definition"></a></dt>
-<dd><section id="id2">
-<h3>Summary<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
-<p>Convert Celcius to Fahrenheit</p>
-<dl class="field-list simple">
-<dt class="field-odd">param number<span class="colon">:</span></dt>
-<dd class="field-odd"><p>C degree</p>
-</dd>
-<dt class="field-even">type number<span class="colon">:</span></dt>
-<dd class="field-even"><p>Number</p>
-</dd>
-<dt class="field-odd">param roundup<span class="colon">:</span></dt>
-<dd class="field-odd"><p>round the figure to .2f if True
-(default: True)</p>
-</dd>
-<dt class="field-even">type roundup<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-<dt class="field-odd">returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>F degree</p>
-</dd>
-<dt class="field-even">rtype<span class="colon">:</span></dt>
-<dd class="field-even"><p>Number</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-absfuyu.core">
-<span id="absfuyu-core-module"></span><h2>absfuyu.core module<a class="headerlink" href="#module-absfuyu.core" title="Link to this heading"></a></h2>
+<span id="absfuyu-core-module"></span><h2>absfuyu.core module<a class="headerlink" href="#module-absfuyu.core" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Core
 —
-Contain type hint and other stuff</p>
-<p>Version: 2.1.0
-Date updated: 16/11/2023 (dd/mm/yyyy)</p>
+Contain type hints and other stuffs</p>
+<p>Version: 2.1.4
+Date updated: 23/11/2023 (dd/mm/yyyy)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.core.</span></span><span class="sig-name descname"><span class="pre">CLITextColor</span></span><a class="headerlink" href="#absfuyu.core.CLITextColor" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.core.</span></span><span class="sig-name descname"><span class="pre">CLITextColor</span></span><a class="headerlink" href="#absfuyu.core.CLITextColor" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Color code for text in terminal</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor.BLACK">
-<span class="sig-name descname"><span class="pre">BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[30m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.BLACK" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[30m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.BLACK" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor.BLUE">
-<span class="sig-name descname"><span class="pre">BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[34m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.BLUE" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[34m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.BLUE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor.DARK_RED">
-<span class="sig-name descname"><span class="pre">DARK_RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[31m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.DARK_RED" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">DARK_RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[31m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.DARK_RED" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor.GRAY">
-<span class="sig-name descname"><span class="pre">GRAY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[90m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.GRAY" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GRAY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[90m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.GRAY" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor.GREEN">
-<span class="sig-name descname"><span class="pre">GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[32m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.GREEN" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[32m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.GREEN" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor.MAGENTA">
-<span class="sig-name descname"><span class="pre">MAGENTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[35m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.MAGENTA" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">MAGENTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[35m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.MAGENTA" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor.RED">
-<span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[91m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.RED" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[91m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.RED" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor.RESET">
-<span class="sig-name descname"><span class="pre">RESET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[39m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.RESET" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">RESET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[39m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.RESET" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor.WHITE">
-<span class="sig-name descname"><span class="pre">WHITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[37m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.WHITE" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">WHITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[37m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.WHITE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor.YELLOW">
-<span class="sig-name descname"><span class="pre">YELLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[33m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.YELLOW" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">YELLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[33m'</span></em><a class="headerlink" href="#absfuyu.core.CLITextColor.YELLOW" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-absfuyu.everything">
-<span id="absfuyu-everything-module"></span><h2>absfuyu.everything module<a class="headerlink" href="#module-absfuyu.everything" title="Link to this heading"></a></h2>
+<span id="absfuyu-everything-module"></span><h2>absfuyu.everything module<a class="headerlink" href="#module-absfuyu.everything" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Everything [W.I.P]
 —
 Everything has to offer in this package</p>
-<p>Version: 1.0.1
-Last update: 19/04/2023 (mm/dd/yyyy)</p>
+<p>Version: 2.0.0dev3
+Last update: 23/11/2023 (mm/dd/yyyy)</p>
 </section>
 <section id="module-absfuyu.logger">
-<span id="absfuyu-logger-module"></span><h2>absfuyu.logger module<a class="headerlink" href="#module-absfuyu.logger" title="Link to this heading"></a></h2>
+<span id="absfuyu-logger-module"></span><h2>absfuyu.logger module<a class="headerlink" href="#module-absfuyu.logger" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Logger
 —
 Custom Logger Module</p>
-<p>Version: 1.2.1
-Last update: 10/11/2023 (mm/dd/yyyy)</p>
+<p>Version: 1.3.0
+Last update: 19/11/2023 (mm/dd/yyyy)</p>
 <p>Usage:
-&gt;&gt;&gt; from absfuyu.logger import logger, log_debug, LogLevel
+&gt;&gt;&gt; from absfuyu.logger import logger, LogLevel
 &gt;&gt;&gt; logger.setLevel(LogLevel.DEBUG)
 &gt;&gt;&gt; logger.debug(“This logs!”)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.logger.LogLevel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.logger.</span></span><span class="sig-name descname"><span class="pre">LogLevel</span></span><a class="headerlink" href="#absfuyu.logger.LogLevel" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.logger.</span></span><span class="sig-name descname"><span class="pre">LogLevel</span></span><a class="headerlink" href="#absfuyu.logger.LogLevel" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p><cite>logging</cite>’s log level wrapper + custom log level</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.logger.LogLevel.CRITICAL">
-<span class="sig-name descname"><span class="pre">CRITICAL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">50</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.CRITICAL" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">CRITICAL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">50</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.CRITICAL" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.logger.LogLevel.DEBUG">
-<span class="sig-name descname"><span class="pre">DEBUG</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.DEBUG" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">DEBUG</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.DEBUG" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.logger.LogLevel.ERROR">
-<span class="sig-name descname"><span class="pre">ERROR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.ERROR" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ERROR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.ERROR" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.logger.LogLevel.EXTREME">
-<span class="sig-name descname"><span class="pre">EXTREME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">60</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.EXTREME" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">EXTREME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">60</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.EXTREME" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.logger.LogLevel.INFO">
-<span class="sig-name descname"><span class="pre">INFO</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.INFO" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">INFO</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.INFO" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.logger.LogLevel.TRACE">
-<span class="sig-name descname"><span class="pre">TRACE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.TRACE" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">TRACE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.TRACE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.logger.LogLevel.WARNING">
-<span class="sig-name descname"><span class="pre">WARNING</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.WARNING" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">WARNING</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#absfuyu.logger.LogLevel.WARNING" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.logger.log_debug">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.logger.</span></span><span class="sig-name descname"><span class="pre">log_debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_visible</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.logger.log_debug" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 </section>
 <section id="module-absfuyu.sort">
-<span id="absfuyu-sort-module"></span><h2>absfuyu.sort module<a class="headerlink" href="#module-absfuyu.sort" title="Link to this heading"></a></h2>
+<span id="absfuyu-sort-module"></span><h2>absfuyu.sort module<a class="headerlink" href="#module-absfuyu.sort" title="Permalink to this heading"></a></h2>
 <p>Absfuyu: Sort
 —
 Sort Module</p>
-<p>Version: 1.2.1
-Last update: 25/06/2023 (mm/dd/yyyy)</p>
+<p>Version: 1.2.2
+Last update: 18/11/2023 (mm/dd/yyyy)</p>
 <p>Contain:
 - selection_sort
 - insertion_sort</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.sort.insertion_sort">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.sort.</span></span><span class="sig-name descname"><span class="pre">insertion_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.sort.insertion_sort" title="Link to this definition"></a></dt>
-<dd><section id="id3">
-<h3>Summary<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.sort.</span></span><span class="sig-name descname"><span class="pre">insertion_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.sort.insertion_sort" title="Permalink to this definition"></a></dt>
+<dd><section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this heading"></a></h3>
 <p>Sort the list with insertion sort algorithm</p>
 <dl class="field-list simple">
 <dt class="field-odd">param lst<span class="colon">:</span></dt>
@@ -771,9 +656,9 @@ Last update: 25/06/2023 (mm/dd/yyyy)</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.sort.selection_sort">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.sort.</span></span><span class="sig-name descname"><span class="pre">selection_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.sort.selection_sort" title="Link to this definition"></a></dt>
-<dd><section id="id4">
-<h3>Summary<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.sort.</span></span><span class="sig-name descname"><span class="pre">selection_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.sort.selection_sort" title="Permalink to this definition"></a></dt>
+<dd><section id="id1">
+<h3>Summary<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <p>Sort the list with selection sort (bubble sort) algorithm</p>
 <dl class="field-list simple">
 <dt class="field-odd">param lst<span class="colon">:</span></dt>
@@ -802,19 +687,85 @@ if False: sort in ascending order
 
 </section>
 <section id="module-absfuyu.version">
-<span id="absfuyu-version-module"></span><h2>absfuyu.version module<a class="headerlink" href="#module-absfuyu.version" title="Link to this heading"></a></h2>
-<section id="absfuyu-s-current-version">
-<h3>absfuyu’s current version<a class="headerlink" href="#absfuyu-s-current-version" title="Link to this heading"></a></h3>
-</section>
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.version.check_for_update">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.version.</span></span><span class="sig-name descname"><span class="pre">check_for_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'absfuyu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.version.check_for_update" title="Link to this definition"></a></dt>
-<dd><p>Check for latest update</p>
+<span id="absfuyu-version-module"></span><h2>absfuyu.version module<a class="headerlink" href="#module-absfuyu.version" title="Permalink to this heading"></a></h2>
+<p>Absfuyu: Version
+—
+Package versioning module</p>
+<p>Version: 2.0.0
+Date updated: 22/11/2023 (dd/mm/yyyy)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.version.ReleaseLevel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.version.</span></span><span class="sig-name descname"><span class="pre">ReleaseLevel</span></span><a class="headerlink" href="#absfuyu.version.ReleaseLevel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p><cite>FINAL</cite>, <cite>DEV</cite>, <cite>RC</cite></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.version.ReleaseLevel.DEV">
+<span class="sig-name descname"><span class="pre">DEV</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dev'</span></em><a class="headerlink" href="#absfuyu.version.ReleaseLevel.DEV" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.version.ReleaseLevel.FINAL">
+<span class="sig-name descname"><span class="pre">FINAL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'final'</span></em><a class="headerlink" href="#absfuyu.version.ReleaseLevel.FINAL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.version.ReleaseLevel.RC">
+<span class="sig-name descname"><span class="pre">RC</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rc'</span></em><a class="headerlink" href="#absfuyu.version.ReleaseLevel.RC" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.version.ReleaseLevel.all_level">
+<span class="sig-name descname"><span class="pre">all_level</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.version.ReleaseLevel.all_level" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.version.ReleaseOption">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.version.</span></span><span class="sig-name descname"><span class="pre">ReleaseOption</span></span><a class="headerlink" href="#absfuyu.version.ReleaseOption" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p><cite>MAJOR</cite>, <cite>MINOR</cite>, <cite>PATCH</cite></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.version.ReleaseOption.MAJOR">
+<span class="sig-name descname"><span class="pre">MAJOR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'major'</span></em><a class="headerlink" href="#absfuyu.version.ReleaseOption.MAJOR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.version.ReleaseOption.MINOR">
+<span class="sig-name descname"><span class="pre">MINOR</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'minor'</span></em><a class="headerlink" href="#absfuyu.version.ReleaseOption.MINOR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.version.ReleaseOption.PATCH">
+<span class="sig-name descname"><span class="pre">PATCH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'patch'</span></em><a class="headerlink" href="#absfuyu.version.ReleaseOption.PATCH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.version.ReleaseOption.all_option">
+<span class="sig-name descname"><span class="pre">all_option</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.version.ReleaseOption.all_option" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.version.Version">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.version.</span></span><span class="sig-name descname"><span class="pre">Version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">major</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">release_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'final'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serial</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.version.Version" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.version.Version.from_tuple">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_tuple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.version.Version.from_tuple" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="absfuyu.version.Version.version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#absfuyu.version.Version.version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
 <section id="module-absfuyu">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu" title="Link to this heading"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu" title="Permalink to this heading"></a></h2>
 <p>ABSFUYU
 —
 A small collection of code</p>
