@@ -4,6 +4,7 @@ absfuyu.fun package
 Submodules
 ----------
 
+
 absfuyu.fun.tarot module
 ------------------------
 

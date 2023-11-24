@@ -4,19 +4,18 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.util package &mdash; absfuyu 2.8.0.dev0 documentation</title>
+  <title>absfuyu.util package &mdash; absfuyu 2.8.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=cd87aae0"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -35,7 +34,7 @@
             absfuyu
           </a>
               <div class="version">
-                2.8.0.dev0
+                2.8.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -99,185 +98,326 @@
            <div itemprop="articleBody">
              
   <section id="absfuyu-util-package">
-<h1>absfuyu.util package<a class="headerlink" href="#absfuyu-util-package" title="Permalink to this heading"></a></h1>
+<h1>absfuyu.util package<a class="headerlink" href="#absfuyu-util-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
 <section id="module-absfuyu.util.api">
-<span id="absfuyu-util-api-module"></span><h2>absfuyu.util.api module<a class="headerlink" href="#module-absfuyu.util.api" title="Permalink to this heading"></a></h2>
-<p>Absufyu: API
-—
-Fetch data stuff</p>
-<p>Version: 1.1.1
-Date updated: 18/11/2023 (dd/mm/yyyy)</p>
-<p>Feature:
-- APIRequest</p>
+<span id="absfuyu-util-api-module"></span><h2>absfuyu.util.api module<a class="headerlink" href="#module-absfuyu.util.api" title="Link to this heading"></a></h2>
+<section id="absufyu-api">
+<h3>Absufyu: API<a class="headerlink" href="#absufyu-api" title="Link to this heading"></a></h3>
+<p>Fetch data stuff</p>
+<p>Version: 1.1.2
+Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.util.api.APIRequest">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.api.</span></span><span class="sig-name descname"><span class="pre">APIRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.api.APIRequest" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.api.</span></span><span class="sig-name descname"><span class="pre">APIRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.api.APIRequest" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>API data with cache feature</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.api.APIRequest.fetch_data">
-<span class="sig-name descname"><span class="pre">fetch_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.api.APIRequest.fetch_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fetch_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_cache</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.api.APIRequest.fetch_data" title="Link to this definition"></a></dt>
 <dd><p>Fetch data from an API then cache it for later use</p>
-<p>update: Refresh the cache when <cite>True</cite>
-json_cache: Name of the cache</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>update</strong> – Refresh the cache when <code class="docutils literal notranslate"><span class="pre">True</span></code>
+(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><strong>json_cache</strong> (<em>Path</em><em> | </em><em>str</em>) – Name of the cache</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>Any</em> – Data</p></li>
+<li><p><em>None</em> – No data fetched/unable to fetch data</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.api.APIRequest.fetch_data_only">
-<span class="sig-name descname"><span class="pre">fetch_data_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.api.APIRequest.fetch_data_only" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fetch_data_only</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#absfuyu.util.api.APIRequest.fetch_data_only" title="Link to this definition"></a></dt>
 <dd><p>Fetch data without cache</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">requests.Response</span></code></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Response</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.util.api.ping_windows">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.api.</span></span><span class="sig-name descname"><span class="pre">ping_windows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.util.api.ping_windows" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.api.</span></span><span class="sig-name descname"><span class="pre">ping_windows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#absfuyu.util.api.ping_windows" title="Link to this definition"></a></dt>
 <dd><p>Ping web</p>
-<p>host: Host list
-ping_count: Number of time to ping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of host to ping</p></li>
+<li><p><strong>ping_count</strong> (<em>int</em>) – Number of time to ping to take average
+(Default: <code class="docutils literal notranslate"><span class="pre">3</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of host with pinged value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<section id="example">
+<h3>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ping_windows</span><span class="p">([</span><span class="s2">&quot;1.1.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;google.com&quot;</span><span class="p">])</span>
+<span class="go">[&#39;1.1.1.1 : xxms&#39;, &#39;google.com : xxms&#39;]</span>
+</pre></div>
+</div>
+</section>
 </dd></dl>
 
 </section>
 <section id="module-absfuyu.util.json_method">
-<span id="absfuyu-util-json-method-module"></span><h2>absfuyu.util.json_method module<a class="headerlink" href="#module-absfuyu.util.json_method" title="Permalink to this heading"></a></h2>
-<p>Absfuyu: Json Method
-—
-json handling</p>
-<p>Version: 1.1.0
-Date updated: 22/11/2023 (dd/mm/yyyy)</p>
-<p>Feature:
-- JsonFile</p>
+<span id="absfuyu-util-json-method-module"></span><h2>absfuyu.util.json_method module<a class="headerlink" href="#module-absfuyu.util.json_method" title="Link to this heading"></a></h2>
+<section id="absfuyu-json-method">
+<h3>Absfuyu: Json Method<a class="headerlink" href="#absfuyu-json-method" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">.json</span></code> file handling</p>
+<p>Version: 1.1.1
+Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.util.json_method.JsonFile">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.json_method.</span></span><span class="sig-name descname"><span class="pre">JsonFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.json_method.JsonFile" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.json_method.</span></span><span class="sig-name descname"><span class="pre">JsonFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_keys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.json_method.JsonFile" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>json handling</p>
+<p><code class="docutils literal notranslate"><span class="pre">.json</span></code> file handling</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.json_method.JsonFile.load_json">
-<span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#absfuyu.util.json_method.JsonFile.load_json" title="Permalink to this definition"></a></dt>
-<dd><p>Load json file</p>
+<span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#absfuyu.util.json_method.JsonFile.load_json" title="Link to this definition"></a></dt>
+<dd><p>Load <code class="docutils literal notranslate"><span class="pre">.json</span></code> file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">.json</span></code> data</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.json_method.JsonFile.save_json">
-<span class="sig-name descname"><span class="pre">save_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.json_method.JsonFile.save_json" title="Permalink to this definition"></a></dt>
-<dd><p>Save json file</p>
+<span class="sig-name descname"><span class="pre">save_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.json_method.JsonFile.save_json" title="Link to this definition"></a></dt>
+<dd><p>Save <code class="docutils literal notranslate"><span class="pre">.json</span></code> file</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.json_method.JsonFile.update_data">
-<span class="sig-name descname"><span class="pre">update_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.json_method.JsonFile.update_data" title="Permalink to this definition"></a></dt>
-<dd><p>Update json data without save</p>
+<span class="sig-name descname"><span class="pre">update_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.json_method.JsonFile.update_data" title="Link to this definition"></a></dt>
+<dd><p>Update <code class="docutils literal notranslate"><span class="pre">.json</span></code> data without save</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – <code class="docutils literal notranslate"><span class="pre">.json</span></code> data</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-absfuyu.util.lunar">
-<span id="absfuyu-util-lunar-module"></span><h2>absfuyu.util.lunar module<a class="headerlink" href="#module-absfuyu.util.lunar" title="Permalink to this heading"></a></h2>
-<p>Absfuyu: Lunar calendar
-—
-Convert to lunar calendar</p>
-<p>Version: 1.0.0
-Date updated: 30/06/2023 (dd/mm/yyyy)</p>
-<p>Source:
-Astronomical algorithms from the book “Astronomical Algorithms” by Jean Meeus, 1998
+<span id="absfuyu-util-lunar-module"></span><h2>absfuyu.util.lunar module<a class="headerlink" href="#module-absfuyu.util.lunar" title="Link to this heading"></a></h2>
+<section id="absfuyu-lunar-calendar">
+<h3>Absfuyu: Lunar calendar<a class="headerlink" href="#absfuyu-lunar-calendar" title="Link to this heading"></a></h3>
+<p>Convert to lunar calendar</p>
+<p>Version: 1.0.1
+Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+</section>
+<section id="source">
+<h3>Source:<a class="headerlink" href="#source" title="Link to this heading"></a></h3>
+<p>Astronomical algorithms from the book “Astronomical Algorithms” by Jean Meeus, 1998
 <a class="reference external" href="https://www.informatik.uni-leipzig.de/~duc/amlich/AL.py">https://www.informatik.uni-leipzig.de/~duc/amlich/AL.py</a></p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.lunar.</span></span><span class="sig-name descname"><span class="pre">LunarCalendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_zone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lunar_leap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.lunar.</span></span><span class="sig-name descname"><span class="pre">LunarCalendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_zone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lunar_leap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Lunar Calendar</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.convert_all">
-<span class="sig-name descname"><span class="pre">convert_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.convert_all" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.convert_all" title="Link to this definition"></a></dt>
 <dd><p>Convert to both lunar and solar</p>
 <p>This method has no practical use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.from_datetime">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datetime_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">date</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">datetime</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.from_datetime" title="Permalink to this definition"></a></dt>
-<dd><p>Convert from <cite>datetime.datetime</cite> object</p>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datetime_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.from_datetime" title="Link to this definition"></a></dt>
+<dd><p>Convert from <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>datetime_object</strong> – <cite>datetime.datetime</cite> object</p>
+<dd class="field-odd"><p><strong>datetime_object</strong> (<em>date</em><em> | </em><em>datetime</em>) – <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> object</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>LunarCalendar instance</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.util.lunar.LunarCalendar" title="absfuyu.util.lunar.LunarCalendar">LunarCalendar</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.from_solar">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_solar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lunar_leap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.from_solar" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_solar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lunar_leap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.from_solar" title="Link to this definition"></a></dt>
+<dd><p>Convert to lunar day from solar day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>int</em>) – Year (in range [1, 9999])</p></li>
+<li><p><strong>month</strong> (<em>int</em>) – Month (in range [1, 12])</p></li>
+<li><p><strong>day</strong> (<em>int</em>) – Day (in range [1, 31])</p></li>
+<li><p><strong>lunar_leap</strong> (<em>bool</em>) – Is leap (Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>LunarCalendar instance</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.util.lunar.LunarCalendar" title="absfuyu.util.lunar.LunarCalendar">LunarCalendar</a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.now">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">now</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.now" title="Permalink to this definition"></a></dt>
-<dd><p>Get lunar calendar for <cite>datetime.datetime.now()</cite></p>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">now</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.now" title="Link to this definition"></a></dt>
+<dd><p>Get lunar calendar for <code class="docutils literal notranslate"><span class="pre">datetime.datetime.now()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>LunarCalendar instance</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.util.lunar.LunarCalendar" title="absfuyu.util.lunar.LunarCalendar">LunarCalendar</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.to_lunar">
-<span class="sig-name descname"><span class="pre">to_lunar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.to_lunar" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_lunar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.to_lunar" title="Link to this definition"></a></dt>
 <dd><p>Convert solar date to the corresponding lunar date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>LunarCalendar instance</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.util.lunar.LunarCalendar" title="absfuyu.util.lunar.LunarCalendar">LunarCalendar</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.to_solar">
-<span class="sig-name descname"><span class="pre">to_solar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.to_solar" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_solar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.to_solar" title="Link to this definition"></a></dt>
 <dd><p>Convert a lunar date to the corresponding solar date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>LunarCalendar</em> – LunarCalendar instance</p></li>
+<li><p><em>date</em> – When unable to convert</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-absfuyu.util.path">
-<span id="absfuyu-util-path-module"></span><h2>absfuyu.util.path module<a class="headerlink" href="#module-absfuyu.util.path" title="Permalink to this heading"></a></h2>
-<p>Absfuyu: Path
-—
-Path related</p>
-<p>Version: 1.5.0
-Date updated: 15/11/2023 (dd/mm/yyyy)</p>
-<p>Feature:
-- Directory
-- SaveFileAs</p>
+<span id="absfuyu-util-path-module"></span><h2>absfuyu.util.path module<a class="headerlink" href="#module-absfuyu.util.path" title="Link to this heading"></a></h2>
+<section id="absfuyu-path">
+<h3>Absfuyu: Path<a class="headerlink" href="#absfuyu-path" title="Link to this heading"></a></h3>
+<p>Path related</p>
+<p>Version: 1.5.1
+Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+</section>
+<section id="feature">
+<h3>Feature:<a class="headerlink" href="#feature" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Directory</p></li>
+<li><p>SaveFileAs</p></li>
+</ul>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.util.path.Directory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">Directory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_if_not_exist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.path.Directory" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">Directory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_if_not_exist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.path.Directory" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Some shortcuts for directory</p>
 <ul class="simple">
 <li><p>list_structure</p></li>
-<li><p>delete</p></li>
+<li><p>delete, rename, copy, move</p></li>
+<li><p>zip</p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.path.Directory.compress">
-<span class="sig-name descname"><span class="pre">compress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'zip'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.compress" title="Permalink to this definition"></a></dt>
-<dd><p>Zip the directory</p>
+<span class="sig-name descname"><span class="pre">compress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'zip'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.compress" title="Link to this definition"></a></dt>
+<dd><p>Compress the directory (Default: Create <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>format</strong> (<em>Literal</em><em>[</em><em>&quot;zip&quot;</em><em>, </em><em>&quot;tar&quot;</em><em>, </em><em>&quot;gztar&quot;</em><em>, </em><em>&quot;bztar&quot;</em><em>, </em><em>&quot;xztar&quot;</em><em>]</em>) – <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zip</span></code>: ZIP file (if the <code class="docutils literal notranslate"><span class="pre">zlib</span></code> module is available).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span></code>: Uncompressed tar file. Uses POSIX.1-2001 pax format for new archives.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gztar</span></code>: gzip’ed tar-file (if the <code class="docutils literal notranslate"><span class="pre">zlib</span></code> module is available).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bztar</span></code>: bzip2’ed tar-file (if the <code class="docutils literal notranslate"><span class="pre">bz2</span></code> module is available).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xztar</span></code>: xz’ed tar-file (if the <code class="docutils literal notranslate"><span class="pre">lzma</span></code> module is available).</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.path.Directory.copy">
-<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.copy" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.copy" title="Link to this definition"></a></dt>
 <dd><p>Copy entire directory</p>
-<p>dst: Destination</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dst</strong> (<em>Path</em>) – Destination</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.path.Directory.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entire</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">based_on_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">typing_extensions.Literal</span><span class="p"><span class="pre">[</span></span><span class="pre">Y</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">M</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">D</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Y'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.delete" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entire</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">based_on_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Y'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.delete" title="Link to this definition"></a></dt>
 <dd><p>Deletes everything</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>entire</strong> – <cite>True</cite>: deletes the folder itself. <cite>False</cite>: deletes content inside only</p></li>
-<li><p><strong>based_on_time</strong> – <cite>True</cite>: deletes everything except <cite>keep</cite> period. <cite>False</cite>: works normal</p></li>
-<li><p><strong>keep</strong> – Delete all file except current Year|Month|Day</p></li>
+<li><p><strong>entire</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code>: Deletes the folder itself</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code>: Deletes content inside only</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</div>
+</div>
+</p></li>
+<li><p><strong>based_on_time</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code>: Deletes everything except <code class="docutils literal notranslate"><span class="pre">keep</span></code> period</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code>: Works normal</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</div>
+</div>
+</p></li>
+<li><p><strong>keep</strong> (<em>Literal</em><em>[</em><em>&quot;Y&quot;</em><em>, </em><em>&quot;M&quot;</em><em>, </em><em>&quot;D&quot;</em><em>]</em>) – Delete all file except current <code class="docutils literal notranslate"><span class="pre">Year</span></code> | <code class="docutils literal notranslate"><span class="pre">Month</span></code> | <code class="docutils literal notranslate"><span class="pre">Day</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -285,175 +425,203 @@ Date updated: 15/11/2023 (dd/mm/yyyy)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.path.Directory.list_structure">
-<span class="sig-name descname"><span class="pre">list_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ignore</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.list_structure" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">list_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ignore</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.list_structure" title="Link to this definition"></a></dt>
 <dd><p>List folder structure</p>
-<p>Example (For typical python library):
-<a href="#id1"><span class="problematic" id="id2">``</span></a>`
-&gt;&gt;&gt; test = Directory(&lt;source path&gt;)
-&gt;&gt;&gt; test.list_structure(</p>
-<blockquote>
-<div><blockquote>
-<div><p>“__pycache__”,
-“.pyc”,
-“__init__”,
-“__main__”,</p>
-</div></blockquote>
-<p>)</p>
-</div></blockquote>
-<section id="id3">
-<h3>…<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ignore</strong> (<em>str</em>) – Tuple contains patterns to ignore</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Directory structure</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<section id="example-for-typical-python-library">
+<h3>Example (For typical python library):<a class="headerlink" href="#example-for-typical-python-library" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Directory</span><span class="p">(</span><span class="o">&lt;</span><span class="n">source</span> <span class="n">path</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">list_structure</span><span class="p">(</span>
+<span class="go">        &quot;__pycache__&quot;,</span>
+<span class="go">        &quot;.pyc&quot;,</span>
+<span class="go">        &quot;__init__&quot;,</span>
+<span class="go">        &quot;__main__&quot;,</span>
+<span class="go">    )</span>
+<span class="go">...</span>
+</pre></div>
+</div>
 </section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.path.Directory.list_structure_pkg">
-<span class="sig-name descname"><span class="pre">list_structure_pkg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.list_structure_pkg" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">list_structure_pkg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.list_structure_pkg" title="Link to this definition"></a></dt>
 <dd><p>List folder structure of a typical python package</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Directory structure</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.path.Directory.move">
-<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.move" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.move" title="Link to this definition"></a></dt>
 <dd><p>Move entire directory</p>
-<p>dst: Destination</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dst</strong> (<em>Path</em>) – Destination</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.path.Directory.rename">
-<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.rename" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.rename" title="Link to this definition"></a></dt>
 <dd><p>Rename directory</p>
-<p>new_name: Name only (not the entire path)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>new_name</strong> (<em>str</em>) – Name only (not the entire path)</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.util.path.SaveFileAs">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">SaveFileAs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.path.SaveFileAs" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">SaveFileAs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.path.SaveFileAs" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>File as multiple file type</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.path.SaveFileAs.to_txt">
-<span class="sig-name descname"><span class="pre">to_txt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.SaveFileAs.to_txt" title="Permalink to this definition"></a></dt>
-<dd><p>Save as .txt file</p>
+<span class="sig-name descname"><span class="pre">to_txt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.SaveFileAs.to_txt" title="Link to this definition"></a></dt>
+<dd><p>Save as <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>path</strong> – Save location</p>
+<dd class="field-odd"><p><strong>path</strong> (<em>Path</em>) – Save location</p>
 </dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.util.path.get_all_file_path">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">get_all_file_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">file_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.path.get_all_file_path" title="Permalink to this definition"></a></dt>
-<dd><p>Return a list of tuple: (path to choosen file type, filename)</p>
-<ul class="simple">
-<li><p><cite>folder</cite>: Folder path to search in</p></li>
-<li><p><cite>file_type</cite>: File type/extension without the “.” symbol.</p></li>
-</ul>
-<p>Support multiple file type (separate with “,” (coma))
-(Example: <cite>jpg</cite>, <cite>png</cite>, <cite>npy</cite>)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.util.path.here_location">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">here_location</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.path.here_location" title="Permalink to this definition"></a></dt>
-<dd><p>Return current file location</p>
-<p>If fail then return current working directory</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.util.path.location_wrap">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">location_wrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.path.location_wrap" title="Permalink to this definition"></a></dt>
-<dd><p>This function fix some <cite>current working directory</cite> error and return <cite>abspath</cite></p>
-</dd></dl>
-
 </section>
 <section id="module-absfuyu.util.performance">
-<span id="absfuyu-util-performance-module"></span><h2>absfuyu.util.performance module<a class="headerlink" href="#module-absfuyu.util.performance" title="Permalink to this heading"></a></h2>
-<p>Absfuyu: Performance
-—
-Performance Check</p>
-<p>Version: 1.0.0
-Date updated: 27/05/2023 (dd/mm/yyyy)</p>
-<p>Feature:
-- measure_performance
-- var_check
-- source_this</p>
+<span id="absfuyu-util-performance-module"></span><h2>absfuyu.util.performance module<a class="headerlink" href="#module-absfuyu.util.performance" title="Link to this heading"></a></h2>
+<section id="absfuyu-performance">
+<h3>Absfuyu: Performance<a class="headerlink" href="#absfuyu-performance" title="Link to this heading"></a></h3>
+<p>Performance Check</p>
+<p>Version: 1.0.1
+Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+</section>
+<section id="id1">
+<h3>Feature:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>measure_performance</p></li>
+<li><p>var_check</p></li>
+<li><p>source_this</p></li>
+</ul>
+</section>
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.util.performance.measure_performance">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.performance.</span></span><span class="sig-name descname"><span class="pre">measure_performance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.performance.measure_performance" title="Permalink to this definition"></a></dt>
-<dd><section id="summary">
-<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this heading"></a></h3>
-<p>Measure performance of a function</p>
-</section>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.performance.</span></span><span class="sig-name descname"><span class="pre">measure_performance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.performance.measure_performance" title="Link to this definition"></a></dt>
+<dd><p>Measure performance of a function</p>
 <section id="usage">
-<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h3>
-<p>Use this as the decorator (&#64;measure_performance)</p>
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<p>Use this as the decorator (<code class="docutils literal notranslate"><span class="pre">&#64;measure_performance</span></code>)</p>
+</section>
+<section id="id2">
+<h3>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@measure_performance</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="p">()</span>
+<span class="go">    ----------------------------------------</span>
+<span class="go">    Function: test</span>
+<span class="go">    Memory usage:            0.000000 MB</span>
+<span class="go">    Peak memory usage:       0.000000 MB</span>
+<span class="go">    Time elapsed (seconds):  0.000002</span>
+<span class="go">    ----------------------------------------</span>
+</pre></div>
+</div>
 </section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.util.performance.source_this">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.performance.</span></span><span class="sig-name descname"><span class="pre">source_this</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.util.performance.source_this" title="Permalink to this definition"></a></dt>
-<dd><section id="id4">
-<h3>Summary<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
-<p>Show the source code of a function</p>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.performance.</span></span><span class="sig-name descname"><span class="pre">source_this</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.util.performance.source_this" title="Link to this definition"></a></dt>
+<dd><p>Show the source code of a function</p>
 <dl class="field-list simple">
-<dt class="field-odd">param function<span class="colon">:</span></dt>
-<dd class="field-odd"><p>just input the function name</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>function</strong> (<em>Callable</em>) – Just put in the function name</p>
 </dd>
-<dt class="field-even">type function<span class="colon">:</span></dt>
-<dd class="field-even"><p>Any</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Source code</p>
 </dd>
-<dt class="field-odd">rtype<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Source code</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.util.performance.var_check">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.performance.</span></span><span class="sig-name descname"><span class="pre">var_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.performance.var_check" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.performance.</span></span><span class="sig-name descname"><span class="pre">var_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.performance.var_check" title="Link to this definition"></a></dt>
 <dd><p>Check a variable</p>
+<section id="id3">
+<h3>Example:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var_check</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="go">{&#39;value&#39;: &#39;test&#39;, &#39;class&#39;: str, &#39;id&#39;: ...}</span>
+</pre></div>
+</div>
+</section>
 </dd></dl>
 
 </section>
 <section id="module-absfuyu.util.pkl">
-<span id="absfuyu-util-pkl-module"></span><h2>absfuyu.util.pkl module<a class="headerlink" href="#module-absfuyu.util.pkl" title="Permalink to this heading"></a></h2>
-<p>Absfuyu: Pickle
-—
-<cite>pickle</cite> wrapper</p>
-<p>Version: 1.0.1
-Last update: 17/08/2023 (dd/mm/yyyy)</p>
+<span id="absfuyu-util-pkl-module"></span><h2>absfuyu.util.pkl module<a class="headerlink" href="#module-absfuyu.util.pkl" title="Link to this heading"></a></h2>
+<section id="absfuyu-pickle">
+<h3>Absfuyu: Pickle<a class="headerlink" href="#absfuyu-pickle" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pickle</span></code> wrapper</p>
+<p>Version: 1.0.2
+Last update: 24/11/2023 (dd/mm/yyyy)</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.util.pkl.Pickler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.pkl.</span></span><span class="sig-name descname"><span class="pre">Pickler</span></span><a class="headerlink" href="#absfuyu.util.pkl.Pickler" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.pkl.</span></span><span class="sig-name descname"><span class="pre">Pickler</span></span><a class="headerlink" href="#absfuyu.util.pkl.Pickler" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Save and load pickle file</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.pkl.Pickler.load">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#absfuyu.util.pkl.Pickler.load" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#absfuyu.util.pkl.Pickler.load" title="Link to this definition"></a></dt>
 <dd><p>Load pickled file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>location</strong> – Load location</p>
+<dd class="field-odd"><p><strong>location</strong> (<em>Path</em>) – Load location</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Loaded data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.pkl.Pickler.save">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.pkl.Pickler.save" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.pkl.Pickler.save" title="Link to this definition"></a></dt>
 <dd><p>Save to pickle format</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>location</strong> – Save location</p></li>
-<li><p><strong>data</strong> – Data want to saved</p></li>
+<li><p><strong>location</strong> (<em>Path</em>) – Save location</p></li>
+<li><p><strong>data</strong> (<em>Any</em>) – Data want to be saved</p></li>
 </ul>
 </dd>
 </dl>
@@ -463,57 +631,139 @@ Last update: 17/08/2023 (dd/mm/yyyy)</p>
 
 </section>
 <section id="module-absfuyu.util.zipped">
-<span id="absfuyu-util-zipped-module"></span><h2>absfuyu.util.zipped module<a class="headerlink" href="#module-absfuyu.util.zipped" title="Permalink to this heading"></a></h2>
-<p>Absfuyu: Zipped
-—
-Zipping stuff</p>
-<p>Version: 1.0.0
-Date updated: 25/05/2023 (dd/mm/yyyy)</p>
-<p>Feature:
-- Zipper</p>
+<span id="absfuyu-util-zipped-module"></span><h2>absfuyu.util.zipped module<a class="headerlink" href="#module-absfuyu.util.zipped" title="Link to this heading"></a></h2>
+<section id="absfuyu-zipped">
+<h3>Absfuyu: Zipped<a class="headerlink" href="#absfuyu-zipped" title="Link to this heading"></a></h3>
+<p>Zipping stuff</p>
+<p>Version: 1.0.1
+Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.util.zipped.Zipper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.zipped.</span></span><span class="sig-name descname"><span class="pre">Zipper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_zip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.zipped.Zipper" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.zipped.</span></span><span class="sig-name descname"><span class="pre">Zipper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_zip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.zipped.Zipper" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Zip file or folder</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.zipped.Zipper.zip_stuff">
-<span class="sig-name descname"><span class="pre">zip_stuff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delete_after_zip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.zipped.Zipper.zip_stuff" title="Permalink to this definition"></a></dt>
-<dd><p>delete_after_zip: delete source after zip</p>
+<span class="sig-name descname"><span class="pre">zip_stuff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delete_after_zip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.zipped.Zipper.zip_stuff" title="Link to this definition"></a></dt>
+<dd><p>Zip file/folder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>delete_after_zip</strong> (<em>bool</em>) – Delete source after zip (Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-absfuyu.util">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu.util" title="Permalink to this heading"></a></h2>
-<p>Absufyu: Utilities
-—
-Some random utilities</p>
-<p>Version: 1.4.3
-Date updated: 22/11/2023 (dd/mm/yyyy)</p>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu.util" title="Link to this heading"></a></h2>
+<section id="absufyu-utilities">
+<h3>Absufyu: Utilities<a class="headerlink" href="#absufyu-utilities" title="Link to this heading"></a></h3>
+<p>Some random utilities</p>
+<p>Version: 1.4.4
+Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+</section>
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.util.get_installed_package">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">get_installed_package</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.get_installed_package" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">get_installed_package</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.get_installed_package" title="Link to this definition"></a></dt>
 <dd><p>Return a list of installed packages</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of installed packages</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.util.set_max">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">set_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.util.set_max" title="Permalink to this definition"></a></dt>
-<dd><p>Return <cite>max value</cite> when <cite>current_value</cite> &gt; <cite>max_value</cite></p>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">set_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.util.set_max" title="Link to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">max_value</span></code> when <code class="docutils literal notranslate"><span class="pre">current_value</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">max_value</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current_value</strong> (<em>int</em><em> | </em><em>float</em>) – Current value</p></li>
+<li><p><strong>max_value</strong> (<em>int</em><em> | </em><em>float</em>) – Maximum value
+(Default: <code class="docutils literal notranslate"><span class="pre">100</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Analyzed value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int | float</p>
+</dd>
+</dl>
+<section id="id4">
+<h3>Example:<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_max</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+<span class="go">100</span>
+</pre></div>
+</div>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.util.set_min">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">set_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.util.set_min" title="Permalink to this definition"></a></dt>
-<dd><p>Return <cite>min value</cite> when <cite>current_value</cite> &lt; <cite>min_value</cite></p>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">set_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.util.set_min" title="Link to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">min_value</span></code> when <code class="docutils literal notranslate"><span class="pre">current_value</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">min_value</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current_value</strong> (<em>int</em><em> | </em><em>float</em>) – Current value</p></li>
+<li><p><strong>min_value</strong> (<em>int</em><em> | </em><em>float</em>) – Minimum value
+(Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Analyzed value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int | float</p>
+</dd>
+</dl>
+<section id="id5">
+<h3>Example:<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_min</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.util.set_min_max">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">set_min_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.util.set_min_max" title="Permalink to this definition"></a></dt>
-<dd><p>Return <cite>min or max value</cite> when <cite>current_value</cite> is outside <cite>[min_value, max_value]</cite></p>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">set_min_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.util.set_min_max" title="Link to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">min_value</span></code> | <code class="docutils literal notranslate"><span class="pre">max_value</span></code> when <code class="docutils literal notranslate"><span class="pre">current_value</span></code>
+is outside <code class="docutils literal notranslate"><span class="pre">[min_value,</span> <span class="pre">max_value]</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current_value</strong> (<em>int</em><em> | </em><em>float</em>) – Current value</p></li>
+<li><p><strong>min_value</strong> (<em>int</em><em> | </em><em>float</em>) – Minimum value
+(Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>)</p></li>
+<li><p><strong>max_value</strong> (<em>int</em><em> | </em><em>float</em>) – Maximum value
+(Default: <code class="docutils literal notranslate"><span class="pre">100</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Analyzed value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int | float</p>
+</dd>
+</dl>
+<section id="id6">
+<h3>Example:<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_min_max</span><span class="p">(</span><span class="mi">808</span><span class="p">)</span>
+<span class="go">100</span>
+</pre></div>
+</div>
+</section>
 </dd></dl>
 
 </section>

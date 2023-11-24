@@ -4,19 +4,18 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.pkg_data package &mdash; absfuyu 2.8.0.dev0 documentation</title>
+  <title>absfuyu.pkg_data package &mdash; absfuyu 2.8.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=cd87aae0"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -36,7 +35,7 @@
             absfuyu
           </a>
               <div class="version">
-                2.8.0.dev0
+                2.8.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -100,32 +99,46 @@
            <div itemprop="articleBody">
              
   <section id="absfuyu-pkg-data-package">
-<h1>absfuyu.pkg_data package<a class="headerlink" href="#absfuyu-pkg-data-package" title="Permalink to this heading"></a></h1>
+<h1>absfuyu.pkg_data package<a class="headerlink" href="#absfuyu-pkg-data-package" title="Link to this heading"></a></h1>
 <section id="module-absfuyu.pkg_data">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu.pkg_data" title="Permalink to this heading"></a></h2>
-<p>Absfuyu: Package data
-—
-Load package data</p>
-<p>Version: 2.2.0
-Date updated: 19/11/2023 (dd/mm/yyyy)</p>
-<p>Feature:
-- PkgData</p>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu.pkg_data" title="Link to this heading"></a></h2>
+<section id="absfuyu-package-data">
+<h3>Absfuyu: Package data<a class="headerlink" href="#absfuyu-package-data" title="Link to this heading"></a></h3>
+<p>Load package data</p>
+<p>Version: 2.2.1
+Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.PkgData">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.pkg_data.</span></span><span class="sig-name descname"><span class="pre">PkgData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.pkg_data.PkgData" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.pkg_data.</span></span><span class="sig-name descname"><span class="pre">PkgData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.pkg_data.PkgData" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Package data maker/loader</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.PkgData.load_dat_data">
-<span class="sig-name descname"><span class="pre">load_dat_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evaluate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.pkg_data.PkgData.load_dat_data" title="Permalink to this definition"></a></dt>
-<dd><p>Load <cite>.dat</cite> data from package resource</p>
-<p>evaluate: use <cite>ast.literal_eval()</cite> to evaluate string data</p>
+<span class="sig-name descname"><span class="pre">load_dat_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evaluate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.pkg_data.PkgData.load_dat_data" title="Link to this definition"></a></dt>
+<dd><p>Load <code class="docutils literal notranslate"><span class="pre">.dat</span></code> data from package resource</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>evaluate</strong> (<em>bool</em>) – use <code class="docutils literal notranslate"><span class="pre">ast.literal_eval()</span></code> to evaluate string data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Loaded data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.PkgData.update_data">
-<span class="sig-name descname"><span class="pre">update_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.pkg_data.PkgData.update_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.pkg_data.PkgData.update_data" title="Link to this definition"></a></dt>
 <dd><p>Update existing data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>new_data</strong> – Data to be updated</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
