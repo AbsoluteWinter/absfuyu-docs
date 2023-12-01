@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.tools package &mdash; absfuyu 2.8.1 documentation</title>
+  <title>absfuyu.tools package &mdash; absfuyu 3.0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,7 +13,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=cd87aae0"></script>
+        <script src="_static/documentation_options.js?v=acc74ff5"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -35,7 +35,7 @@
             absfuyu
           </a>
               <div class="version">
-                2.8.1
+                3.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -50,11 +50,11 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">absfuyu</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.collections.html">absfuyu.collections package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.html">absfuyu.extensions package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.general.html">absfuyu.general package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html">absfuyu.pkg_data package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">absfuyu.tools package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html">absfuyu.util package</a></li>
@@ -108,16 +108,34 @@
 <section id="absufyu-converter">
 <h3>Absufyu: Converter<a class="headerlink" href="#absufyu-converter" title="Link to this heading"></a></h3>
 <p>Convert stuff</p>
-<p>Version: 1.1.1
-Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+<p>Version: 1.2.1
+Date updated: 30/11/2023 (dd/mm/yyyy)</p>
 </section>
 <section id="feature">
 <h3>Feature:<a class="headerlink" href="#feature" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Text2Chemistry</p></li>
 <li><p>Str2Pixel</p></li>
+<li><p>Base64EncodeDecode</p></li>
 </ul>
 </section>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.tools.converter.Base64EncodeDecode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.converter.</span></span><span class="sig-name descname"><span class="pre">Base64EncodeDecode</span></span><a class="headerlink" href="#absfuyu.tools.converter.Base64EncodeDecode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Encode and decode base64</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.converter.Base64EncodeDecode.decode">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.converter.Base64EncodeDecode.decode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.converter.Base64EncodeDecode.encode">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.tools.converter.Base64EncodeDecode.encode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.tools.converter.Str2Pixel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.converter.</span></span><span class="sig-name descname"><span class="pre">Str2Pixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_symbol_overwrite</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.tools.converter.Str2Pixel" title="Link to this definition"></a></dt>
@@ -295,8 +313,8 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 <section id="absfuyu-obfuscator">
 <h3>Absfuyu: Obfuscator<a class="headerlink" href="#absfuyu-obfuscator" title="Link to this heading"></a></h3>
 <p>Obfuscate code</p>
-<p>Version: 2.0.2
-Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+<p>Version: 2.0.1
+Date updated: 26/11/2023 (dd/mm/yyyy)</p>
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.tools.obfuscator.Obfuscator">
@@ -339,8 +357,8 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 <section id="absfuyu-stats">
 <h3>Absfuyu: Stats<a class="headerlink" href="#absfuyu-stats" title="Link to this heading"></a></h3>
 <p>List’s stats</p>
-<p>Version: 2.0.1
-Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+<p>Version: 2.0.3
+Date updated: 26/11/2023 (dd/mm/yyyy)</p>
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.tools.stats.ListStats">

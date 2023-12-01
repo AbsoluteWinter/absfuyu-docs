@@ -7,11 +7,11 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   absfuyu.collections
    absfuyu.config
    absfuyu.extensions
    absfuyu.fun
    absfuyu.game
+   absfuyu.general
    absfuyu.pkg_data
    absfuyu.tools
    absfuyu.util

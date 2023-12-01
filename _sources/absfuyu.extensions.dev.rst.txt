@@ -1,0 +1,53 @@
+absfuyu.extensions.dev package
+==============================
+
+Submodules
+----------
+
+absfuyu.extensions.dev.password\_hash module
+--------------------------------------------
+
+.. automodule:: absfuyu.extensions.dev.password_hash
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.extensions.dev.passwordlib module
+-----------------------------------------
+
+.. automodule:: absfuyu.extensions.dev.passwordlib
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.extensions.dev.pkglib module
+------------------------------------
+
+.. automodule:: absfuyu.extensions.dev.pkglib
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.extensions.dev.project\_starter module
+----------------------------------------------
+
+.. automodule:: absfuyu.extensions.dev.project_starter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.extensions.dev.shutdownizer module
+------------------------------------------
+
+.. automodule:: absfuyu.extensions.dev.shutdownizer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: absfuyu.extensions.dev
+   :members:
+   :undoc-members:
+   :show-inheritance:

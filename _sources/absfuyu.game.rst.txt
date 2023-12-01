@@ -12,6 +12,13 @@ absfuyu.game.sudoku module
    :undoc-members:
    :show-inheritance:
 
+absfuyu.game.tictactoe module
+-----------------------------
+
+.. automodule:: absfuyu.game.tictactoe
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 absfuyu.game.tictactoe2 module
 ------------------------------
