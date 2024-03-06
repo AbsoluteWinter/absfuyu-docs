@@ -1,0 +1,53 @@
+absfuyu.general.data\_extension package
+=======================================
+
+Submodules
+----------
+
+absfuyu.general.data\_extension.dictext module
+----------------------------------------------
+
+.. automodule:: absfuyu.general.data_extension.dictext
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.general.data\_extension.intnumber module
+------------------------------------------------
+
+.. automodule:: absfuyu.general.data_extension.intnumber
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.general.data\_extension.listext module
+----------------------------------------------
+
+.. automodule:: absfuyu.general.data_extension.listext
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.general.data\_extension.support module
+----------------------------------------------
+
+.. automodule:: absfuyu.general.data_extension.support
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.general.data\_extension.text module
+-------------------------------------------
+
+.. automodule:: absfuyu.general.data_extension.text
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: absfuyu.general.data_extension
+   :members:
+   :undoc-members:
+   :show-inheritance:

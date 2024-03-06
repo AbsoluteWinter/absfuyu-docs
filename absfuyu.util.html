@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.util package &mdash; absfuyu 3.0.0 documentation</title>
+  <title>absfuyu.util package &mdash; absfuyu 3.1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,7 +13,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=acc74ff5"></script>
+        <script src="_static/documentation_options.js?v=dd1205ac"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -34,7 +34,7 @@
             absfuyu
           </a>
               <div class="version">
-                3.0.0
+                3.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -515,8 +515,8 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 <section id="absfuyu-performance">
 <h3>Absfuyu: Performance<a class="headerlink" href="#absfuyu-performance" title="Link to this heading"></a></h3>
 <p>Performance Check</p>
-<p>Version: 1.0.1
-Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+<p>Version: 1.1.0
+Date updated: 11/12/2023 (dd/mm/yyyy)</p>
 </section>
 <section id="id1">
 <h3>Feature:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
@@ -538,7 +538,7 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 <h3>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@measure_performance</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="p">()</span>
 <span class="go">    ----------------------------------------</span>
 <span class="go">    Function: test</span>
@@ -553,7 +553,7 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.util.performance.source_this">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.performance.</span></span><span class="sig-name descname"><span class="pre">source_this</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.util.performance.source_this" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.performance.</span></span><span class="sig-name descname"><span class="pre">source_this</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.util.performance.source_this" title="Link to this definition"></a></dt>
 <dd><p>Show the source code of a function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -570,8 +570,20 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.util.performance.var_check">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.util.performance.</span></span><span class="sig-name descname"><span class="pre">var_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.performance.var_check" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.performance.</span></span><span class="sig-name descname"><span class="pre">var_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.performance.var_check" title="Link to this definition"></a></dt>
 <dd><p>Check a variable</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>variable</strong> (<em>Any</em>) – Variable that needed to check</p></li>
+<li><p><strong>full</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code>: Shows full detail</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code>: Hides <code class="docutils literal notranslate"><span class="pre">dir</span></code> and <code class="docutils literal notranslate"><span class="pre">docstring</span></code></div>
+</div>
+</p></li>
+</ul>
+</dd>
+</dl>
 <section id="id3">
 <h3>Example:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
@@ -779,7 +791,7 @@ is outside <code class="docutils literal notranslate"><span class="pre">[min_val
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022-2023, AbsoluteWinter.</p>
+    <p>&#169; Copyright 2022-2024, AbsoluteWinter.</p>
   </div>
 
    
