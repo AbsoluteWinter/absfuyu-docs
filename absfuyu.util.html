@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.util package &mdash; absfuyu 3.2.0 documentation</title>
+  <title>absfuyu.util package &mdash; absfuyu 3.3.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,7 +13,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=4f6ddb47"></script>
+        <script src="_static/documentation_options.js?v=3eb8911e"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -34,7 +34,7 @@
             absfuyu
           </a>
               <div class="version">
-                3.2.0
+                3.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -187,8 +187,8 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 <section id="absfuyu-json-method">
 <h3>Absfuyu: Json Method<a class="headerlink" href="#absfuyu-json-method" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">.json</span></code> file handling</p>
-<p>Version: 1.1.1
-Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+<p>Version: 1.1.2
+Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.util.json_method.JsonFile">
@@ -349,8 +349,8 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 <section id="absfuyu-path">
 <h3>Absfuyu: Path<a class="headerlink" href="#absfuyu-path" title="Link to this heading"></a></h3>
 <p>Path related</p>
-<p>Version: 1.5.1
-Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+<p>Version: 1.6.2
+Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 </section>
 <section id="feature">
 <h3>Feature:<a class="headerlink" href="#feature" title="Link to this heading"></a></h3>
@@ -368,6 +368,7 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 <li><p>list_structure</p></li>
 <li><p>delete, rename, copy, move</p></li>
 <li><p>zip</p></li>
+<li><p>quick_info</p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.path.Directory.compress">
@@ -421,6 +422,15 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="absfuyu.util.path.Directory.everything">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">everything</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Path</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.util.path.Directory.everything" title="Link to this definition"></a></dt>
+<dd><p>Every folders and files in this Directory</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 3.3.0.</span></p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -479,6 +489,20 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.path.Directory.quick_info">
+<span class="sig-name descname"><span class="pre">quick_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#absfuyu.util.path.DirectoryInfo" title="absfuyu.util.path.DirectoryInfo"><span class="pre">DirectoryInfo</span></a></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.quick_info" title="Link to this definition"></a></dt>
+<dd><p>Quick information about this Directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.util.path.DirectoryInfo" title="absfuyu.util.path.DirectoryInfo">DirectoryInfo</a></p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 3.3.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.path.Directory.rename">
 <span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.util.path.Directory.rename" title="Link to this definition"></a></dt>
 <dd><p>Rename directory</p>
@@ -487,6 +511,70 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 <dd class="field-odd"><p><strong>new_name</strong> (<em>str</em>) – Name only (not the entire path)</p>
 </dd>
 </dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">DirectoryInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folders</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">creation_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modification_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.path.DirectoryInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>Information of a directory</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 3.3.0.</span></p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfo.creation_time">
+<span class="sig-name descname"><span class="pre">creation_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#absfuyu.util.path.DirectoryInfo.creation_time" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfo.files">
+<span class="sig-name descname"><span class="pre">files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.util.path.DirectoryInfo.files" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfo.folders">
+<span class="sig-name descname"><span class="pre">folders</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.util.path.DirectoryInfo.folders" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfo.modification_time">
+<span class="sig-name descname"><span class="pre">modification_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#absfuyu.util.path.DirectoryInfo.modification_time" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.util.path.FileOrFolderWithModificationTime">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">FileOrFolderWithModificationTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modification_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.path.FileOrFolderWithModificationTime" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>File or Folder with modification time</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – Original path</p></li>
+<li><p><strong>modification_time</strong> – Modification time</p></li>
+</ul>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 3.3.0.</span></p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.path.FileOrFolderWithModificationTime.modification_time">
+<span class="sig-name descname"><span class="pre">modification_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#absfuyu.util.path.FileOrFolderWithModificationTime.modification_time" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.path.FileOrFolderWithModificationTime.path">
+<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Path</span></em><a class="headerlink" href="#absfuyu.util.path.FileOrFolderWithModificationTime.path" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
 </dd></dl>
 
 </dd></dl>
@@ -515,8 +603,8 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 <section id="absfuyu-performance">
 <h3>Absfuyu: Performance<a class="headerlink" href="#absfuyu-performance" title="Link to this heading"></a></h3>
 <p>Performance Check</p>
-<p>Version: 1.2.0
-Date updated: 14/03/2024 (dd/mm/yyyy)</p>
+<p>Version: 1.2.2
+Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 </section>
 <section id="id1">
 <h3>Feature:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
@@ -641,6 +729,9 @@ Date updated: 14/03/2024 (dd/mm/yyyy)</p>
 <span class="go">test() returned 14</span>
 </pre></div>
 </div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 3.2.0.</span></p>
+</div>
 </section>
 </dd></dl>
 
@@ -671,11 +762,14 @@ Date updated: 14/03/2024 (dd/mm/yyyy)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="p">()</span>
 <span class="go">    --------------------------------------</span>
 <span class="go">    Function: test</span>
-<span class="go">    Memory usage:            0.000000 MB</span>
-<span class="go">    Peak memory usage:       0.000000 MB</span>
-<span class="go">    Time elapsed (seconds):  0.000002</span>
+<span class="go">    Memory usage:                0.000000 MB</span>
+<span class="go">    Peak memory usage:   0.000000 MB</span>
+<span class="go">    Time elapsed (seconds):      0.000002</span>
 <span class="go">    --------------------------------------</span>
 </pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.2.0: </span>Clean up code</p>
 </div>
 </section>
 </dd></dl>
@@ -718,6 +812,9 @@ Date updated: 14/03/2024 (dd/mm/yyyy)</p>
 <span class="go">&quot;test()&quot; failed after 3 retries.</span>
 </pre></div>
 </div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 3.2.0.</span></p>
+</div>
 </section>
 </dd></dl>
 
@@ -743,6 +840,9 @@ Date updated: 14/03/2024 (dd/mm/yyyy)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">var_check</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 <span class="go">{&#39;value&#39;: &#39;test&#39;, &#39;class&#39;: str, &#39;id&#39;: ...}</span>
 </pre></div>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.2.0: </span>Implemented into <code class="docutils literal notranslate"><span class="pre">absfuyu.util.performance.Checker()</span></code></p>
 </div>
 </section>
 </dd></dl>

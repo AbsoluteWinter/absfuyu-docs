@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.general package &mdash; absfuyu 3.2.0 documentation</title>
+  <title>absfuyu.general package &mdash; absfuyu 3.3.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,7 +13,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=4f6ddb47"></script>
+        <script src="_static/documentation_options.js?v=3eb8911e"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -36,7 +36,7 @@
             absfuyu
           </a>
               <div class="version">
-                3.2.0
+                3.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -471,16 +471,16 @@ Date updated: 27/11/2023 (dd/mm/yyyy)</p>
 <section id="absfuyu-data-extension">
 <h3>Absfuyu: Data extension<a class="headerlink" href="#absfuyu-data-extension" title="Link to this heading"></a></h3>
 <p>Extension for data type such as <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, …</p>
-<p>Version: 1.12.3
-Date updated: 23/01/2024 (dd/mm/yyyy)</p>
+<p>Version: 1.14.2
+Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 </section>
 <section id="features">
 <h3>Features:<a class="headerlink" href="#features" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Text</p></li>
-<li><p>ListExt</p></li>
 <li><p>DictExt</p></li>
 <li><p>IntNumber</p></li>
+<li><p>ListExt</p></li>
+<li><p>Text</p></li>
 </ul>
 </section>
 <section id="id3">
@@ -489,6 +489,37 @@ Date updated: 23/01/2024 (dd/mm/yyyy)</p>
 </pre></div>
 </div>
 </section>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.DictAnalyzeResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.general.data_extension.</span></span><span class="sig-name descname"><span class="pre">DictAnalyzeResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.general.data_extension.DictAnalyzeResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>Result for <code class="docutils literal notranslate"><span class="pre">DictExt.analyze()</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.DictAnalyzeResult.max_list">
+<span class="sig-name descname"><span class="pre">max_list</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#absfuyu.general.data_extension.DictAnalyzeResult.max_list" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.DictAnalyzeResult.max_value">
+<span class="sig-name descname"><span class="pre">max_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#absfuyu.general.data_extension.DictAnalyzeResult.max_value" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.DictAnalyzeResult.min_list">
+<span class="sig-name descname"><span class="pre">min_list</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span></em><a class="headerlink" href="#absfuyu.general.data_extension.DictAnalyzeResult.min_list" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.DictAnalyzeResult.min_value">
+<span class="sig-name descname"><span class="pre">min_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#absfuyu.general.data_extension.DictAnalyzeResult.min_value" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.general.data_extension.DictBoolFalse">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.general.data_extension.</span></span><span class="sig-name descname"><span class="pre">DictBoolFalse</span></span><a class="headerlink" href="#absfuyu.general.data_extension.DictBoolFalse" title="Link to this definition"></a></dt>
@@ -510,7 +541,7 @@ Date updated: 23/01/2024 (dd/mm/yyyy)</p>
 <p><code class="docutils literal notranslate"><span class="pre">dict</span></code> extension</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.general.data_extension.DictExt.analyze">
-<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#absfuyu.general.data_extension.DictExt.analyze" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#absfuyu.general.data_extension.DictAnalyzeResult" title="absfuyu.general.data_extension.DictAnalyzeResult"><span class="pre">DictAnalyzeResult</span></a></span></span><a class="headerlink" href="#absfuyu.general.data_extension.DictExt.analyze" title="Link to this definition"></a></dt>
 <dd><p>Analyze all the key values (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>)
 in <code class="docutils literal notranslate"><span class="pre">dict</span></code> then return highest/lowest index</p>
 <dl class="field-list simple">
@@ -531,13 +562,11 @@ in <code class="docutils literal notranslate"><span class="pre">dict</span></cod
 <span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;mno&quot;</span><span class="p">:</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">analyze</span><span class="p">()</span>
-<span class="go">{</span>
-<span class="go">    &#39;max_value&#39;: 9,</span>
-<span class="go">    &#39;min_value&#39;: 1,</span>
-<span class="go">    &#39;max&#39;: [(&#39;abc&#39;, 9), (&#39;def&#39;, 9)],</span>
-<span class="go">    &#39;min&#39;: [(&#39;jkl&#39;, 1), (&#39;mno&#39;, 1)]</span>
-<span class="go">}</span>
+<span class="go">DictAnalyzeResult(max_value=9, min_value=1, max_list=[(&#39;abc&#39;, 9), (&#39;def&#39;, 9)], min_list=[(&#39;jkl&#39;, 1), (&#39;mno&#39;, 1)])</span>
 </pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.3.0: </span>Change function output; Before: &lt;dict&gt;, Now: DictAnalyzeResult</p>
 </div>
 </section>
 </dd></dl>
@@ -724,6 +753,9 @@ by adding all of the digits together</p>
 <span class="go">8</span>
 </pre></div>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.3.0: </span>Fix bug</p>
+</div>
 </section>
 </dd></dl>
 
@@ -899,6 +931,9 @@ reverse of the number is also a prime number</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">lcm</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="go">510</span>
 </pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.3.0: </span>Fix bug</p>
 </div>
 </section>
 </dd></dl>
@@ -1088,7 +1123,7 @@ reverse of the number is also a prime number</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.general.data_extension.ListExt.freq">
-<span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_first_char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appear_increment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.general.data_extension.ListExt.freq" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_first_char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appear_increment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.general.data_extension.ListExt.freq" title="Link to this definition"></a></dt>
 <dd><p>Find frequency of each item in list</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1100,7 +1135,7 @@ reverse of the number is also a prime number</p>
 </p></li>
 <li><p><strong>num_of_first_char</strong> (<em>int</em><em> | </em><em>None</em>) – <div class="line-block">
 <div class="line">Number of first character taken into account to sort</div>
-<div class="line">(Default: None)</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</div>
 <div class="line">(num_of_first_char = <code class="docutils literal notranslate"><span class="pre">1</span></code>: first character in each item)</div>
 </div>
 </p></li>
@@ -1114,7 +1149,7 @@ reverse of the number is also a prime number</p>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>dict</em> – A dict that show frequency</p></li>
-<li><p><em>list</em> – Incremental index list</p></li>
+<li><p><em>list[int]</em> – Incremental index list</p></li>
 </ul>
 </p>
 </dd>
@@ -1499,16 +1534,20 @@ returns a <code class="docutils literal notranslate"><span class="pre">list</spa
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code> extension</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.general.data_extension.Text.analyze">
-<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#absfuyu.general.data_extension.Text.analyze" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#absfuyu.general.data_extension.TextAnalyzeDictFormat" title="absfuyu.general.data_extension.TextAnalyzeDictFormat"><span class="pre">TextAnalyzeDictFormat</span></a></span></span><a class="headerlink" href="#absfuyu.general.data_extension.Text.analyze" title="Link to this definition"></a></dt>
 <dd><p>String analyze (count number of type of character)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A dictionary contains number of digit character,
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>full</strong> (<em>bool</em>) – Full analyze when <code class="docutils literal notranslate"><span class="pre">True</span></code>
+(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary contains number of digit character,
 uppercase character, lowercase character, and
 special character</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>dict</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict | <a class="reference internal" href="#absfuyu.general.data_extension.TextAnalyzeDictFormat" title="absfuyu.general.data_extension.TextAnalyzeDictFormat">TextAnalyzeDictFormat</a></p>
 </dd>
 </dl>
 <section id="id30">
@@ -1517,6 +1556,41 @@ special character</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">analyze</span><span class="p">()</span>
 <span class="go">{&#39;digit&#39;: 1, &#39;uppercase&#39;: 2, &#39;lowercase&#39;: 7, &#39;other&#39;: 2}</span>
 </pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.3.0: </span>Update functionality</p>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.Text.count_pattern">
+<span class="sig-name descname"><span class="pre">count_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_capslock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#absfuyu.general.data_extension.Text.count_pattern" title="Link to this definition"></a></dt>
+<dd><p>Returns how many times <code class="docutils literal notranslate"><span class="pre">pattern</span></code> appears in text
+(Inspired by hackerrank exercise)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pattern</strong> (<em>str</em>) – Pattern to count</p></li>
+<li><p><strong>ignore_capslock</strong> (<em>bool</em>) – Ignore the pattern uppercase or lowercase
+(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code> - Exact match)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>How many times pattern appeared</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<section id="id31">
+<h3>Example:<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count_pattern</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 3.3.0.</span></p>
 </div>
 </section>
 </dd></dl>
@@ -1539,8 +1613,8 @@ string with the size of <code class="docutils literal notranslate"><span class="
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
-<section id="id31">
-<h3>Example:<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<section id="id32">
+<h3>Example:<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;This is an extremely long line of text!&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">string_split_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="go">[&#39;This is an extremely&#39;, &#39; long line of text!&#39;]</span>
@@ -1574,8 +1648,8 @@ and a way to concaternate them (when using <code class="docutils literal notrans
 <dd class="field-odd"><p>list</p>
 </dd>
 </dl>
-<section id="id32">
-<h3>Example:<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<section id="id33">
+<h3>Example:<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;This is an extremely long line of text!&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">divide_with_variable</span><span class="p">(</span><span class="n">split_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="go">[</span>
@@ -1595,6 +1669,44 @@ and a way to concaternate them (when using <code class="docutils literal notrans
 <span class="go">    &#39;test&#39;</span>
 <span class="go">]</span>
 </pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.Text.hapax">
+<span class="sig-name descname"><span class="pre">hapax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.general.data_extension.Text.hapax" title="Link to this definition"></a></dt>
+<dd><p>A hapax legomenon (often abbreviated to hapax)
+is a word which occurs only once in either
+the written record of a language, the works of
+an author, or in a single text.</p>
+<p>This function returns a list of hapaxes (if any)
+(Lettercase is ignored)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>strict</strong> (<em>bool</em>) – Remove all special characters before checking for hapax
+(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of hapaxes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+<section id="id34">
+<h3>Example:<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;A a. a, b c c= C| d d&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">hapax</span><span class="p">()</span>
+<span class="go">[&#39;a&#39;, &#39;a.&#39;, &#39;a,&#39;, &#39;b&#39;, &#39;c&#39;, &#39;c=&#39;, &#39;c|&#39;]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">hapax</span><span class="p">(</span><span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">[&#39;b&#39;]</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 3.3.0.</span></p>
 </div>
 </section>
 </dd></dl>
@@ -1659,8 +1771,8 @@ every letter of the alphabet is used at least once</p>
 <dd class="field-odd"><p><a class="reference internal" href="#absfuyu.general.data_extension.Text" title="absfuyu.general.data_extension.Text">Text</a></p>
 </dd>
 </dl>
-<section id="id33">
-<h3>Example:<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<section id="id35">
+<h3>Example:<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;This is an extremely long line of text!&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">random_capslock</span><span class="p">()</span>
 <span class="go">&#39;tHis iS An ExtREmELY loNg liNE oF tExT!&#39;</span>
@@ -1681,8 +1793,8 @@ every letter of the alphabet is used at least once</p>
 <dd class="field-even"><p><a class="reference internal" href="#absfuyu.general.data_extension.Text" title="absfuyu.general.data_extension.Text">Text</a></p>
 </dd>
 </dl>
-<section id="id34">
-<h3>Example:<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<section id="id36">
+<h3>Example:<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
 <span class="go">&#39;!dlroW ,olleH&#39;</span>
@@ -1703,8 +1815,8 @@ every letter of the alphabet is used at least once</p>
 <dd class="field-even"><p><a class="reference internal" href="#absfuyu.general.data_extension.Text" title="absfuyu.general.data_extension.Text">Text</a></p>
 </dd>
 </dl>
-<section id="id35">
-<h3>Example:<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<section id="id37">
+<h3>Example:<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">reverse_capslock</span><span class="p">()</span>
 <span class="go">&#39;fOO&#39;</span>
@@ -1732,8 +1844,8 @@ every letter of the alphabet is used at least once</p>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
-<section id="id36">
-<h3>Example:<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<section id="id38">
+<h3>Example:<a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">to_hex</span><span class="p">()</span>
 <span class="go">&#39;\\x48\\x65\\x6c\\x6c\\x6f\\x2c\\x20\\x57\\x6f\\x72\\x6c\\x64\\x21&#39;</span>
@@ -1754,8 +1866,8 @@ every letter of the alphabet is used at least once</p>
 <dd class="field-even"><p>list[str]</p>
 </dd>
 </dl>
-<section id="id37">
-<h3>Example:<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
+<section id="id39">
+<h3>Example:<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 <span class="go">[&#39;t&#39;, &#39;e&#39;, &#39;s&#39;, &#39;t&#39;]</span>
@@ -1763,6 +1875,80 @@ every letter of the alphabet is used at least once</p>
 </div>
 </section>
 </dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.Text.to_listext">
+<span class="sig-name descname"><span class="pre">to_listext</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#absfuyu.general.data_extension.ListExt" title="absfuyu.general.data_extension.ListExt"><span class="pre">ListExt</span></a></span></span><a class="headerlink" href="#absfuyu.general.data_extension.Text.to_listext" title="Link to this definition"></a></dt>
+<dd><p>Convert into <code class="docutils literal notranslate"><span class="pre">ListExt</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of string</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.general.data_extension.ListExt" title="absfuyu.general.data_extension.ListExt">ListExt</a>[str]</p>
+</dd>
+</dl>
+<section id="id40">
+<h3>Example:<a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">to_listext</span><span class="p">()</span>
+<span class="go">[&#39;t&#39;, &#39;e&#39;, &#39;s&#39;, &#39;t&#39;]</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 3.3.0.</span></p>
+</div>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.TextAnalyzeDictFormat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.general.data_extension.</span></span><span class="sig-name descname"><span class="pre">TextAnalyzeDictFormat</span></span><a class="headerlink" href="#absfuyu.general.data_extension.TextAnalyzeDictFormat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>Dict format for <code class="docutils literal notranslate"><span class="pre">Text.analyze()</span></code> method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>digit</strong> (<em>int</em>) – Number of digit characters</p></li>
+<li><p><strong>uppercase</strong> (<em>int</em>) – Number of uppercase characters</p></li>
+<li><p><strong>lowercase</strong> (<em>int</em>) – Number of lowercase characters</p></li>
+<li><p><strong>other</strong> (<em>int</em>) – Number of other printable characters</p></li>
+<li><p><strong>is_pangram</strong> (<em>NotRequired</em><em>[</em><em>bool</em><em>]</em>) – Is a pangram (Not required)</p></li>
+<li><p><strong>is_palindrome</strong> (<em>NotRequired</em><em>[</em><em>bool</em><em>]</em>) – Is a palindrome (Not required)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.TextAnalyzeDictFormat.digit">
+<span class="sig-name descname"><span class="pre">digit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.general.data_extension.TextAnalyzeDictFormat.digit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.TextAnalyzeDictFormat.is_palindrome">
+<span class="sig-name descname"><span class="pre">is_palindrome</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#absfuyu.general.data_extension.TextAnalyzeDictFormat.is_palindrome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.TextAnalyzeDictFormat.is_pangram">
+<span class="sig-name descname"><span class="pre">is_pangram</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#absfuyu.general.data_extension.TextAnalyzeDictFormat.is_pangram" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.TextAnalyzeDictFormat.lowercase">
+<span class="sig-name descname"><span class="pre">lowercase</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.general.data_extension.TextAnalyzeDictFormat.lowercase" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.TextAnalyzeDictFormat.other">
+<span class="sig-name descname"><span class="pre">other</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.general.data_extension.TextAnalyzeDictFormat.other" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.general.data_extension.TextAnalyzeDictFormat.uppercase">
+<span class="sig-name descname"><span class="pre">uppercase</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.general.data_extension.TextAnalyzeDictFormat.uppercase" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -1775,8 +1961,8 @@ every letter of the alphabet is used at least once</p>
 <p>Version: 1.1.0
 Date updated: 06/03/2024 (dd/mm/yyyy)</p>
 </section>
-<section id="id38">
-<h3>Features:<a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
+<section id="id41">
+<h3>Features:<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Generate random string</p></li>
 <li><p>Generate key</p></li>
@@ -1894,8 +2080,8 @@ of two successive digits.” (Wikipedia)</p>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
-<section id="id39">
-<h3>Example:<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
+<section id="id42">
+<h3>Example:<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Generator</span><span class="o">.</span><span class="n">generate_check_digit</span><span class="p">(</span><span class="s2">&quot;4129984562545&quot;</span><span class="p">)</span>
 <span class="go">7</span>
 </pre></div>
@@ -1927,8 +2113,8 @@ of two successive digits.” (Wikipedia)</p>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
-<section id="id40">
-<h3>Example:<a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
+<section id="id43">
+<h3>Example:<a class="headerlink" href="#id43" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Generator</span><span class="o">.</span><span class="n">generate_key</span><span class="p">(</span><span class="n">letter_per_block</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">number_of_block</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">&#39;VKKPJVYD2H-M7R687QCV2&#39;</span>
 </pre></div>
@@ -1974,8 +2160,8 @@ of two successive digits.” (Wikipedia)</p>
 </p>
 </dd>
 </dl>
-<section id="id41">
-<h3>Example:<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
+<section id="id44">
+<h3>Example:<a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Generator</span><span class="o">.</span><span class="n">generate_string</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="go">[&#39;67Xfh1fv&#39;, &#39;iChcGz9P&#39;, &#39;u82fNzlm&#39;]</span>
 </pre></div>
@@ -2166,11 +2352,11 @@ Date updated: 08/12/2023 (dd/mm/yyyy)</p>
 <section id="absfuyu-general">
 <h3>Absfuyu: General<a class="headerlink" href="#absfuyu-general" title="Link to this heading"></a></h3>
 <p>Collection of useful classes</p>
-<p>Version: 1.1.3
-Date updated: 26/11/2023 (dd/mm/yyyy)</p>
+<p>Version: 1.1.4
+Date updated: 15/03/2024 (dd/mm/yyyy)</p>
 </section>
-<section id="id42">
-<h3>Features:<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
+<section id="id45">
+<h3>Features:<a class="headerlink" href="#id45" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>content</p></li>
 <li><p>data_extension</p></li>
