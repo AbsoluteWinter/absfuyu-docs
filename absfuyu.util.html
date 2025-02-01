@@ -50,6 +50,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.cli.html">absfuyu.cli package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.html">absfuyu.extensions package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
@@ -764,6 +765,141 @@ Last update: 24/11/2023 (dd/mm/yyyy)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-absfuyu.util.shorten_number">
+<span id="absfuyu-util-shorten-number-module"></span><h2>absfuyu.util.shorten_number module<a class="headerlink" href="#module-absfuyu.util.shorten_number" title="Link to this heading"></a></h2>
+<section id="absfuyu-shorten-number">
+<h3>Absfuyu: Shorten number<a class="headerlink" href="#absfuyu-shorten-number" title="Link to this heading"></a></h3>
+<p>Short number base on suffixes</p>
+<p>Version: 1.0.0
+Last update: 01/02/2025 (dd/mm/yyyy)</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.UnitSuffixFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.shorten_number.</span></span><span class="sig-name descname"><span class="pre">UnitSuffixFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.shorten_number.UnitSuffixFactory" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.UnitSuffixFactory.base">
+<span class="sig-name descname"><span class="pre">base</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.util.shorten_number.UnitSuffixFactory.base" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.UnitSuffixFactory.short_name">
+<span class="sig-name descname"><span class="pre">short_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.util.shorten_number.UnitSuffixFactory.short_name" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.UnitSuffixFactory.full_name">
+<span class="sig-name descname"><span class="pre">full_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.util.shorten_number.UnitSuffixFactory.full_name" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.CommonUnitSuffixesFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.shorten_number.</span></span><span class="sig-name descname"><span class="pre">CommonUnitSuffixesFactory</span></span><a class="headerlink" href="#absfuyu.util.shorten_number.CommonUnitSuffixesFactory" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.CommonUnitSuffixesFactory.NUMBER">
+<span class="sig-name descname"><span class="pre">NUMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(1000,</span> <span class="pre">['',</span> <span class="pre">'K',</span> <span class="pre">'M',</span> <span class="pre">'B',</span> <span class="pre">'T',</span> <span class="pre">'Qa',</span> <span class="pre">'Qi',</span> <span class="pre">'Sx',</span> <span class="pre">'Sp',</span> <span class="pre">'Oc',</span> <span class="pre">'No',</span> <span class="pre">'Dc',</span> <span class="pre">'Ud',</span> <span class="pre">'Dd',</span> <span class="pre">'Td',</span> <span class="pre">'Qad',</span> <span class="pre">'Qid',</span> <span class="pre">'Sxd',</span> <span class="pre">'Spd',</span> <span class="pre">'Ocd',</span> <span class="pre">'Nod',</span> <span class="pre">'Vg',</span> <span class="pre">'Uvg',</span> <span class="pre">'Dvg',</span> <span class="pre">'Tvg',</span> <span class="pre">'Qavg',</span> <span class="pre">'Qivg',</span> <span class="pre">'Sxvg',</span> <span class="pre">'Spvg',</span> <span class="pre">'Ovg',</span> <span class="pre">'Nvg',</span> <span class="pre">'Tg',</span> <span class="pre">'Utg',</span> <span class="pre">'Dtg',</span> <span class="pre">'Ttg',</span> <span class="pre">'Qatg',</span> <span class="pre">'Qitg',</span> <span class="pre">'Sxtg',</span> <span class="pre">'Sptg',</span> <span class="pre">'Otg',</span> <span class="pre">'Ntg'],</span> <span class="pre">['',</span> <span class="pre">'Thousand',</span> <span class="pre">'Million',</span> <span class="pre">'Billion',</span> <span class="pre">'Trillion',</span> <span class="pre">'Quadrillion',</span> <span class="pre">'Quintillion',</span> <span class="pre">'Sextillion',</span> <span class="pre">'Septillion',</span> <span class="pre">'Octillion',</span> <span class="pre">'Nonillion',</span> <span class="pre">'Decillion',</span> <span class="pre">'Undecillion',</span> <span class="pre">'Duodecillion',</span> <span class="pre">'Tredecillion',</span> <span class="pre">'Quattuordecillion',</span> <span class="pre">'Quindecillion',</span> <span class="pre">'Sexdecillion',</span> <span class="pre">'Septendecillion',</span> <span class="pre">'Octodecillion',</span> <span class="pre">'Novemdecillion',</span> <span class="pre">'Vigintillion',</span> <span class="pre">'Unvigintillion',</span> <span class="pre">'Duovigintillion',</span> <span class="pre">'Tresvigintillion',</span> <span class="pre">'Quattuorvigintillion',</span> <span class="pre">'Quinvigintillion',</span> <span class="pre">'Sesvigintillion',</span> <span class="pre">'Septemvigintillion',</span> <span class="pre">'Octovigintillion',</span> <span class="pre">'Novemvigintillion',</span> <span class="pre">'Trigintillion',</span> <span class="pre">'Untrigintillion',</span> <span class="pre">'Duotrigintillion',</span> <span class="pre">'Trestrigintillion',</span> <span class="pre">'Quattuortrigintillion',</span> <span class="pre">'Quintrigintillion',</span> <span class="pre">'Sestrigintillion',</span> <span class="pre">'Septentrigintillion',</span> <span class="pre">'Octotrigintillion',</span> <span class="pre">'Noventrigintillion'])</span></em><a class="headerlink" href="#absfuyu.util.shorten_number.CommonUnitSuffixesFactory.NUMBER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.CommonUnitSuffixesFactory.DATA_SIZE">
+<span class="sig-name descname"><span class="pre">DATA_SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(1024,</span> <span class="pre">['b',</span> <span class="pre">'Kb',</span> <span class="pre">'MB',</span> <span class="pre">'GB',</span> <span class="pre">'TB',</span> <span class="pre">'PB',</span> <span class="pre">'EB',</span> <span class="pre">'ZB',</span> <span class="pre">'YB',</span> <span class="pre">'BB'],</span> <span class="pre">['byte',</span> <span class="pre">'kilobyte',</span> <span class="pre">'megabyte',</span> <span class="pre">'gigabyte',</span> <span class="pre">'terabyte',</span> <span class="pre">'petabyte',</span> <span class="pre">'exabyte',</span> <span class="pre">'zetabyte',</span> <span class="pre">'yottabyte',</span> <span class="pre">'brontobyte'])</span></em><a class="headerlink" href="#absfuyu.util.shorten_number.CommonUnitSuffixesFactory.DATA_SIZE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.shorten_number.</span></span><span class="sig-name descname"><span class="pre">Decimal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">original_value:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base:</span> <span class="pre">~typing.Annotated[int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">'positive'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">'not_zero']</span> <span class="pre">=</span> <span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffixes:</span> <span class="pre">list[str]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory:</span> <span class="pre">~absfuyu.util.shorten_number.UnitSuffixFactory</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix_full_name:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Shorten large number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>original_value</strong> – Value to shorten</p></li>
+<li><p><strong>base</strong> – Short by base (must be &gt; 0)</p></li>
+<li><p><strong>suffixes</strong> – List of suffixes to use (ascending order)</p></li>
+<li><p><strong>factory</strong> – <code class="docutils literal notranslate"><span class="pre">UnitSuffixFactory</span></code> to use (will overwrite <code class="docutils literal notranslate"><span class="pre">base</span></code> and <code class="docutils literal notranslate"><span class="pre">suffixes</span></code>)</p></li>
+<li><p><strong>suffix_full_name</strong> – Use suffix full name (default: False)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal.original_value">
+<span class="sig-name descname"><span class="pre">original_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal.original_value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal.base">
+<span class="sig-name descname"><span class="pre">base</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Annotated</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'positive'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'not_zero'</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1000</span></em><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal.base" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal.suffixes">
+<span class="sig-name descname"><span class="pre">suffixes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal.suffixes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal.factory">
+<span class="sig-name descname"><span class="pre">factory</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#absfuyu.util.shorten_number.UnitSuffixFactory" title="absfuyu.util.shorten_number.UnitSuffixFactory"><span class="pre">UnitSuffixFactory</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal.factory" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal.suffix_full_name">
+<span class="sig-name descname"><span class="pre">suffix_full_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal.suffix_full_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal.value">
+<span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal.value" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal.suffix">
+<span class="sig-name descname"><span class="pre">suffix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal.suffix" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal.number">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix_full_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal.number" title="Link to this definition"></a></dt>
+<dd><p>Decimal for normal large number</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal.data_size">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix_full_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal.data_size" title="Link to this definition"></a></dt>
+<dd><p>Decimal for data size</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal.scientific_short">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scientific_short</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal.scientific_short" title="Link to this definition"></a></dt>
+<dd><p>Short number in scientific format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.shorten_number.Decimal.to_text">
+<span class="sig-name descname"><span class="pre">to_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">float_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.util.shorten_number.Decimal.to_text" title="Link to this definition"></a></dt>
+<dd><p>Convert to string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>decimal</strong> – Round up to which decimal</p></li>
+<li><p><strong>separator</strong> – Character between value and suffix, default: <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code></p></li>
+<li><p><strong>float_only</strong> – Returns value as &lt;float&gt; instead of &lt;int&gt; when <code class="docutils literal notranslate"><span class="pre">decimal</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

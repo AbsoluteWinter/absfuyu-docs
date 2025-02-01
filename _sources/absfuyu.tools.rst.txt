@@ -4,6 +4,14 @@ absfuyu.tools package
 Submodules
 ----------
 
+absfuyu.tools.checksum module
+-----------------------------
+
+.. automodule:: absfuyu.tools.checksum
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 absfuyu.tools.converter module
 ------------------------------
 

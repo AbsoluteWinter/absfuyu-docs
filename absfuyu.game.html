@@ -51,6 +51,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.cli.html">absfuyu.cli package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.html">absfuyu.extensions package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
@@ -103,6 +104,43 @@
 <h1>absfuyu.game package<a class="headerlink" href="#absfuyu-game-package" title="Link to this heading"></a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-absfuyu.game.game_stat">
+<span id="absfuyu-game-game-stat-module"></span><h2>absfuyu.game.game_stat module<a class="headerlink" href="#module-absfuyu.game.game_stat" title="Link to this heading"></a></h2>
+<p>Game: Game Stat</p>
+<p>Version: 1.0.0
+Date updated: 14/04/2024 (dd/mm/yyyy)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.game.game_stat.GameStats">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.game.game_stat.</span></span><span class="sig-name descname"><span class="pre">GameStats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">win</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.game_stat.GameStats" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.game.game_stat.GameStats.win">
+<span class="sig-name descname"><span class="pre">win</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#absfuyu.game.game_stat.GameStats.win" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.game.game_stat.GameStats.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#absfuyu.game.game_stat.GameStats.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.game.game_stat.GameStats.lose">
+<span class="sig-name descname"><span class="pre">lose</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#absfuyu.game.game_stat.GameStats.lose" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.game.game_stat.GameStats.win_rate">
+<span class="sig-name descname"><span class="pre">win_rate</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#absfuyu.game.game_stat.GameStats.win_rate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.game.game_stat.GameStats.update_score">
+<span class="sig-name descname"><span class="pre">update_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'win'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'draw'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'lose'</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.game.game_stat.GameStats.update_score" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-absfuyu.game.sudoku">
 <span id="absfuyu-game-sudoku-module"></span><h2>absfuyu.game.sudoku module<a class="headerlink" href="#module-absfuyu.game.sudoku" title="Link to this heading"></a></h2>
@@ -370,7 +408,7 @@ Date updated: 14/04/2024 (dd/mm/yyyy)</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.game.game_RockPaperScissors">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.game.</span></span><span class="sig-name descname"><span class="pre">game_RockPaperScissors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hard_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">GameStats</span></span></span><a class="headerlink" href="#absfuyu.game.game_RockPaperScissors" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.game.</span></span><span class="sig-name descname"><span class="pre">game_RockPaperScissors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hard_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#absfuyu.game.game_stat.GameStats" title="absfuyu.game.game_stat.GameStats"><span class="pre">GameStats</span></a></span></span><a class="headerlink" href="#absfuyu.game.game_RockPaperScissors" title="Link to this definition"></a></dt>
 <dd><p>Rock Paper Scissors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

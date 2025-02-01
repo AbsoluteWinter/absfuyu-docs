@@ -4,6 +4,14 @@ absfuyu.game package
 Submodules
 ----------
 
+absfuyu.game.game\_stat module
+------------------------------
+
+.. automodule:: absfuyu.game.game_stat
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 absfuyu.game.sudoku module
 --------------------------
 
