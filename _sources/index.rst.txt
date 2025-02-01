@@ -10,7 +10,9 @@ Welcome to absfuyu's documentation!
    :maxdepth: 3
    :caption: Contents:
 
+   info
    modules
+
 
 Indices and tables
 ==================

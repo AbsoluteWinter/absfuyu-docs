@@ -1,21 +1,24 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.game package &mdash; absfuyu 3.3.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>absfuyu.game package &mdash; absfuyu 4.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=3eb8911e"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=e6a937a4"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=b612fa2f"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -34,9 +37,6 @@
           <a href="index.html" class="icon icon-home">
             absfuyu
           </a>
-              <div class="version">
-                3.3.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -47,7 +47,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">absfuyu</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info.html"><strong>BASIC INFO</strong></a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
@@ -87,7 +88,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">absfuyu</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Module Documentation</a></li>
           <li class="breadcrumb-item"><a href="absfuyu.html">absfuyu package</a></li>
       <li class="breadcrumb-item active">absfuyu.game package</li>
       <li class="wy-breadcrumbs-aside">
@@ -108,8 +109,8 @@
 <section id="game-sudoku">
 <h3>Game: Sudoku<a class="headerlink" href="#game-sudoku" title="Link to this heading"></a></h3>
 <p>Sudoku 9x9 Solver</p>
-<p>Version: 1.0.2
-Date updated: 24/11/2023 (mm/dd/yyyy)</p>
+<p>Version: 1.0.3
+Date updated: 15/11/2024 (dd/mm/yyyy)</p>
 </section>
 <section id="credit">
 <h3>Credit:<a class="headerlink" href="#credit" title="Link to this heading"></a></h3>
@@ -120,15 +121,15 @@ Date updated: 24/11/2023 (mm/dd/yyyy)</p>
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.game.sudoku.Sudoku">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.game.sudoku.</span></span><span class="sig-name descname"><span class="pre">Sudoku</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sudoku_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.game.sudoku.</span></span><span class="sig-name descname"><span class="pre">Sudoku</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sudoku_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.game.sudoku.Sudoku.export_to_string">
-<span class="sig-name descname"><span class="pre">export_to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'dot'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku.export_to_string" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">export_to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'dot'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'zero'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'dot'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku.export_to_string" title="Link to this definition"></a></dt>
 <dd><p>Export Sudoku data to string form</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>style</strong> (<em>str</em>) – <ul class="simple">
+<dd class="field-odd"><p><strong>style</strong> (<em>Literal</em><em>[</em><em>&quot;dot&quot;</em><em>, </em><em>&quot;zero&quot;</em><em>]</em>) – <ul class="simple">
 <li><p>“zero”: <code class="docutils literal notranslate"><span class="pre">0</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
 <li><p>”dot”: <code class="docutils literal notranslate"><span class="pre">0</span></code> is <code class="docutils literal notranslate"><span class="pre">.</span></code></p></li>
 </ul>
@@ -191,6 +192,40 @@ Date updated: 24/11/2023 (mm/dd/yyyy)</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.game.sudoku.Sudoku.to_board_form">
+<span class="sig-name descname"><span class="pre">to_board_form</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku.to_board_form" title="Link to this definition"></a></dt>
+<dd><p>Prepare sudoku board ready to print</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sudoku Board data that ready to print</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<section id="id1">
+<h3>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">demo</span> <span class="o">=</span> <span class="n">Sudoku</span><span class="o">.</span><span class="n">hardest_sudoku</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">demo</span><span class="o">.</span><span class="n">to_board_form</span><span class="p">())</span>
+<span class="go">┎─────────────────────────────┒</span>
+<span class="go">┃  8 0 0  ┃  0 0 0  ┃  0 0 0  ┃</span>
+<span class="go">┃  0 0 3  ┃  6 0 0  ┃  0 0 0  ┃</span>
+<span class="go">┃  0 7 0  ┃  0 9 0  ┃  2 0 0  ┃</span>
+<span class="go">┠─────────────────────────────┨</span>
+<span class="go">┃  0 5 0  ┃  0 0 7  ┃  0 0 0  ┃</span>
+<span class="go">┃  0 0 0  ┃  0 4 5  ┃  7 0 0  ┃</span>
+<span class="go">┃  0 0 0  ┃  1 0 0  ┃  0 3 0  ┃</span>
+<span class="go">┠─────────────────────────────┨</span>
+<span class="go">┃  0 0 1  ┃  0 0 0  ┃  0 6 8  ┃</span>
+<span class="go">┃  0 0 8  ┃  5 0 0  ┃  0 1 0  ┃</span>
+<span class="go">┃  0 9 0  ┃  0 0 0  ┃  4 0 0  ┃</span>
+<span class="go">┖─────────────────────────────┚</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.game.sudoku.Sudoku.solve">
 <span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku.solve" title="Link to this definition"></a></dt>
 <dd><p>Solve the Sudoku</p>
@@ -202,8 +237,8 @@ Date updated: 24/11/2023 (mm/dd/yyyy)</p>
 <dd class="field-even"><p><a class="reference internal" href="#absfuyu.game.sudoku.Sudoku" title="absfuyu.game.sudoku.Sudoku">Sudoku</a></p>
 </dd>
 </dl>
-<section id="id1">
-<h3>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<section id="id2">
+<h3>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Sudoku</span><span class="o">.</span><span class="n">hardest_sudoku</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">to_board_form</span><span class="p">())</span>
@@ -225,40 +260,6 @@ Date updated: 24/11/2023 (mm/dd/yyyy)</p>
 </section>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.game.sudoku.Sudoku.to_board_form">
-<span class="sig-name descname"><span class="pre">to_board_form</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku.to_board_form" title="Link to this definition"></a></dt>
-<dd><p>Prepare sudoku board ready to print</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Sudoku Board data that ready to print</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-<section id="id2">
-<h3>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">demo</span> <span class="o">=</span> <span class="n">Sudoku</span><span class="o">.</span><span class="n">hardest_sudoku</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">demo</span><span class="o">.</span><span class="n">to_board_form</span><span class="p">())</span>
-<span class="go">┎─────────────────────────────┒</span>
-<span class="go">┃  8 0 0  ┃  0 0 0  ┃  0 0 0  ┃</span>
-<span class="go">┃  0 0 3  ┃  6 0 0  ┃  0 0 0  ┃</span>
-<span class="go">┃  0 7 0  ┃  0 9 0  ┃  2 0 0  ┃</span>
-<span class="go">┠─────────────────────────────┨</span>
-<span class="go">┃  0 5 0  ┃  0 0 7  ┃  0 0 0  ┃</span>
-<span class="go">┃  0 0 0  ┃  0 4 5  ┃  7 0 0  ┃</span>
-<span class="go">┃  0 0 0  ┃  1 0 0  ┃  0 3 0  ┃</span>
-<span class="go">┠─────────────────────────────┨</span>
-<span class="go">┃  0 0 1  ┃  0 0 0  ┃  0 6 8  ┃</span>
-<span class="go">┃  0 0 8  ┃  5 0 0  ┃  0 1 0  ┃</span>
-<span class="go">┃  0 9 0  ┃  0 0 0  ┃  4 0 0  ┃</span>
-<span class="go">┖─────────────────────────────┚</span>
-</pre></div>
-</div>
-</section>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -266,83 +267,17 @@ Date updated: 24/11/2023 (mm/dd/yyyy)</p>
 <span id="absfuyu-game-tictactoe-module"></span><h2>absfuyu.game.tictactoe module<a class="headerlink" href="#module-absfuyu.game.tictactoe" title="Link to this heading"></a></h2>
 <section id="game-tic-tac-toe">
 <h3>Game: Tic Tac Toe<a class="headerlink" href="#game-tic-tac-toe" title="Link to this heading"></a></h3>
-<p>Version: 1.0.3
-Date update: 24/11/2023 (mm/dd/yyyy)</p>
-</section>
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.game.tictactoe.bot_ttt">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.game.tictactoe.</span></span><span class="sig-name descname"><span class="pre">bot_ttt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.tictactoe.bot_ttt" title="Link to this definition"></a></dt>
-<dd><p>Smart bot i guess</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.game.tictactoe.game_tictactoe">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.game.tictactoe.</span></span><span class="sig-name descname"><span class="pre">game_tictactoe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1v0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smarter_bot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">board_game</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bot_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_stats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.tictactoe.game_tictactoe" title="Link to this definition"></a></dt>
-<dd><p>Tic Tac Toe</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>size</strong> (<em>int</em>) – board size</p></li>
-<li><p><strong>mode</strong> (<em>str</em>) – “1v1”: Player vs player
-“1v0”: Player vs BOT
-“0v0”: BOT vs BOT</p></li>
-<li><p><strong>smarter_bot</strong> (<em>bool</em>) – W.I.P
-New bot’s behaviour</p></li>
-<li><p><strong>board_game</strong> (<em>True</em><em> | </em><em>False</em><em> | </em><em>None</em>) – True: draw board
-False: print array
-None: no board or array</p></li>
-<li><p><strong>bot_time</strong> (<em>float</em>) – time sleep between each bot move
-[Default: 0]</p></li>
-<li><p><strong>show_stats</strong> (<em>bool</em>) – Print current game stats
-[Default: False]</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Game stats</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-<section id="module-absfuyu.game.tictactoe2">
-<span id="absfuyu-game-tictactoe2-module"></span><h2>absfuyu.game.tictactoe2 module<a class="headerlink" href="#module-absfuyu.game.tictactoe2" title="Link to this heading"></a></h2>
-<section id="id3">
-<h3>Game: Tic Tac Toe<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
-<p>Version: 2.0.2
-Date updated: 04/12/2023 (mm/dd/yyyy)</p>
+<p>Version: 2.0.4
+Date updated: 15/11/2024 (dd/mm/yyyy)</p>
 </section>
 <dl class="py class">
-<dt class="sig sig-object py" id="absfuyu.game.tictactoe2.GameMode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.game.tictactoe2.</span></span><span class="sig-name descname"><span class="pre">GameMode</span></span><a class="headerlink" href="#absfuyu.game.tictactoe2.GameMode" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.game.tictactoe2.GameMode.BOT_V_BOT">
-<span class="sig-name descname"><span class="pre">BOT_V_BOT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0v0'</span></em><a class="headerlink" href="#absfuyu.game.tictactoe2.GameMode.BOT_V_BOT" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.game.tictactoe2.GameMode.ONE_V_BOT">
-<span class="sig-name descname"><span class="pre">ONE_V_BOT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1v0'</span></em><a class="headerlink" href="#absfuyu.game.tictactoe2.GameMode.ONE_V_BOT" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.game.tictactoe2.GameMode.ONE_V_ONE">
-<span class="sig-name descname"><span class="pre">ONE_V_ONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1v1'</span></em><a class="headerlink" href="#absfuyu.game.tictactoe2.GameMode.ONE_V_ONE" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="absfuyu.game.tictactoe2.TicTacToe">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.game.tictactoe2.</span></span><span class="sig-name descname"><span class="pre">TicTacToe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'O'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_split_symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">','</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_break_word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'END'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">welcome_message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.tictactoe2.TicTacToe" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="absfuyu.game.tictactoe.TicTacToe">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.game.tictactoe.</span></span><span class="sig-name descname"><span class="pre">TicTacToe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'X'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'O'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_split_symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">','</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_break_word</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'END'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">welcome_message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.tictactoe.TicTacToe" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Tic Tac Toe game</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.game.tictactoe2.TicTacToe.play">
-<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1v0'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bot_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.game.tictactoe2.TicTacToe.play" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="absfuyu.game.tictactoe.TicTacToe.play">
+<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'1v0'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bot_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.game.tictactoe.TicTacToe.play" title="Link to this definition"></a></dt>
 <dd><p>Play a game of Tic Tac Toe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -356,22 +291,43 @@ Date updated: 04/12/2023 (mm/dd/yyyy)</p>
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.game.tictactoe.GameMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.game.tictactoe.</span></span><span class="sig-name descname"><span class="pre">GameMode</span></span><a class="headerlink" href="#absfuyu.game.tictactoe.GameMode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.game.tictactoe.GameMode.ONE_V_ONE">
+<span class="sig-name descname"><span class="pre">ONE_V_ONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1v1'</span></em><a class="headerlink" href="#absfuyu.game.tictactoe.GameMode.ONE_V_ONE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.game.tictactoe.GameMode.ONE_V_BOT">
+<span class="sig-name descname"><span class="pre">ONE_V_BOT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'1v0'</span></em><a class="headerlink" href="#absfuyu.game.tictactoe.GameMode.ONE_V_BOT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.game.tictactoe.GameMode.BOT_V_BOT">
+<span class="sig-name descname"><span class="pre">BOT_V_BOT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0v0'</span></em><a class="headerlink" href="#absfuyu.game.tictactoe.GameMode.BOT_V_BOT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-absfuyu.game.wordle">
 <span id="absfuyu-game-wordle-module"></span><h2>absfuyu.game.wordle module<a class="headerlink" href="#module-absfuyu.game.wordle" title="Link to this heading"></a></h2>
 <section id="game-wordle-solver">
 <h3>Game: Wordle Solver<a class="headerlink" href="#game-wordle-solver" title="Link to this heading"></a></h3>
-<p>Version: 1.1.2
-Date updated: 24/11/2023 (dd/mm/yyyy)</p>
+<p>Version: 1.1.4
+Date updated: 14/04/2024 (dd/mm/yyyy)</p>
 </section>
 <section id="usage">
 <h3>Usage:<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Wordle</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Wordle</span><span class="p">()</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
-<section id="id4">
-<h3>Credit:<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="id3">
+<h3>Credit:<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>[Code](<a class="reference external" href="https://www.inspiredpython.com/article/solving-wordle-puzzles-with-basic-python">https://www.inspiredpython.com/article/solving-wordle-puzzles-with-basic-python</a>)</p></li>
 <li><p>[Words](<a class="reference external" href="https://raw.githubusercontent.com/dwyl/english-words/master/words_dictionary.json">https://raw.githubusercontent.com/dwyl/english-words/master/words_dictionary.json</a>)</p></li>
@@ -384,15 +340,15 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 <p>Wordle class</p>
 <p>Use: <code class="docutils literal notranslate"><span class="pre">Wordle.solve()</span></code></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.game.wordle.Wordle.solve">
-<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.game.wordle.Wordle.solve" title="Link to this definition"></a></dt>
-<dd><p>Solve Wordle</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.game.wordle.Wordle.update_words">
 <span class="sig-name descname"><span class="pre">update_words</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.game.wordle.Wordle.update_words" title="Link to this definition"></a></dt>
 <dd><p>Try to fetch words list from online source</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.game.wordle.Wordle.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.game.wordle.Wordle.solve" title="Link to this definition"></a></dt>
+<dd><p>Solve Wordle</p>
 </dd></dl>
 
 </dd></dl>
@@ -403,24 +359,24 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
 <section id="absfuyu-game">
 <h3>Absfuyu: Game<a class="headerlink" href="#absfuyu-game" title="Link to this heading"></a></h3>
 <p>Contain some game that can be played on terminal</p>
-<p>Version: 1.0.2
-Date updated: 24/11/2023 (mm/dd/yyyy)</p>
+<p>Version: 1.1.0
+Date updated: 14/04/2024 (dd/mm/yyyy)</p>
 </section>
 <dl class="py function">
+<dt class="sig sig-object py" id="absfuyu.game.game_escapeLoop">
+<span class="sig-prename descclassname"><span class="pre">absfuyu.game.</span></span><span class="sig-name descname"><span class="pre">game_escapeLoop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.game.game_escapeLoop" title="Link to this definition"></a></dt>
+<dd><p>Try to escape the infinite loop</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.game.game_RockPaperScissors">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.game.</span></span><span class="sig-name descname"><span class="pre">game_RockPaperScissors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hard_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.game_RockPaperScissors" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.game.</span></span><span class="sig-name descname"><span class="pre">game_RockPaperScissors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hard_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">GameStats</span></span></span><a class="headerlink" href="#absfuyu.game.game_RockPaperScissors" title="Link to this definition"></a></dt>
 <dd><p>Rock Paper Scissors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>hard_mode</strong> (<em>bool</em>) – The bot only win or draw (Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.game.game_escapeLoop">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.game.</span></span><span class="sig-name descname"><span class="pre">game_escapeLoop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.game.game_escapeLoop" title="Link to this definition"></a></dt>
-<dd><p>Try to escape the infinite loop</p>
 </dd></dl>
 
 </section>
@@ -437,7 +393,7 @@ Date updated: 24/11/2023 (mm/dd/yyyy)</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022-2024, AbsoluteWinter.</p>
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
   </div>
 
    

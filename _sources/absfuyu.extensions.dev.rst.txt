@@ -20,14 +20,6 @@ absfuyu.extensions.dev.passwordlib module
    :undoc-members:
    :show-inheritance:
 
-absfuyu.extensions.dev.pkglib module
-------------------------------------
-
-.. automodule:: absfuyu.extensions.dev.pkglib
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 absfuyu.extensions.dev.project\_starter module
 ----------------------------------------------
 

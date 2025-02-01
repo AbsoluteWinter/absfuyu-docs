@@ -1,26 +1,29 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.extensions.extra package &mdash; absfuyu 3.3.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>absfuyu.extensions.extra package &mdash; absfuyu 4.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=3eb8911e"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=e6a937a4"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=b612fa2f"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="absfuyu.fun package" href="absfuyu.fun.html" />
-    <link rel="prev" title="absfuyu.extensions package" href="absfuyu.extensions.html" /> 
+    <link rel="prev" title="absfuyu.extensions.dev package" href="absfuyu.extensions.dev.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -34,9 +37,6 @@
           <a href="index.html" class="icon icon-home">
             absfuyu
           </a>
-              <div class="version">
-                3.3.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -47,7 +47,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">absfuyu</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info.html"><strong>BASIC INFO</strong></a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
@@ -87,7 +88,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">absfuyu</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Module Documentation</a></li>
           <li class="breadcrumb-item"><a href="absfuyu.html">absfuyu package</a></li>
           <li class="breadcrumb-item"><a href="absfuyu.extensions.html">absfuyu.extensions package</a></li>
       <li class="breadcrumb-item active">absfuyu.extensions.extra package</li>
@@ -109,9 +110,27 @@
 <section id="absfuyu-data-analysis-w-i-p">
 <h3>Absfuyu: Data Analysis [W.I.P]<a class="headerlink" href="#absfuyu-data-analysis-w-i-p" title="Link to this heading"></a></h3>
 <p>Extension for <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code></p>
-<p>Version: 2.1.3
-Date updated: 20/03/2024 (dd/mm/yyyy)</p>
+<p>Version: 2.2.0
+Date updated: 29/11/2024 (dd/mm/yyyy)</p>
 </section>
+<dl class="py function">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.compare_2_list">
+<span class="sig-prename descclassname"><span class="pre">absfuyu.extensions.extra.data_analysis.</span></span><span class="sig-name descname"><span class="pre">compare_2_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.compare_2_list" title="Link to this definition"></a></dt>
+<dd><p>Compare 2 lists then create DataFrame
+to see which items are missing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>arr</strong> (<em>list</em>) – List</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Compare result</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.CityData">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extensions.extra.data_analysis.</span></span><span class="sig-name descname"><span class="pre">CityData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">city</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.CityData" title="Link to this definition"></a></dt>
@@ -126,12 +145,6 @@ Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.CityData.area">
-<span class="sig-name descname"><span class="pre">area</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.CityData.area" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 2</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.CityData.city">
 <span class="sig-name descname"><span class="pre">city</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.CityData.city" title="Link to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
@@ -143,13 +156,171 @@ Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.CityData.area">
+<span class="sig-name descname"><span class="pre">area</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.CityData.area" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DADF">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extensions.extra.data_analysis.</span></span><span class="sig-name descname"><span class="pre">DADF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DADF" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrame</span></code></a></p>
-<p>Short name for <code class="docutils literal notranslate"><span class="pre">DataAnalystDataFrame</span></code></p>
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extensions.extra.data_analysis.</span></span><span class="sig-name descname"><span class="pre">SplittedDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_na</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>DataFrame splitted into contains
+missing values only and vice versa</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>DataFrame</em>) – DataFrame without missing values</p></li>
+<li><p><strong>df_na</strong> (<em>DataFrame</em>) – DataFrame with missing values only</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF.df">
+<span class="sig-name descname"><span class="pre">df</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF.df" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF.df_na">
+<span class="sig-name descname"><span class="pre">df_na</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF.df_na" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF.concat_df">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">concat_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">join</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'inner'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'outer'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inner'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF.concat_df" title="Link to this definition"></a></dt>
+<dd><p>Concat the list of DataFrame (static method)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df_list</strong> (<em>list</em><em>[</em><em>DataFrame</em><em>]</em>) – A sequence of DataFrame</p></li>
+<li><p><strong>join</strong> (<em>str</em>) – Join type
+(Default: <code class="docutils literal notranslate"><span class="pre">&quot;inner&quot;</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Joined DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF.concat">
+<span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">join</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'inner'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'outer'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inner'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF.concat" title="Link to this definition"></a></dt>
+<dd><p>Concat the splitted DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>join</strong> (<em>str</em>) – Join type
+(Default: <code class="docutils literal notranslate"><span class="pre">&quot;inner&quot;</span></code>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Joined DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF.divide_dataframe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">divide_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF.divide_dataframe" title="Link to this definition"></a></dt>
+<dd><p>Divide DataFrame into a list of DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>by_column</strong> (<em>str</em>) – By which column</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Splitted DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[DataFrame]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.PLTFormatString">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extensions.extra.data_analysis.</span></span><span class="sig-name descname"><span class="pre">PLTFormatString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">marker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.PLTFormatString" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>Matplotlib format string</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.PLTFormatString.marker">
+<span class="sig-name descname"><span class="pre">marker</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.PLTFormatString.marker" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.PLTFormatString.line_style">
+<span class="sig-name descname"><span class="pre">line_style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.PLTFormatString.line_style" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.PLTFormatString.color">
+<span class="sig-name descname"><span class="pre">color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.PLTFormatString.color" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extensions.extra.data_analysis.</span></span><span class="sig-name descname"><span class="pre">MatplotlibFormatString</span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Format string format: <cite>[marker][line][color]</cite> or <cite>[color][marker][line]</cite></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.MARKER_LIST">
+<span class="sig-name descname"><span class="pre">MARKER_LIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'*':</span> <span class="pre">'star</span> <span class="pre">marker',</span> <span class="pre">'+':</span> <span class="pre">'plus</span> <span class="pre">marker',</span> <span class="pre">',':</span> <span class="pre">'pixel</span> <span class="pre">marker',</span> <span class="pre">'.':</span> <span class="pre">'point</span> <span class="pre">marker',</span> <span class="pre">'1':</span> <span class="pre">'tri_down</span> <span class="pre">marker',</span> <span class="pre">'2':</span> <span class="pre">'tri_up</span> <span class="pre">marker',</span> <span class="pre">'3':</span> <span class="pre">'tri_left</span> <span class="pre">marker',</span> <span class="pre">'4':</span> <span class="pre">'tri_right</span> <span class="pre">marker',</span> <span class="pre">'8':</span> <span class="pre">'octagon</span> <span class="pre">marker',</span> <span class="pre">'&lt;':</span> <span class="pre">'triangle_left</span> <span class="pre">marker',</span> <span class="pre">'&gt;':</span> <span class="pre">'triangle_right</span> <span class="pre">marker',</span> <span class="pre">'D':</span> <span class="pre">'diamond</span> <span class="pre">marker',</span> <span class="pre">'H':</span> <span class="pre">'hexagon2</span> <span class="pre">marker',</span> <span class="pre">'P':</span> <span class="pre">'plus</span> <span class="pre">(filled)</span> <span class="pre">marker',</span> <span class="pre">'X':</span> <span class="pre">'x</span> <span class="pre">(filled)</span> <span class="pre">marker',</span> <span class="pre">'^':</span> <span class="pre">'triangle_up</span> <span class="pre">marker',</span> <span class="pre">'_':</span> <span class="pre">'hline</span> <span class="pre">marker',</span> <span class="pre">'d':</span> <span class="pre">'thin_diamond</span> <span class="pre">marker',</span> <span class="pre">'h':</span> <span class="pre">'hexagon1</span> <span class="pre">marker',</span> <span class="pre">'o':</span> <span class="pre">'circle</span> <span class="pre">marker',</span> <span class="pre">'p':</span> <span class="pre">'pentagon</span> <span class="pre">marker',</span> <span class="pre">'s':</span> <span class="pre">'square</span> <span class="pre">marker',</span> <span class="pre">'v':</span> <span class="pre">'triangle_down</span> <span class="pre">marker',</span> <span class="pre">'x':</span> <span class="pre">'x</span> <span class="pre">marker',</span> <span class="pre">'|':</span> <span class="pre">'vline</span> <span class="pre">marker'}</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.MARKER_LIST" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.LINE_STYLE_LIST">
+<span class="sig-name descname"><span class="pre">LINE_STYLE_LIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'-':</span> <span class="pre">'solid</span> <span class="pre">line</span> <span class="pre">style',</span> <span class="pre">'--':</span> <span class="pre">'dashed</span> <span class="pre">line</span> <span class="pre">style',</span> <span class="pre">'-.':</span> <span class="pre">'dash-dot</span> <span class="pre">line</span> <span class="pre">style',</span> <span class="pre">':':</span> <span class="pre">'dotted</span> <span class="pre">line</span> <span class="pre">style'}</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.LINE_STYLE_LIST" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.COLOR_LIST">
+<span class="sig-name descname"><span class="pre">COLOR_LIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'b':</span> <span class="pre">'blue',</span> <span class="pre">'c':</span> <span class="pre">'cyan',</span> <span class="pre">'g':</span> <span class="pre">'green',</span> <span class="pre">'k':</span> <span class="pre">'black',</span> <span class="pre">'m':</span> <span class="pre">'magenta',</span> <span class="pre">'r':</span> <span class="pre">'red',</span> <span class="pre">'w':</span> <span class="pre">'white',</span> <span class="pre">'y':</span> <span class="pre">'yellow'}</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.COLOR_LIST" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.Marker">
+<span class="sig-name descname"><span class="pre">Marker</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">_DictToAtrr(['point_marker',</span> <span class="pre">'pixel_marker',</span> <span class="pre">'circle_marker',</span> <span class="pre">'triangle_down_marker',</span> <span class="pre">'triangle_up_marker',</span> <span class="pre">'triangle_left_marker',</span> <span class="pre">'triangle_right_marker',</span> <span class="pre">'tri_down_marker',</span> <span class="pre">'tri_up_marker',</span> <span class="pre">'tri_left_marker',</span> <span class="pre">'tri_right_marker',</span> <span class="pre">'octagon_marker',</span> <span class="pre">'square_marker',</span> <span class="pre">'pentagon_marker',</span> <span class="pre">'plus_filled_marker',</span> <span class="pre">'star_marker',</span> <span class="pre">'hexagon1_marker',</span> <span class="pre">'hexagon2_marker',</span> <span class="pre">'plus_marker',</span> <span class="pre">'x_marker',</span> <span class="pre">'x_filled_marker',</span> <span class="pre">'diamond_marker',</span> <span class="pre">'thin_diamond_marker',</span> <span class="pre">'vline_marker',</span> <span class="pre">'hline_marker'])</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.Marker" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.LineStyle">
+<span class="sig-name descname"><span class="pre">LineStyle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">_DictToAtrr(['solid_line_style',</span> <span class="pre">'dashed_line_style',</span> <span class="pre">'dash-dot_line_style',</span> <span class="pre">'dotted_line_style'])</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.LineStyle" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.Color">
+<span class="sig-name descname"><span class="pre">Color</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">_DictToAtrr(['blue',</span> <span class="pre">'green',</span> <span class="pre">'red',</span> <span class="pre">'cyan',</span> <span class="pre">'magenta',</span> <span class="pre">'yellow',</span> <span class="pre">'black',</span> <span class="pre">'white'])</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.Color" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.all_format_string">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">all_format_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.PLTFormatString" title="absfuyu.extensions.extra.data_analysis.PLTFormatString"><span class="pre">PLTFormatString</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.all_format_string" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.get_random">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.get_random" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -158,8 +329,62 @@ Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
 <p>Data Analyst <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code></p>
 <dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.rearrange_column">
+<span class="sig-name descname"><span class="pre">rearrange_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">insert_to_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.rearrange_column" title="Link to this definition"></a></dt>
+<dd><p>Move right-most columns to selected position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>insert_to_col</strong> (<em>str</em>) – Name of the column that the right-most column will be moved next to</p></li>
+<li><p><strong>num_of_cols</strong> (<em>int</em>) – Number of columns moved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame">DataAnalystDataFrame</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.drop_columns">
+<span class="sig-name descname"><span class="pre">drop_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.drop_columns" title="Link to this definition"></a></dt>
+<dd><p>Drop columns in DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>columns</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of columns need to drop</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame">DataAnalystDataFrame</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.drop_rightmost">
+<span class="sig-name descname"><span class="pre">drop_rightmost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_of_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.drop_rightmost" title="Link to this definition"></a></dt>
+<dd><p>Drop <code class="docutils literal notranslate"><span class="pre">num_of_cols</span></code> right-most columns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num_of_cols</strong> (<em>int</em>) – Number of columns to drop</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame">DataAnalystDataFrame</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.add_blank_column">
-<span class="sig-name descname"><span class="pre">add_blank_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.add_blank_column" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_blank_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.add_blank_column" title="Link to this definition"></a></dt>
 <dd><p>Add a blank column</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -178,8 +403,36 @@ Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.convert_city">
+<span class="sig-name descname"><span class="pre">convert_city</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">city_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.CityData" title="absfuyu.extensions.extra.data_analysis.CityData"><span class="pre">CityData</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ra'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.convert_city" title="Link to this definition"></a></dt>
+<dd><p>Get <code class="docutils literal notranslate"><span class="pre">region</span></code> and <code class="docutils literal notranslate"><span class="pre">area</span></code> of a city</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>city_column</strong> (<em>str</em>) – Column contains city data</p></li>
+<li><p><strong>city_list</strong> (<em>list</em><em>[</em><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.CityData" title="absfuyu.extensions.extra.data_analysis.CityData"><em>CityData</em></a><em>]</em>) – List of city in correct format
+(Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) – <div class="line-block">
+<div class="line">Detailed column to add</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r</span></code>: region</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">a</span></code>: area</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">&quot;ra&quot;</span></code>)</div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame">DataAnalystDataFrame</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.add_date_from_month">
-<span class="sig-name descname"><span class="pre">add_date_from_month</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">month_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'date'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.add_date_from_month" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_date_from_month</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">month_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'date'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.add_date_from_month" title="Link to this definition"></a></dt>
 <dd><p>Add dummy <code class="docutils literal notranslate"><span class="pre">date</span></code> column from <code class="docutils literal notranslate"><span class="pre">month</span></code> column</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -200,7 +453,7 @@ Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.add_detail_date">
-<span class="sig-name descname"><span class="pre">add_detail_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'dwmy'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.add_detail_date" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_detail_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'dwmy'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.add_detail_date" title="Link to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>Add these columns from <code class="docutils literal notranslate"><span class="pre">date_column</span></code>:</dt><dd><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">date</span></code> (won’t add if <code class="docutils literal notranslate"><span class="pre">date_column</span></code> value is <code class="docutils literal notranslate"><span class="pre">&quot;date&quot;</span></code>)</p></li>
@@ -236,42 +489,8 @@ Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.convert_city">
-<span class="sig-name descname"><span class="pre">convert_city</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">city_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.CityData" title="absfuyu.extensions.extra.data_analysis.CityData"><span class="pre">CityData</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ra'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.convert_city" title="Link to this definition"></a></dt>
-<dd><p>Get <code class="docutils literal notranslate"><span class="pre">region</span></code> and <code class="docutils literal notranslate"><span class="pre">area</span></code> of a city</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>city_column</strong> (<em>str</em>) – Column contains city data</p></li>
-<li><p><strong>city_list</strong> (<em>list</em><em>[</em><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.CityData" title="absfuyu.extensions.extra.data_analysis.CityData"><em>CityData</em></a><em>]</em>) – List of city in correct format
-(Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
-<li><p><strong>mode</strong> (<em>str</em>) – <div class="line-block">
-<div class="line">Detailed column to add</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">r</span></code>: region</div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">a</span></code>: area</div>
-<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">&quot;ra&quot;</span></code>)</div>
-</div>
-</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Modified DataFrame</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame">DataAnalystDataFrame</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.dadf_help">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dadf_help</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.dadf_help" title="Link to this definition"></a></dt>
-<dd><p>Show all available method of DataAnalystDataFrame</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.delta_date">
-<span class="sig-name descname"><span class="pre">delta_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'now'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'delta_date'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.delta_date" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">delta_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'now'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'between_row'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'now'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'delta_date'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.delta_date" title="Link to this definition"></a></dt>
 <dd><p>Calculate date interval</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -281,7 +500,7 @@ Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 <div class="line">Mode to calculate</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">&quot;between_row&quot;</span></code>: Calculate date interval between each row</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">&quot;now&quot;</span></code>: Calculate date interval to current date</div>
-<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">&quot;between_row&quot;</span></code>)</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">&quot;now&quot;</span></code>)</div>
 </div>
 </p></li>
 <li><p><strong>col_name</strong> (<em>str</em>) – <div class="line-block">
@@ -301,42 +520,8 @@ Date updated: 20/03/2024 (dd/mm/yyyy)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.drop_columns">
-<span class="sig-name descname"><span class="pre">drop_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.drop_columns" title="Link to this definition"></a></dt>
-<dd><p>Drop columns in DataFrame</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>columns</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of columns need to drop</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Modified DataFrame</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame">DataAnalystDataFrame</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.drop_rightmost">
-<span class="sig-name descname"><span class="pre">drop_rightmost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_of_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.drop_rightmost" title="Link to this definition"></a></dt>
-<dd><p>Drop <code class="docutils literal notranslate"><span class="pre">num_of_cols</span></code> right-most columns</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>num_of_cols</strong> (<em>int</em>) – Number of columns to drop</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Modified DataFrame</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame">DataAnalystDataFrame</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.fill_missing_values">
-<span class="sig-name descname"><span class="pre">fill_missing_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_when_not_exist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.fill_missing_values" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fill_missing_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_when_not_exist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.fill_missing_values" title="Link to this definition"></a></dt>
 <dd><p>Fill missing values in specified column</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -356,148 +541,6 @@ create a new column and fill with <code class="docutils literal notranslate"><sp
 <dd class="field-odd"><p><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame">DataAnalystDataFrame</a></p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.get_missing_values">
-<span class="sig-name descname"><span class="pre">get_missing_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hightlight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentage_round_up</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.get_missing_values" title="Link to this definition"></a></dt>
-<dd><p>Get a DataFrame contains count of missing values for each column</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>hightlight</strong> (<em>bool</em>) – Shows only columns with missing values when <code class="docutils literal notranslate"><span class="pre">True</span></code>
-(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
-<li><p><strong>percentage_round_up</strong> (<em>int</em>) – Round up to which decimals
-(Default: <code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Missing value DataFrame</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.qdescribe">
-<span class="sig-name descname"><span class="pre">qdescribe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.qdescribe" title="Link to this definition"></a></dt>
-<dd><p>Quick <code class="docutils literal notranslate"><span class="pre">describe()</span></code> that exclude <code class="docutils literal notranslate"><span class="pre">object</span></code> and <code class="docutils literal notranslate"><span class="pre">datetime</span></code> dtype</p>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 3.2.0.</span></p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.qinfo">
-<span class="sig-name descname"><span class="pre">qinfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.qinfo" title="Link to this definition"></a></dt>
-<dd><p>Show quick infomation about DataFrame</p>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 3.2.0.</span></p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.rearrange_column">
-<span class="sig-name descname"><span class="pre">rearrange_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">insert_to_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.rearrange_column" title="Link to this definition"></a></dt>
-<dd><p>Move right-most columns to selected position</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>insert_to_col</strong> (<em>str</em>) – Name of the column that the right-most column will be moved next to</p></li>
-<li><p><strong>num_of_cols</strong> (<em>int</em>) – Number of columns moved</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Modified DataFrame</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame">DataAnalystDataFrame</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.sample_df">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.sample_df" title="Link to this definition"></a></dt>
-<dd><p>Create sample DataFrame</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>size</strong> (<em>int</em>) – Number of observations
-(Default: <code class="docutils literal notranslate"><span class="pre">100</span></code>)</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>DataFrame with these columns:
-[number, number_big, number_range, missing_value, text, date]</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame">DataAnalystDataFrame</a></p>
-</dd>
-</dl>
-<section id="example">
-<h3>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DataAnalystDataFrame</span><span class="o">.</span><span class="n">sample_df</span><span class="p">()</span>
-<span class="go">      number  number_big number_range  missing_value      text       date</span>
-<span class="go">0  -2.089770         785          700            NaN  vwnlqoql 2013-11-20</span>
-<span class="go">1  -0.526689         182          100           24.0  prjjcvqc 2007-04-13</span>
-<span class="go">2  -1.596514         909          900            8.0  cbcpzlac 2023-05-24</span>
-<span class="go">3   2.982191         989          900           21.0  ivwqwuvd 2022-04-28</span>
-<span class="go">4   1.687803         878          800            NaN  aajtncum 2005-10-05</span>
-<span class="go">..       ...         ...          ...            ...       ...        ...</span>
-<span class="go">95 -1.295145         968          900           16.0  mgqunkhi 2016-04-12</span>
-<span class="go">96  1.296795         255          200            NaN  lwvytego 2014-05-10</span>
-<span class="go">97  1.440746         297          200            5.0  lqsoykun 2010-04-03</span>
-<span class="go">98  0.327702         845          800            NaN  leadkvsy 2005-08-05</span>
-<span class="go">99  0.556720         981          900           36.0  bozmxixy 2004-02-22</span>
-<span class="go">[100 rows x 6 columns]</span>
-</pre></div>
-</div>
-</section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.show_distribution">
-<span class="sig-name descname"><span class="pre">show_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropna</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_percentage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentage_round_up</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.show_distribution" title="Link to this definition"></a></dt>
-<dd><p>Show distribution of a column</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>column_name</strong> (<em>str</em>) – Column to show distribution</p></li>
-<li><p><strong>dropna</strong> (<em>bool</em>) – Count N/A when <code class="docutils literal notranslate"><span class="pre">False</span></code>
-(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
-<li><p><strong>show_percentage</strong> (<em>bool</em>) – Show proportion in range 0% - 100% instead of [0, 1]
-(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
-<li><p><strong>percentage_round_up</strong> (<em>int</em>) – Round up to which decimals
-(Default: <code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Distribution DataFrame</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>DataFrame</p>
-</dd>
-</dl>
-<section id="id1">
-<h3>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DataAnalystDataFrame</span><span class="o">.</span><span class="n">sample_df</span><span class="p">()</span><span class="o">.</span><span class="n">show_distribution</span><span class="p">(</span><span class="s2">&quot;number_range&quot;</span><span class="p">)</span>
-<span class="go">  number_range  count  percentage</span>
-<span class="go">0          900     16        16.0</span>
-<span class="go">1          700     15        15.0</span>
-<span class="go">2          300     12        12.0</span>
-<span class="go">3          200     12        12.0</span>
-<span class="go">4          400     11        11.0</span>
-<span class="go">5          600     11        11.0</span>
-<span class="go">6          800     10        10.0</span>
-<span class="go">7          100      9         9.0</span>
-<span class="go">8          500      4         4.0</span>
-</pre></div>
-</div>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 3.2.0.</span></p>
-</div>
-</section>
 </dd></dl>
 
 <dl class="py method">
@@ -525,7 +568,7 @@ create a new column and fill with <code class="docutils literal notranslate"><sp
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.threshold_filter">
-<span class="sig-name descname"><span class="pre">threshold_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace_with</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Other'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.threshold_filter" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">threshold_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace_with</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Other'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.threshold_filter" title="Link to this definition"></a></dt>
 <dd><p>Filter out percentage of data that smaller than the <code class="docutils literal notranslate"><span class="pre">threshold</span></code>,
 replace all of the smaller data to <code class="docutils literal notranslate"><span class="pre">replace_with</span></code>.
 As a result, pie chart is less messy.</p>
@@ -555,109 +598,43 @@ As a result, pie chart is less messy.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">total_observation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.total_observation" title="Link to this definition"></a></dt>
 <dd><p>Returns total observation of the DataFrame</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.2.0.</span></p>
+<p><span class="versionmodified added">Added in version 3.2.0.</span></p>
 </div>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.qinfo">
+<span class="sig-name descname"><span class="pre">qinfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.qinfo" title="Link to this definition"></a></dt>
+<dd><p>Show quick infomation about DataFrame</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.2.0.</span></p>
+</div>
 </dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extensions.extra.data_analysis.</span></span><span class="sig-name descname"><span class="pre">MatplotlibFormatString</span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Format string format: <cite>[marker][line][color]</cite> or <cite>[color][marker][line]</cite></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.COLOR_LIST">
-<span class="sig-name descname"><span class="pre">COLOR_LIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'b':</span> <span class="pre">'blue',</span> <span class="pre">'c':</span> <span class="pre">'cyan',</span> <span class="pre">'g':</span> <span class="pre">'green',</span> <span class="pre">'k':</span> <span class="pre">'black',</span> <span class="pre">'m':</span> <span class="pre">'magenta',</span> <span class="pre">'r':</span> <span class="pre">'red',</span> <span class="pre">'w':</span> <span class="pre">'white',</span> <span class="pre">'y':</span> <span class="pre">'yellow'}</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.COLOR_LIST" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.Color">
-<span class="sig-name descname"><span class="pre">Color</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">_DictToAtrr(['blue',</span> <span class="pre">'green',</span> <span class="pre">'red',</span> <span class="pre">'cyan',</span> <span class="pre">'magenta',</span> <span class="pre">'yellow',</span> <span class="pre">'black',</span> <span class="pre">'white'])</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.Color" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.LINE_STYLE_LIST">
-<span class="sig-name descname"><span class="pre">LINE_STYLE_LIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'-':</span> <span class="pre">'solid</span> <span class="pre">line</span> <span class="pre">style',</span> <span class="pre">'--':</span> <span class="pre">'dashed</span> <span class="pre">line</span> <span class="pre">style',</span> <span class="pre">'-.':</span> <span class="pre">'dash-dot</span> <span class="pre">line</span> <span class="pre">style',</span> <span class="pre">':':</span> <span class="pre">'dotted</span> <span class="pre">line</span> <span class="pre">style'}</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.LINE_STYLE_LIST" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.LineStyle">
-<span class="sig-name descname"><span class="pre">LineStyle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">_DictToAtrr(['solid_line_style',</span> <span class="pre">'dashed_line_style',</span> <span class="pre">'dash-dot_line_style',</span> <span class="pre">'dotted_line_style'])</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.LineStyle" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.MARKER_LIST">
-<span class="sig-name descname"><span class="pre">MARKER_LIST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'*':</span> <span class="pre">'star</span> <span class="pre">marker',</span> <span class="pre">'+':</span> <span class="pre">'plus</span> <span class="pre">marker',</span> <span class="pre">',':</span> <span class="pre">'pixel</span> <span class="pre">marker',</span> <span class="pre">'.':</span> <span class="pre">'point</span> <span class="pre">marker',</span> <span class="pre">'1':</span> <span class="pre">'tri_down</span> <span class="pre">marker',</span> <span class="pre">'2':</span> <span class="pre">'tri_up</span> <span class="pre">marker',</span> <span class="pre">'3':</span> <span class="pre">'tri_left</span> <span class="pre">marker',</span> <span class="pre">'4':</span> <span class="pre">'tri_right</span> <span class="pre">marker',</span> <span class="pre">'8':</span> <span class="pre">'octagon</span> <span class="pre">marker',</span> <span class="pre">'&lt;':</span> <span class="pre">'triangle_left</span> <span class="pre">marker',</span> <span class="pre">'&gt;':</span> <span class="pre">'triangle_right</span> <span class="pre">marker',</span> <span class="pre">'D':</span> <span class="pre">'diamond</span> <span class="pre">marker',</span> <span class="pre">'H':</span> <span class="pre">'hexagon2</span> <span class="pre">marker',</span> <span class="pre">'P':</span> <span class="pre">'plus</span> <span class="pre">(filled)</span> <span class="pre">marker',</span> <span class="pre">'X':</span> <span class="pre">'x</span> <span class="pre">(filled)</span> <span class="pre">marker',</span> <span class="pre">'^':</span> <span class="pre">'triangle_up</span> <span class="pre">marker',</span> <span class="pre">'_':</span> <span class="pre">'hline</span> <span class="pre">marker',</span> <span class="pre">'d':</span> <span class="pre">'thin_diamond</span> <span class="pre">marker',</span> <span class="pre">'h':</span> <span class="pre">'hexagon1</span> <span class="pre">marker',</span> <span class="pre">'o':</span> <span class="pre">'circle</span> <span class="pre">marker',</span> <span class="pre">'p':</span> <span class="pre">'pentagon</span> <span class="pre">marker',</span> <span class="pre">'s':</span> <span class="pre">'square</span> <span class="pre">marker',</span> <span class="pre">'v':</span> <span class="pre">'triangle_down</span> <span class="pre">marker',</span> <span class="pre">'x':</span> <span class="pre">'x</span> <span class="pre">marker',</span> <span class="pre">'|':</span> <span class="pre">'vline</span> <span class="pre">marker'}</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.MARKER_LIST" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.Marker">
-<span class="sig-name descname"><span class="pre">Marker</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">_DictToAtrr(['point_marker',</span> <span class="pre">'pixel_marker',</span> <span class="pre">'circle_marker',</span> <span class="pre">'triangle_down_marker',</span> <span class="pre">'triangle_up_marker',</span> <span class="pre">'triangle_left_marker',</span> <span class="pre">'triangle_right_marker',</span> <span class="pre">'tri_down_marker',</span> <span class="pre">'tri_up_marker',</span> <span class="pre">'tri_left_marker',</span> <span class="pre">'tri_right_marker',</span> <span class="pre">'octagon_marker',</span> <span class="pre">'square_marker',</span> <span class="pre">'pentagon_marker',</span> <span class="pre">'plus_filled_marker',</span> <span class="pre">'star_marker',</span> <span class="pre">'hexagon1_marker',</span> <span class="pre">'hexagon2_marker',</span> <span class="pre">'plus_marker',</span> <span class="pre">'x_marker',</span> <span class="pre">'x_filled_marker',</span> <span class="pre">'diamond_marker',</span> <span class="pre">'thin_diamond_marker',</span> <span class="pre">'vline_marker',</span> <span class="pre">'hline_marker'])</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.Marker" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.all_format_string">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">all_format_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.PLTFormatString" title="absfuyu.extensions.extra.data_analysis.PLTFormatString"><span class="pre">PLTFormatString</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.all_format_string" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.qdescribe">
+<span class="sig-name descname"><span class="pre">qdescribe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.qdescribe" title="Link to this definition"></a></dt>
+<dd><p>Quick <code class="docutils literal notranslate"><span class="pre">describe()</span></code> that exclude <code class="docutils literal notranslate"><span class="pre">object</span></code> and <code class="docutils literal notranslate"><span class="pre">datetime</span></code> dtype</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.2.0.</span></p>
+</div>
+</dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.get_random">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.MatplotlibFormatString.get_random" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.PLTFormatString">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extensions.extra.data_analysis.</span></span><span class="sig-name descname"><span class="pre">PLTFormatString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">marker</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.PLTFormatString" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
-<p>Matplotlib format string</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.PLTFormatString.color">
-<span class="sig-name descname"><span class="pre">color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.PLTFormatString.color" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 2</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.PLTFormatString.line_style">
-<span class="sig-name descname"><span class="pre">line_style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.PLTFormatString.line_style" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 1</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.PLTFormatString.marker">
-<span class="sig-name descname"><span class="pre">marker</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.PLTFormatString.marker" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 0</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extensions.extra.data_analysis.</span></span><span class="sig-name descname"><span class="pre">SplittedDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_na</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
-<p>DataFrame splitted into contains
-missing values only and vice versa</p>
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.get_missing_values">
+<span class="sig-name descname"><span class="pre">get_missing_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hightlight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentage_round_up</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.get_missing_values" title="Link to this definition"></a></dt>
+<dd><p>Get a DataFrame contains count of missing values for each column</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>DataFrame</em>) – DataFrame without missing values</p></li>
-<li><p><strong>df_na</strong> (<em>DataFrame</em>) – DataFrame with missing values only</p></li>
+<li><p><strong>hightlight</strong> (<em>bool</em>) – Shows only columns with missing values when <code class="docutils literal notranslate"><span class="pre">True</span></code>
+(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><strong>percentage_round_up</strong> (<em>int</em>) – Round up to which decimals
+(Default: <code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
 </ul>
 </dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF.concat">
-<span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">join</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inner'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF.concat" title="Link to this definition"></a></dt>
-<dd><p>Concat the splitted DataFrame</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>join</strong> (<em>str</em>) – Join type
-(Default: <code class="docutils literal notranslate"><span class="pre">&quot;inner&quot;</span></code>)</p>
-</dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Joined DataFrame</p>
+<dd class="field-even"><p>Missing value DataFrame</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>DataFrame</p>
@@ -666,76 +643,100 @@ missing values only and vice versa</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF.concat_df">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">concat_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">join</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inner'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF.concat_df" title="Link to this definition"></a></dt>
-<dd><p>Concat the list of DataFrame (static method)</p>
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.show_distribution">
+<span class="sig-name descname"><span class="pre">show_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropna</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_percentage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentage_round_up</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.show_distribution" title="Link to this definition"></a></dt>
+<dd><p>Show distribution of a column</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df_list</strong> (<em>list</em><em>[</em><em>DataFrame</em><em>]</em>) – A sequence of DataFrame</p></li>
-<li><p><strong>join</strong> (<em>str</em>) – Join type
-(Default: <code class="docutils literal notranslate"><span class="pre">&quot;inner&quot;</span></code>)</p></li>
+<li><p><strong>column_name</strong> (<em>str</em>) – Column to show distribution</p></li>
+<li><p><strong>dropna</strong> (<em>bool</em>) – Count N/A when <code class="docutils literal notranslate"><span class="pre">False</span></code>
+(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><strong>show_percentage</strong> (<em>bool</em>) – Show proportion in range 0% - 100% instead of [0, 1]
+(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><strong>percentage_round_up</strong> (<em>int</em>) – Round up to which decimals
+(Default: <code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Joined DataFrame</p>
+<dd class="field-even"><p>Distribution DataFrame</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>DataFrame</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF.df">
-<span class="sig-name descname"><span class="pre">df</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF.df" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 0</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF.df_na">
-<span class="sig-name descname"><span class="pre">df_na</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF.df_na" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 1</p>
+<section id="example">
+<h3>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DataAnalystDataFrame</span><span class="o">.</span><span class="n">sample_df</span><span class="p">()</span><span class="o">.</span><span class="n">show_distribution</span><span class="p">(</span><span class="s2">&quot;number_range&quot;</span><span class="p">)</span>
+<span class="go">  number_range  count  percentage</span>
+<span class="go">0          900     16        16.0</span>
+<span class="go">1          700     15        15.0</span>
+<span class="go">2          300     12        12.0</span>
+<span class="go">3          200     12        12.0</span>
+<span class="go">4          400     11        11.0</span>
+<span class="go">5          600     11        11.0</span>
+<span class="go">6          800     10        10.0</span>
+<span class="go">7          100      9         9.0</span>
+<span class="go">8          500      4         4.0</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.2.0.</span></p>
+</div>
+</section>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.SplittedDF.divide_dataframe">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">divide_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.SplittedDF.divide_dataframe" title="Link to this definition"></a></dt>
-<dd><p>Divide DataFrame into a list of DataFrame</p>
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.dadf_help">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dadf_help</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.dadf_help" title="Link to this definition"></a></dt>
+<dd><p>Show all available method of DataAnalystDataFrame</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.sample_df">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame.sample_df" title="Link to this definition"></a></dt>
+<dd><p>Create sample DataFrame</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> (<em>DataFrame</em>) – DataFrame</p></li>
-<li><p><strong>by_column</strong> (<em>str</em>) – By which column</p></li>
-</ul>
+<dd class="field-odd"><p><strong>size</strong> (<em>int</em>) – Number of observations
+(Default: <code class="docutils literal notranslate"><span class="pre">100</span></code>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Splitted DataFrame</p>
+<dd class="field-even"><p>DataFrame with these columns:
+[number, number_big, number_range, missing_value, text, date]</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[DataFrame]</p>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame">DataAnalystDataFrame</a></p>
 </dd>
 </dl>
+<section id="id1">
+<h3>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DataAnalystDataFrame</span><span class="o">.</span><span class="n">sample_df</span><span class="p">()</span>
+<span class="go">      number  number_big number_range  missing_value      text       date</span>
+<span class="go">0  -2.089770         785          700            NaN  vwnlqoql 2013-11-20</span>
+<span class="go">1  -0.526689         182          100           24.0  prjjcvqc 2007-04-13</span>
+<span class="go">2  -1.596514         909          900            8.0  cbcpzlac 2023-05-24</span>
+<span class="go">3   2.982191         989          900           21.0  ivwqwuvd 2022-04-28</span>
+<span class="go">4   1.687803         878          800            NaN  aajtncum 2005-10-05</span>
+<span class="go">..       ...         ...          ...            ...       ...        ...</span>
+<span class="go">95 -1.295145         968          900           16.0  mgqunkhi 2016-04-12</span>
+<span class="go">96  1.296795         255          200            NaN  lwvytego 2014-05-10</span>
+<span class="go">97  1.440746         297          200            5.0  lqsoykun 2010-04-03</span>
+<span class="go">98  0.327702         845          800            NaN  leadkvsy 2005-08-05</span>
+<span class="go">99  0.556720         981          900           36.0  bozmxixy 2004-02-22</span>
+<span class="go">[100 rows x 6 columns]</span>
+</pre></div>
+</div>
+</section>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.compare_2_list">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.extensions.extra.data_analysis.</span></span><span class="sig-name descname"><span class="pre">compare_2_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.compare_2_list" title="Link to this definition"></a></dt>
-<dd><p>Compare 2 lists then create DataFrame
-to see which items are missing</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>arr</strong> (<em>list</em>) – List</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Compare result</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>DataFrame</p>
-</dd>
-</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.extensions.extra.data_analysis.DADF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extensions.extra.data_analysis.</span></span><span class="sig-name descname"><span class="pre">DADF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.extensions.extra.data_analysis.DADF" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame" title="absfuyu.extensions.extra.data_analysis.DataAnalystDataFrame"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrame</span></code></a></p>
+<p>Short name for <code class="docutils literal notranslate"><span class="pre">DataAnalystDataFrame</span></code></p>
 </dd></dl>
 
 </section>
@@ -754,14 +755,14 @@ Date updated: 24/11/2023 (dd/mm/yyyy)</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="absfuyu.extensions.html" class="btn btn-neutral float-left" title="absfuyu.extensions package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absfuyu.extensions.dev.html" class="btn btn-neutral float-left" title="absfuyu.extensions.dev package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="absfuyu.fun.html" class="btn btn-neutral float-right" title="absfuyu.fun package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022-2024, AbsoluteWinter.</p>
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
   </div>
 
    
