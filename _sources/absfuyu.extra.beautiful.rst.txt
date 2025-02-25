@@ -1,0 +1,7 @@
+absfuyu.extra.beautiful module
+==============================
+
+.. automodule:: absfuyu.extra.beautiful
+   :members:
+   :undoc-members:
+   :show-inheritance:

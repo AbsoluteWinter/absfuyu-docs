@@ -1,0 +1,7 @@
+absfuyu.core.dummy\_cli module
+==============================
+
+.. automodule:: absfuyu.core.dummy_cli
+   :members:
+   :undoc-members:
+   :show-inheritance:

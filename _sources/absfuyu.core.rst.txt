@@ -1,0 +1,20 @@
+absfuyu.core package
+====================
+
+.. automodule:: absfuyu.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.core.baseclass
+   absfuyu.core.baseclass2
+   absfuyu.core.decorator
+   absfuyu.core.docstring
+   absfuyu.core.dummy_cli
+   absfuyu.core.dummy_func

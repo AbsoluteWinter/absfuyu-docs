@@ -1,77 +1,21 @@
 absfuyu.util package
 ====================
 
-Submodules
-----------
-
-absfuyu.util.api module
------------------------
-
-.. automodule:: absfuyu.util.api
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-absfuyu.util.json\_method module
---------------------------------
-
-.. automodule:: absfuyu.util.json_method
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-absfuyu.util.lunar module
--------------------------
-
-.. automodule:: absfuyu.util.lunar
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-absfuyu.util.path module
-------------------------
-
-.. automodule:: absfuyu.util.path
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-absfuyu.util.performance module
--------------------------------
-
-.. automodule:: absfuyu.util.performance
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-absfuyu.util.pkl module
------------------------
-
-.. automodule:: absfuyu.util.pkl
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-absfuyu.util.shorten\_number module
------------------------------------
-
-.. automodule:: absfuyu.util.shorten_number
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-absfuyu.util.zipped module
---------------------------
-
-.. automodule:: absfuyu.util.zipped
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
 .. automodule:: absfuyu.util
    :members:
    :undoc-members:
    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.util.api
+   absfuyu.util.json_method
+   absfuyu.util.lunar
+   absfuyu.util.path
+   absfuyu.util.performance
+   absfuyu.util.shorten_number
+   absfuyu.util.zipped

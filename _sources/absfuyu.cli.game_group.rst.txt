@@ -1,0 +1,7 @@
+absfuyu.cli.game\_group module
+==============================
+
+.. automodule:: absfuyu.cli.game_group
+   :members:
+   :undoc-members:
+   :show-inheritance:

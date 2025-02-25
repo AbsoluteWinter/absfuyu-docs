@@ -1,0 +1,7 @@
+absfuyu.tools.obfuscator module
+===============================
+
+.. automodule:: absfuyu.tools.obfuscator
+   :members:
+   :undoc-members:
+   :show-inheritance:

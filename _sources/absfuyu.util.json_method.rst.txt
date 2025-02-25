@@ -1,0 +1,7 @@
+absfuyu.util.json\_method module
+================================
+
+.. automodule:: absfuyu.util.json_method
+   :members:
+   :undoc-members:
+   :show-inheritance:

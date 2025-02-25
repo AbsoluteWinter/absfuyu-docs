@@ -1,0 +1,7 @@
+absfuyu.dxt.dxt\_support module
+===============================
+
+.. automodule:: absfuyu.dxt.dxt_support
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+absfuyu.general.generator module
+================================
+
+.. automodule:: absfuyu.general.generator
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+absfuyu.dxt.strext module
+=========================
+
+.. automodule:: absfuyu.dxt.strext
+   :members:
+   :undoc-members:
+   :show-inheritance:

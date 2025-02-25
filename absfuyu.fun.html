@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.fun package &mdash; absfuyu 4.1.1 documentation</title>
+  <title>absfuyu.fun package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=e6a937a4"></script>
+      <script src="_static/documentation_options.js?v=ce74c6a2"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -22,8 +22,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="absfuyu.game package" href="absfuyu.game.html" />
-    <link rel="prev" title="absfuyu.extensions.extra package" href="absfuyu.extensions.extra.html" /> 
+    <link rel="next" title="absfuyu.fun.tarot module" href="absfuyu.fun.tarot.html" />
+    <link rel="prev" title="absfuyu.extra.data_analysis module" href="absfuyu.extra.data_analysis.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,13 +47,22 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="info.html"><strong>BASIC INFO</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#license">LICENSE</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu">ABSFUYU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#links">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#usage">USAGE</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.cli.html">absfuyu.cli package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="absfuyu.extensions.html">absfuyu.extensions package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.core.html">absfuyu.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.extra.html">absfuyu.extra package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">absfuyu.fun package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="absfuyu.general.html">absfuyu.general package</a></li>
@@ -63,12 +72,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.core">absfuyu.core module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.everything">absfuyu.everything module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.logger">absfuyu.logger module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.sort">absfuyu.sort module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu.version">absfuyu.version module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#module-absfuyu">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -100,129 +103,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="absfuyu-fun-package">
-<h1>absfuyu.fun package<a class="headerlink" href="#absfuyu-fun-package" title="Link to this heading"></a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
-</section>
-<section id="module-absfuyu.fun.WGS">
-<span id="absfuyu-fun-wgs-module"></span><h2>absfuyu.fun.WGS module<a class="headerlink" href="#module-absfuyu.fun.WGS" title="Link to this heading"></a></h2>
-<section id="absfuyu-wgs">
-<h3>Absfuyu: WGS<a class="headerlink" href="#absfuyu-wgs" title="Link to this heading"></a></h3>
-<p>Wolf’s Gravestone</p>
-<ul class="simple">
-<li><p>This module is not affiliated with miHoYo/Hoyoverse.</p></li>
-<li><p>Genshin Impact, game content and materials are trademarks and copyrights of miHoYo/Hoyoverse.</p></li>
-</ul>
-<p>Version: 1.0.3
-Date updated: 24/11/2023 (dd/mm/yyyy)</p>
-</section>
-<section id="usage">
-<h3>Usage:<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">WGS</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">pixel_art</span><span class="p">())</span>
-</pre></div>
-</div>
-</section>
-<dl class="py class">
-<dt class="sig sig-object py" id="absfuyu.fun.WGS.WGS">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.fun.WGS.</span></span><span class="sig-name descname"><span class="pre">WGS</span></span><a class="headerlink" href="#absfuyu.fun.WGS.WGS" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Wolf’s Gravestone</p>
-<ul class="simple">
-<li><p>This module is not affiliated with miHoYo/Hoyoverse.</p></li>
-<li><p>Genshin Impact, game content and materials are trademarks and copyrights of miHoYo/Hoyoverse.</p></li>
-</ul>
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.fun.WGS.WGS.text_art">
-<span class="sig-name descname"><span class="pre">text_art</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.fun.WGS.WGS.text_art" title="Link to this definition"></a></dt>
-<dd><p>Text art</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>option</strong> (<em>int</em>) – <code class="docutils literal notranslate"><span class="pre">1</span></code> | <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.fun.WGS.WGS.pixel_art">
-<span class="sig-name descname"><span class="pre">pixel_art</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.fun.WGS.WGS.pixel_art" title="Link to this definition"></a></dt>
-<dd><p>Pixel art</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-absfuyu.fun.tarot">
-<span id="absfuyu-fun-tarot-module"></span><h2>absfuyu.fun.tarot module<a class="headerlink" href="#module-absfuyu.fun.tarot" title="Link to this heading"></a></h2>
-<section id="absfuyu-tarot">
-<h3>Absfuyu: Tarot<a class="headerlink" href="#absfuyu-tarot" title="Link to this heading"></a></h3>
-<p>Tarot stuff</p>
-<p>Version: 1.0.4
-Date updated: 14/11/2024 (dd/mm/yyyy)</p>
-</section>
-<section id="id1">
-<h3>Usage:<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tarot_deck</span> <span class="o">=</span> <span class="n">Tarot</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tarot_deck</span><span class="o">.</span><span class="n">random_card</span><span class="p">())</span>
-</pre></div>
-</div>
-</section>
-<dl class="py class">
-<dt class="sig sig-object py" id="absfuyu.fun.tarot.Tarot">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.fun.tarot.</span></span><span class="sig-name descname"><span class="pre">Tarot</span></span><a class="headerlink" href="#absfuyu.fun.tarot.Tarot" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Tarot data</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="absfuyu.fun.tarot.Tarot.tarot_deck">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tarot_deck</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#absfuyu.fun.tarot.TarotCard" title="absfuyu.fun.tarot.TarotCard"><span class="pre">TarotCard</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.fun.tarot.Tarot.tarot_deck" title="Link to this definition"></a></dt>
-<dd><p>Load pickled tarot data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="#absfuyu.fun.tarot.TarotCard" title="absfuyu.fun.tarot.TarotCard">TarotCard</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.fun.tarot.Tarot.random_card">
-<span class="sig-name descname"><span class="pre">random_card</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#absfuyu.fun.tarot.TarotCard" title="absfuyu.fun.tarot.TarotCard"><span class="pre">TarotCard</span></a></span></span><a class="headerlink" href="#absfuyu.fun.tarot.Tarot.random_card" title="Link to this definition"></a></dt>
-<dd><p>Pick a random tarot card</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Random Tarot card</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#absfuyu.fun.tarot.TarotCard" title="absfuyu.fun.tarot.TarotCard">TarotCard</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="absfuyu.fun.tarot.TarotCard">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.fun.tarot.</span></span><span class="sig-name descname"><span class="pre">TarotCard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meanings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keywords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fortune_telling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.fun.tarot.TarotCard" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Tarot card</p>
-</dd></dl>
-
-</section>
-<section id="module-absfuyu.fun">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-absfuyu.fun" title="Link to this heading"></a></h2>
+  <section id="module-absfuyu.fun">
+<span id="absfuyu-fun-package"></span><h1>absfuyu.fun package<a class="headerlink" href="#module-absfuyu.fun" title="Link to this heading"></a></h1>
 <section id="absfuyu-fun">
-<h3>Absfuyu: Fun<a class="headerlink" href="#absfuyu-fun" title="Link to this heading"></a></h3>
+<h2>Absfuyu: Fun<a class="headerlink" href="#absfuyu-fun" title="Link to this heading"></a></h2>
 <p>Some fun or weird stuff</p>
-<p>Version: 1.0.7
-Date updated: 16/08/2024 (dd/mm/yyyy)</p>
+<p>Version: 5.0.0
+Date updated: 13/02/2025 (dd/mm/yyyy)</p>
 </section>
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.fun.zodiac_sign">
@@ -243,6 +130,7 @@ Date updated: 16/08/2024 (dd/mm/yyyy)</p>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
+<p><em>Changed in version 5.0.0: Updated functionality</em></p>
 </dd></dl>
 
 <dl class="py function">
@@ -250,21 +138,19 @@ Date updated: 16/08/2024 (dd/mm/yyyy)</p>
 <span class="sig-prename descclassname"><span class="pre">absfuyu.fun.</span></span><span class="sig-name descname"><span class="pre">im_bored</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.fun.im_bored" title="Link to this definition"></a></dt>
 <dd><p>Get random activity from <code class="docutils literal notranslate"><span class="pre">boredapi</span></code> website</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Random activity</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="absfuyu.fun.force_shutdown">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.fun.</span></span><span class="sig-name descname"><span class="pre">force_shutdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.fun.force_shutdown" title="Link to this definition"></a></dt>
-<dd><p>Force the computer to shutdown</p>
+<p><em>Deprecated in version 5.0.0: API shutdown, will be removed later</em></p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.fun.happy_new_year">
-<span class="sig-prename descclassname"><span class="pre">absfuyu.fun.</span></span><span class="sig-name descname"><span class="pre">happy_new_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forced</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_lunar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.fun.happy_new_year" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">absfuyu.fun.</span></span><span class="sig-name descname"><span class="pre">happy_new_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forced</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_lunar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.fun.happy_new_year" title="Link to this definition"></a></dt>
 <dd><p>Only occurs on 01/01 every year</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -276,6 +162,55 @@ Date updated: 16/08/2024 (dd/mm/yyyy)</p>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="absfuyu.fun.human_year_to_dog_year">
+<span class="sig-prename descclassname"><span class="pre">absfuyu.fun.</span></span><span class="sig-name descname"><span class="pre">human_year_to_dog_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">human_year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_small</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></span><a class="headerlink" href="#absfuyu.fun.human_year_to_dog_year" title="Link to this definition"></a></dt>
+<dd><p>Convert human’s year to dog’s year</p>
+<p>General Guidelines:
+1. First Year: The first year of a dog’s life
+is roughly equal to 15 human years.
+2. Second Year: The second year adds about 9 human years,
+making a 2-year-old dog equivalent to about 24 human years.
+3. Subsequent Years: After the second year,
+each additional yeartypically equals about 4-5 human years,
+depending on the dog’s size and breed. (Small-4, Large-5)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>human_year</strong> (<em>int</em><em> | </em><em>float</em>) – Dog’s age in human year</p></li>
+<li><p><strong>is_small</strong> (<em>bool</em><em>, </em><em>optional</em>) – Is the dog small or not, by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dog’s year/age</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int | float</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – When <code class="docutils literal notranslate"><span class="pre">human_year</span></code> &lt; 0</p>
+</dd>
+</dl>
+<p><em>Added in version 5.0.0</em></p>
+</dd></dl>
+
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.fun.tarot.html">absfuyu.fun.tarot module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.fun.tarot.html#absfuyu-tarot">Absfuyu: Tarot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.fun.tarot.html#usage">Usage:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.fun.tarot.html#absfuyu.fun.tarot.Tarot"><code class="docutils literal notranslate"><span class="pre">Tarot</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.fun.tarot.html#absfuyu.fun.tarot.Tarot.tarot_deck"><code class="docutils literal notranslate"><span class="pre">Tarot.tarot_deck</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.fun.tarot.html#absfuyu.fun.tarot.Tarot.random_card"><code class="docutils literal notranslate"><span class="pre">Tarot.random_card()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.fun.tarot.html#absfuyu.fun.tarot.TarotCard"><code class="docutils literal notranslate"><span class="pre">TarotCard</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 </section>
 
@@ -283,8 +218,8 @@ Date updated: 16/08/2024 (dd/mm/yyyy)</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="absfuyu.extensions.extra.html" class="btn btn-neutral float-left" title="absfuyu.extensions.extra package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="absfuyu.game.html" class="btn btn-neutral float-right" title="absfuyu.game package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="absfuyu.extra.data_analysis.html" class="btn btn-neutral float-left" title="absfuyu.extra.data_analysis module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absfuyu.fun.tarot.html" class="btn btn-neutral float-right" title="absfuyu.fun.tarot module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

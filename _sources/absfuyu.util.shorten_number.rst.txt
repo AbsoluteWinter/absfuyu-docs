@@ -1,0 +1,7 @@
+absfuyu.util.shorten\_number module
+===================================
+
+.. automodule:: absfuyu.util.shorten_number
+   :members:
+   :undoc-members:
+   :show-inheritance:

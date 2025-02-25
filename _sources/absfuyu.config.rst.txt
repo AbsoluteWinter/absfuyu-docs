@@ -1,9 +1,6 @@
 absfuyu.config package
 ======================
 
-Module contents
----------------
-
 .. automodule:: absfuyu.config
    :members:
    :undoc-members:

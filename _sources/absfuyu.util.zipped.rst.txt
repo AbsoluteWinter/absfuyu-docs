@@ -1,0 +1,7 @@
+absfuyu.util.zipped module
+==========================
+
+.. automodule:: absfuyu.util.zipped
+   :members:
+   :undoc-members:
+   :show-inheritance:

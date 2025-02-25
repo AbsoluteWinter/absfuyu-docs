@@ -1,0 +1,19 @@
+absfuyu.dxt package
+===================
+
+.. automodule:: absfuyu.dxt
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.dxt.dictext
+   absfuyu.dxt.dxt_support
+   absfuyu.dxt.intext
+   absfuyu.dxt.listext
+   absfuyu.dxt.strext

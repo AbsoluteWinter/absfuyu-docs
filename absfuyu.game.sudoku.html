@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.game.sudoku module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=ce74c6a2"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=b612fa2f"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="absfuyu.game.tictactoe module" href="absfuyu.game.tictactoe.html" />
+    <link rel="prev" title="absfuyu.game.game_stat module" href="absfuyu.game.game_stat.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#license">LICENSE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu">ABSFUYU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#links">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#usage">USAGE</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.cli.html">absfuyu.cli package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.core.html">absfuyu.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.extra.html">absfuyu.extra package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.general.html">absfuyu.general package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html">absfuyu.pkg_data package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.tools.html">absfuyu.tools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html">absfuyu.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Module Documentation</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.html">absfuyu package</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.game.html">absfuyu.game package</a></li>
+      <li class="breadcrumb-item active">absfuyu.game.sudoku module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-absfuyu.game.sudoku">
+<span id="absfuyu-game-sudoku-module"></span><h1>absfuyu.game.sudoku module<a class="headerlink" href="#module-absfuyu.game.sudoku" title="Link to this heading"></a></h1>
+<section id="game-sudoku">
+<h2>Game: Sudoku<a class="headerlink" href="#game-sudoku" title="Link to this heading"></a></h2>
+<p>Sudoku 9x9 Solver</p>
+<p>Version: 1.0.3
+Date updated: 15/11/2024 (dd/mm/yyyy)</p>
+</section>
+<section id="credit">
+<h2>Credit:<a class="headerlink" href="#credit" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>[Hardest sudoku](<a class="reference external" href="https://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html">https://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html</a>)</p></li>
+<li><p>[Solve algo](<a class="reference external" href="https://www.techwithtim.net/tutorials/python-programming/sudoku-solver-backtracking/">https://www.techwithtim.net/tutorials/python-programming/sudoku-solver-backtracking/</a>)</p></li>
+</ul>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.game.sudoku.Sudoku">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.game.sudoku.</span></span><span class="sig-name descname"><span class="pre">Sudoku</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sudoku_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.game.sudoku.Sudoku.export_to_string">
+<span class="sig-name descname"><span class="pre">export_to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'dot'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'zero'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'dot'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku.export_to_string" title="Link to this definition"></a></dt>
+<dd><p>Export Sudoku data to string form</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>style</strong> (<em>Literal</em><em>[</em><em>&quot;dot&quot;</em><em>, </em><em>&quot;zero&quot;</em><em>]</em>) – <ul class="simple">
+<li><p>“zero”: <code class="docutils literal notranslate"><span class="pre">0</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p>”dot”: <code class="docutils literal notranslate"><span class="pre">0</span></code> is <code class="docutils literal notranslate"><span class="pre">.</span></code></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sudoku string</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.game.sudoku.Sudoku.from_string">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku.from_string" title="Link to this definition"></a></dt>
+<dd><p>Convert sudoku string format into <cite>list</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>string_data</strong> (<em>str</em>) – String data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">Sudoku</span></code> instance</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.game.sudoku.Sudoku" title="absfuyu.game.sudoku.Sudoku">Sudoku</a></p>
+</dd>
+</dl>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Sudoku</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s2">&quot;8..........36......7..9.2...5...7.......457.....1...3...1....68..85...1..9....4..&quot;</span><span class="p">)</span>
+<span class="go">[[8, 0, 0, 0, 0, 0, 0, 0, 0],</span>
+<span class="go"> [0, 0, 3, 6, 0, 0, 0, 0, 0],</span>
+<span class="go"> [0, 7, 0, 0, 9, 0, 2, 0, 0],</span>
+<span class="go"> [0, 5, 0, 0, 0, 7, 0, 0, 0],</span>
+<span class="go"> [0, 0, 0, 0, 4, 5, 7, 0, 0],</span>
+<span class="go"> [0, 0, 0, 1, 0, 0, 0, 3, 0],</span>
+<span class="go"> [0, 0, 1, 0, 0, 0, 0, 6, 8],</span>
+<span class="go"> [0, 0, 8, 5, 0, 0, 0, 1, 0],</span>
+<span class="go"> [0, 9, 0, 0, 0, 0, 4, 0, 0]]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.game.sudoku.Sudoku.hardest_sudoku">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hardest_sudoku</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku.hardest_sudoku" title="Link to this definition"></a></dt>
+<dd><p>Create Hardest Sudoku instance
+([Source](<a class="reference external" href="https://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html">https://www.telegraph.co.uk/news/science/science-news/9359579/Worlds-hardest-sudoku-can-you-crack-it.html</a>))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">Sudoku</span></code> instance</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.game.sudoku.Sudoku" title="absfuyu.game.sudoku.Sudoku">Sudoku</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.game.sudoku.Sudoku.to_board_form">
+<span class="sig-name descname"><span class="pre">to_board_form</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku.to_board_form" title="Link to this definition"></a></dt>
+<dd><p>Prepare sudoku board ready to print</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Sudoku Board data that ready to print</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<section id="id1">
+<h2>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">demo</span> <span class="o">=</span> <span class="n">Sudoku</span><span class="o">.</span><span class="n">hardest_sudoku</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">demo</span><span class="o">.</span><span class="n">to_board_form</span><span class="p">())</span>
+<span class="go">┎─────────────────────────────┒</span>
+<span class="go">┃  8 0 0  ┃  0 0 0  ┃  0 0 0  ┃</span>
+<span class="go">┃  0 0 3  ┃  6 0 0  ┃  0 0 0  ┃</span>
+<span class="go">┃  0 7 0  ┃  0 9 0  ┃  2 0 0  ┃</span>
+<span class="go">┠─────────────────────────────┨</span>
+<span class="go">┃  0 5 0  ┃  0 0 7  ┃  0 0 0  ┃</span>
+<span class="go">┃  0 0 0  ┃  0 4 5  ┃  7 0 0  ┃</span>
+<span class="go">┃  0 0 0  ┃  1 0 0  ┃  0 3 0  ┃</span>
+<span class="go">┠─────────────────────────────┨</span>
+<span class="go">┃  0 0 1  ┃  0 0 0  ┃  0 6 8  ┃</span>
+<span class="go">┃  0 0 8  ┃  5 0 0  ┃  0 1 0  ┃</span>
+<span class="go">┃  0 9 0  ┃  0 0 0  ┃  4 0 0  ┃</span>
+<span class="go">┖─────────────────────────────┚</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.game.sudoku.Sudoku.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.game.sudoku.Sudoku.solve" title="Link to this definition"></a></dt>
+<dd><p>Solve the Sudoku</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">Sudoku</span></code> instance</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.game.sudoku.Sudoku" title="absfuyu.game.sudoku.Sudoku">Sudoku</a></p>
+</dd>
+</dl>
+<section id="id2">
+<h2>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Sudoku</span><span class="o">.</span><span class="n">hardest_sudoku</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">to_board_form</span><span class="p">())</span>
+<span class="go"> ┎─────────────────────────────┒</span>
+<span class="go"> ┃  8 1 2  ┃  7 5 3  ┃  6 4 9  ┃</span>
+<span class="go"> ┃  9 4 3  ┃  6 8 2  ┃  1 7 5  ┃</span>
+<span class="go"> ┃  6 7 5  ┃  4 9 1  ┃  2 8 3  ┃</span>
+<span class="go"> ┠─────────────────────────────┨</span>
+<span class="go"> ┃  1 5 4  ┃  2 3 7  ┃  8 9 6  ┃</span>
+<span class="go"> ┃  3 6 9  ┃  8 4 5  ┃  7 2 1  ┃</span>
+<span class="go"> ┃  2 8 7  ┃  1 6 9  ┃  5 3 4  ┃</span>
+<span class="go"> ┠─────────────────────────────┨</span>
+<span class="go"> ┃  5 2 1  ┃  9 7 4  ┃  3 6 8  ┃</span>
+<span class="go"> ┃  4 3 8  ┃  5 2 6  ┃  9 1 7  ┃</span>
+<span class="go"> ┃  7 9 6  ┃  3 1 8  ┃  4 5 2  ┃</span>
+<span class="go"> ┖─────────────────────────────┚</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="absfuyu.game.game_stat.html" class="btn btn-neutral float-left" title="absfuyu.game.game_stat module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absfuyu.game.tictactoe.html" class="btn btn-neutral float-right" title="absfuyu.game.tictactoe module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

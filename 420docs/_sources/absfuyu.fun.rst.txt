@@ -1,0 +1,29 @@
+absfuyu.fun package
+===================
+
+Submodules
+----------
+
+absfuyu.fun.WGS module
+----------------------
+
+.. automodule:: absfuyu.fun.WGS
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.fun.tarot module
+------------------------
+
+.. automodule:: absfuyu.fun.tarot
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: absfuyu.fun
+   :members:
+   :undoc-members:
+   :show-inheritance:

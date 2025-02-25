@@ -1,14 +1,22 @@
 absfuyu package
 ===============
 
+.. automodule:: absfuyu
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Subpackages
 -----------
 
 .. toctree::
    :maxdepth: 4
 
+   absfuyu.cli
    absfuyu.config
-   absfuyu.extensions
+   absfuyu.core
+   absfuyu.dxt
+   absfuyu.extra
    absfuyu.fun
    absfuyu.game
    absfuyu.general
@@ -19,50 +27,9 @@ Subpackages
 Submodules
 ----------
 
-absfuyu.core module
--------------------
+.. toctree::
+   :maxdepth: 4
 
-.. automodule:: absfuyu.core
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-absfuyu.everything module
--------------------------
-
-.. automodule:: absfuyu.everything
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-absfuyu.logger module
----------------------
-
-.. automodule:: absfuyu.logger
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-absfuyu.sort module
--------------------
-
-.. automodule:: absfuyu.sort
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-absfuyu.version module
-----------------------
-
-.. automodule:: absfuyu.version
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: absfuyu
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   absfuyu.logger
+   absfuyu.sort
+   absfuyu.version

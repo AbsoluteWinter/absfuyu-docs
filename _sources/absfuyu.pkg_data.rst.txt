@@ -1,10 +1,15 @@
 absfuyu.pkg\_data package
 =========================
 
-Module contents
----------------
-
 .. automodule:: absfuyu.pkg_data
    :members:
    :undoc-members:
    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.pkg_data.deprecated

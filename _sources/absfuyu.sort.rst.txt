@@ -1,0 +1,7 @@
+absfuyu.sort module
+===================
+
+.. automodule:: absfuyu.sort
+   :members:
+   :undoc-members:
+   :show-inheritance:

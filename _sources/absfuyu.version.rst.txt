@@ -1,0 +1,7 @@
+absfuyu.version module
+======================
+
+.. automodule:: absfuyu.version
+   :members:
+   :undoc-members:
+   :show-inheritance:

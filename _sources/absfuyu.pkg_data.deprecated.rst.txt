@@ -1,0 +1,7 @@
+absfuyu.pkg\_data.deprecated module
+===================================
+
+.. automodule:: absfuyu.pkg_data.deprecated
+   :members:
+   :undoc-members:
+   :show-inheritance:

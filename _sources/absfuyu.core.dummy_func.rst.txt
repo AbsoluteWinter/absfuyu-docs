@@ -1,0 +1,7 @@
+absfuyu.core.dummy\_func module
+===============================
+
+.. automodule:: absfuyu.core.dummy_func
+   :members:
+   :undoc-members:
+   :show-inheritance:

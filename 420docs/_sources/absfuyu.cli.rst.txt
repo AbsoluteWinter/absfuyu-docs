@@ -1,0 +1,45 @@
+absfuyu.cli package
+===================
+
+Submodules
+----------
+
+absfuyu.cli.color module
+------------------------
+
+.. automodule:: absfuyu.cli.color
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.cli.config\_group module
+--------------------------------
+
+.. automodule:: absfuyu.cli.config_group
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.cli.do\_group module
+----------------------------
+
+.. automodule:: absfuyu.cli.do_group
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.cli.game\_group module
+------------------------------
+
+.. automodule:: absfuyu.cli.game_group
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: absfuyu.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:

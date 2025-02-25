@@ -1,0 +1,7 @@
+absfuyu.cli.color module
+========================
+
+.. automodule:: absfuyu.cli.color
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,45 @@
+absfuyu.general package
+=======================
+
+Submodules
+----------
+
+absfuyu.general.content module
+------------------------------
+
+.. automodule:: absfuyu.general.content
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.general.data\_extension module
+--------------------------------------
+
+.. automodule:: absfuyu.general.data_extension
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.general.generator module
+--------------------------------
+
+.. automodule:: absfuyu.general.generator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+absfuyu.general.human module
+----------------------------
+
+.. automodule:: absfuyu.general.human
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: absfuyu.general
+   :members:
+   :undoc-members:
+   :show-inheritance:

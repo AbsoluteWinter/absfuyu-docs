@@ -1,0 +1,7 @@
+absfuyu.cli.config\_group module
+================================
+
+.. automodule:: absfuyu.cli.config_group
+   :members:
+   :undoc-members:
+   :show-inheritance:

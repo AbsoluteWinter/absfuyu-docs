@@ -1,0 +1,7 @@
+absfuyu.tools.web module
+========================
+
+.. automodule:: absfuyu.tools.web
+   :members:
+   :undoc-members:
+   :show-inheritance:

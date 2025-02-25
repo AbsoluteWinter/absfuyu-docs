@@ -1,0 +1,7 @@
+absfuyu.util.path module
+========================
+
+.. automodule:: absfuyu.util.path
+   :members:
+   :undoc-members:
+   :show-inheritance:

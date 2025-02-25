@@ -1,0 +1,7 @@
+absfuyu.game.sudoku module
+==========================
+
+.. automodule:: absfuyu.game.sudoku
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+absfuyu.core.decorator module
+=============================
+
+.. automodule:: absfuyu.core.decorator
+   :members:
+   :undoc-members:
+   :show-inheritance:

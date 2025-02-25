@@ -1,0 +1,7 @@
+absfuyu.tools.shutdownizer module
+=================================
+
+.. automodule:: absfuyu.tools.shutdownizer
+   :members:
+   :undoc-members:
+   :show-inheritance:
