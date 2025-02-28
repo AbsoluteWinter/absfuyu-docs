@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.pkg_data package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.0</title>
+  <title>absfuyu.pkg_data package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=ce74c6a2"></script>
+      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -109,11 +109,11 @@
 <h2>Absfuyu: Package data<a class="headerlink" href="#absfuyu-package-data" title="Link to this heading"></a></h2>
 <p>Load package data</p>
 <p>Version: 5.0.0
-Date updated: 14/11/2024 (dd/mm/yyyy)</p>
+Date updated: 22/02/2025 (dd/mm/yyyy)</p>
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.Pickler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.pkg_data.</span></span><span class="sig-name descname"><span class="pre">Pickler</span></span><a class="headerlink" href="#absfuyu.pkg_data.Pickler" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.pkg_data.</span></span><span class="sig-name descname"><span class="pre">Pickler</span></span><a class="reference internal" href="_modules/absfuyu/pkg_data.html#Pickler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.pkg_data.Pickler" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.BaseClass" title="absfuyu.core.baseclass.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseClass</span></code></a></p>
 <p>A utility class for saving and loading data using the pickle format.</p>
 <p>This class provides static methods for serializing Python objects to a file
@@ -121,7 +121,7 @@ using the <code class="docutils literal notranslate"><span class="pre">pickle</s
 It simplifies the process of saving and loading data to and from pickle files.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.Pickler.save">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.pkg_data.Pickler.save" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/pkg_data.html#Pickler.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.pkg_data.Pickler.save" title="Link to this definition"></a></dt>
 <dd><p>Serializes and saves the given data to a file using the pickle format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -135,7 +135,7 @@ It simplifies the process of saving and loading data to and from pickle files.</
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.Pickler.load">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.pkg_data.Pickler.load" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/pkg_data.html#Pickler.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.pkg_data.Pickler.load" title="Link to this definition"></a></dt>
 <dd><p>Loads and deserializes data from a file that is in pickle format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -154,7 +154,7 @@ It simplifies the process of saving and loading data to and from pickle files.</
 
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.BasicLZMAOperation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.pkg_data.</span></span><span class="sig-name descname"><span class="pre">BasicLZMAOperation</span></span><a class="headerlink" href="#absfuyu.pkg_data.BasicLZMAOperation" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.pkg_data.</span></span><span class="sig-name descname"><span class="pre">BasicLZMAOperation</span></span><a class="reference internal" href="_modules/absfuyu/pkg_data.html#BasicLZMAOperation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.pkg_data.BasicLZMAOperation" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.BaseClass" title="absfuyu.core.baseclass.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseClass</span></code></a></p>
 <p>A class for basic LZMA compression and decompression operations,
 integrated with pickle for saving and loading compressed data.</p>
@@ -164,7 +164,7 @@ from a pickle file, and decompress LZMA-compressed data.</p>
 <p><em>Added in version 5.0.0</em></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.BasicLZMAOperation.save_to_pickle">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_to_pickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#absfuyu.pkg_data.BasicLZMAOperation.save_to_pickle" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_to_pickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/pkg_data.html#BasicLZMAOperation.save_to_pickle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.pkg_data.BasicLZMAOperation.save_to_pickle" title="Link to this definition"></a></dt>
 <dd><p>Compresses the given byte data using LZMA and saves the compressed
 data to a file using pickle serialization.</p>
 <dl class="field-list simple">
@@ -186,7 +186,7 @@ data to a file using pickle serialization.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.BasicLZMAOperation.load">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#absfuyu.pkg_data.BasicLZMAOperation.load" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="reference internal" href="_modules/absfuyu/pkg_data.html#BasicLZMAOperation.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.pkg_data.BasicLZMAOperation.load" title="Link to this definition"></a></dt>
 <dd><p>Decompresses LZMA-compressed data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -203,7 +203,7 @@ data to a file using pickle serialization.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.BasicLZMAOperation.load_from_pickle">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_from_pickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#absfuyu.pkg_data.BasicLZMAOperation.load_from_pickle" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_from_pickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="reference internal" href="_modules/absfuyu/pkg_data.html#BasicLZMAOperation.load_from_pickle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.pkg_data.BasicLZMAOperation.load_from_pickle" title="Link to this definition"></a></dt>
 <dd><p>Loads LZMA-compressed data from a pickle file, decompresses it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -222,13 +222,13 @@ data to a file using pickle serialization.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.DataLoader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.pkg_data.</span></span><span class="sig-name descname"><span class="pre">DataLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataList</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.pkg_data.DataLoader" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.pkg_data.</span></span><span class="sig-name descname"><span class="pre">DataLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/pkg_data.html#DataLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.pkg_data.DataLoader" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.BaseClass" title="absfuyu.core.baseclass.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseClass</span></code></a></p>
 <p>A class to load package data</p>
 <p><em>Added in version 5.0.0</em></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.pkg_data.DataLoader.load">
-<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.pkg_data.DataLoader.load" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/pkg_data.html#DataLoader.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.pkg_data.DataLoader.load" title="Link to this definition"></a></dt>
 <dd><p>Loads data from the specified file, handling different file formats automatically.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>

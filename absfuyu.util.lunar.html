@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.util.lunar module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.0</title>
+  <title>absfuyu.util.lunar module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=ce74c6a2"></script>
+      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -109,8 +109,8 @@
 <section id="absfuyu-lunar-calendar">
 <h2>Absfuyu: Lunar calendar<a class="headerlink" href="#absfuyu-lunar-calendar" title="Link to this heading"></a></h2>
 <p>Convert to lunar calendar</p>
-<p>Version: 1.0.3
-Date updated: 15/11/2024 (dd/mm/yyyy)</p>
+<p>Version: 5.0.0
+Date updated: 22/02/2025 (dd/mm/yyyy)</p>
 </section>
 <section id="source">
 <h2>Source:<a class="headerlink" href="#source" title="Link to this heading"></a></h2>
@@ -119,12 +119,12 @@ Date updated: 15/11/2024 (dd/mm/yyyy)</p>
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.lunar.</span></span><span class="sig-name descname"><span class="pre">LunarCalendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_zone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lunar_leap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.lunar.</span></span><span class="sig-name descname"><span class="pre">LunarCalendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_zone</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lunar_leap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/lunar.html#LunarCalendar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Lunar Calendar</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.to_lunar">
-<span class="sig-name descname"><span class="pre">to_lunar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.to_lunar" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_lunar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/lunar.html#LunarCalendar.to_lunar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.to_lunar" title="Link to this definition"></a></dt>
 <dd><p>Convert solar date to the corresponding lunar date.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -138,7 +138,7 @@ Date updated: 15/11/2024 (dd/mm/yyyy)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.to_solar">
-<span class="sig-name descname"><span class="pre">to_solar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.to_solar" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_solar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/lunar.html#LunarCalendar.to_solar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.to_solar" title="Link to this definition"></a></dt>
 <dd><p>Convert a lunar date to the corresponding solar date.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -153,7 +153,7 @@ Date updated: 15/11/2024 (dd/mm/yyyy)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.convert_all">
-<span class="sig-name descname"><span class="pre">convert_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.convert_all" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">convert_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/absfuyu/util/lunar.html#LunarCalendar.convert_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.convert_all" title="Link to this definition"></a></dt>
 <dd><p>Convert to both lunar and solar</p>
 <p>This method has no practical use</p>
 <dl class="field-list simple">
@@ -165,7 +165,7 @@ Date updated: 15/11/2024 (dd/mm/yyyy)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.from_solar">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_solar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lunar_leap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.from_solar" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_solar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lunar_leap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/lunar.html#LunarCalendar.from_solar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.from_solar" title="Link to this definition"></a></dt>
 <dd><p>Convert to lunar day from solar day</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -187,7 +187,7 @@ Date updated: 15/11/2024 (dd/mm/yyyy)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.from_datetime">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datetime_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.from_datetime" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datetime_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/lunar.html#LunarCalendar.from_datetime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.from_datetime" title="Link to this definition"></a></dt>
 <dd><p>Convert from <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -204,7 +204,7 @@ Date updated: 15/11/2024 (dd/mm/yyyy)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.util.lunar.LunarCalendar.now">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">now</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.now" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">now</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/lunar.html#LunarCalendar.now"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.lunar.LunarCalendar.now" title="Link to this definition"></a></dt>
 <dd><p>Get lunar calendar for <code class="docutils literal notranslate"><span class="pre">datetime.datetime.now()</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>

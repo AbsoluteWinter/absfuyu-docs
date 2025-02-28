@@ -1,0 +1,1272 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.extra.data_analysis &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../extra.html">absfuyu.extra</a></li>
+      <li class="breadcrumb-item active">absfuyu.extra.data_analysis</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.extra.data_analysis</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absfuyu: Data Analysis [W.I.P]</span>
+<span class="sd">------------------------------</span>
+<span class="sd">Extension for ``pd.DataFrame``</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 25/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module level</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Function</span>
+    <span class="s2">&quot;compare_2_list&quot;</span><span class="p">,</span>
+    <span class="c1"># Support</span>
+    <span class="s2">&quot;CityData&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SplittedDF&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PLTFormatString&quot;</span><span class="p">,</span>
+    <span class="c1"># Main</span>
+    <span class="s2">&quot;MatplotlibFormatString&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DataAnalystDataFrame&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DADF&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">chain</span><span class="p">,</span> <span class="n">product</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">Self</span>
+
+<span class="n">DA_MODE</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">subprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">run</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABSFUYU_CONFIG</span>
+
+    <span class="k">if</span> <span class="n">ABSFUYU_CONFIG</span><span class="o">.</span><span class="n">_get_setting</span><span class="p">(</span><span class="s2">&quot;auto-install-extra&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;python -m pip install -U absfuyu[full]&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;This feature is in absfuyu[full] package&quot;</span><span class="p">)</span>  <span class="c1"># noqa: B904</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">DA_MODE</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ShowAllMethodsMixin</span><span class="p">,</span> <span class="n">versionadded</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_min</span><span class="p">,</span> <span class="n">set_min_max</span>  <span class="c1"># noqa: E402</span>
+
+
+<span class="c1"># Function</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">equalize_df</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span> <span class="n">fillna</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make all list in dict have equal length to make pd.DataFrame</span>
+
+<span class="sd">    :param data: `dict` data that ready for `pd.DataFrame`</span>
+<span class="sd">    :param fillna: Fill N/A value (Default: `np.nan`)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max_len</span><span class="p">:</span>
+            <span class="n">missings</span> <span class="o">=</span> <span class="n">max_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">missings</span><span class="p">):</span>
+                <span class="n">v</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fillna</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<div class="viewcode-block" id="compare_2_list">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.compare_2_list">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compare_2_list</span><span class="p">(</span><span class="o">*</span><span class="n">arr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compare 2 lists then create DataFrame</span>
+<span class="sd">    to see which items are missing</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    arr : list</span>
+<span class="sd">        List</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    DataFrame</span>
+<span class="sd">        Compare result</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Setup</span>
+    <span class="n">col_name</span> <span class="o">=</span> <span class="s2">&quot;list&quot;</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">]</span>  <span class="c1"># type: ignore # map(sorted, arr)</span>
+
+    <span class="c1"># Total array</span>
+    <span class="n">tarr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">arr</span><span class="p">))))</span>
+    <span class="c1"># max_len = len(tarr)</span>
+
+    <span class="c1"># Temp dataset</span>
+    <span class="n">temp_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;base&quot;</span><span class="p">:</span> <span class="n">tarr</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col_name</span><span class="si">}{</span><span class="n">idx</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># convert list</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">tarr</span><span class="p">]</span>
+
+        <span class="n">temp_dict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">temp_dict</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Compare&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+        <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col_name</span><span class="si">}</span><span class="s2">0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="o">==</span> <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col_name</span><span class="si">}</span><span class="s2">1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()),</span>
+        <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col_name</span><span class="si">}</span><span class="s2">0&quot;</span><span class="p">],</span>  <span class="c1"># Value when True</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="c1"># Value when False</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rename_with_dict</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">rename_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Version: 2.0.0</span>
+<span class="sd">    :param df: DataFrame</span>
+<span class="sd">    :param col: Column name</span>
+<span class="sd">    :param rename_dict: Rename dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">_filtered&quot;</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+    <span class="n">rename_val</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">rename_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;Other&quot;</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">rename_val</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="CityData">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.CityData">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CityData</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    city : str</span>
+<span class="sd">        City name</span>
+
+<span class="sd">    region : str</span>
+<span class="sd">        Region of the city</span>
+
+<span class="sd">    area : str</span>
+<span class="sd">        Area of the region</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">city</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">region</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">area</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_sample_city_data</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate sample city data (testing purpose)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sample_range</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
+
+        <span class="c1"># Serial list</span>
+        <span class="n">serials</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">serials</span><span class="p">)</span> <span class="o">!=</span> <span class="n">size</span><span class="p">:</span>  <span class="c1"># Unique serial</span>
+            <span class="n">serial</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sample_range</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">serial</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">serial</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)),</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+            <span class="k">if</span> <span class="n">serial</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">serials</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+                <span class="n">serials</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">serial</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+        <span class="n">ss2</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">serials</span><span class="p">[:</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">serials</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)])</span>  <span class="c1"># Cut half for region</span>
+        <span class="n">ss2</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+        <span class="p">[</span><span class="n">ss2</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ss2</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>  <span class="c1"># type: ignore # Extend back</span>
+
+        <span class="n">ss3</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">serials</span><span class="p">[:</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">serials</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)])</span>  <span class="c1"># Cut forth for area</span>
+        <span class="n">ss3</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+        <span class="p">[</span><span class="n">ss3</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ss3</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>  <span class="c1"># type: ignore # Extend back</span>
+
+        <span class="n">serials</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;city_&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">serials</span><span class="p">]</span>
+        <span class="n">ss2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;region_&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ss2</span><span class="p">]</span>  <span class="c1"># type: ignore</span>
+        <span class="n">ss3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;area_&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ss3</span><span class="p">]</span>  <span class="c1"># type: ignore</span>
+
+        <span class="n">ss</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">serials</span><span class="p">,</span> <span class="n">ss2</span><span class="p">,</span> <span class="n">ss3</span><span class="p">))</span>  <span class="c1"># Zip back</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">CityData</span><span class="o">.</span><span class="n">_make</span><span class="p">,</span> <span class="n">ss</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
+
+<div class="viewcode-block" id="SplittedDF">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.SplittedDF">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SplittedDF</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DataFrame splitted into contains</span>
+<span class="sd">    missing values only and vice versa</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : DataFrame</span>
+<span class="sd">        DataFrame without missing values</span>
+
+<span class="sd">    df_na : DataFrame</span>
+<span class="sd">        DataFrame with missing values only</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+    <span class="n">df_na</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+
+<div class="viewcode-block" id="SplittedDF.concat_df">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.SplittedDF.concat_df">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">concat_df</span><span class="p">(</span>
+        <span class="n">df_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">],</span> <span class="n">join</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="s2">&quot;outer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;inner&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Concat the list of DataFrame (static method)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        df_list : list[DataFrame]</span>
+<span class="sd">            A sequence of DataFrame</span>
+
+<span class="sd">        join : str</span>
+<span class="sd">            Join type</span>
+<span class="sd">            (Default: ``&quot;inner&quot;``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataFrame</span>
+<span class="sd">            Joined DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">df_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span></div>
+
+
+<div class="viewcode-block" id="SplittedDF.concat">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.SplittedDF.concat">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">concat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">join</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="s2">&quot;outer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;inner&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Concat the splitted DataFrame</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        join : str</span>
+<span class="sd">            Join type</span>
+<span class="sd">            (Default: ``&quot;inner&quot;``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataFrame</span>
+<span class="sd">            Joined DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">concat_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">)</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="SplittedDF.divide_dataframe">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.SplittedDF.divide_dataframe">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">divide_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">by_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Divide DataFrame into a list of DataFrame</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        df : DataFrame</span>
+<span class="sd">            DataFrame</span>
+
+<span class="sd">        by_column : str</span>
+<span class="sd">            By which column</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list[DataFrame]</span>
+<span class="sd">            Splitted DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">divided</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by_column</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">divided</span></div>
+</div>
+
+
+
+<span class="c1">##</span>
+<div class="viewcode-block" id="PLTFormatString">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.PLTFormatString">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PLTFormatString</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Matplotlib format string&quot;&quot;&quot;</span>
+
+    <span class="n">marker</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">line_style</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">color</span><span class="p">:</span> <span class="nb">str</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">_DictToAtrr</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert `keys` or `values` of `dict` into attribute&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dict_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">key_as_atrribute</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">remove_char</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;( ) [ ] { }&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        dict_data: Dictionary to convert</span>
+<span class="sd">        key_as_atrribute: Use `dict.keys()` as atrribute when True, else use `dict.values()`</span>
+<span class="sd">        remove_char: Characters that excluded from attribute name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">dict_data</span>
+
+        <span class="k">if</span> <span class="n">key_as_atrribute</span><span class="p">:</span>
+            <span class="c1"># temp = list(map(self._remove_space, self._data.keys()))</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_remove_space</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">remove_char</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">values</span><span class="p">())]</span>  <span class="c1"># type: ignore</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_remove_space</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">remove_char</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())]</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="n">temp</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_remove_space</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">remove_char</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove special characters and replace space with underscore</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">remove_char</span> <span class="o">=</span> <span class="n">remove_char</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">remove_char</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">remove_char</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+
+<div class="viewcode-block" id="MatplotlibFormatString">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.MatplotlibFormatString">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MatplotlibFormatString</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Format string format: `[marker][line][color]` or `[color][marker][line]`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">MARKER_LIST</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;.&quot;</span><span class="p">:</span> <span class="s2">&quot;point marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;,&quot;</span><span class="p">:</span> <span class="s2">&quot;pixel marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;o&quot;</span><span class="p">:</span> <span class="s2">&quot;circle marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="s2">&quot;triangle_down marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;^&quot;</span><span class="p">:</span> <span class="s2">&quot;triangle_up marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;&lt;&quot;</span><span class="p">:</span> <span class="s2">&quot;triangle_left marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;&gt;&quot;</span><span class="p">:</span> <span class="s2">&quot;triangle_right marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;1&quot;</span><span class="p">:</span> <span class="s2">&quot;tri_down marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2&quot;</span><span class="p">:</span> <span class="s2">&quot;tri_up marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;3&quot;</span><span class="p">:</span> <span class="s2">&quot;tri_left marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;4&quot;</span><span class="p">:</span> <span class="s2">&quot;tri_right marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;8&quot;</span><span class="p">:</span> <span class="s2">&quot;octagon marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="s2">&quot;square marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="s2">&quot;pentagon marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;P&quot;</span><span class="p">:</span> <span class="s2">&quot;plus (filled) marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;*&quot;</span><span class="p">:</span> <span class="s2">&quot;star marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">:</span> <span class="s2">&quot;hexagon1 marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;H&quot;</span><span class="p">:</span> <span class="s2">&quot;hexagon2 marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;+&quot;</span><span class="p">:</span> <span class="s2">&quot;plus marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;x marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="s2">&quot;x (filled) marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;diamond marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;thin_diamond marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;|&quot;</span><span class="p">:</span> <span class="s2">&quot;vline marker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_&quot;</span><span class="p">:</span> <span class="s2">&quot;hline marker&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">LINE_STYLE_LIST</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;-&quot;</span><span class="p">:</span> <span class="s2">&quot;solid line style&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--&quot;</span><span class="p">:</span> <span class="s2">&quot;dashed line style&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;-.&quot;</span><span class="p">:</span> <span class="s2">&quot;dash-dot line style&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;:&quot;</span><span class="p">:</span> <span class="s2">&quot;dotted line style&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">COLOR_LIST</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;cyan&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="s2">&quot;magenta&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;w&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">Marker</span> <span class="o">=</span> <span class="n">_DictToAtrr</span><span class="p">(</span><span class="n">MARKER_LIST</span><span class="p">,</span> <span class="n">key_as_atrribute</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">LineStyle</span> <span class="o">=</span> <span class="n">_DictToAtrr</span><span class="p">(</span><span class="n">LINE_STYLE_LIST</span><span class="p">,</span> <span class="n">key_as_atrribute</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">Color</span> <span class="o">=</span> <span class="n">_DictToAtrr</span><span class="p">(</span><span class="n">COLOR_LIST</span><span class="p">,</span> <span class="n">key_as_atrribute</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MatplotlibFormatString.all_format_string">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.MatplotlibFormatString.all_format_string">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">all_format_string</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">PLTFormatString</span><span class="p">]:</span>
+        <span class="n">fmt_str</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">MARKER_LIST</span><span class="p">,</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">LINE_STYLE_LIST</span><span class="p">,</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">COLOR_LIST</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">PLTFormatString</span><span class="o">.</span><span class="n">_make</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">fmt_str</span><span class="p">))]</span></div>
+
+
+<div class="viewcode-block" id="MatplotlibFormatString.get_random">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.MatplotlibFormatString.get_random">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_random</span><span class="p">(</span><span class="n">alt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="vm">__class__</span><span class="o">.</span><span class="n">all_format_string</span><span class="p">())</span>  <span class="c1"># type: ignore</span>
+        <span class="k">if</span> <span class="n">alt</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">temp</span><span class="o">.</span><span class="n">marker</span><span class="si">}{</span><span class="n">temp</span><span class="o">.</span><span class="n">line_style</span><span class="si">}{</span><span class="n">temp</span><span class="o">.</span><span class="n">color</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">temp</span><span class="o">.</span><span class="n">color</span><span class="si">}{</span><span class="n">temp</span><span class="o">.</span><span class="n">marker</span><span class="si">}{</span><span class="n">temp</span><span class="o">.</span><span class="n">line_style</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</div>
+
+
+
+<span class="c1"># Class - DA</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="DataAnalystDataFrame">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DataAnalystDataFrame</span><span class="p">(</span><span class="n">ShowAllMethodsMixin</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data Analyst ``pd.DataFrame``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Support</span>
+    <span class="c1"># ================================================================</span>
+    <span class="c1"># Rearrange column</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.rearrange_column">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.rearrange_column">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rearrange_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">insert_to_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">num_of_cols</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Move right-most columns to selected position</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        insert_to_col : str</span>
+<span class="sd">            Name of the column that the right-most column will be moved next to</span>
+
+<span class="sd">        num_of_cols : int</span>
+<span class="sd">            Number of columns moved</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataAnalystDataFrame</span>
+<span class="sd">            Modified DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>  <span class="c1"># List of columns</span>
+        <span class="n">num_of_cols</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">set_min_max</span><span class="p">(</span><span class="n">num_of_cols</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)))</span>
+        <span class="n">col_index</span> <span class="o">=</span> <span class="n">cols</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">insert_to_col</span><span class="p">)</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">cols</span><span class="p">[:</span> <span class="n">col_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="o">+</span> <span class="n">cols</span><span class="p">[</span><span class="o">-</span><span class="n">num_of_cols</span><span class="p">:]</span>
+            <span class="o">+</span> <span class="n">cols</span><span class="p">[</span><span class="n">col_index</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">-</span> <span class="n">num_of_cols</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    <span class="c1"># Drop a list of column</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.drop_columns">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.drop_columns">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">drop_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">columns</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Drop columns in DataFrame</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        columns : list[str]</span>
+<span class="sd">            List of columns need to drop</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataAnalystDataFrame</span>
+<span class="sd">            Modified DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">column</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">column</span><span class="si">}</span><span class="s2"> column does not exist&quot;</span><span class="p">)</span>
+                <span class="c1"># pass</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    <span class="c1"># Drop right-most columns</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.drop_rightmost">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.drop_rightmost">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">drop_rightmost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_of_cols</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Drop ``num_of_cols`` right-most columns</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        num_of_cols : int</span>
+<span class="sd">            Number of columns to drop</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataAnalystDataFrame</span>
+<span class="sd">            Modified DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Restrain</span>
+        <span class="c1"># if num_of_cols &lt; 1:</span>
+        <span class="c1">#     num_of_cols = 1</span>
+        <span class="c1"># if num_of_cols &gt; self.shape[1]:</span>
+        <span class="c1">#     num_of_cols = self.shape[1]</span>
+        <span class="n">num_of_cols</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="n">set_min_max</span><span class="p">(</span><span class="n">num_of_cols</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Logic</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_of_cols</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    <span class="c1"># Add blank column</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.add_blank_column">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.add_blank_column">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_blank_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fill</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a blank column</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column_name : str</span>
+<span class="sd">            Name of the column to add</span>
+
+<span class="sd">        fill : Any</span>
+<span class="sd">            Fill the column with data</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataAnalystDataFrame</span>
+<span class="sd">            Modified DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">fill</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    <span class="c1"># Modify</span>
+    <span class="c1"># ================================================================</span>
+    <span class="c1"># Convert city</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.convert_city">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.convert_city">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">convert_city</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">city_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">city_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">CityData</span><span class="p">],</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ra&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get ``region`` and ``area`` of a city</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        city_column : str</span>
+<span class="sd">            Column contains city data</span>
+
+<span class="sd">        city_list : list[CityData]</span>
+<span class="sd">            List of city in correct format</span>
+<span class="sd">            (Default: ``None``)</span>
+
+<span class="sd">        mode : str</span>
+<span class="sd">            | Detailed column to add</span>
+<span class="sd">            | ``r``: region</span>
+<span class="sd">            | ``a``: area</span>
+<span class="sd">            | (Default: ``&quot;ra&quot;``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataAnalystDataFrame</span>
+<span class="sd">            Modified DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Support function</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_convert_city_support</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CityData</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">city_list</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span>
+                    <span class="k">return</span> <span class="n">x</span>
+            <span class="k">return</span> <span class="n">CityData</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">area</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+        <span class="c1"># Convert</span>
+        <span class="n">col_counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">mode</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Mode: &#39;region&#39;&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;region&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">city_column</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">_convert_city_support</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">region</span>
+            <span class="p">)</span>
+            <span class="n">col_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">mode</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Mode: &#39;area&#39;&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;area&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">city_column</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">_convert_city_support</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>
+            <span class="p">)</span>
+            <span class="n">col_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># Rearrange</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rearrange_column</span><span class="p">(</span><span class="n">city_column</span><span class="p">,</span> <span class="n">col_counter</span><span class="p">)</span></div>
+
+
+    <span class="c1"># Date related</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.add_date_from_month">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.add_date_from_month">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_date_from_month</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">month_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">col_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;date&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add dummy ``date`` column from ``month`` column</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        month_column : str</span>
+<span class="sd">            Month column</span>
+
+<span class="sd">        col_name : str</span>
+<span class="sd">            New date column name</span>
+<span class="sd">            (Default: ``&quot;date&quot;``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataAnalystDataFrame</span>
+<span class="sd">            Modified DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_this_year</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span>
+        <span class="bp">self</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_this_year</span><span class="si">}</span><span class="s2">-&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="p">[</span><span class="n">month_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;-1&quot;</span><span class="p">,</span>
+            <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># Rearrange</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rearrange_column</span><span class="p">(</span><span class="n">month_column</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataAnalystDataFrame.add_detail_date">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.add_detail_date">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_detail_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;dwmy&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add these columns from ``date_column``:</span>
+<span class="sd">            - ``date`` (won&#39;t add if ``date_column`` value is ``&quot;date&quot;``)</span>
+<span class="sd">            - ``day`` (overwrite if already exist)</span>
+<span class="sd">            - ``week`` (overwrite if already exist)</span>
+<span class="sd">            - ``month`` (overwrite if already exist)</span>
+<span class="sd">            - ``year``  (overwrite if already exist)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        date_column : str</span>
+<span class="sd">            Date column</span>
+
+<span class="sd">        mode : str</span>
+<span class="sd">            | Detailed column to add</span>
+<span class="sd">            | ``d``: day</span>
+<span class="sd">            | ``w``: week number</span>
+<span class="sd">            | ``m``: month</span>
+<span class="sd">            | ``y``: year</span>
+<span class="sd">            | (Default: ``&quot;dwmy&quot;``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataAnalystDataFrame</span>
+<span class="sd">            Modified DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Convert to datetime</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">date_column</span><span class="p">])</span>
+
+        <span class="c1"># Logic</span>
+        <span class="n">col_counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># self[&quot;weekday&quot;] = self[&quot;day&quot;].dt.isocalendar().day # Weekday</span>
+        <span class="k">if</span> <span class="n">mode</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Mode: &#39;day&#39;&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span>
+            <span class="n">col_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">mode</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Mode: &#39;weekday&#39;&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;week&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">()</span><span class="o">.</span><span class="n">week</span>
+            <span class="n">col_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">mode</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Mode: &#39;month&#39;&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+            <span class="n">col_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">mode</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Mode: &#39;year&#39;&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+            <span class="n">col_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># Return</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rearrange_column</span><span class="p">(</span><span class="n">date_column</span><span class="p">,</span> <span class="n">col_counter</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataAnalystDataFrame.delta_date">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.delta_date">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delta_date</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">date_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">mode</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;now&quot;</span><span class="p">,</span> <span class="s2">&quot;between_row&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;now&quot;</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">col_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;delta_date&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate date interval</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        date_column : str</span>
+<span class="sd">            Date column</span>
+
+<span class="sd">        mode : str</span>
+<span class="sd">            | Mode to calculate</span>
+<span class="sd">            | ``&quot;between_row&quot;``: Calculate date interval between each row</span>
+<span class="sd">            | ``&quot;now&quot;``: Calculate date interval to current date</span>
+<span class="sd">            | (Default: ``&quot;now&quot;``)</span>
+
+<span class="sd">        col_name : str</span>
+<span class="sd">            | New delta date column name</span>
+<span class="sd">            | (Default: ``&quot;delta_date&quot;``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataAnalystDataFrame</span>
+<span class="sd">            Modified DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">mode</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;between_row&quot;</span><span class="p">):</span>
+            <span class="n">dated</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">date_column</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+            <span class="n">cal</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dated</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">cal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dated</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">dated</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                    <span class="c1"># cal.append(relativedelta(dated[i], dated[i]))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">cal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dated</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">dated</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+                    <span class="c1"># cal.append(relativedelta(dated[i], dated[i - 1]))</span>
+            <span class="bp">self</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">days</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cal</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># mode=&quot;now&quot;</span>
+            <span class="bp">self</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">date_column</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    <span class="c1"># Fill missing value</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.fill_missing_values">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.fill_missing_values">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fill_missing_values</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fill</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">fill_when_not_exist</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fill missing values in specified column</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column_name : str</span>
+<span class="sd">            Column name</span>
+
+<span class="sd">        fill : Any</span>
+<span class="sd">            Fill the missing values with</span>
+<span class="sd">            (Default: ``np.nan``)</span>
+
+<span class="sd">        fill_when_not_exist : Any</span>
+<span class="sd">            When ``column_name`` does not exist,</span>
+<span class="sd">            create a new column and fill with ``fill_when_not_exist``</span>
+<span class="sd">            (Default: ``np.nan``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataAnalystDataFrame</span>
+<span class="sd">            Modified DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">fill</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_blank_column</span><span class="p">(</span><span class="n">column_name</span><span class="p">,</span> <span class="n">fill_when_not_exist</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    <span class="c1"># Split DataFrame</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.split_na">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.split_na">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">split_na</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">by_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SplittedDF</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Split DataFrame into 2 parts:</span>
+<span class="sd">            - Without missing value in specified column</span>
+<span class="sd">            - With missing value in specified column</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        by_column : str</span>
+<span class="sd">            Split by column</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        SplittedDF</span>
+<span class="sd">            Splitted DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">SplittedDF</span><span class="p">(</span>
+            <span class="n">df</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="o">~</span><span class="bp">self</span><span class="p">[</span><span class="n">by_column</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()],</span>  <span class="c1"># DF</span>
+            <span class="n">df_na</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="bp">self</span><span class="p">[</span><span class="n">by_column</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()],</span>  <span class="c1"># DF w/o NA</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
+    <span class="c1"># Threshold filter</span>
+    <span class="c1"># @versionchanged(version=&quot;3.2.0&quot;, reason=&quot;Optimized the code&quot;)</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.threshold_filter">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.threshold_filter">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">threshold_filter</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">destination_column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">threshold</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">top</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">replace_with</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="s2">&quot;Other&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filter out percentage of data that smaller than the ``threshold``,</span>
+<span class="sd">        replace all of the smaller data to ``replace_with``.</span>
+<span class="sd">        As a result, pie chart is less messy.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        destination_column : str</span>
+<span class="sd">            Column to be filtered</span>
+
+<span class="sd">        threshold : int | float</span>
+<span class="sd">            Which percentage to cut-off</span>
+<span class="sd">            (Default: 10%)</span>
+
+<span class="sd">        top : int</span>
+<span class="sd">            Only show top ``x`` categories in pie chart</span>
+<span class="sd">            (replace threshold mode)</span>
+<span class="sd">            (Default: ``None``)</span>
+
+<span class="sd">        replace_with : Any</span>
+<span class="sd">            Replace all of the smaller data with specified value</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataAnalystDataFrame</span>
+<span class="sd">            Modified DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Clean</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">[</span><span class="n">destination_column</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span>
+                <span class="n">destination_column</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># Remove trailing space</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="c1"># Logic</span>
+        <span class="n">col_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">show_distribution</span><span class="p">(</span><span class="n">destination_column</span><span class="p">)</span>
+
+        <span class="c1"># Rename</span>
+        <span class="k">if</span> <span class="n">top</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">list_of_keep</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">col_df</span><span class="p">[</span><span class="n">destination_column</span><span class="p">]</span>
+                <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">set_min_max</span><span class="p">(</span><span class="n">top</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="n">col_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                <span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="c1"># logger.debug(list_of_keep)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">list_of_keep</span> <span class="o">=</span> <span class="n">col_df</span><span class="p">[</span><span class="n">col_df</span><span class="p">[</span><span class="s2">&quot;percentage&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">][</span>
+                <span class="n">destination_column</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>  <span class="c1"># values that will not be renamed</span>
+        <span class="bp">self</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">destination_column</span><span class="si">}</span><span class="s2">_filtered&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">destination_column</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">replace_with</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">list_of_keep</span> <span class="k">else</span> <span class="n">x</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Return</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    <span class="c1"># Info</span>
+    <span class="c1"># ================================================================</span>
+    <span class="c1"># Total observation</span>
+    <span class="nd">@property</span>
+    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;3.2.0&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_observation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns total observation of the DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># type: ignore</span>
+
+    <span class="c1"># Quick info</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.qinfo">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.qinfo">[docs]</a>
+    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;3.2.0&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">qinfo</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Show quick infomation about DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># missing values</span>
+        <span class="n">to</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_observation</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Dataset Information:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;- Number of Rows: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;- Number of Columns: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;- Total observation: </span><span class="si">{</span><span class="n">to</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;- Missing value: </span><span class="si">{</span><span class="n">mv</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="p">(</span><span class="n">mv</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%)</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Column names:</span><span class="se">\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">info</span></div>
+
+
+    <span class="c1"># Quick describe</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.qdescribe">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.qdescribe">[docs]</a>
+    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;3.2.0&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">qdescribe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Quick ``describe()`` that exclude ``object`` and ``datetime`` dtype</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">,</span> <span class="s2">&quot;datetime&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span></div>
+
+
+    <span class="c1"># Missing values analyze</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.get_missing_values">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.get_missing_values">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_missing_values</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">hightlight</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">percentage_round_up</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a DataFrame contains count of missing values for each column</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        hightlight : bool</span>
+<span class="sd">            Shows only columns with missing values when ``True``</span>
+<span class="sd">            (Default: ``True``)</span>
+
+<span class="sd">        percentage_round_up : int</span>
+<span class="sd">            Round up to which decimals</span>
+<span class="sd">            (Default: ``2``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataFrame</span>
+<span class="sd">            Missing value DataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check for missing value</span>
+        <span class="n">df_na</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">hightlight</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">df_na</span><span class="p">[</span><span class="n">df_na</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">df_na</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Num of N/A&quot;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">&quot;Percentage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="s2">&quot;Num of N/A&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
+            <span class="n">percentage_round_up</span>
+        <span class="p">)</span>
+
+        <span class="c1"># logger.debug(</span>
+        <span class="c1">#     f&quot;Percentage of N/A over entire DF: &quot;</span>
+        <span class="c1">#     f&quot;{(self.isnull().sum().sum() / (self.shape[0] * self.shape[1]) * 100).round(percentage_round_up)}%&quot;</span>
+        <span class="c1"># )</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
+    <span class="c1"># Show distribution</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.show_distribution">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.show_distribution">[docs]</a>
+    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;3.2.0&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_distribution</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">column_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">dropna</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">show_percentage</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">percentage_round_up</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Show distribution of a column</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column_name : str</span>
+<span class="sd">            Column to show distribution</span>
+
+<span class="sd">        dropna : bool</span>
+<span class="sd">            Count N/A when ``False``</span>
+<span class="sd">            (Default: ``True``)</span>
+
+<span class="sd">        show_percentage : bool</span>
+<span class="sd">            Show proportion in range 0% - 100% instead of [0, 1]</span>
+<span class="sd">            (Default: ``True``)</span>
+
+<span class="sd">        percentage_round_up : int</span>
+<span class="sd">            Round up to which decimals</span>
+<span class="sd">            (Default: ``2``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataFrame</span>
+<span class="sd">            Distribution DataFrame</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; DataAnalystDataFrame.sample_df().show_distribution(&quot;number_range&quot;)</span>
+<span class="sd">          number_range  count  percentage</span>
+<span class="sd">        0          900     16        16.0</span>
+<span class="sd">        1          700     15        15.0</span>
+<span class="sd">        2          300     12        12.0</span>
+<span class="sd">        3          200     12        12.0</span>
+<span class="sd">        4          400     11        11.0</span>
+<span class="sd">        5          600     11        11.0</span>
+<span class="sd">        6          800     10        10.0</span>
+<span class="sd">        7          100      9         9.0</span>
+<span class="sd">        8          500      4         4.0</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="n">dropna</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">show_percentage</span><span class="p">:</span>
+            <span class="n">out</span><span class="p">[</span><span class="s2">&quot;percentage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
+                <span class="n">percentage_round_up</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out</span><span class="p">[</span><span class="s2">&quot;percentage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span>
+                <span class="n">percentage_round_up</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
+    <span class="c1"># Help</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.dadf_help">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.dadf_help">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dadf_help</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Show all available method of DataAnalystDataFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">list_of_method</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="bp">cls</span><span class="p">))</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">list_of_method</span><span class="p">)</span></div>
+
+
+    <span class="c1"># Sample DataFrame</span>
+<div class="viewcode-block" id="DataAnalystDataFrame.sample_df">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DataAnalystDataFrame.sample_df">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample_df</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create sample DataFrame</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        size : int</span>
+<span class="sd">            Number of observations</span>
+<span class="sd">            (Default: ``100``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DataAnalystDataFrame</span>
+<span class="sd">            DataFrame with these columns:</span>
+<span class="sd">            [number, number_big, number_range, missing_value, text, date]</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; DataAnalystDataFrame.sample_df()</span>
+<span class="sd">              number  number_big number_range  missing_value      text       date</span>
+<span class="sd">        0  -2.089770         785          700            NaN  vwnlqoql 2013-11-20</span>
+<span class="sd">        1  -0.526689         182          100           24.0  prjjcvqc 2007-04-13</span>
+<span class="sd">        2  -1.596514         909          900            8.0  cbcpzlac 2023-05-24</span>
+<span class="sd">        3   2.982191         989          900           21.0  ivwqwuvd 2022-04-28</span>
+<span class="sd">        4   1.687803         878          800            NaN  aajtncum 2005-10-05</span>
+<span class="sd">        ..       ...         ...          ...            ...       ...        ...</span>
+<span class="sd">        95 -1.295145         968          900           16.0  mgqunkhi 2016-04-12</span>
+<span class="sd">        96  1.296795         255          200            NaN  lwvytego 2014-05-10</span>
+<span class="sd">        97  1.440746         297          200            5.0  lqsoykun 2010-04-03</span>
+<span class="sd">        98  0.327702         845          800            NaN  leadkvsy 2005-08-05</span>
+<span class="sd">        99  0.556720         981          900           36.0  bozmxixy 2004-02-22</span>
+<span class="sd">        [100 rows x 6 columns]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Restrain</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">set_min</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># Number col</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;number&quot;</span><span class="p">])</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">&quot;number_big&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">999</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="p">]</span>  <span class="c1"># Big number in range 100-999</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">&quot;number_range&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;number_big&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;00&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Missing value col</span>
+        <span class="n">na_rate</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)]</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">&quot;missing_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">na_rate</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+        <span class="c1"># df[&quot;missing_value&quot;] = [random.choice([random.randint(1, 99), np.nan]) for _ in range(observations)]</span>
+
+        <span class="c1"># Text col</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)])</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Random date col</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">datetime</span><span class="p">(</span>
+                <span class="n">year</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="p">),</span>
+                <span class="n">month</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+                <span class="n">day</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Return</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">df</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="DADF">
+<a class="viewcode-back" href="../../../absfuyu.extra.data_analysis.html#absfuyu.extra.data_analysis.DADF">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DADF</span><span class="p">(</span><span class="n">DataAnalystDataFrame</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Short name for ``DataAnalystDataFrame``&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DADF_WIP</span><span class="p">(</span><span class="n">DADF</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;W.I.P&quot;&quot;&quot;</span>
+
+    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;4.0.0&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">subtract_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Self</span> <span class="o">|</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Subtract DF to find the different rows</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">temp</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;_merge==&#39;right_only&#39;&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;_merge&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;4.0.0&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge_left</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">other</span><span class="p">:</span> <span class="n">Self</span> <span class="o">|</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">on</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">columns</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Merge left of 2 dfs</span>
+
+<span class="sd">        :param columns: Columns to take from df2</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">columns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">current_col</span> <span class="o">=</span> <span class="p">[</span><span class="n">on</span><span class="p">]</span>
+            <span class="n">current_col</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+            <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">current_col</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">drop_columns</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>
+
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

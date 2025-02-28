@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.util.shorten_number &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../util.html">absfuyu.util</a></li>
+      <li class="breadcrumb-item active">absfuyu.util.shorten_number</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.util.shorten_number</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absfuyu: Shorten number</span>
+<span class="sd">-----------------------</span>
+<span class="sd">Short number base on suffixes</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 24/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module level</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;UnitSuffixFactory&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CommonUnitSuffixesFactory&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Decimal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;shorten_number&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">ParamSpec</span><span class="p">,</span> <span class="n">Self</span><span class="p">,</span> <span class="n">TypeVar</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">versionadded</span>
+
+<span class="c1"># Type</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s2">&quot;P&quot;</span><span class="p">)</span>  <span class="c1"># Parameter type</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>  <span class="c1"># Number type</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="UnitSuffixFactory">
+<a class="viewcode-back" href="../../../absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.UnitSuffixFactory">[docs]</a>
+<span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;4.1.0&quot;</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UnitSuffixFactory</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">base</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">short_name</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="CommonUnitSuffixesFactory">
+<a class="viewcode-back" href="../../../absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.CommonUnitSuffixesFactory">[docs]</a>
+<span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;4.1.0&quot;</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CommonUnitSuffixesFactory</span><span class="p">:</span>
+    <span class="n">NUMBER</span> <span class="o">=</span> <span class="n">UnitSuffixFactory</span><span class="p">(</span>
+        <span class="mi">1000</span><span class="p">,</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;K&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;M&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;T&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qa&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sx&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sp&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Oc&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;No&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Dc&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Ud&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Dd&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Td&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qad&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qid&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sxd&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Spd&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Ocd&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Nod&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Vg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Uvg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Dvg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Tvg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qavg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qivg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sxvg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Spvg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Ovg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Nvg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Tg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Utg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Dtg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Ttg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qatg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Qitg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sxtg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sptg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Otg&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Ntg&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># &lt; Thousand</span>
+            <span class="s2">&quot;Thousand&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Million&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Billion&quot;</span><span class="p">,</span>  <span class="c1"># 1e9</span>
+            <span class="s2">&quot;Trillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quadrillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sextillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Septillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Octillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Nonillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Decillion&quot;</span><span class="p">,</span>  <span class="c1"># 1e33</span>
+            <span class="s2">&quot;Undecillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Duodecillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Tredecillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quattuordecillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quindecillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sexdecillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Septendecillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Octodecillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Novemdecillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Vigintillion&quot;</span><span class="p">,</span>  <span class="c1">#  1e63</span>
+            <span class="s2">&quot;Unvigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Duovigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Tresvigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quattuorvigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quinvigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sesvigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Septemvigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Octovigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Novemvigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Trigintillion&quot;</span><span class="p">,</span>  <span class="c1"># 1e93</span>
+            <span class="s2">&quot;Untrigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Duotrigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Trestrigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quattuortrigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quintrigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sestrigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Septentrigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Octotrigintillion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Noventrigintillion&quot;</span><span class="p">,</span>  <span class="c1">#  1e120</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">DATA_SIZE</span> <span class="o">=</span> <span class="n">UnitSuffixFactory</span><span class="p">(</span>
+        <span class="mi">1024</span><span class="p">,</span>
+        <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;Kb&quot;</span><span class="p">,</span> <span class="s2">&quot;MB&quot;</span><span class="p">,</span> <span class="s2">&quot;GB&quot;</span><span class="p">,</span> <span class="s2">&quot;TB&quot;</span><span class="p">,</span> <span class="s2">&quot;PB&quot;</span><span class="p">,</span> <span class="s2">&quot;EB&quot;</span><span class="p">,</span> <span class="s2">&quot;ZB&quot;</span><span class="p">,</span> <span class="s2">&quot;YB&quot;</span><span class="p">,</span> <span class="s2">&quot;BB&quot;</span><span class="p">],</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;byte&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kilobyte&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;megabyte&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gigabyte&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;terabyte&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;petabyte&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;exabyte&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;zetabyte&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;yottabyte&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;brontobyte&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="Decimal">
+<a class="viewcode-back" href="../../../absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;4.1.0&quot;</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Decimal</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shorten large number</span>
+
+<span class="sd">    :param original_value: Value to shorten</span>
+<span class="sd">    :param base: Short by base (must be &gt; 0)</span>
+<span class="sd">    :param suffixes: List of suffixes to use (ascending order)</span>
+<span class="sd">    :param factory: ``UnitSuffixFactory`` to use (will overwrite ``base`` and ``suffixes``)</span>
+<span class="sd">    :param suffix_full_name: Use suffix full name (default: False)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">original_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">base</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;positive&quot;</span><span class="p">,</span> <span class="s2">&quot;not_zero&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">suffixes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+    <span class="n">factory</span><span class="p">:</span> <span class="n">UnitSuffixFactory</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">suffix_full_name</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># Post init</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_factory</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_decimal</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_text</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Decimal.number">
+<a class="viewcode-back" href="../../../absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.number">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">number</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">suffix_full_name</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Decimal for normal large number&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">value</span><span class="p">,</span>
+            <span class="n">factory</span><span class="o">=</span><span class="n">CommonUnitSuffixesFactory</span><span class="o">.</span><span class="n">NUMBER</span><span class="p">,</span>
+            <span class="n">suffix_full_name</span><span class="o">=</span><span class="n">suffix_full_name</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Decimal.data_size">
+<a class="viewcode-back" href="../../../absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.data_size">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">data_size</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">suffix_full_name</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Decimal for data size&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">value</span><span class="p">,</span>
+            <span class="n">factory</span><span class="o">=</span><span class="n">CommonUnitSuffixesFactory</span><span class="o">.</span><span class="n">DATA_SIZE</span><span class="p">,</span>
+            <span class="n">suffix_full_name</span><span class="o">=</span><span class="n">suffix_full_name</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Decimal.scientific_short">
+<a class="viewcode-back" href="../../../absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.scientific_short">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scientific_short</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Short number in scientific format&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_factory</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">base</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">suffixes</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">full_name</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">suffix_full_name</span>
+                <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">short_name</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_convert_decimal</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert to smaller number&quot;&quot;&quot;</span>
+        <span class="n">suffix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">suffixes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">suffixes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">unit</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">suffixes</span><span class="p">):</span>
+            <span class="n">unit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="o">**</span><span class="n">i</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">original_value</span> <span class="o">&lt;</span> <span class="n">unit</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">original_value</span> <span class="o">/</span> <span class="n">unit</span>
+        <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">suffix</span>
+
+<div class="viewcode-block" id="Decimal.to_text">
+<a class="viewcode-back" href="../../../absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.to_text">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_text</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">decimal</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">float_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert to string</span>
+
+<span class="sd">        :param decimal: Round up to which decimal</span>
+<span class="sd">        :param separator: Character between value and suffix, default: ``&quot; &quot;``</span>
+<span class="sd">        :param float_only: Returns value as &lt;float&gt; instead of &lt;int&gt; when ``decimal = 0``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="fm">__round__</span><span class="p">(</span><span class="n">decimal</span><span class="p">)</span>
+        <span class="n">formatted_value</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">float_only</span> <span class="ow">and</span> <span class="n">decimal</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">formatted_value</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">formatted_value</span><span class="si">}{</span><span class="n">separator</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">suffix</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</div>
+
+
+
+<span class="c1"># Decorator</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="shorten_number">
+<a class="viewcode-back" href="../../../absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.shorten_number">[docs]</a>
+<span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;5.0.0&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">shorten_number</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">N</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shorten the number value by name</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    f : Callable[P, N]</span>
+<span class="sd">        Function that return ``int`` or ``float``</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Callable[P, Decimal]</span>
+<span class="sd">        Function that return ``Decimal``</span>
+
+
+<span class="sd">    Usage</span>
+<span class="sd">    -----</span>
+<span class="sd">    Use this as a decorator (``@shorten_number``)</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import random</span>
+<span class="sd">    &gt;&gt;&gt; @shorten_number</span>
+<span class="sd">    &gt;&gt;&gt; def big_num() -&gt; int:</span>
+<span class="sd">    ...     random.randint(100000000, 10000000000)</span>
+<span class="sd">    &gt;&gt;&gt; big_num()</span>
+<span class="sd">    4.20 B</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Decimal</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">Decimal</span><span class="o">.</span><span class="n">number</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1698 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.general.shape &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">absfuyu.general.shape</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.general.shape</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absfuyu: Shape</span>
+<span class="sd">--------------</span>
+<span class="sd">Shapes</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 23/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module level</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Polygon</span>
+    <span class="s2">&quot;Triangle&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Circle&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Square&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Rectangle&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Pentagon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hexagon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Parallelogram&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Rhombus&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Trapezoid&quot;</span><span class="p">,</span>
+    <span class="c1"># 3D Shape</span>
+    <span class="s2">&quot;Cube&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Cuboid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sphere&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;HemiSphere&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Cylinder&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">Self</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">override</span>  <span class="c1"># type: ignore</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core.decorator</span><span class="w"> </span><span class="kn">import</span> <span class="n">dummy_decorator</span> <span class="k">as</span> <span class="n">override</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseClass</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Shape</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Shape base class&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Polygon</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">Shape</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;2D Shape class base&quot;&quot;&quot;</span>
+
+    <span class="n">POLYGON_LIST</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_of_sides</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a polygon with number of sides.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        num_of_sides : int</span>
+<span class="sd">            Number of sides of the polygon.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the number of sides smaller than 3.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">num_of_sides</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Number of sides must be larger than 2.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_of_sides</span> <span class="o">=</span> <span class="n">num_of_sides</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__init_subclass__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init_subclass__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># cls.POLYGON_LIST.append(cls)  # append type</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">POLYGON_LIST</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>  <span class="c1"># append name</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">EqualSidesPolygon</span><span class="p">(</span><span class="n">Polygon</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for polygons with equal side length</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">num_of_sides</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a polygon with equal side length.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        side : int | float</span>
+<span class="sd">            Length of each side.</span>
+
+<span class="sd">        num_of_sides : int</span>
+<span class="sd">            Number of sides of the polygon.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the side is not positive or number of sides smaller than 3.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">num_of_sides</span><span class="o">=</span><span class="n">num_of_sides</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">side</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Side length must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">=</span> <span class="n">side</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate the perimeter of the polygon.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int | float</span>
+<span class="sd">            The perimeter of the polygon.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_of_sides</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">interior_angle</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate the interior angle of the polygon.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            The interior angle in degrees.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_of_sides</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_of_sides</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ThreeDimensionShape</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">Shape</span><span class="p">):</span>
+    <span class="n">SHAPE_LIST</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__init_subclass__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init_subclass__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># cls.SHAPE_LIST.append(cls)  # append type</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">SHAPE_LIST</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>  <span class="c1"># append name</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">surface_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<span class="c1"># Class - Polygon</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="Triangle">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Triangle</span><span class="p">(</span><span class="n">Polygon</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">a</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">b</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">c</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Triangle instance with three sides.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : int | float</span>
+<span class="sd">            The length of the first side.</span>
+
+<span class="sd">        b : int | float</span>
+<span class="sd">            The length of the second side.</span>
+
+<span class="sd">        c : int | float</span>
+<span class="sd">            The length of the third side.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If any side length is not positive or if the sides do not form a valid triangle.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">num_of_sides</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Side lengths must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Check for triangle inequality theorem</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">c</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The provided lengths do not form a valid triangle.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span>
+
+<div class="viewcode-block" id="Triangle.perimeter">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.perimeter">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates and returns the perimeter of the triangle.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span></div>
+
+
+<div class="viewcode-block" id="Triangle.area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates and returns the area of the triangle using Heron&#39;s formula.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">perimeter</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Semi-perimeter</span>
+        <span class="c1"># Heron formula</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="Triangle.is_right_angled">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_right_angled">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_right_angled</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the triangle is a right-angled triangle</span>
+<span class="sd">        (one vertex has degree of 90) using the Pythagorean theorem.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            ``True`` if the triangle is right-angled, ``False`` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sides</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">])</span>
+        <span class="c1"># return (</span>
+        <span class="c1">#     sides[0] ** 2 + sides[1] ** 2 == sides[2] ** 2</span>
+        <span class="c1"># )  # Pytagorean formula</span>
+
+        <span class="c1"># Using ``==`` to compare floating-point numbers can be</span>
+        <span class="c1"># unreliable due to precision issues. Use a tolerance instead</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">sides</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="n">sides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">sides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-6</span></div>
+
+
+<div class="viewcode-block" id="Triangle.is_equilateral">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_equilateral">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_equilateral</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the triangle is an equilateral triangle</span>
+<span class="sd">        (3 sides have the same length).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            ``True`` if the triangle is equilateral, ``False`` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span></div>
+
+
+<div class="viewcode-block" id="Triangle.is_isosceles">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_isosceles">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_isosceles</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the triangle is an isosceles triangle</span>
+<span class="sd">        (at least two sides are equal).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            ``True`` if the triangle is isosceles, ``False`` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span></div>
+
+
+<div class="viewcode-block" id="Triangle.triangle_type">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.triangle_type">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">triangle_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determines the type of triangle based on its sides.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            A string describing the type of triangle: ``&quot;equilateral&quot;``, ``&quot;isosceles&quot;``,</span>
+<span class="sd">            ``&quot;right-angled&quot;``, or ``&quot;scalene&quot;`` if none of the other types apply.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_equilateral</span><span class="p">():</span>
+            <span class="k">return</span> <span class="s2">&quot;equilateral&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_isosceles</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_right_angled</span><span class="p">():</span>
+                <span class="k">return</span> <span class="s2">&quot;right-angled isosceles&quot;</span>
+            <span class="k">return</span> <span class="s2">&quot;isosceles&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_right_angled</span><span class="p">():</span>
+            <span class="k">return</span> <span class="s2">&quot;right-angled&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;scalene&quot;</span></div>
+
+
+<div class="viewcode-block" id="Triangle.is_acute">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_acute">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_acute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the triangle is an acute triangle</span>
+<span class="sd">        (all angles less than 90 degrees).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            ``True`` if the triangle is acute, ``False`` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sides</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">sides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">sides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="n">sides</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="Triangle.is_obtuse">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_obtuse">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_obtuse</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the triangle is an obtuse triangle</span>
+<span class="sd">        (one angle greater than 90 degrees).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            ``True`` if the triangle is obtuse, ``False`` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sides</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">sides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">sides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="n">sides</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="Triangle.get_angles">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.get_angles">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_angles</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates and returns the angles of the triangle in degrees.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple[float, float, float]</span>
+<span class="sd">            A tuple containing the angles in degrees (angle_A, angle_B, angle_C).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span>
+        <span class="n">angle_A</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">acos</span><span class="p">((</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="p">)))</span>
+        <span class="n">angle_B</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">acos</span><span class="p">((</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">)))</span>
+        <span class="n">angle_C</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">acos</span><span class="p">((</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">angle_A</span><span class="p">,</span> <span class="n">angle_B</span><span class="p">,</span> <span class="n">angle_C</span></div>
+
+
+<div class="viewcode-block" id="Triangle.scale">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.scale">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Scales the triangle by a given factor, changing the lengths of all sides.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        factor : int | float</span>
+<span class="sd">            The scaling factor.  Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the scaling factor is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">factor</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Scaling factor must be positive.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">*=</span> <span class="n">factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">*=</span> <span class="n">factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">*=</span> <span class="n">factor</span></div>
+
+
+<div class="viewcode-block" id="Triangle.is_similar">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_similar">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_similar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if this triangle is similar to another triangle.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : Triangle</span>
+<span class="sd">            The other triangle to compare to.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            ``True`` if the triangles are similar, ``False`` otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ratios</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">/</span> <span class="n">other</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">/</span> <span class="n">other</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">/</span> <span class="n">other</span><span class="o">.</span><span class="n">c</span><span class="p">])</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">ratios</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">1e-6</span></div>
+
+
+<div class="viewcode-block" id="Triangle.vis">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Triangle.vis">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">vis</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Visualization of Triangle&quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">              A</span>
+<span class="s2">             /</span><span class="se">\\</span>
+<span class="s2">         c /....</span><span class="se">\\</span><span class="s2">b</span>
+<span class="s2">        B/........</span><span class="se">\\</span><span class="s2">C</span>
+<span class="s2">               a</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Circle">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Circle">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="p">(</span><span class="n">Polygon</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Circle instance with a specified radius.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        radius : int | float</span>
+<span class="sd">            The radius of the circle. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the radius is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Radius must be a positive number.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Circle</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Not supported&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">radius</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Circle</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Not supported&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">radius</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Circle</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Not supported&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">radius</span>
+
+<div class="viewcode-block" id="Circle.diameter">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Circle.diameter">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">diameter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the diameter of the circle.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span></div>
+
+
+<div class="viewcode-block" id="Circle.perimeter">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Circle.perimeter">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the circumference of the circle.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span></div>
+
+
+<div class="viewcode-block" id="Circle.circumference">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Circle.circumference">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">circumference</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the circumference of the circle.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">perimeter</span><span class="p">()</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="Circle.area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Circle.area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the area of the circle.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="Circle.scale">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Circle.scale">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Scales the circle by a given factor, changing its radius.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        factor : int | float</span>
+<span class="sd">            The scaling factor. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the scaling factor is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">factor</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Scaling factor must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">*=</span> <span class="n">factor</span></div>
+
+
+<div class="viewcode-block" id="Circle.from_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Circle.from_area">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_area</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">area</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Circle instance from its area.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        area : int | float</span>
+<span class="sd">            The area of the circle. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the area is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">area</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Area must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="n">radius</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">area</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Circle.from_circumference">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Circle.from_circumference">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_circumference</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">circumference</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Circle instance from its circumference.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        circumference : int | float</span>
+<span class="sd">            The circumference of the circle. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the circumference is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">circumference</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Circumference must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="n">radius</span> <span class="o">=</span> <span class="n">circumference</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Square">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Square">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Square</span><span class="p">(</span><span class="n">EqualSidesPolygon</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Square instance with specified side.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        side : int | float</span>
+<span class="sd">            The length of the rectangle. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the side is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">side</span><span class="p">,</span> <span class="n">num_of_sides</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Square.area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Square.area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate the area of the square.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span><span class="o">**</span><span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="Square.diagonal">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Square.diagonal">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">diagonal</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate the length of the diagonal of the square.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span></div>
+
+
+<div class="viewcode-block" id="Square.from_perimeter">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Square.from_perimeter">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_perimeter</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">perimeter</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a Square instance from its perimeter.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">perimeter</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Perimeter must be a positive number.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">perimeter</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Square.from_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Square.from_area">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_area</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">area</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a Square instance from its area.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">area</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Area must be a positive number.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">area</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Square.scale">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Square.scale">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Scales the square by a given factor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        factor : int | float</span>
+<span class="sd">            The scaling factor. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the scaling factor is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">factor</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Scaling factor must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">*=</span> <span class="n">factor</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Rectangle">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Rectangle">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="p">(</span><span class="n">Polygon</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Rectangle instance with specified length and width.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        length : int | float</span>
+<span class="sd">            The length of the rectangle. Must be positive.</span>
+<span class="sd">        width : int | float</span>
+<span class="sd">            The width of the rectangle. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If either length or width is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">num_of_sides</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">width</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Length and width must be positive numbers.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Rectangle.perimeter">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Rectangle.perimeter">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the perimeter of the rectangle.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Rectangle.area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Rectangle.area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the area of the rectangle.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span></div>
+
+
+<div class="viewcode-block" id="Rectangle.diagonal">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Rectangle.diagonal">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">diagonal</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the length of the diagonal of the rectangle.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Rectangle.is_square">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Rectangle.is_square">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_square</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Checks if the rectangle is a square (length equals width).&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span></div>
+
+
+<div class="viewcode-block" id="Rectangle.scale">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Rectangle.scale">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Scales the rectangle by a given factor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        factor : int | float</span>
+<span class="sd">            The scaling factor. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the scaling factor is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">factor</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Scaling factor must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*=</span> <span class="n">factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">*=</span> <span class="n">factor</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Pentagon">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Pentagon">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Pentagon</span><span class="p">(</span><span class="n">EqualSidesPolygon</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Pentagon instance with a specified side length.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        side : int | float</span>
+<span class="sd">            The length of one side of the pentagon. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the side length is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">side</span><span class="p">,</span> <span class="n">num_of_sides</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Pentagon.area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Pentagon.area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the area of the pentagon using a specific formula.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span><span class="o">**</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="Pentagon.apothem">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Pentagon.apothem">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apothem</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the apothem of the pentagon.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="mi">36</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="Pentagon.area2">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Pentagon.area2">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area2</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates the area using the apothem and perimeter.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">perimeter</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">apothem</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">res</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="Pentagon.from_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Pentagon.from_area">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_area</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">area</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Pentagon instance from its area.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        area : int | float</span>
+<span class="sd">            The area of the pentagon. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the area is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">area</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Area must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Calculate side length from area</span>
+        <span class="n">side</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">4</span> <span class="o">*</span> <span class="n">area</span><span class="p">))</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))))</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">side</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Pentagon.from_perimeter">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Pentagon.from_perimeter">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_perimeter</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">perimeter</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Pentagon instance from its perimeter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        perimeter : int | float</span>
+<span class="sd">            The perimeter of the pentagon. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the perimeter is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">perimeter</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Perimeter must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Calculate side length from perimeter</span>
+        <span class="n">side</span> <span class="o">=</span> <span class="n">perimeter</span> <span class="o">/</span> <span class="mi">5</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">side</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Hexagon">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Hexagon">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Hexagon</span><span class="p">(</span><span class="n">EqualSidesPolygon</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Hexagon instance with a specified side length.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        side : int | float</span>
+<span class="sd">            The length of one side of the hexagon. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the side length is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">side</span><span class="p">,</span> <span class="n">num_of_sides</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Hexagon.area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Hexagon.area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the area of the hexagon.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="Hexagon.apothem">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Hexagon.apothem">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apothem</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the apothem of the hexagon.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Hexagon.area2">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Hexagon.area2">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area2</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates the area using the apothem and perimeter.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">perimeter</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">apothem</span><span class="p">()</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="Hexagon.from_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Hexagon.from_area">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_area</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">area</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Hexagon instance from its area.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        area : int | float</span>
+<span class="sd">            The area of the hexagon. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the area is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">area</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Area must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Calculate side length from area</span>
+        <span class="n">side</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">area</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">side</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Hexagon.from_perimeter">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Hexagon.from_perimeter">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_perimeter</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">perimeter</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Hexagon instance from its perimeter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        perimeter : int | float</span>
+<span class="sd">            The perimeter of the hexagon. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the perimeter is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">perimeter</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Perimeter must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Calculate side length from perimeter</span>
+        <span class="n">side</span> <span class="o">=</span> <span class="n">perimeter</span> <span class="o">/</span> <span class="mi">6</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">side</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Parallelogram">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Parallelogram">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Parallelogram</span><span class="p">(</span><span class="n">Polygon</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">base</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">a</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">phi</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Parallelogram instance with specified dimensions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        base : int | float</span>
+<span class="sd">            The length of the base of the parallelogram. Must be positive.</span>
+
+<span class="sd">        height : int | float</span>
+<span class="sd">            The height of the parallelogram. Must be positive.</span>
+
+<span class="sd">        a : int | float | None</span>
+<span class="sd">            The length of one side of the parallelogram. Must be positive if provided.</span>
+
+<span class="sd">        phi : int | float | None</span>
+<span class="sd">            The angle in degrees opposite the base, adjacent to height. Must be between 0 and 180 if provided.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If base or height is not positive, or if angle is not in valid range.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">num_of_sides</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">base</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Base must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">height</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Height must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">a</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Side &#39;a&#39; must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">phi</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="n">phi</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">phi</span> <span class="o">&gt;=</span> <span class="mi">180</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Angle &#39;phi&#39; must be between 0 and 180 degrees.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi</span> <span class="o">=</span> <span class="n">phi</span>
+
+<div class="viewcode-block" id="Parallelogram.perimeter">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Parallelogram.perimeter">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates and returns the perimeter of the parallelogram.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If neither side ``a`` nor angle ``phi`` is provided.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">side_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">phi</span><span class="p">))</span>
+            <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">+</span> <span class="n">side_b</span><span class="p">)</span>
+            <span class="c1"># return 2 * (self.base + self.height * math.cos(self.phi * math.pi / 180))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Side a or phi must be provided&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Parallelogram.area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Parallelogram.area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the area of the parallelogram.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Rhombus">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Rhombus">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Rhombus</span><span class="p">(</span><span class="n">Polygon</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d1</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">d2</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Rhombus instance with specified diagonal lengths.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        d1 : int | float</span>
+<span class="sd">            The length of the first diagonal. Must be positive.</span>
+
+<span class="sd">        d2 : int | float</span>
+<span class="sd">            The length of the second diagonal. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If either diagonal length is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">num_of_sides</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">d1</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Diagonal d1 must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">d2</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Diagonal d2 must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">d1</span> <span class="o">=</span> <span class="n">d1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d2</span> <span class="o">=</span> <span class="n">d2</span>
+
+<div class="viewcode-block" id="Rhombus.perimeter">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Rhombus.perimeter">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the perimeter of the rhombus.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">d1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">d2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Rhombus.area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Rhombus.area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the area of the rhombus.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">d1</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">d2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="Rhombus.side">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Rhombus.side">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">side</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the length of one side of the rhombus.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">perimeter</span><span class="p">()</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_of_sides</span>  <span class="c1"># type: ignore</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Trapezoid">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Trapezoid">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Trapezoid</span><span class="p">(</span><span class="n">Polygon</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">a</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">b</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">c</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">d</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">h</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Trapezoid instance with specified dimensions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : int | float</span>
+<span class="sd">            The length of base 1. Must be positive.</span>
+
+<span class="sd">        b : int | float</span>
+<span class="sd">            The length of base 2. Must be positive.</span>
+
+<span class="sd">        c : int | float | None</span>
+<span class="sd">            The length of side 1. Must be positive if provided.</span>
+
+<span class="sd">        d : int | float | None</span>
+<span class="sd">            The length of side 2. Must be positive if provided.</span>
+
+<span class="sd">        h : int | float | None</span>
+<span class="sd">            The height of the trapezoid. Must be positive if provided.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If base lengths or height are not positive, or if both sides are not provided.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">num_of_sides</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Base &#39;a&#39; must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Base &#39;b&#39; must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Side &#39;c&#39; must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Side &#39;d&#39; must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">h</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">h</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Height &#39;h&#39; must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">d</span> <span class="o">=</span> <span class="n">d</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">h</span>
+
+<div class="viewcode-block" id="Trapezoid.perimeter">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Trapezoid.perimeter">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">perimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the perimeter of the trapezoid.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">])</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;c&#39; and &#39;d&#39; must be provided to calculate perimeter.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Trapezoid.area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Trapezoid.area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the area of the trapezoid.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;h&#39; must be provided to calculate area.&quot;</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="c1"># Class - 3D Shape</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="Cube">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cube">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cube</span><span class="p">(</span><span class="n">ThreeDimensionShape</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Cube instance with a specified side length.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        side : int | float</span>
+<span class="sd">            The length of one side of the cube. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the side length is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">side</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Side length must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">=</span> <span class="n">side</span>
+
+<div class="viewcode-block" id="Cube.surface_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cube.surface_area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">surface_area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the surface area of the cube.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">6</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span><span class="o">**</span><span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="Cube.surface_area_side">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cube.surface_area_side">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">surface_area_side</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the surface area (side only) of the cube.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">4</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span><span class="o">**</span><span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="Cube.volume">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cube.volume">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the volume of the cube.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span><span class="o">**</span><span class="mi">3</span></div>
+
+
+<div class="viewcode-block" id="Cube.face_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cube.face_area">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">face_area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the area of one face of the cube.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span><span class="o">**</span><span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="Cube.diagonal">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cube.diagonal">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">diagonal</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the length of the space diagonal of the cube.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Cube.scale">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cube.scale">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Scales the cube by a given factor.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">factor</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Scaling factor must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">side</span> <span class="o">*=</span> <span class="n">factor</span></div>
+
+
+<div class="viewcode-block" id="Cube.from_surface_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cube.from_surface_area">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_surface_area</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">surface_area</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Cube instance from its surface area.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        surface_area : int | float</span>
+<span class="sd">            The surface area of the cube. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If surface area is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">surface_area</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Surface area must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Calculate side length from surface area</span>
+        <span class="n">side</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">surface_area</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">side</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Cube.from_volume">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cube.from_volume">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_volume</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">volume</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Cube instance from its volume.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        volume : int | float</span>
+<span class="sd">            The volume of the cube. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If volume is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">volume</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Volume must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Calculate side length from volume</span>
+        <span class="n">side</span> <span class="o">=</span> <span class="n">volume</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">side</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Cuboid">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cuboid">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cuboid</span><span class="p">(</span><span class="n">ThreeDimensionShape</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Cuboid instance with specified dimensions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        length : int | float</span>
+<span class="sd">            The length of the cuboid. Must be positive.</span>
+
+<span class="sd">        width : int | float</span>
+<span class="sd">            The width of the cuboid. Must be positive.</span>
+
+<span class="sd">        height : int | float</span>
+<span class="sd">            The height of the cuboid. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If any dimension is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Length must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">width</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Width must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">height</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Height must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+
+<div class="viewcode-block" id="Cuboid.surface_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cuboid.surface_area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">surface_area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the surface area of the cuboid.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
+            <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+            <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="Cuboid.surface_area_side">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cuboid.surface_area_side">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">surface_area_side</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the surface area of the sides of the cuboid.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="Cuboid.volume">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cuboid.volume">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the volume of the cuboid.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span></div>
+
+
+<div class="viewcode-block" id="Cuboid.diagonal">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cuboid.diagonal">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">diagonal</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the length of the space diagonal of the cuboid.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Cuboid.scale">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cuboid.scale">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Scales the dimensions of the cuboid by a given factor.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">factor</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Scaling factor must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*=</span> <span class="n">factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">*=</span> <span class="n">factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">*=</span> <span class="n">factor</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Sphere">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Sphere">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Sphere</span><span class="p">(</span><span class="n">ThreeDimensionShape</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Sphere instance with the specified radius.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        radius : int | float</span>
+<span class="sd">            The radius of the sphere. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If radius is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Radius must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+
+<div class="viewcode-block" id="Sphere.surface_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Sphere.surface_area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">surface_area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the surface area of the sphere.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="Sphere.volume">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Sphere.volume">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the volume of the sphere.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">4</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">3</span></div>
+
+
+<div class="viewcode-block" id="Sphere.from_volume">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Sphere.from_volume">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_volume</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">volume</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Sphere instance from its volume.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        volume : int | float</span>
+<span class="sd">            The volume of the sphere. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If volume is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">volume</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Volume must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="n">radius</span> <span class="o">=</span> <span class="p">((</span><span class="mi">3</span> <span class="o">*</span> <span class="n">volume</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Sphere.from_surface_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Sphere.from_surface_area">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_surface_area</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">surface_area</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a Sphere instance from its surface area.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        surface_area : int | float</span>
+<span class="sd">            The surface area of the sphere. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If surface area is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">surface_area</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Surface area must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="n">radius</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">surface_area</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="HemiSphere">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">HemiSphere</span><span class="p">(</span><span class="n">ThreeDimensionShape</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a HemiSphere instance with the specified radius.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        radius : int | float</span>
+<span class="sd">            The radius of the hemisphere. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the radius is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Radius must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+
+<div class="viewcode-block" id="HemiSphere.surface_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.surface_area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">surface_area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates and returns the total surface area of the hemisphere.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="HemiSphere.surface_area_curved">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.surface_area_curved">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">surface_area_curved</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates and returns the curved surface area of the hemisphere.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="HemiSphere.surface_area_base">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.surface_area_base">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">surface_area_base</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates and returns the area of the base (circular) of the hemisphere.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="HemiSphere.volume">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.volume">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates and returns the volume of the hemisphere.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">3</span></div>
+
+
+<div class="viewcode-block" id="HemiSphere.from_volume">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.from_volume">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_volume</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">volume</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a HemiSphere instance from its volume.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        volume : int | float</span>
+<span class="sd">            The volume of the hemisphere. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the volume is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">volume</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Volume must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="n">radius</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">volume</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="HemiSphere.from_surface_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.from_surface_area">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_surface_area</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">surface_area</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a HemiSphere instance from its total surface area.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        surface_area : int | float</span>
+<span class="sd">            The total surface area of the hemisphere. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the surface area is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">surface_area</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Surface area must be positive.&quot;</span><span class="p">)</span>
+
+        <span class="n">radius</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">surface_area</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Cylinder">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cylinder">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cylinder</span><span class="p">(</span><span class="n">ThreeDimensionShape</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes a Cylinder instance with the specified radius and height.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        radius : int | float</span>
+<span class="sd">            The radius of the cylinder. Must be positive.</span>
+
+<span class="sd">        height : int | float</span>
+<span class="sd">            The height of the cylinder. Must be positive.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If radius or height is not positive.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Radius must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">height</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Height must be a positive number.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+
+<div class="viewcode-block" id="Cylinder.surface_area">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cylinder.surface_area">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">surface_area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the total surface area of the cylinder.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="Cylinder.surface_area_curved">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cylinder.surface_area_curved">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">surface_area_curved</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the curved surface area of the cylinder.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="Cylinder.volume">
+<a class="viewcode-back" href="../../../absfuyu.general.shape.html#absfuyu.general.shape.Cylinder.volume">[docs]</a>
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculates and returns the volume of the cylinder.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

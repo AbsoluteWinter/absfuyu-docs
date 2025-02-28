@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.extra.beautiful &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../extra.html">absfuyu.extra</a></li>
+      <li class="breadcrumb-item active">absfuyu.extra.beautiful</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.extra.beautiful</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absfuyu: Beautiful</span>
+<span class="sd">------------------</span>
+<span class="sd">A decorator that makes output more beautiful</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 22/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module level</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;BeautifulOutput&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;print&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tracemalloc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">ParamSpec</span><span class="p">,</span> <span class="n">TypeVar</span>
+
+<span class="n">BEAUTIFUL_MODE</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">rich.align</span><span class="w"> </span><span class="kn">import</span> <span class="n">Align</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">rich.console</span><span class="w"> </span><span class="kn">import</span> <span class="n">Console</span><span class="p">,</span> <span class="n">Group</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">rich.panel</span><span class="w"> </span><span class="kn">import</span> <span class="n">Panel</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">rich.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">rich.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">Text</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">subprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">run</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABSFUYU_CONFIG</span>
+
+    <span class="k">if</span> <span class="n">ABSFUYU_CONFIG</span><span class="o">.</span><span class="n">_get_setting</span><span class="p">(</span><span class="s2">&quot;auto-install-extra&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;python -m pip install -U absfuyu[beautiful]&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;This feature is in absfuyu[beautiful] package&quot;</span><span class="p">)</span>  <span class="c1"># noqa: B904</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">BEAUTIFUL_MODE</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Setup</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># rich&#39;s console.print wrapper</span>
+<span class="n">console</span> <span class="o">=</span> <span class="n">Console</span><span class="p">(</span><span class="n">color_system</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">tab_size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span> <span class="o">=</span> <span class="n">console</span><span class="o">.</span><span class="n">print</span>
+
+
+<span class="c1"># Type</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s2">&quot;P&quot;</span><span class="p">)</span>  <span class="c1"># Parameter type</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">)</span>  <span class="c1"># Return type - Can be anything</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>  <span class="c1"># Type type - Can be any subtype of `type`</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PerformanceOutput</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">runtime</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">current_memory</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">peak_memory</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_text</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Beautify the result and ready to print</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Memory usage:      </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_memory</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="si">:</span><span class="s2">,.6f</span><span class="si">}</span><span class="s2"> MB</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Peak memory usage: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">peak_memory</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="si">:</span><span class="s2">,.6f</span><span class="si">}</span><span class="s2"> MB</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Time elapsed:      </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">runtime</span><span class="si">:</span><span class="s2">,.6f</span><span class="si">}</span><span class="s2"> s&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="c1"># TODO: header and footer layout to 1,2,3 instead of true false</span>
+<div class="viewcode-block" id="BeautifulOutput">
+<a class="viewcode-back" href="../../../absfuyu.extra.beautiful.html#absfuyu.extra.beautiful.BeautifulOutput">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BeautifulOutput</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A decorator that makes output more beautiful&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">layout</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">include_header</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">include_footer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">alternate_footer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Show function&#39;s signature and measure memory usage</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        layout : Literal[1, 2, 3, 4, 5, 6], optional</span>
+<span class="sd">            Layout to show, by default ``1``</span>
+
+<span class="sd">        include_header : bool, optional</span>
+<span class="sd">            Include header with function&#39;s signature, by default ``True``</span>
+
+<span class="sd">        include_footer : bool, optional</span>
+<span class="sd">            Include footer, by default ``True``</span>
+
+<span class="sd">        alternate_footer : bool, optional</span>
+<span class="sd">            Alternative style of footer, by default ``False``</span>
+
+
+<span class="sd">        Usage</span>
+<span class="sd">        -----</span>
+<span class="sd">        Use this as a decorator (``@BeautifulOutput(&lt;parameters&gt;)``)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">layout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">include_header</span> <span class="o">=</span> <span class="n">include_header</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">include_footer</span> <span class="o">=</span> <span class="n">include_footer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alternate_footer</span> <span class="o">=</span> <span class="n">alternate_footer</span>
+
+        <span class="c1"># Data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_obj_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_signature</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_result</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_performance</span><span class="p">:</span> <span class="n">PerformanceOutput</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Setting</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_header_footer_style</span> <span class="o">=</span> <span class="s2">&quot;white on blue&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_alignment</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">Group</span><span class="p">]:</span>
+        <span class="c1"># Class wrapper</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Classes are not supported&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Function wrapper</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Group</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Wrapper function that executes the original function.</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="c1"># Get all parameters inputed</span>
+            <span class="n">args_repr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">repr</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+            <span class="n">kwargs_repr</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_signature</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">args_repr</span> <span class="o">+</span> <span class="n">kwargs_repr</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_obj_name</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__name__</span>
+
+            <span class="c1"># Performance check</span>
+            <span class="n">tracemalloc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c1"># Start memory measure</span>
+            <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>  <span class="c1"># Start time measure</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_result</span> <span class="o">=</span> <span class="n">obj</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Function run</span>
+
+            <span class="n">finish_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>  <span class="c1"># Get finished time</span>
+            <span class="n">_cur</span><span class="p">,</span> <span class="n">_peak</span> <span class="o">=</span> <span class="n">tracemalloc</span><span class="o">.</span><span class="n">get_traced_memory</span><span class="p">()</span>  <span class="c1"># Get memory stats</span>
+            <span class="n">tracemalloc</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>  <span class="c1"># End memory measure</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_performance</span> <span class="o">=</span> <span class="n">PerformanceOutput</span><span class="p">(</span>
+                <span class="n">runtime</span><span class="o">=</span><span class="n">finish_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">current_memory</span><span class="o">=</span><span class="n">_cur</span><span class="p">,</span> <span class="n">peak_memory</span><span class="o">=</span><span class="n">_peak</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_layout</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="c1"># Signature</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_func_signature</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Function&#39;s signature&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj_name</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_signature</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="c1"># Layout</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_make_header</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Table</span><span class="p">:</span>
+        <span class="n">header_table</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">header_table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span>
+            <span class="n">Panel</span><span class="p">(</span>
+                <span class="n">Align</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[b]</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_func_signature</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_alignment</span><span class="p">),</span>
+                <span class="n">style</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_header_footer_style</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">header_table</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_make_line</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Table</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">line</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_header_footer_style</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">line</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_make_footer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Table</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">alternate_footer</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_line</span><span class="p">()</span>
+
+        <span class="n">footer_table</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">footer_table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span>
+            <span class="n">Panel</span><span class="p">(</span>
+                <span class="n">Align</span><span class="p">(</span><span class="s2">&quot;[b]BeautifulOutput by absfuyu&quot;</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_alignment</span><span class="p">),</span>
+                <span class="n">style</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_header_footer_style</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">footer_table</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_make_result_panel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Panel</span><span class="p">:</span>
+        <span class="n">result_txt</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span>
+            <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_result</span><span class="p">),</span>
+            <span class="n">overflow</span><span class="o">=</span><span class="s2">&quot;fold&quot;</span><span class="p">,</span>
+            <span class="n">no_wrap</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">tab_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">result_panel</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">(</span>
+            <span class="n">Align</span><span class="p">(</span><span class="n">result_txt</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_alignment</span><span class="p">),</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;[bold]Result[/]&quot;</span><span class="p">,</span>
+            <span class="n">border_style</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span>
+            <span class="n">highlight</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">result_panel</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_make_performance_panel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Panel</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_performance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">performance_panel</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">(</span>
+                <span class="n">Align</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_performance</span><span class="o">.</span><span class="n">to_text</span><span class="p">(),</span> <span class="n">align</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_alignment</span><span class="p">),</span>
+                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;[bold]Performance[/]&quot;</span><span class="p">,</span>
+                <span class="n">border_style</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+                <span class="n">highlight</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="c1"># height=result_panel.height,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">performance_panel</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Panel</span><span class="p">(</span><span class="s2">&quot;None&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;[bold]Performance[/]&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_make_output</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Table</span><span class="p">:</span>
+        <span class="n">out_table</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">out_table</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="n">ratio</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># result</span>
+        <span class="n">out_table</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="n">ratio</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># performance</span>
+
+        <span class="n">out_table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_make_result_panel</span><span class="p">(),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_make_performance_panel</span><span class="p">(),</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">out_table</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_layout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layout</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Group</span><span class="p">:</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_header</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">include_header</span> <span class="k">else</span> <span class="n">Text</span><span class="p">()</span>
+        <span class="n">footer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_footer</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">include_footer</span> <span class="k">else</span> <span class="n">Text</span><span class="p">()</span>
+        <span class="n">layouts</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="mi">1</span><span class="p">:</span> <span class="n">Group</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_output</span><span class="p">(),</span> <span class="n">footer</span><span class="p">),</span>
+            <span class="mi">2</span><span class="p">:</span> <span class="n">Group</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_result_panel</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_performance_panel</span><span class="p">()),</span>
+            <span class="mi">3</span><span class="p">:</span> <span class="n">Group</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_result_panel</span><span class="p">(),</span> <span class="n">footer</span><span class="p">),</span>
+            <span class="mi">4</span><span class="p">:</span> <span class="n">Group</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_make_result_panel</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_performance_panel</span><span class="p">()),</span>
+            <span class="mi">5</span><span class="p">:</span> <span class="n">Group</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_make_output</span><span class="p">()),</span>
+            <span class="mi">6</span><span class="p">:</span> <span class="n">Group</span><span class="p">(</span>
+                <span class="n">header</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_make_result_panel</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_make_performance_panel</span><span class="p">(),</span>
+                <span class="n">footer</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">layouts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">layout</span><span class="p">,</span> <span class="n">layouts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

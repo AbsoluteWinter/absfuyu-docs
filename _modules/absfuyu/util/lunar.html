@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.util.lunar &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../util.html">absfuyu.util</a></li>
+      <li class="breadcrumb-item active">absfuyu.util.lunar</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.util.lunar</h1><div class="highlight"><pre>
+<span></span><span class="c1"># flake8: noqa</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absfuyu: Lunar calendar</span>
+<span class="sd">-----------------------</span>
+<span class="sd">Convert to lunar calendar</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 22/02/2025 (dd/mm/yyyy)</span>
+
+<span class="sd">Source:</span>
+<span class="sd">-------</span>
+<span class="sd">Astronomical algorithms from the book &quot;Astronomical Algorithms&quot; by Jean Meeus, 1998</span>
+<span class="sd">https://www.informatik.uni-leipzig.de/~duc/amlich/AL.py</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module level</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;LunarCalendar&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="LunarCalendar">
+<a class="viewcode-back" href="../../../absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">LunarCalendar</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Lunar Calendar&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">month</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">day</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">time_zone</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="n">lunar_leap</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param time_zone: Time zone</span>
+<span class="sd">        :param lunar_leap: Do not use this</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_zone</span> <span class="o">=</span> <span class="n">time_zone</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lunar_leap</span> <span class="o">=</span> <span class="n">lunar_leap</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="si">}</span><span class="s2">|lunar_leap=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_lunar_leap</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_julian_day_from_date</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">overwrite_year</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">overwrite_month</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">overwrite_day</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the (integral) Julian day number of `self.date`</span>
+
+<span class="sd">        i.e., the number of days between 1/1/4713 BC (Julian calendar) and `self.date`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">day</span> <span class="k">if</span> <span class="n">overwrite_day</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">overwrite_day</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">month</span> <span class="k">if</span> <span class="n">overwrite_month</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">overwrite_month</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">year</span> <span class="k">if</span> <span class="n">overwrite_year</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">overwrite_year</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">14</span> <span class="o">-</span> <span class="n">month</span><span class="p">)</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">year</span> <span class="o">+</span> <span class="mi">4800</span> <span class="o">-</span> <span class="n">a</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">month</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">*</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">3</span>
+        <span class="n">jd</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">day</span>
+            <span class="o">+</span> <span class="nb">int</span><span class="p">((</span><span class="mi">153</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span>
+            <span class="o">+</span> <span class="mi">365</span> <span class="o">*</span> <span class="n">y</span>
+            <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">)</span>
+            <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+            <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="mf">400.0</span><span class="p">)</span>
+            <span class="o">-</span> <span class="mi">32045</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">jd</span> <span class="o">&lt;</span> <span class="mi">2299161</span><span class="p">:</span>
+            <span class="n">jd</span> <span class="o">=</span> <span class="n">day</span> <span class="o">+</span> <span class="nb">int</span><span class="p">((</span><span class="mi">153</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">365</span> <span class="o">*</span> <span class="n">y</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">32083</span>
+        <span class="k">return</span> <span class="n">jd</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_julian_day_to_date</span><span class="p">(</span><span class="n">julian_day</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">date</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert a Julian day number to `datetime.date`</span>
+
+<span class="sd">        julian_day: Julian day</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">julian_day</span> <span class="o">&gt;</span> <span class="mi">2299160</span><span class="p">:</span>
+            <span class="c1">## After 5/10/1582, Gregorian calendar</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">julian_day</span> <span class="o">+</span> <span class="mi">32044</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mf">146097.0</span><span class="p">)</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="nb">int</span><span class="p">((</span><span class="n">b</span> <span class="o">*</span> <span class="mi">146097</span><span class="p">)</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">julian_day</span> <span class="o">+</span> <span class="mi">32082</span>
+
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">4</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1461.0</span><span class="p">)</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">c</span> <span class="o">-</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1461</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">5</span> <span class="o">*</span> <span class="n">e</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">153.0</span><span class="p">)</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="n">e</span> <span class="o">-</span> <span class="nb">int</span><span class="p">((</span><span class="mi">153</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">12</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">d</span> <span class="o">-</span> <span class="mi">4800</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_new_moon</span><span class="p">(</span><span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the time of the k-th new moon after the new moon of `1/1/1900 13:52 UCT`</span>
+<span class="sd">        measured as the number of days since `1/1/4713 BC noon UCT`,</span>
+<span class="sd">        e.g., `2451545.125 is 1/1/2000 15:00 UTC`.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        `2415079.9758617813` for `k=2` or `2414961.935157746` for `k=-2`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">## Time in Julian centuries from 1900 January 0.5</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="n">k</span> <span class="o">/</span> <span class="mf">1236.85</span>
+        <span class="n">T2</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">T3</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">dr</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span>
+        <span class="n">Jd1</span> <span class="o">=</span> <span class="mf">2415020.75933</span> <span class="o">+</span> <span class="mf">29.53058868</span> <span class="o">*</span> <span class="n">k</span> <span class="o">+</span> <span class="mf">0.0001178</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">-</span> <span class="mf">0.000000155</span> <span class="o">*</span> <span class="n">T3</span>
+        <span class="n">Jd1</span> <span class="o">=</span> <span class="n">Jd1</span> <span class="o">+</span> <span class="mf">0.00033</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="mf">166.56</span> <span class="o">+</span> <span class="mf">132.87</span> <span class="o">*</span> <span class="n">T</span> <span class="o">-</span> <span class="mf">0.009173</span> <span class="o">*</span> <span class="n">T2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dr</span><span class="p">)</span>
+        <span class="c1">## Mean new moon</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="mf">359.2242</span> <span class="o">+</span> <span class="mf">29.10535608</span> <span class="o">*</span> <span class="n">k</span> <span class="o">-</span> <span class="mf">0.0000333</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">-</span> <span class="mf">0.00000347</span> <span class="o">*</span> <span class="n">T3</span>
+        <span class="c1">## Sun&#39;s mean anomaly</span>
+        <span class="n">Mpr</span> <span class="o">=</span> <span class="mf">306.0253</span> <span class="o">+</span> <span class="mf">385.81691806</span> <span class="o">*</span> <span class="n">k</span> <span class="o">+</span> <span class="mf">0.0107306</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">+</span> <span class="mf">0.00001236</span> <span class="o">*</span> <span class="n">T3</span>
+        <span class="c1">## Moon&#39;s mean anomaly</span>
+        <span class="n">F</span> <span class="o">=</span> <span class="mf">21.2964</span> <span class="o">+</span> <span class="mf">390.67050646</span> <span class="o">*</span> <span class="n">k</span> <span class="o">-</span> <span class="mf">0.0016528</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">-</span> <span class="mf">0.00000239</span> <span class="o">*</span> <span class="n">T3</span>
+        <span class="c1">## Moon&#39;s argument of latitude</span>
+        <span class="n">C1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.1734</span> <span class="o">-</span> <span class="mf">0.000393</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span> <span class="o">*</span> <span class="n">dr</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0021</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">dr</span> <span class="o">*</span> <span class="n">M</span><span class="p">)</span>
+        <span class="n">C1</span> <span class="o">=</span> <span class="n">C1</span> <span class="o">-</span> <span class="mf">0.4068</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">Mpr</span> <span class="o">*</span> <span class="n">dr</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0161</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">Mpr</span><span class="p">)</span>
+        <span class="n">C1</span> <span class="o">=</span> <span class="n">C1</span> <span class="o">-</span> <span class="mf">0.0004</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">Mpr</span><span class="p">)</span>
+        <span class="n">C1</span> <span class="o">=</span> <span class="n">C1</span> <span class="o">+</span> <span class="mf">0.0104</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">F</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.0051</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="p">(</span><span class="n">M</span> <span class="o">+</span> <span class="n">Mpr</span><span class="p">))</span>
+        <span class="n">C1</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">C1</span> <span class="o">-</span> <span class="mf">0.0074</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="p">(</span><span class="n">M</span> <span class="o">-</span> <span class="n">Mpr</span><span class="p">))</span> <span class="o">+</span> <span class="mf">0.0004</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">F</span> <span class="o">+</span> <span class="n">M</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">C1</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">C1</span>
+            <span class="o">-</span> <span class="mf">0.0004</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">F</span> <span class="o">-</span> <span class="n">M</span><span class="p">))</span>
+            <span class="o">-</span> <span class="mf">0.0006</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">F</span> <span class="o">+</span> <span class="n">Mpr</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">C1</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">C1</span>
+            <span class="o">+</span> <span class="mf">0.0010</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">F</span> <span class="o">-</span> <span class="n">Mpr</span><span class="p">))</span>
+            <span class="o">+</span> <span class="mf">0.0005</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Mpr</span> <span class="o">+</span> <span class="n">M</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">T</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">11</span><span class="p">:</span>
+            <span class="n">deltat</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="mf">0.001</span>
+                <span class="o">+</span> <span class="mf">0.000839</span> <span class="o">*</span> <span class="n">T</span>
+                <span class="o">+</span> <span class="mf">0.0002261</span> <span class="o">*</span> <span class="n">T2</span>
+                <span class="o">-</span> <span class="mf">0.00000845</span> <span class="o">*</span> <span class="n">T3</span>
+                <span class="o">-</span> <span class="mf">0.000000081</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="n">T3</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">deltat</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.000278</span> <span class="o">+</span> <span class="mf">0.000265</span> <span class="o">*</span> <span class="n">T</span> <span class="o">+</span> <span class="mf">0.000262</span> <span class="o">*</span> <span class="n">T2</span>
+        <span class="n">JdNew</span> <span class="o">=</span> <span class="n">Jd1</span> <span class="o">+</span> <span class="n">C1</span> <span class="o">-</span> <span class="n">deltat</span>
+        <span class="k">return</span> <span class="n">JdNew</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_sun_longitude</span><span class="p">(</span><span class="n">julian_day_noon</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the longitude of the sun at any time.</span>
+
+<span class="sd">        julian_day_noon: The number of days since `1/1/4713 BC noon`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="p">(</span><span class="n">julian_day_noon</span> <span class="o">-</span> <span class="mf">2451545.0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">36525.0</span>
+        <span class="c1"># Time in Julian centuries</span>
+        <span class="c1"># from 2000-01-01 12:00:00 GMT</span>
+        <span class="n">T2</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">T3</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">dr</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span>  <span class="c1"># degree to radian</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="mf">357.52910</span> <span class="o">+</span> <span class="mf">35999.05030</span> <span class="o">*</span> <span class="n">T</span> <span class="o">-</span> <span class="mf">0.0001559</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">-</span> <span class="mf">0.00000048</span> <span class="o">*</span> <span class="n">T3</span>
+        <span class="c1"># mean anomaly, degree</span>
+        <span class="n">L0</span> <span class="o">=</span> <span class="mf">280.46645</span> <span class="o">+</span> <span class="mf">36000.76983</span> <span class="o">*</span> <span class="n">T</span> <span class="o">+</span> <span class="mf">0.0003032</span> <span class="o">*</span> <span class="n">T2</span>
+        <span class="c1"># mean longitude, degree</span>
+        <span class="n">DL</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.914600</span> <span class="o">-</span> <span class="mf">0.004817</span> <span class="o">*</span> <span class="n">T</span> <span class="o">-</span> <span class="mf">0.000014</span> <span class="o">*</span> <span class="n">T2</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="n">M</span><span class="p">)</span>
+        <span class="n">DL</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">0.019993</span> <span class="o">-</span> <span class="mf">0.000101</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dr</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">M</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.000290</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span>
+            <span class="n">dr</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">M</span>
+        <span class="p">)</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="n">L0</span> <span class="o">+</span> <span class="n">DL</span>  <span class="c1"># true longitude, degree</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="n">L</span> <span class="o">*</span> <span class="n">dr</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="n">L</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">L</span> <span class="o">/</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)))</span>
+        <span class="c1"># Normalize to (0, 2*math.pi)</span>
+        <span class="k">return</span> <span class="n">L</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_sun_longitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">day_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute sun position at midnight of the day with the given Julian day number.</span>
+
+<span class="sd">        The time zone if the time difference between local time and UTC: 7.0 for UTC+7:00.</span>
+
+<span class="sd">        The function returns a number between `0` and `11`.</span>
+
+<span class="sd">        From the day after March equinox and the 1st major term after March equinox, 0 is returned. After that, return 1, 2, 3 ...</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sun_longitude</span><span class="p">(</span><span class="n">day_number</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_zone</span> <span class="o">/</span> <span class="mf">24.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">6</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_new_moon_day</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the day of the k-th new moon in the given time zone.</span>
+
+<span class="sd">        The time zone if the time difference between local time and UTC: 7.0 for UTC+7:00.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_new_moon</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_zone</span> <span class="o">/</span> <span class="mf">24.0</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_lunar_month_11</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">overwrite_year</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find the day that starts the luner month 11</span>
+<span class="sd">        of the given year for the given time zone.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># off = self._julian_day_from_date(overwrite_month=12, overwrite_day=31) - 2415021.076998695</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">year</span> <span class="k">if</span> <span class="n">overwrite_year</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">overwrite_year</span>
+        <span class="n">off</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_julian_day_from_date</span><span class="p">(</span>
+                <span class="n">overwrite_month</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">overwrite_day</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">overwrite_year</span><span class="o">=</span><span class="n">year</span>
+            <span class="p">)</span>
+            <span class="o">-</span> <span class="mf">2415021.0</span>
+        <span class="p">)</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">off</span> <span class="o">/</span> <span class="mf">29.530588853</span><span class="p">)</span>
+        <span class="n">nm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_moon_day</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="n">sunLong</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sun_longitude</span><span class="p">(</span><span class="n">nm</span><span class="p">)</span>
+        <span class="c1">#### sun longitude at local midnight</span>
+        <span class="k">if</span> <span class="n">sunLong</span> <span class="o">&gt;=</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="n">nm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_moon_day</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">nm</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_leap_month_offset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a11</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find the index of the leap month after the month starting on the day a11.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">a11</span> <span class="o">-</span> <span class="mf">2415021.076998695</span><span class="p">)</span> <span class="o">/</span> <span class="mf">29.530588853</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">last</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># start with month following lunar month 11</span>
+        <span class="n">arc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sun_longitude</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_new_moon_day</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">last</span> <span class="o">=</span> <span class="n">arc</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">arc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_sun_longitude</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_new_moon_day</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="n">i</span><span class="p">))</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">arc</span> <span class="o">!=</span> <span class="n">last</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">14</span><span class="p">):</span>
+                <span class="k">break</span>
+
+        <span class="c1"># for i in range(1, 14):</span>
+        <span class="c1">#     arc = self._get_sun_longitude(self._get_new_moon_day(k + i))</span>
+        <span class="c1">#     if arc != last:</span>
+        <span class="c1">#         last = arc</span>
+        <span class="c1">#     else:</span>
+        <span class="c1">#         break</span>
+        <span class="k">return</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+
+<div class="viewcode-block" id="LunarCalendar.to_lunar">
+<a class="viewcode-back" href="../../../absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.to_lunar">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_lunar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert solar date to the corresponding lunar date.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LunarCalendar</span>
+<span class="sd">            LunarCalendar instance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">yy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">year</span>
+        <span class="n">day_number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_julian_day_from_date</span><span class="p">()</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">day_number</span> <span class="o">-</span> <span class="mf">2415021.076998695</span><span class="p">)</span> <span class="o">/</span> <span class="mf">29.530588853</span><span class="p">)</span>
+        <span class="n">month_start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_moon_day</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">month_start</span> <span class="o">&gt;</span> <span class="n">day_number</span><span class="p">:</span>
+            <span class="n">month_start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_moon_day</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="c1"># alert(day_number + &quot; -&gt; &quot; + month_start)</span>
+        <span class="n">a11</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_lunar_month_11</span><span class="p">()</span>
+        <span class="n">b11</span> <span class="o">=</span> <span class="n">a11</span>
+        <span class="k">if</span> <span class="n">a11</span> <span class="o">&gt;=</span> <span class="n">month_start</span><span class="p">:</span>
+            <span class="n">lunar_year</span> <span class="o">=</span> <span class="n">yy</span>
+            <span class="n">a11</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_lunar_month_11</span><span class="p">(</span><span class="n">overwrite_year</span><span class="o">=</span><span class="n">yy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">lunar_year</span> <span class="o">=</span> <span class="n">yy</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">b11</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_lunar_month_11</span><span class="p">(</span><span class="n">overwrite_year</span><span class="o">=</span><span class="n">yy</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">lunar_day</span> <span class="o">=</span> <span class="n">day_number</span> <span class="o">-</span> <span class="n">month_start</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">month_start</span> <span class="o">-</span> <span class="n">a11</span><span class="p">)</span> <span class="o">/</span> <span class="mf">29.0</span><span class="p">)</span>
+        <span class="n">lunar_month</span> <span class="o">=</span> <span class="n">diff</span> <span class="o">+</span> <span class="mi">11</span>
+        <span class="k">if</span> <span class="n">b11</span> <span class="o">-</span> <span class="n">a11</span> <span class="o">&gt;</span> <span class="mi">365</span><span class="p">:</span>
+            <span class="n">leap_month_diff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_leap_month_offset</span><span class="p">(</span><span class="n">a11</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">diff</span> <span class="o">&gt;=</span> <span class="n">leap_month_diff</span><span class="p">:</span>
+                <span class="n">lunar_month</span> <span class="o">=</span> <span class="n">diff</span> <span class="o">+</span> <span class="mi">10</span>
+                <span class="k">if</span> <span class="n">diff</span> <span class="o">==</span> <span class="n">leap_month_diff</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_lunar_leap</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">lunar_month</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="n">lunar_month</span> <span class="o">=</span> <span class="n">lunar_month</span> <span class="o">-</span> <span class="mi">12</span>
+        <span class="k">if</span> <span class="n">lunar_month</span> <span class="o">&gt;=</span> <span class="mi">11</span> <span class="ow">and</span> <span class="n">diff</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">lunar_year</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span>
+            <span class="n">lunar_year</span><span class="p">,</span> <span class="n">lunar_month</span><span class="p">,</span> <span class="n">lunar_day</span><span class="p">,</span> <span class="n">lunar_leap</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_lunar_leap</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LunarCalendar.to_solar">
+<a class="viewcode-back" href="../../../absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.to_solar">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_solar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert a lunar date to the corresponding solar date.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LunarCalendar</span>
+<span class="sd">            LunarCalendar instance</span>
+
+<span class="sd">        date</span>
+<span class="sd">            When unable to convert</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">lunarD</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">day</span>
+        <span class="n">lunarM</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">month</span>
+        <span class="n">lunarY</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">year</span>
+        <span class="k">if</span> <span class="n">lunarM</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">:</span>
+            <span class="n">a11</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_lunar_month_11</span><span class="p">(</span><span class="n">overwrite_year</span><span class="o">=</span><span class="n">lunarY</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">b11</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_lunar_month_11</span><span class="p">(</span><span class="n">overwrite_year</span><span class="o">=</span><span class="n">lunarY</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">a11</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_lunar_month_11</span><span class="p">(</span><span class="n">overwrite_year</span><span class="o">=</span><span class="n">lunarY</span><span class="p">)</span>
+            <span class="n">b11</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_lunar_month_11</span><span class="p">(</span><span class="n">overwrite_year</span><span class="o">=</span><span class="n">lunarY</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">+</span> <span class="p">(</span><span class="n">a11</span> <span class="o">-</span> <span class="mf">2415021.076998695</span><span class="p">)</span> <span class="o">/</span> <span class="mf">29.530588853</span><span class="p">)</span>
+        <span class="n">off</span> <span class="o">=</span> <span class="n">lunarM</span> <span class="o">-</span> <span class="mi">11</span>
+        <span class="k">if</span> <span class="n">off</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">off</span> <span class="o">+=</span> <span class="mi">12</span>
+        <span class="k">if</span> <span class="n">b11</span> <span class="o">-</span> <span class="n">a11</span> <span class="o">&gt;</span> <span class="mi">365</span><span class="p">:</span>
+            <span class="n">leapOff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_leap_month_offset</span><span class="p">(</span><span class="n">a11</span><span class="p">)</span>
+            <span class="n">leapM</span> <span class="o">=</span> <span class="n">leapOff</span> <span class="o">-</span> <span class="mi">2</span>
+            <span class="k">if</span> <span class="n">leapM</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">leapM</span> <span class="o">+=</span> <span class="mi">12</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lunar_leap</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">lunarM</span> <span class="o">!=</span> <span class="n">leapM</span><span class="p">:</span>
+                <span class="c1"># logger.warning(&quot;lunar_leap is True&quot;)</span>
+                <span class="c1"># raise ValueError()</span>
+                <span class="k">return</span> <span class="n">date</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lunar_leap</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">or</span> <span class="n">off</span> <span class="o">&gt;=</span> <span class="n">leapOff</span><span class="p">:</span>
+                <span class="n">off</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">monthStart</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_new_moon_day</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="n">off</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_julian_day_to_date</span><span class="p">(</span><span class="n">monthStart</span> <span class="o">+</span> <span class="n">lunarD</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="n">lunar_leap</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_lunar_leap</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LunarCalendar.convert_all">
+<a class="viewcode-back" href="../../../absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.convert_all">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">convert_all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert to both lunar and solar</span>
+
+<span class="sd">        This method has no practical use</span>
+
+<span class="sd">        :rtype: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;lunar&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_lunar</span><span class="p">(),</span> <span class="s2">&quot;original&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;solar&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_solar</span><span class="p">()}</span></div>
+
+
+<div class="viewcode-block" id="LunarCalendar.from_solar">
+<a class="viewcode-back" href="../../../absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.from_solar">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_solar</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">month</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">lunar_leap</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert to lunar day from solar day</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        year : int</span>
+<span class="sd">            Year (in range [1, 9999])</span>
+
+<span class="sd">        month : int</span>
+<span class="sd">            Month (in range [1, 12])</span>
+
+<span class="sd">        day : int</span>
+<span class="sd">            Day (in range [1, 31])</span>
+
+<span class="sd">        lunar_leap : bool</span>
+<span class="sd">            Is leap (Default: ``False``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LunarCalendar</span>
+<span class="sd">            LunarCalendar instance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">lunar_leap</span><span class="o">=</span><span class="n">lunar_leap</span><span class="p">)</span><span class="o">.</span><span class="n">to_lunar</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="LunarCalendar.from_datetime">
+<a class="viewcode-back" href="../../../absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.from_datetime">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_datetime</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">datetime_object</span><span class="p">:</span> <span class="n">date</span> <span class="o">|</span> <span class="n">datetime</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert from ``datetime.datetime`` object</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        datetime_object : date | datetime</span>
+<span class="sd">            ``datetime.datetime`` object</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LunarCalendar</span>
+<span class="sd">            LunarCalendar instance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">datetime_object</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">datetime_object</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">datetime_object</span><span class="o">.</span><span class="n">day</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LunarCalendar.now">
+<a class="viewcode-back" href="../../../absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.now">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">now</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get lunar calendar for ``datetime.datetime.now()``</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        LunarCalendar</span>
+<span class="sd">            LunarCalendar instance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="p">)</span><span class="o">.</span><span class="n">to_lunar</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

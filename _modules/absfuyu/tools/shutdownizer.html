@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.tools.shutdownizer &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">absfuyu.tools.shutdownizer</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.tools.shutdownizer</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absfuyu: Shutdownizer</span>
+<span class="sd">---------------------</span>
+<span class="sd">This shutdowns</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 23/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module level</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ShutDownizer&quot;</span><span class="p">,</span> <span class="s2">&quot;ShutdownEngine&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotated</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">override</span>  <span class="c1"># type: ignore</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core.decorator</span><span class="w"> </span><span class="kn">import</span> <span class="n">dummy_decorator</span> <span class="k">as</span> <span class="n">override</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseClass</span><span class="p">,</span> <span class="n">versionadded</span><span class="p">,</span> <span class="n">versionchanged</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
+
+<span class="c1"># TODO: Schedule shutdown, random time shutdown, test</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="ShutDownizer">
+<a class="viewcode-back" href="../../../absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutDownizer">[docs]</a>
+<span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;4.2.0&quot;</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ShutDownizer</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ShutDownizer</span>
+
+<span class="sd">    Shutdown tool because why not</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;os&quot;</span><span class="p">,</span> <span class="s2">&quot;engine&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">os</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current OS: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">os</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;win32&quot;</span><span class="p">,</span> <span class="s2">&quot;cygwin&quot;</span><span class="p">]:</span>  <span class="c1"># Windows</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">ShutdownEngineWin</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">==</span> <span class="s2">&quot;darwin&quot;</span><span class="p">:</span>  <span class="c1"># MacOS</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">ShutdownEngineMac</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">os</span> <span class="o">==</span> <span class="s2">&quot;linux&quot;</span><span class="p">:</span>  <span class="c1"># Linux</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">ShutdownEngineLinux</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">SystemError</span><span class="p">(</span><span class="s2">&quot;OS not supported&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">os</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<div class="viewcode-block" id="ShutDownizer.shutdown">
+<a class="viewcode-back" href="../../../absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutDownizer.shutdown">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Shutdown&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ShutDownizer.restart">
+<a class="viewcode-back" href="../../../absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutDownizer.restart">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Restart&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">restart</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ShutDownizer.cancel">
+<a class="viewcode-back" href="../../../absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutDownizer.cancel">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Cancel&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ShutdownEngine">
+<a class="viewcode-back" href="../../../absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ShutdownEngine</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">BaseClass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstract shutdown class for different type of OS</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_execute_cmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the cmd&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">&quot; failed to run: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">&quot; failed to run&#39;</span><span class="p">)</span>  <span class="c1"># noqa</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_execute_multiple_cmds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmds</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cmds</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;cmds must be a &lt;list&gt;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">cmds</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Executing: </span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_execute_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s1">&quot; failed to run: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ShutdownEngine.shutdown">
+<a class="viewcode-back" href="../../../absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine.shutdown">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Shutdown&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="ShutdownEngine.restart">
+<a class="viewcode-back" href="../../../absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine.restart">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Restart&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="ShutdownEngine.sleep">
+<a class="viewcode-back" href="../../../absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine.sleep">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sleep&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="ShutdownEngine.abort">
+<a class="viewcode-back" href="../../../absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine.abort">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">abort</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Abort/Cancel&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="ShutdownEngine.cancel">
+<a class="viewcode-back" href="../../../absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine.cancel">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Abort/Cancel&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">abort</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_time</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">h</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;positive&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">m</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;positive&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">aggregate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate time for scheduled shutdown.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        h : int, optional</span>
+<span class="sd">            Hours to add (24h format), by default ``0``</span>
+
+<span class="sd">        m : int, optional</span>
+<span class="sd">            Minutes to add (24h format), by default ``0``</span>
+
+<span class="sd">        aggregate : bool, optional</span>
+<span class="sd">            This add hours and and minutes to `time.now()`, by default ``True``</span>
+<span class="sd">            - ``True`` : Add hours and minutes to current time</span>
+<span class="sd">            - ``False``: Use ``h`` and ``m`` as fixed time point to shutdown</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            Seconds left until shutdown.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>  <span class="c1"># Force &gt;= 0</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">aggregate</span><span class="p">:</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">seconds</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="n">time</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="n">m</span><span class="p">))</span>
+            <span class="n">diff</span> <span class="o">=</span> <span class="n">new_time</span> <span class="o">-</span> <span class="n">now</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">diff</span><span class="o">.</span><span class="n">seconds</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ShutdownEngineWin</span><span class="p">(</span><span class="n">ShutdownEngine</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;ShutDownizer - Windows&quot;&quot;&quot;</span>
+
+    <span class="nd">@override</span>
+    <span class="nd">@versionchanged</span><span class="p">(</span><span class="s2">&quot;5.0.0&quot;</span><span class="p">,</span> <span class="s2">&quot;Scheduled shutdown&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">h</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;positive&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">m</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;positive&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">aggregate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">time_until_sd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_time</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="n">aggregate</span><span class="p">)</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;shutdown -f -s -t </span><span class="si">{</span><span class="n">time_until_sd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;shutdown -r&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rundll32.exe powrprof.dll,SetSuspendState 0,1,0&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">abort</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;shutdown -a&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_punish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">are_you_sure_about_this</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a `batch` script that shut down computer when boot up&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">are_you_sure_about_this</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">startup_folder_win</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;appdata&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+                <span class="s2">&quot;Microsoft&quot;</span><span class="p">,</span> <span class="s2">&quot;Windows&quot;</span><span class="p">,</span> <span class="s2">&quot;Start Menu&quot;</span><span class="p">,</span> <span class="s2">&quot;Programs&quot;</span><span class="p">,</span> <span class="s2">&quot;Startup&quot;</span>
+            <span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">startup_folder_win</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;system.bat&quot;</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;shutdown -f -s -t 0&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Cannot write file to startup folder&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ShutdownEngineMac</span><span class="p">(</span><span class="n">ShutdownEngine</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;ShutDownizer - MacOS&quot;&quot;&quot;</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="s2">&quot;osascript&quot;</span><span class="p">,</span> <span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="s1">&#39;tell application &quot;System Events&quot; to shut down&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;pmset sleepnow&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;shutdown -h now&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sudo shutdown -h now&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="s2">&quot;osascript&quot;</span><span class="p">,</span> <span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="s1">&#39;tell application &quot;System Events&quot; to restart&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;shutdown -r now&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sudo shutdown -r now&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="s2">&quot;osascript&quot;</span><span class="p">,</span> <span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="s1">&#39;tell application &quot;System Events&quot; to sleep&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;pmset sleepnow&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;shutdown -s now&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sudo shutdown -s now&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">abort</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="s2">&quot;osascript&quot;</span><span class="p">,</span> <span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="s1">&#39;tell application &quot;System Events&quot; to cancel shutdown&#39;</span><span class="p">],</span>
+            <span class="s2">&quot;killall shutdown&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;shutdown -c&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sudo shutdown -c&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ShutdownEngineLinux</span><span class="p">(</span><span class="n">ShutdownEngine</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;ShutDownizer - Linux&quot;&quot;&quot;</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;gnome-session-quit --power-off&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;systemctl --user poweroff&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sudo shutdown -h now&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;gnome-session-quit --reboot&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;systemctl reboot&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sudo shutdown -r now&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;systemctl suspend&quot;</span><span class="p">,</span> <span class="s2">&quot;sudo shutdown -s now&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+
+    <span class="nd">@override</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">abort</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sudo shutdown -c&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_execute_multiple_cmds</span><span class="p">(</span><span class="n">cmds</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

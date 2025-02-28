@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.game.tictactoe &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../game.html">absfuyu.game</a></li>
+      <li class="breadcrumb-item active">absfuyu.game.tictactoe</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.game.tictactoe</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Game: Tic Tac Toe</span>
+<span class="sd">-----------------</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 22/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="c1"># Module level</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;TicTacToe&quot;</span><span class="p">,</span> <span class="s2">&quot;GameMode&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">NamedTuple</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseClass</span><span class="p">,</span> <span class="n">CLITextColor</span><span class="p">,</span> <span class="n">versionadded</span>
+
+<span class="c1"># Type</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">BoardGame</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Pos</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Position&quot;&quot;&quot;</span>
+
+    <span class="n">row</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">col</span><span class="p">:</span> <span class="nb">int</span>
+
+
+<div class="viewcode-block" id="GameMode">
+<a class="viewcode-back" href="../../../absfuyu.game.tictactoe.html#absfuyu.game.tictactoe.GameMode">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GameMode</span><span class="p">:</span>
+    <span class="n">ONE_V_ONE</span> <span class="o">=</span> <span class="s2">&quot;1v1&quot;</span>
+    <span class="n">ONE_V_BOT</span> <span class="o">=</span> <span class="s2">&quot;1v0&quot;</span>
+    <span class="n">BOT_V_BOT</span> <span class="o">=</span> <span class="s2">&quot;0v0&quot;</span></div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">GameStateResult</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+    <span class="n">key</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">location</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;col&quot;</span><span class="p">,</span> <span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="s2">&quot;diag&quot;</span><span class="p">,</span> <span class="s2">&quot;blank&quot;</span><span class="p">]</span>
+    <span class="n">pos</span><span class="p">:</span> <span class="nb">int</span>
+
+
+<div class="viewcode-block" id="TicTacToe">
+<a class="viewcode-back" href="../../../absfuyu.game.tictactoe.html#absfuyu.game.tictactoe.TicTacToe">[docs]</a>
+<span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;3.3.3&quot;</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TicTacToe</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tic Tac Toe game&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">game_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">x</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span>
+        <span class="n">o</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;O&quot;</span><span class="p">,</span>
+        <span class="n">blank</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">,</span>
+        <span class="n">position_split_symbol</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span>
+        <span class="n">end_break_word</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;END&quot;</span><span class="p">,</span>
+        <span class="n">welcome_message</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param game_size: Board size (Default: 3x3)</span>
+<span class="sd">        :param x: X symbol</span>
+<span class="sd">        :param o: O symbol</span>
+<span class="sd">        :param blank: Blank symbol</span>
+<span class="sd">        :param position_split_symbol: Position split symbol</span>
+<span class="sd">        :param end_break_word: End break word</span>
+<span class="sd">        :param welcome_message: Show welcome message (Default: `True`)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Board size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">row_size</span> <span class="o">=</span> <span class="n">game_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">col_size</span> <span class="o">=</span> <span class="n">game_size</span>
+
+        <span class="c1"># Game setting</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">O</span> <span class="o">=</span> <span class="n">o</span>  <span class="c1"># noqa: E741</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">BLANK</span> <span class="o">=</span> <span class="n">blank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">POS_SPLIT</span> <span class="o">=</span> <span class="n">position_split_symbol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">END_BREAK</span> <span class="o">=</span> <span class="n">end_break_word</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">welcome_message</span> <span class="o">=</span> <span class="n">welcome_message</span>
+
+        <span class="c1"># Init board</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gen_board</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(game_size=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">row_size</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="c1"># Game</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_gen_board</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BoardGame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate board game</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">board</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">BLANK</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">row_size</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">col_size</span><span class="p">)</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="n">board</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_state</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GameStateResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check game winning state</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict[str, str | int]</span>
+<span class="sd">            ``X`` | ``O`` | ``BLANK``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Check rows</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">row_size</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">row</span><span class="p">]))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">row</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">return</span> <span class="n">GameStateResult</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span>
+                <span class="c1"># return {&quot;key&quot;: key, &quot;location&quot;: &quot;row&quot;, &quot;pos&quot;: row}  # modified</span>
+
+        <span class="c1"># Check cols</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">col_size</span><span class="p">):</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">row_size</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">temp</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">return</span> <span class="n">GameStateResult</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;col&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span>
+                <span class="c1"># return {&quot;key&quot;: key, &quot;location&quot;: &quot;col&quot;, &quot;pos&quot;: col}  # modified</span>
+
+        <span class="c1"># Check diagonal</span>
+        <span class="n">diag1</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">))]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">diag1</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">diag1</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">GameStateResult</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;diag&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># return {&quot;key&quot;: key, &quot;location&quot;: &quot;diag&quot;, &quot;pos&quot;: 1}  # modified</span>
+
+        <span class="n">diag2</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">))]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">diag2</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">diag2</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">GameStateResult</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;diag&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="c1"># return {&quot;key&quot;: key, &quot;location&quot;: &quot;diag&quot;, &quot;pos&quot;: 2}  # modified</span>
+
+        <span class="c1"># Else</span>
+        <span class="k">return</span> <span class="n">GameStateResult</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BLANK</span><span class="p">,</span> <span class="s2">&quot;blank&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># return {&quot;key&quot;: self.BLANK}</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_print_board</span><span class="p">(</span><span class="n">board</span><span class="p">:</span> <span class="n">BoardGame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print Tic Tac Toe board</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;+---&#39;</span><span class="o">*</span><span class="n">length</span><span class="si">}</span><span class="s2">+&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nrow</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncol</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;| </span><span class="si">{</span><span class="n">board</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;+---&#39;</span><span class="o">*</span><span class="n">length</span><span class="si">}</span><span class="s2">+&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_win_hightlight</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BoardGame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Hight light the win by removing other placed key</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Get detailed information</span>
+        <span class="n">detail</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_state</span><span class="p">()</span>
+        <span class="n">loc</span> <span class="o">=</span> <span class="n">detail</span><span class="o">.</span><span class="n">location</span>
+        <span class="n">loc_line</span> <span class="o">=</span> <span class="n">detail</span><span class="o">.</span><span class="n">pos</span>
+
+        <span class="c1"># Make new board</span>
+        <span class="n">board</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gen_board</span><span class="p">()</span>
+
+        <span class="c1"># Fill in the hightlighted content</span>
+        <span class="k">if</span> <span class="n">loc</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;col&quot;</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)):</span>
+                <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">loc_line</span><span class="p">]</span> <span class="o">=</span> <span class="n">detail</span><span class="o">.</span><span class="n">key</span>
+        <span class="k">elif</span> <span class="n">loc</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;row&quot;</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)):</span>
+                <span class="n">board</span><span class="p">[</span><span class="n">loc_line</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">detail</span><span class="o">.</span><span class="n">key</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">loc_line</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)):</span>
+                    <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">detail</span><span class="o">.</span><span class="n">key</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)):</span>
+                    <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">detail</span><span class="o">.</span><span class="n">key</span>
+
+        <span class="c1"># Output</span>
+        <span class="k">return</span> <span class="n">board</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_is_blank</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="n">Pos</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if current pos is filled&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">pos</span><span class="o">.</span><span class="n">row</span><span class="p">][</span><span class="n">pos</span><span class="o">.</span><span class="n">col</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">BLANK</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_convert_bot_output</span><span class="p">(</span><span class="n">pos</span><span class="p">:</span> <span class="n">Pos</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pos</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Turn to real pos by:</span>
+
+<span class="sd">        - +1 to ``row`` and ``col``</span>
+<span class="sd">        - convert into ``str``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Pos</span><span class="p">(</span><span class="n">pos</span><span class="o">.</span><span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pos</span><span class="o">.</span><span class="n">col</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_generate_random_move</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pos</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a random move from board game</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">Pos</span><span class="p">(</span>
+                <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_blank</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_bot_output</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TicTacToe.play">
+<a class="viewcode-back" href="../../../absfuyu.game.tictactoe.html#absfuyu.game.tictactoe.TicTacToe.play">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">play</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">game_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">GameMode</span><span class="o">.</span><span class="n">ONE_V_BOT</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">bot_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Play a game of Tic Tac Toe</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        game_mode : str</span>
+<span class="sd">            Game mode</span>
+
+<span class="sd">        bot_time : float</span>
+<span class="sd">            Time sleep between each bot move (Default: ``0``)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Init game</span>
+        <span class="n">filled</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">current_player</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_state</span><span class="p">()</span><span class="o">.</span><span class="n">key</span>
+        <span class="n">BOT</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">BOT2</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># Welcome message</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">welcome_message</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">GREEN</span><span class="si">}</span><span class="s2">Welcome to Tic Tac Toe!</span>
+
+<span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">YELLOW</span><span class="si">}</span><span class="s2">Rules: Match lines vertically, horizontally or diagonally</span>
+<span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">YELLOW</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="si">}</span><span class="s2"> goes first, then </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">O</span><span class="si">}</span>
+<span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RED</span><span class="si">}</span><span class="s2">Type &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">END_BREAK</span><span class="si">}</span><span class="s2">&#39; to end the game</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Check gamemode</span>
+        <span class="n">_game_mode</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;1v1&quot;</span><span class="p">,</span>  <span class="c1"># Player vs player</span>
+            <span class="s2">&quot;1v0&quot;</span><span class="p">,</span>  <span class="c1"># Player vs BOT</span>
+            <span class="s2">&quot;0v0&quot;</span><span class="p">,</span>  <span class="c1"># BOT vs BOT</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="n">game_mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_game_mode</span><span class="p">:</span>
+            <span class="n">game_mode</span> <span class="o">=</span> <span class="n">_game_mode</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Force vs BOT</span>
+        <span class="k">if</span> <span class="n">game_mode</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">GameMode</span><span class="o">.</span><span class="n">ONE_V_BOT</span><span class="p">):</span>
+            <span class="n">BOT</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">game_mode</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">GameMode</span><span class="o">.</span><span class="n">BOT_V_BOT</span><span class="p">):</span>
+            <span class="n">BOT</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">BOT2</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="c1"># Game</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_print_board</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">)</span>
+
+        <span class="n">place_pos</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">while</span> <span class="n">state</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">BLANK</span> <span class="ow">and</span> <span class="n">filled</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">row_size</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">BLUE</span><span class="si">}{</span><span class="n">current_player</span><span class="si">}</span><span class="s2">&#39;s turn:</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>  <span class="c1"># Error handling</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">BOT</span> <span class="ow">and</span> <span class="n">current_player</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">O</span><span class="p">)</span> <span class="ow">or</span> <span class="n">BOT2</span><span class="p">:</span>
+                    <span class="n">move</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_random_move</span><span class="p">()</span>
+                    <span class="n">str_move</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">move</span><span class="o">.</span><span class="n">row</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">POS_SPLIT</span><span class="si">}{</span><span class="n">move</span><span class="o">.</span><span class="n">col</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="n">move</span> <span class="o">=</span> <span class="n">str_move</span>  <span class="c1"># type: ignore</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">move</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+                        <span class="sa">f</span><span class="s2">&quot;Place </span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">BLUE</span><span class="si">}{</span><span class="n">current_player</span><span class="si">}{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">BLUE</span><span class="si">}</span><span class="s2">&lt;row</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">POS_SPLIT</span><span class="si">}</span><span class="s2">col&gt;:</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2"> &quot;</span>
+                    <span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">move</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">END_BREAK</span><span class="p">:</span>  <span class="c1"># type: ignore # Failsafe</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RED</span><span class="si">}</span><span class="s2">Game ended</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">break</span>
+
+                <span class="n">move</span> <span class="o">=</span> <span class="n">move</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">POS_SPLIT</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+                <span class="n">row</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">move</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">col</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">move</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">place_pos</span> <span class="o">=</span> <span class="n">Pos</span><span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_blank</span><span class="p">(</span><span class="n">place_pos</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[</span><span class="n">place_pos</span><span class="o">.</span><span class="n">row</span><span class="p">][</span><span class="n">place_pos</span><span class="o">.</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_player</span>
+                    <span class="n">filled</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="k">else</span><span class="p">:</span>  <span class="c1"># User and BOT error</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RED</span><span class="si">}</span><span class="s2">Invalid move, please try again</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+                    <span class="k">continue</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># User error</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RED</span><span class="si">}</span><span class="s2">Invalid move, please try again</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="k">continue</span>
+
+            <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_state</span><span class="p">()</span><span class="o">.</span><span class="n">key</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_print_board</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">state</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BLANK</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">GREEN</span><span class="si">}{</span><span class="n">state</span><span class="si">}</span><span class="s2"> WON!</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_print_board</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_win_hightlight</span><span class="p">())</span>
+
+            <span class="c1"># Change turn</span>
+            <span class="k">if</span> <span class="n">BOT2</span><span class="p">:</span>  <span class="c1"># BOT delay</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">bot_time</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">current_player</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">:</span>
+                <span class="n">current_player</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">O</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_player</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span>
+
+        <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">BLANK</span> <span class="ow">and</span> <span class="n">filled</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">row_size</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">YELLOW</span><span class="si">}</span><span class="s2">Draw Match!</span><span class="si">{</span><span class="n">CLITextColor</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

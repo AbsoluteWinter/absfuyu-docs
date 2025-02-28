@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.config &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">absfuyu.config</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.config</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absfuyu: Configuration</span>
+<span class="sd">----------------------</span>
+<span class="sd">Package configuration module</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 22/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module level</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;ABSFUYU_CONFIG&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Config&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CONFIG_PATH&quot;</span><span class="p">,</span>
+    <span class="c1"># &quot;Setting&quot;</span>
+<span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">importlib.resources</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">TypedDict</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseClass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.util.json_method</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonFile</span>
+
+<span class="c1"># Setting</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">CONFIG_PATH</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s2">&quot;absfuyu.config&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
+<span class="n">_SPACE_REPLACE</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>  <span class="c1"># Replace &quot; &quot; character in setting name</span>
+
+
+<span class="c1"># Type hint</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SettingDictFormat</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Format for the ``setting`` section in ``config``</span>
+
+<span class="sd">    :param default: Default value for the setting</span>
+<span class="sd">    :param help: Description for the setting</span>
+<span class="sd">    :param value: Current value of the setting</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">default</span><span class="p">:</span> <span class="n">Any</span>
+    <span class="n">help</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">value</span><span class="p">:</span> <span class="n">Any</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ConfigFormat</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Config file format</span>
+
+<span class="sd">    :param setting: setting section</span>
+<span class="sd">    :type setting: dict[str, SettingDictFormat]</span>
+<span class="sd">    :param version: version section</span>
+<span class="sd">    :type version: VersionDictFormat</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">setting</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SettingDictFormat</span><span class="p">]</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Setting</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Setting&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">help_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param name: Name of the setting</span>
+<span class="sd">        :param value: Value of the setting</span>
+<span class="sd">        :param default: Default value of the setting</span>
+<span class="sd">        :param help: Description of the setting</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="n">default</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">help</span> <span class="o">=</span> <span class="n">help_</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">dict_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SettingDictFormat</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert ``dict`` into ``Setting`` (``len==1`` only)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dict_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">_val</span><span class="p">:</span> <span class="n">SettingDictFormat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dict_data</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">_val</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
+        <span class="n">default</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">_val</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+        <span class="n">help_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">_val</span><span class="p">[</span><span class="s2">&quot;help&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">default</span><span class="p">,</span> <span class="n">help_</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset setting to default value</span>
+<span class="sd">        (``Setting.value = Setting.default``)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update current value&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SettingDictFormat</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert ``Setting`` into ``dict``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">output</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SettingDictFormat</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">,</span> <span class="s2">&quot;help&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">help</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">output</span>
+
+
+<div class="viewcode-block" id="Config">
+<a class="viewcode-back" href="../../absfuyu.config.html#absfuyu.config.Config">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Config handling</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        config_file: Path to `.json` config file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">config_file</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">json_engine</span><span class="p">:</span> <span class="n">JsonFile</span> <span class="o">=</span> <span class="n">JsonFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config_path</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="c1"># Data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Setting</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fetch_data</span><span class="p">()</span>  <span class="c1"># Load data</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">config_path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="c1"># Data prepare and export</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fetch_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load data from ``self.config_file`` file&quot;&quot;&quot;</span>
+        <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">json_engine</span><span class="o">.</span><span class="n">load_json</span><span class="p">()</span>
+        <span class="n">settings</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">SettingDictFormat</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;setting&quot;</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span> <span class="o">=</span> <span class="p">[</span><span class="n">Setting</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">})</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">settings</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_prepare_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ConfigFormat</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Prepare data to save config&quot;&quot;&quot;</span>
+        <span class="n">settings</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">setting</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">:</span>
+            <span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">setting</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+
+        <span class="n">out</span><span class="p">:</span> <span class="n">ConfigFormat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;setting&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+<div class="viewcode-block" id="Config.save">
+<a class="viewcode-back" href="../../absfuyu.config.html#absfuyu.config.Config.save">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save config to ``.json`` file&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">json_engine</span><span class="o">.</span><span class="n">update_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_prepare_data</span><span class="p">())</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">json_engine</span><span class="o">.</span><span class="n">save_json</span><span class="p">()</span></div>
+
+
+    <span class="c1"># Setting method</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setting_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;List of name of available settings&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">setting</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">setting</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_setting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get setting&quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">_SPACE_REPLACE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">setting_list</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">setting</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">setting</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">setting</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Setting list: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">setting_list</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Config.reset_config">
+<a class="viewcode-back" href="../../absfuyu.config.html#absfuyu.config.Config.reset_config">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset all settings to default value&quot;&quot;&quot;</span>
+        <span class="p">[</span><span class="n">setting</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span> <span class="k">for</span> <span class="n">setting</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">]</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Config.show_settings">
+<a class="viewcode-back" href="../../absfuyu.config.html#absfuyu.config.Config.show_settings">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Setting</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a list of available settings</span>
+<span class="sd">        (wrapper for ``Config.settings``)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span></div>
+
+
+<div class="viewcode-block" id="Config.change_setting">
+<a class="viewcode-back" href="../../absfuyu.config.html#absfuyu.config.Config.change_setting">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">change_setting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Change ``Setting`` (if available)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            Name of the setting</span>
+
+<span class="sd">        value : Any</span>
+<span class="sd">            Value of the setting</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">_SPACE_REPLACE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">setting_list</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">setting</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">setting</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+                    <span class="n">setting</span><span class="o">.</span><span class="n">update_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                    <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Setting list: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">setting_list</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Config.toggle_setting">
+<a class="viewcode-back" href="../../absfuyu.config.html#absfuyu.config.Config.toggle_setting">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">toggle_setting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Special ``change_setting()`` method.</span>
+<span class="sd">        Turn on/off if ``type(&lt;setting&gt;) is bool``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            Name of the setting</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get setting</span>
+        <span class="n">setting</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_setting</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">setting_value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">setting</span><span class="o">.</span><span class="n">value</span>
+
+        <span class="c1"># Change value</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">change_setting</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="ow">not</span> <span class="n">setting_value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;This setting is not type: bool&quot;</span><span class="p">)</span>  <span class="c1"># noqa: B904</span></div>
+
+
+<div class="viewcode-block" id="Config.add_setting">
+<a class="viewcode-back" href="../../absfuyu.config.html#absfuyu.config.Config.add_setting">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_setting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">help_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add ``Setting`` if not exist</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            Name of the setting</span>
+
+<span class="sd">        value : Any</span>
+<span class="sd">            Value of the setting</span>
+
+<span class="sd">        default : Any</span>
+<span class="sd">            Default value of the setting</span>
+
+<span class="sd">        help_ : str</span>
+<span class="sd">            Description of the setting (Default: ``None``)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">_SPACE_REPLACE</span><span class="p">)</span>
+        <span class="n">new_setting</span> <span class="o">=</span> <span class="n">Setting</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">default</span><span class="p">,</span> <span class="n">help_</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">new_setting</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_setting</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Config.del_setting">
+<a class="viewcode-back" href="../../absfuyu.config.html#absfuyu.config.Config.del_setting">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">del_setting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete ``Setting``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            Name of the setting</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">_SPACE_REPLACE</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settings</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">settings</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">name</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Config.welcome">
+<a class="viewcode-back" href="../../absfuyu.config.html#absfuyu.config.Config.welcome">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">welcome</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run first-run script (if any)&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">change_setting</span><span class="p">(</span><span class="s2">&quot;first-run&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="c1"># Init</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">ABSFUYU_CONFIG</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">CONFIG_PATH</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
