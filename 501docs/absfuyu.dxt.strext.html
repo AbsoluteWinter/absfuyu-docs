@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.dxt.strext module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=b612fa2f"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="absfuyu.extra package" href="absfuyu.extra.html" />
+    <link rel="prev" title="absfuyu.dxt.listext module" href="absfuyu.dxt.listext.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#license">LICENSE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu">ABSFUYU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#links">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#usage">USAGE</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.cli.html">absfuyu.cli package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.core.html">absfuyu.core package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.extra.html">absfuyu.extra package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.general.html">absfuyu.general package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html">absfuyu.pkg_data package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.tools.html">absfuyu.tools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html">absfuyu.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Module Documentation</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.html">absfuyu package</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+      <li class="breadcrumb-item active">absfuyu.dxt.strext module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-absfuyu.dxt.strext">
+<span id="absfuyu-dxt-strext-module"></span><h1>absfuyu.dxt.strext module<a class="headerlink" href="#module-absfuyu.dxt.strext" title="Link to this heading"></a></h1>
+<section id="absfuyu-data-extension">
+<h2>Absfuyu: Data Extension<a class="headerlink" href="#absfuyu-data-extension" title="Link to this heading"></a></h2>
+<p>str extension</p>
+<p>Version: 5.0.0
+Date updated: 25/02/2025 (dd/mm/yyyy)</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.dxt.strext.</span></span><span class="sig-name descname"><span class="pre">Text</span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.ShowAllMethodsMixin" title="absfuyu.core.baseclass.ShowAllMethodsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShowAllMethodsMixin</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code> extension</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.divide">
+<span class="sig-name descname"><span class="pre">divide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string_split_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.divide"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.divide" title="Link to this definition"></a></dt>
+<dd><p>Divide long string into smaller size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>string_split_size</strong> (<em>int</em>) – Divide string every <code class="docutils literal notranslate"><span class="pre">x</span></code> character
+(Default: <code class="docutils literal notranslate"><span class="pre">60</span></code>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list in which each item is a smaller
+string with the size of <code class="docutils literal notranslate"><span class="pre">string_split_size</span></code>
+(need to be concaternate later)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;This is an extremely long line of text!&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">string_split_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="go">[&#39;This is an extremely&#39;, &#39; long line of text!&#39;]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.divide_with_variable">
+<span class="sig-name descname"><span class="pre">divide_with_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_var_len</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_var_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.divide_with_variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.divide_with_variable" title="Link to this definition"></a></dt>
+<dd><p>Divide long string into smaller size,
+then assign a random variable to splited
+string for later use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>split_size</strong> (<em>int</em>) – Divide string every <code class="docutils literal notranslate"><span class="pre">x</span></code> character
+(Default: <code class="docutils literal notranslate"><span class="pre">60</span></code>)</p></li>
+<li><p><strong>split_var_len</strong> (<em>int</em>) – Length of variable name assigned to each item
+(Default: <code class="docutils literal notranslate"><span class="pre">12</span></code>)</p></li>
+<li><p><strong>custom_var_name</strong> (<em>str</em>) – Custom variable name when join string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list in which each item is a smaller
+string with the size of <code class="docutils literal notranslate"><span class="pre">split_size</span></code>
+and a way to concaternate them (when using <code class="docutils literal notranslate"><span class="pre">print()</span></code>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+<section id="id1">
+<h2>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;This is an extremely long line of text!&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">divide_with_variable</span><span class="p">(</span><span class="n">split_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="go">[</span>
+<span class="go">    &quot;qNTCnmkFPTJg=&#39;This is an extremely&#39;&quot;,</span>
+<span class="go">    &quot;vkmLBUykYYDG=&#39; long line of text!&#39;&quot;,</span>
+<span class="go">    &#39;sBoSwEfoxBIH=qNTCnmkFPTJg+vkmLBUykYYDG&#39;,</span>
+<span class="go">    &#39;sBoSwEfoxBIH&#39;</span>
+<span class="go">]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;This is an extremely long line of text!&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">divide_with_variable</span><span class="p">(</span><span class="n">split_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">custom_var_name</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+<span class="go">[</span>
+<span class="go">    &quot;test1=&#39;This is an extremely&#39;&quot;,</span>
+<span class="go">    &quot;test2=&#39; long line of text!&#39;&quot;,</span>
+<span class="go">    &#39;test=test1+test2&#39;,</span>
+<span class="go">    &#39;test&#39;</span>
+<span class="go">]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.analyze">
+<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#absfuyu.dxt.strext.TextAnalyzeDictFormat" title="absfuyu.dxt.strext.TextAnalyzeDictFormat"><span class="pre">TextAnalyzeDictFormat</span></a></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.analyze"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.analyze" title="Link to this definition"></a></dt>
+<dd><p>String analyze (count number of type of character)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>full</strong> (<em>bool</em>) – Full analyze when <code class="docutils literal notranslate"><span class="pre">True</span></code>
+(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary contains number of digit character,
+uppercase character, lowercase character, and
+special character</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict | <a class="reference internal" href="#absfuyu.dxt.strext.TextAnalyzeDictFormat" title="absfuyu.dxt.strext.TextAnalyzeDictFormat">TextAnalyzeDictFormat</a></p>
+</dd>
+</dl>
+<section id="id2">
+<h2>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Random T3xt!&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">analyze</span><span class="p">()</span>
+<span class="go">{&#39;digit&#39;: 1, &#39;uppercase&#39;: 2, &#39;lowercase&#39;: 7, &#39;other&#39;: 2}</span>
+</pre></div>
+</div>
+<p><em>Changed in version 3.3.0: Updated functionality</em></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.reverse">
+<span class="sig-name descname"><span class="pre">reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.reverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.reverse" title="Link to this definition"></a></dt>
+<dd><p>Reverse the string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Reversed string</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.strext.Text" title="absfuyu.dxt.strext.Text">Text</a></p>
+</dd>
+</dl>
+<section id="id3">
+<h2>Example:<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="go">&#39;!dlroW ,olleH&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.is_pangram">
+<span class="sig-name descname"><span class="pre">is_pangram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">custom_alphabet</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.is_pangram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.is_pangram" title="Link to this definition"></a></dt>
+<dd><p>Check if string is a pangram</p>
+<p>A pangram is a unique sentence in which
+every letter of the alphabet is used at least once</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>custom_alphabet</strong> (<em>set</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em><em>, </em><em>optional</em>) – Custom alphabet to use
+(Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code> if string is a pangram</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code> if string is not a pangram</div>
+</div>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p><em>Changed in version 5.0.0: Add ``custom_alphabet`` parameter</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.is_palindrome">
+<span class="sig-name descname"><span class="pre">is_palindrome</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.is_palindrome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.is_palindrome" title="Link to this definition"></a></dt>
+<dd><p>Check if string is a palindrome</p>
+<blockquote>
+<div><p>A palindrome is a word, verse, or sentence
+or a number that reads the same backward or forward</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code> if string is a palindrome</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code> if string is not a palindrome</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.to_hex">
+<span class="sig-name descname"><span class="pre">to_hex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.to_hex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.to_hex" title="Link to this definition"></a></dt>
+<dd><p>Convert string to hex form</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>raw</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code>: hex string in the form of <code class="docutils literal notranslate"><span class="pre">\x</span></code> (default)</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code>: normal hex string</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Hexed string</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<section id="id4">
+<h2>Example:<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">to_hex</span><span class="p">()</span>
+<span class="go">&#39;\\x48\\x65\\x6c\\x6c\\x6f\\x2c\\x20\\x57\\x6f\\x72\\x6c\\x64\\x21&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.random_capslock">
+<span class="sig-name descname"><span class="pre">random_capslock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.random_capslock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.random_capslock" title="Link to this definition"></a></dt>
+<dd><p>Randomly capslock letter in string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>probability</strong> (<em>int</em>) – Probability in range [0, 100]
+(Default: <code class="docutils literal notranslate"><span class="pre">50</span></code>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Random capslocked text</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.dxt.strext.Text" title="absfuyu.dxt.strext.Text">Text</a></p>
+</dd>
+</dl>
+<section id="id5">
+<h2>Example:<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;This is an extremely long line of text!&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">random_capslock</span><span class="p">()</span>
+<span class="go">&#39;tHis iS An ExtREmELY loNg liNE oF tExT!&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.reverse_capslock">
+<span class="sig-name descname"><span class="pre">reverse_capslock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.reverse_capslock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.reverse_capslock" title="Link to this definition"></a></dt>
+<dd><p>Reverse capslock in string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Reversed capslock <code class="docutils literal notranslate"><span class="pre">Text</span></code></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.strext.Text" title="absfuyu.dxt.strext.Text">Text</a></p>
+</dd>
+</dl>
+<section id="id6">
+<h2>Example:<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">reverse_capslock</span><span class="p">()</span>
+<span class="go">&#39;fOO&#39;</span>
+</pre></div>
+</div>
+<p><em>Changed in version 5.0.0: Use ``str.swapcase()``</em></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.to_list">
+<span class="sig-name descname"><span class="pre">to_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.to_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.to_list" title="Link to this definition"></a></dt>
+<dd><p>Convert into list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of string</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+<section id="id7">
+<h2>Example:<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="go">[&#39;t&#39;, &#39;e&#39;, &#39;s&#39;, &#39;t&#39;]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.to_listext">
+<span class="sig-name descname"><span class="pre">to_listext</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.to_listext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.to_listext" title="Link to this definition"></a></dt>
+<dd><p>Deprecated, will be removed soon</p>
+<p><em>Deprecated in version 5.0.0: Unused</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.count_pattern">
+<span class="sig-name descname"><span class="pre">count_pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_capslock</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.count_pattern"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.count_pattern" title="Link to this definition"></a></dt>
+<dd><p>Returns how many times <code class="docutils literal notranslate"><span class="pre">pattern</span></code> appears in text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pattern</strong> (<em>str</em>) – Pattern to count</p></li>
+<li><p><strong>ignore_capslock</strong> (<em>bool</em>) – Ignore the pattern uppercase or lowercase
+(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code> - Exact match)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>How many times pattern appeared</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<section id="id8">
+<h2>Example:<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count_pattern</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p><em>Added in version 3.3.0</em></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.hapax">
+<span class="sig-name descname"><span class="pre">hapax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.hapax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.hapax" title="Link to this definition"></a></dt>
+<dd><p>A hapax legomenon (often abbreviated to hapax)
+is a word which occurs only once in either
+the written record of a language, the works of
+an author, or in a single text.</p>
+<p>This function returns a list of hapaxes (if any)
+(Lettercase is ignored)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>strict</strong> (<em>bool</em>) – Remove all special characters before checking for hapax
+(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of hapaxes</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+<section id="id9">
+<h2>Example:<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;A a. a, b c c= C| d d&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">hapax</span><span class="p">()</span>
+<span class="go">[&#39;a&#39;, &#39;a.&#39;, &#39;a,&#39;, &#39;b&#39;, &#39;c&#39;, &#39;c=&#39;, &#39;c|&#39;]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">hapax</span><span class="p">(</span><span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">[&#39;b&#39;]</span>
+</pre></div>
+</div>
+<p><em>Added in version 3.3.0</em></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.Text.shorten">
+<span class="sig-name descname"><span class="pre">shorten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shorten_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#Text.shorten"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.Text.shorten" title="Link to this definition"></a></dt>
+<dd><p>Shorten long text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>shorten_size</strong> (<em>int</em><em>, </em><em>optional</em>) – How many characters per line.
+Minimum is <code class="docutils literal notranslate"><span class="pre">1</span></code>, by default <code class="docutils literal notranslate"><span class="pre">60</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shortened text</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<section id="id10">
+<h2>Example:<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;a&quot;</span> <span class="o">*</span> <span class="mi">200</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">shorten</span><span class="p">()</span>
+<span class="go">(</span>
+<span class="go">&#39;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#39;</span>
+<span class="go">&#39;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#39;</span>
+<span class="go">&#39;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#39;</span>
+<span class="go">&#39;aaaaaaaaaaaaaaaaaaaa&#39;</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+<p><em>Added in version 5.0.0</em></p>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.TextAnalyzeDictFormat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.dxt.strext.</span></span><span class="sig-name descname"><span class="pre">TextAnalyzeDictFormat</span></span><a class="reference internal" href="_modules/absfuyu/dxt/strext.html#TextAnalyzeDictFormat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.strext.TextAnalyzeDictFormat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<p>Dict format for <code class="docutils literal notranslate"><span class="pre">Text.analyze()</span></code> method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>digit</strong> (<em>int</em>) – Number of digit characters</p></li>
+<li><p><strong>uppercase</strong> (<em>int</em>) – Number of uppercase characters</p></li>
+<li><p><strong>lowercase</strong> (<em>int</em>) – Number of lowercase characters</p></li>
+<li><p><strong>other</strong> (<em>int</em>) – Number of other printable characters</p></li>
+<li><p><strong>is_pangram</strong> (<em>NotRequired</em><em>[</em><em>bool</em><em>]</em>) – Is a pangram (Not required)</p></li>
+<li><p><strong>is_palindrome</strong> (<em>NotRequired</em><em>[</em><em>bool</em><em>]</em>) – Is a palindrome (Not required)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.TextAnalyzeDictFormat.digit">
+<span class="sig-name descname"><span class="pre">digit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.dxt.strext.TextAnalyzeDictFormat.digit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.TextAnalyzeDictFormat.uppercase">
+<span class="sig-name descname"><span class="pre">uppercase</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.dxt.strext.TextAnalyzeDictFormat.uppercase" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.TextAnalyzeDictFormat.lowercase">
+<span class="sig-name descname"><span class="pre">lowercase</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.dxt.strext.TextAnalyzeDictFormat.lowercase" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.TextAnalyzeDictFormat.other">
+<span class="sig-name descname"><span class="pre">other</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.dxt.strext.TextAnalyzeDictFormat.other" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.TextAnalyzeDictFormat.is_pangram">
+<span class="sig-name descname"><span class="pre">is_pangram</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.dxt.strext.TextAnalyzeDictFormat.is_pangram" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.dxt.strext.TextAnalyzeDictFormat.is_palindrome">
+<span class="sig-name descname"><span class="pre">is_palindrome</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">NotRequired</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.dxt.strext.TextAnalyzeDictFormat.is_palindrome" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="absfuyu.dxt.listext.html" class="btn btn-neutral float-left" title="absfuyu.dxt.listext module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absfuyu.extra.html" class="btn btn-neutral float-right" title="absfuyu.extra package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+absfuyu.extra.da package
+========================
+
+.. automodule:: absfuyu.extra.da
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.extra.da.dadf
+   absfuyu.extra.da.dadf_base
+   absfuyu.extra.da.df_func
+   absfuyu.extra.da.mplt

@@ -1,0 +1,571 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.dxt.listext module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=b612fa2f"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="absfuyu.dxt.strext module" href="absfuyu.dxt.strext.html" />
+    <link rel="prev" title="absfuyu.dxt.intext module" href="absfuyu.dxt.intext.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#license">LICENSE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu">ABSFUYU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#links">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#usage">USAGE</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.cli.html">absfuyu.cli package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.core.html">absfuyu.core package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.extra.html">absfuyu.extra package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.general.html">absfuyu.general package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html">absfuyu.pkg_data package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.tools.html">absfuyu.tools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html">absfuyu.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Module Documentation</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.html">absfuyu package</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+      <li class="breadcrumb-item active">absfuyu.dxt.listext module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-absfuyu.dxt.listext">
+<span id="absfuyu-dxt-listext-module"></span><h1>absfuyu.dxt.listext module<a class="headerlink" href="#module-absfuyu.dxt.listext" title="Link to this heading"></a></h1>
+<section id="absfuyu-data-extension">
+<h2>Absfuyu: Data Extension<a class="headerlink" href="#absfuyu-data-extension" title="Link to this heading"></a></h2>
+<p>list extension</p>
+<p>Version: 5.0.0
+Date updated: 25/02/2025 (dd/mm/yyyy)</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.dxt.listext.</span></span><span class="sig-name descname"><span class="pre">ListExt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.ShowAllMethodsMixin" title="absfuyu.core.baseclass.ShowAllMethodsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShowAllMethodsMixin</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code> extension</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.stringify">
+<span class="sig-name descname"><span class="pre">stringify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.stringify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.stringify" title="Link to this definition"></a></dt>
+<dd><p>Convert all item in <code class="docutils literal notranslate"><span class="pre">list</span></code> into string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list with all items with type &lt;str`&gt;</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.listext.ListExt" title="absfuyu.dxt.listext.ListExt">ListExt</a></p>
+</dd>
+</dl>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">stringify</span><span class="p">()</span>
+<span class="go">[&#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;2&#39;, &#39;2&#39;, &#39;3&#39;]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.head">
+<span class="sig-name descname"><span class="pre">head</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.head"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.head" title="Link to this definition"></a></dt>
+<dd><p>Show first <code class="docutils literal notranslate"><span class="pre">number_of_items</span></code> items in <code class="docutils literal notranslate"><span class="pre">ListExt</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>number_of_items</strong> (<em>int</em>) – <div class="line-block">
+<div class="line">Number of items to shows at once</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">5</span></code>)</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Filtered list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.tail">
+<span class="sig-name descname"><span class="pre">tail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.tail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.tail" title="Link to this definition"></a></dt>
+<dd><p>Show last <code class="docutils literal notranslate"><span class="pre">number_of_items</span></code> items in <code class="docutils literal notranslate"><span class="pre">ListExt</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>number_of_items</strong> (<em>int</em>) – <div class="line-block">
+<div class="line">Number of items to shows at once</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">5</span></code>)</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Filtered list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.sorts">
+<span class="sig-name descname"><span class="pre">sorts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.sorts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.sorts" title="Link to this definition"></a></dt>
+<dd><p>Sort all items (with different type) in <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>reverse</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line">if <code class="docutils literal notranslate"><span class="pre">True</span></code> then sort in descending order</div>
+<div class="line">if <code class="docutils literal notranslate"><span class="pre">False</span></code> then sort in ascending order</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A sorted list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.dxt.listext.ListExt" title="absfuyu.dxt.listext.ListExt">ListExt</a></p>
+</dd>
+</dl>
+<section id="id1">
+<h2>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="s2">&quot;aaa&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">sorts</span><span class="p">()</span>
+<span class="go">[1, 9, &#39;aaa&#39;, &#39;abc&#39;, 1.4, 3.5]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.freq">
+<span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_first_char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appear_increment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.freq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.freq" title="Link to this definition"></a></dt>
+<dd><p>Find frequency of each item in list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sort</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line">if <code class="docutils literal notranslate"><span class="pre">True</span></code>: Sorts the output in ascending order</div>
+<div class="line">if <code class="docutils literal notranslate"><span class="pre">False</span></code>: No sort</div>
+</div>
+</p></li>
+<li><p><strong>num_of_first_char</strong> (<em>int</em><em> | </em><em>None</em>) – <div class="line-block">
+<div class="line">Number of first character taken into account to sort</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</div>
+<div class="line">(num_of_first_char = <code class="docutils literal notranslate"><span class="pre">1</span></code>: first character in each item)</div>
+</div>
+</p></li>
+<li><p><strong>appear_increment</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line">return incremental index list of each item when sort</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>dict</em> – A dict that show frequency</p></li>
+<li><p><em>list[int]</em> – Incremental index list</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<section id="id2">
+<h2>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">freq</span><span class="p">()</span>
+<span class="go">{1: 2, 2: 1, 3: 1, 5: 2}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="n">appear_increment</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">[2, 3, 5, 6, 7, 8]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.slice_points">
+<span class="sig-name descname"><span class="pre">slice_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.slice_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.slice_points" title="Link to this definition"></a></dt>
+<dd><p>Splits a list into sublists based on specified split points (indices).</p>
+<p>This method divides the original list into multiple sublists. The <code class="docutils literal notranslate"><span class="pre">points</span></code>
+argument provides the indices at which the list should be split.  The resulting
+list of lists contains the sublists created by these splits. The original
+list is not modified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>points</strong> (<em>list</em>) – A list of integer indices representing the points at which to split
+the list. These indices are <em>exclusive</em> of the starting sublist
+but <em>inclusive</em> of the ending sublist.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of lists, where each inner list is a slice of the original list
+defined by the provided split points.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[list]</p>
+</dd>
+</dl>
+<section id="id3">
+<h2>Example:<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">slice_points</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="go">[[1, 1], [2, 3, 3], [4, 5, 6]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">slice_points</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="go">[[], [1], [1], [2], [3], [3], [4], [5], [6]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">slice_points</span><span class="p">([])</span>
+<span class="go">[[1, 1, 2, 3, 3, 4, 5, 6]]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.pick_one">
+<span class="sig-name descname"><span class="pre">pick_one</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.pick_one"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.pick_one" title="Link to this definition"></a></dt>
+<dd><p>Pick one random items from <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Random value</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any</p>
+</dd>
+</dl>
+<section id="id4">
+<h2>Example:<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">pick_one</span><span class="p">()</span>
+<span class="go">&#39;bar&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.get_random">
+<span class="sig-name descname"><span class="pre">get_random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.get_random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.get_random" title="Link to this definition"></a></dt>
+<dd><p>Get <code class="docutils literal notranslate"><span class="pre">number_of_items</span></code> random items in <code class="docutils literal notranslate"><span class="pre">ListExt</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>number_of_items</strong> (<em>int</em>) – <div class="line-block">
+<div class="line">Number random of items</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">5</span></code>)</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Filtered list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.len_items">
+<span class="sig-name descname"><span class="pre">len_items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.len_items"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.len_items" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">len()</span></code> for every item in <code class="docutils literal notranslate"><span class="pre">list[str]</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of <code class="docutils literal notranslate"><span class="pre">len()</span></code>’ed value</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.listext.ListExt" title="absfuyu.dxt.listext.ListExt">ListExt</a></p>
+</dd>
+</dl>
+<section id="id5">
+<h2>Example:<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;pizza&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">len_items</span><span class="p">()</span>
+<span class="go">[3, 3, 5]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.mean_len">
+<span class="sig-name descname"><span class="pre">mean_len</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.mean_len"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.mean_len" title="Link to this definition"></a></dt>
+<dd><p>Average length of every item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Average length</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+<section id="id6">
+<h2>Example:<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;pizza&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">mean_len</span><span class="p">()</span>
+<span class="go">3.6666666666666665</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.apply" title="Link to this definition"></a></dt>
+<dd><p>Apply function to each entry</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>Callable</em>) – Callable function</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ListExt</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.dxt.listext.ListExt" title="absfuyu.dxt.listext.ListExt">ListExt</a></p>
+</dd>
+</dl>
+<section id="id7">
+<h2>Example:<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="go">[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.unique">
+<span class="sig-name descname"><span class="pre">unique</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.unique"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.unique" title="Link to this definition"></a></dt>
+<dd><p>Remove duplicates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Duplicates removed list</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.listext.ListExt" title="absfuyu.dxt.listext.ListExt">ListExt</a></p>
+</dd>
+</dl>
+<section id="id8">
+<h2>Example:<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.group_by_unique">
+<span class="sig-name descname"><span class="pre">group_by_unique</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.group_by_unique"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.group_by_unique" title="Link to this definition"></a></dt>
+<dd><p>Group duplicated elements into list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Grouped value</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.listext.ListExt" title="absfuyu.dxt.listext.ListExt">ListExt</a></p>
+</dd>
+</dl>
+<section id="id9">
+<h2>Example:<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">group_by_unique</span><span class="p">()</span>
+<span class="go">[[1, 1], [2, 2], [3, 3, 3]]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.group_by_pair_value">
+<span class="sig-name descname"><span class="pre">group_by_pair_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_loop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.group_by_pair_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.group_by_pair_value" title="Link to this definition"></a></dt>
+<dd><p>Assume each <code class="docutils literal notranslate"><span class="pre">list</span></code> in <code class="docutils literal notranslate"><span class="pre">list</span></code> is a pair value,
+returns a <code class="docutils literal notranslate"><span class="pre">list</span></code> contain all paired value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>max_loop</strong> (<em>int</em>) – Times to run functions (minimum: <code class="docutils literal notranslate"><span class="pre">3</span></code>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Grouped value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[list]</p>
+</dd>
+</dl>
+<section id="id10">
+<h2>Example:<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">group_by_pair_value</span><span class="p">()</span>
+<span class="go">[[1, 2, 3, 4], [5, 6]]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">group_by_pair_value</span><span class="p">()</span>
+<span class="go">[[8, 3, 4, 6], [2, 5, 7]]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">group_by_pair_value</span><span class="p">()</span>
+<span class="go">[[&#39;a&#39;, 4, &#39;b&#39;], [&#39;c&#39;, 5]]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.flatten">
+<span class="sig-name descname"><span class="pre">flatten</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.flatten"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.flatten" title="Link to this definition"></a></dt>
+<dd><p>Flatten the list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Flattened list</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.listext.ListExt" title="absfuyu.dxt.listext.ListExt">ListExt</a></p>
+</dd>
+</dl>
+<section id="id11">
+<h2>Example:<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([[</span><span class="s2">&quot;test&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="go">[&#39;test&#39;, &#39;test&#39;, &#39;test&#39;, &#39;test&#39;]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.listext.ListExt.numbering">
+<span class="sig-name descname"><span class="pre">numbering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.numbering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.listext.ListExt.numbering" title="Link to this definition"></a></dt>
+<dd><p>Number the item in list
+(<code class="docutils literal notranslate"><span class="pre">enumerate</span></code> wrapper)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>start</strong> (<em>int</em>) – Start from which number
+(Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Counted list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#absfuyu.dxt.listext.ListExt" title="absfuyu.dxt.listext.ListExt">ListExt</a></p>
+</dd>
+</dl>
+<section id="id12">
+<h2>Example:<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">numbering</span><span class="p">()</span>
+<span class="go">[(0, 9), (1, 9), (2, 9)]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="absfuyu.dxt.intext.html" class="btn btn-neutral float-left" title="absfuyu.dxt.intext module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absfuyu.dxt.strext.html" class="btn btn-neutral float-right" title="absfuyu.dxt.strext module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

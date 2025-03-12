@@ -1,0 +1,19 @@
+absfuyu.cli package
+===================
+
+.. automodule:: absfuyu.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.cli.color
+   absfuyu.cli.config_group
+   absfuyu.cli.do_group
+   absfuyu.cli.game_group
+   absfuyu.cli.tool_group

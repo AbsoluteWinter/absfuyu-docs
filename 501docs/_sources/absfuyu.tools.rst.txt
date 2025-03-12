@@ -1,0 +1,22 @@
+absfuyu.tools package
+=====================
+
+.. automodule:: absfuyu.tools
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.tools.checksum
+   absfuyu.tools.converter
+   absfuyu.tools.generator
+   absfuyu.tools.keygen
+   absfuyu.tools.obfuscator
+   absfuyu.tools.passwordlib
+   absfuyu.tools.shutdownizer
+   absfuyu.tools.web

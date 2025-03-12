@@ -18,3 +18,4 @@ Submodules
    absfuyu.core.docstring
    absfuyu.core.dummy_cli
    absfuyu.core.dummy_func
+   absfuyu.core.typings

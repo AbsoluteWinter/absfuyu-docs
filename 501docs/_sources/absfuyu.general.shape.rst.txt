@@ -1,0 +1,7 @@
+absfuyu.general.shape module
+============================
+
+.. automodule:: absfuyu.general.shape
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.util.path &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.util.path &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -13,7 +13,7 @@
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -83,8 +83,8 @@
 <span class="sd">-------------</span>
 <span class="sd">Path related</span>
 
-<span class="sd">Version: 5.0.0</span>
-<span class="sd">Date updated: 22/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">Version: 5.1.0</span>
+<span class="sd">Date updated: 10/03/2025 (dd/mm/yyyy)</span>
 
 <span class="sd">Feature:</span>
 <span class="sd">--------</span>
@@ -96,8 +96,15 @@
 <span class="c1"># ---------------------------------------------------------------------------</span>
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
     <span class="c1"># Main</span>
+    <span class="s2">&quot;DirectoryBase&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Directory&quot;</span><span class="p">,</span>
     <span class="s2">&quot;SaveFileAs&quot;</span><span class="p">,</span>
+    <span class="c1"># Mixin</span>
+    <span class="s2">&quot;DirectoryInfoMixin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DirectoryBasicOperationMixin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DirectoryArchiverMixin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DirectoryOrganizerMixin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DirectoryTreeMixin&quot;</span><span class="p">,</span>
     <span class="c1"># Support</span>
     <span class="s2">&quot;FileOrFolderWithModificationTime&quot;</span><span class="p">,</span>
     <span class="s2">&quot;DirectoryInfo&quot;</span><span class="p">,</span>
@@ -112,9 +119,11 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">NamedTuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">NamedTuple</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">versionadded</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core.baseclass</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseClass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core.decorator</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_subclass_methods_decorator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core.docstring</span><span class="w"> </span><span class="kn">import</span> <span class="n">deprecated</span><span class="p">,</span> <span class="n">versionadded</span><span class="p">,</span> <span class="n">versionchanged</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
 
 
@@ -138,22 +147,41 @@
 
 <div class="viewcode-block" id="DirectoryInfo">
 <a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryInfo">[docs]</a>
+<span class="nd">@deprecated</span><span class="p">(</span>
+    <span class="s2">&quot;5.1.0&quot;</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;Support for ``DirectoryInfoMixin`` which is also deprecated&quot;</span>
+<span class="p">)</span>
 <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;3.3.0&quot;</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">DirectoryInfo</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Information of a directory</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">files</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">folders</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">creation_time</span><span class="p">:</span> <span class="n">datetime</span>
     <span class="n">modification_time</span><span class="p">:</span> <span class="n">datetime</span></div>
 
 
 
-<span class="c1"># Class - Directory | version 3.4.0: Remake Directory into modular class</span>
+<span class="c1"># Class - Directory</span>
 <span class="c1"># ---------------------------------------------------------------------------</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">DirectoryBase</span><span class="p">:</span>
+<span class="nd">@add_subclass_methods_decorator</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DirectoryBase</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Directory - Base</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    source_path : str | Path</span>
+<span class="sd">        Source folder</span>
+
+<span class="sd">    create_if_not_exist : bool</span>
+<span class="sd">        Create directory when not exist,</span>
+<span class="sd">        by default ``False``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Custom attribute</span>
+    <span class="n">_METHOD_INCLUDE</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Include in DIR_METHODS</span>
+    <span class="n">SUBCLASS_METHODS</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">{}</span>
+
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">source_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
@@ -166,81 +194,64 @@
 <span class="sd">            Source folder</span>
 
 <span class="sd">        create_if_not_exist : bool</span>
-<span class="sd">            Create directory when not exist</span>
-<span class="sd">            (Default: ``False``)</span>
+<span class="sd">            Create directory when not exist,</span>
+<span class="sd">            by default ``False``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">source_path</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">create_if_not_exist</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">create_if_not_exist</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;Directory not existed&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="si">}</span><span class="s2">)&quot;</span>
+<div class="viewcode-block" id="DirectoryInfoMixin">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryInfoMixin">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DirectoryInfoMixin</span><span class="p">(</span><span class="n">DirectoryBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Directory - Info</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__format__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">__format_spec</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Change format of an object.</span>
-<span class="sd">        Avaiable option: ``info``</span>
+<span class="sd">    - Quick info</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-<span class="sd">        Usage</span>
-<span class="sd">        -----</span>
-<span class="sd">        &gt;&gt;&gt; print(f&quot;{&lt;object&gt;:&lt;format_spec&gt;}&quot;)</span>
-<span class="sd">        &gt;&gt;&gt; print(&lt;object&gt;.__format__(&lt;format_spec&gt;))</span>
-<span class="sd">        &gt;&gt;&gt; print(format(&lt;object&gt;, &lt;format_spec&gt;))</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Show quick info</span>
-        <span class="k">if</span> <span class="n">__format_spec</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;info&quot;</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">quick_info</span><span class="p">()</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
-
-        <span class="c1"># No format spec</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
-
-    <span class="c1"># Everything</span>
-    <span class="nd">@property</span>
-    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;3.3.0&quot;</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">everything</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Every folders and files in this Directory</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;**/*&quot;</span><span class="p">))</span>
-
-    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;3.3.0&quot;</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_every_folder</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Every folders in this Directory</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;**/*&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">is_dir</span><span class="p">())</span>
-
-    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;3.3.0&quot;</span><span class="p">)</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_every_file</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Every folders in this Directory</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;**/*&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">is_file</span><span class="p">())</span>
-
-    <span class="c1"># Quick information</span>
+<div class="viewcode-block" id="DirectoryInfoMixin.quick_info">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryInfoMixin.quick_info">[docs]</a>
+    <span class="nd">@deprecated</span><span class="p">(</span><span class="s2">&quot;5.1.0&quot;</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;Not efficient&quot;</span><span class="p">)</span>
     <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;3.3.0&quot;</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">quick_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DirectoryInfo</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Quick information about this Directory</span>
 
-<span class="sd">        :rtype: DirectoryInfo</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DirectoryInfo</span>
+<span class="sd">            DirectoryInfo</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">source_stat</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">stat_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span>
         <span class="n">out</span> <span class="o">=</span> <span class="n">DirectoryInfo</span><span class="p">(</span>
-            <span class="n">files</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_every_file</span><span class="p">()),</span>
-            <span class="n">folders</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_every_folder</span><span class="p">()),</span>
             <span class="n">creation_time</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">source_stat</span><span class="o">.</span><span class="n">st_ctime</span><span class="p">),</span>
             <span class="n">modification_time</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">source_stat</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">),</span>
         <span class="p">)</span>
-        <span class="k">return</span> <span class="n">out</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+</div>
 
 
-<span class="k">class</span><span class="w"> </span><span class="nc">DirectoryBasicOperation</span><span class="p">(</span><span class="n">DirectoryBase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DirectoryBasicOperationMixin">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryBasicOperationMixin">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DirectoryBasicOperationMixin</span><span class="p">(</span><span class="n">DirectoryBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Directory - Basic operation</span>
+
+<span class="sd">    - Rename</span>
+<span class="sd">    - Copy</span>
+<span class="sd">    - Move</span>
+<span class="sd">    - Delete</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># Rename</span>
+<div class="viewcode-block" id="DirectoryBasicOperationMixin.rename">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryBasicOperationMixin.rename">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">rename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Rename directory</span>
@@ -255,10 +266,13 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="n">with_name</span><span class="p">(</span><span class="n">new_name</span><span class="p">))</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Renaming to </span><span class="si">{</span><span class="n">new_name</span><span class="si">}</span><span class="s2">...DONE&quot;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+
         <span class="c1"># return self.source_path</span>
 
     <span class="c1"># Copy</span>
+<div class="viewcode-block" id="DirectoryBasicOperationMixin.copy">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryBasicOperationMixin.copy">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Copy entire directory</span>
@@ -276,9 +290,12 @@
                 <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">dst</span><span class="p">))</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Copying to </span><span class="si">{</span><span class="n">dst</span><span class="si">}</span><span class="s2">...DONE&quot;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+
 
     <span class="c1"># Move</span>
+<div class="viewcode-block" id="DirectoryBasicOperationMixin.move">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryBasicOperationMixin.move">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dst</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">content_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Move entire directory</span>
@@ -300,7 +317,7 @@
                 <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">dst</span><span class="p">))</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Moving to </span><span class="si">{</span><span class="n">dst</span><span class="si">}</span><span class="s2">...DONE&quot;</span><span class="p">)</span>
 
-        <span class="k">except</span> <span class="n">shutil</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># File already exists</span>
+        <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># File already exists</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Overwriting file...&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">content_only</span><span class="p">:</span>
@@ -308,7 +325,8 @@
                     <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">dst</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">dst</span><span class="p">))</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Overwriting file...DONE&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Overwriting file...DONE&quot;</span><span class="p">)</span></div>
+
 
     <span class="c1"># Delete folder</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_mtime_folder</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">FileOrFolderWithModificationTime</span><span class="p">]:</span>
@@ -356,6 +374,8 @@
         <span class="n">ntime</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">:</span> <span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="n">now</span><span class="o">.</span><span class="n">day</span><span class="p">}</span>
         <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">period</span><span class="p">]</span> <span class="o">!=</span> <span class="n">ntime</span><span class="p">[</span><span class="n">period</span><span class="p">]</span>
 
+<div class="viewcode-block" id="DirectoryBasicOperationMixin.delete">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryBasicOperationMixin.delete">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">entire</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -400,33 +420,62 @@
 
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Removing </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="si">}</span><span class="s2">...SUCCEED&quot;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Removing </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="si">}</span><span class="s2">...FAILED</span><span class="se">\n</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Removing </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="si">}</span><span class="s2">...FAILED</span><span class="se">\n</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+</div>
 
-    <span class="c1"># Zip</span>
+
+
+<div class="viewcode-block" id="DirectoryArchiverMixin">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryArchiverMixin">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DirectoryArchiverMixin</span><span class="p">(</span><span class="n">DirectoryBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Directory - Archiver/Compress</span>
+
+<span class="sd">    - Compress</span>
+<span class="sd">    - Decompress</span>
+<span class="sd">    - Register extra zip format &lt;staticmethod&gt;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DirectoryArchiverMixin.compress">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryArchiverMixin.compress">[docs]</a>
+    <span class="nd">@versionchanged</span><span class="p">(</span><span class="s2">&quot;5.1.0&quot;</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;Update funcionality (new parameter)&quot;</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">compress</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;zip&quot;</span><span class="p">,</span> <span class="s2">&quot;tar&quot;</span><span class="p">,</span> <span class="s2">&quot;gztar&quot;</span><span class="p">,</span> <span class="s2">&quot;bztar&quot;</span><span class="p">,</span> <span class="s2">&quot;xztar&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;zip&quot;</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="nb">format</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;zip&quot;</span><span class="p">,</span> <span class="s2">&quot;tar&quot;</span><span class="p">,</span> <span class="s2">&quot;gztar&quot;</span><span class="p">,</span> <span class="s2">&quot;bztar&quot;</span><span class="p">,</span> <span class="s2">&quot;xztar&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;zip&quot;</span><span class="p">,</span>
+        <span class="n">delete_after_compress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">move_inside</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compress the directory (Default: Create ``.zip`` file)</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        format : Literal[&quot;zip&quot;, &quot;tar&quot;, &quot;gztar&quot;, &quot;bztar&quot;, &quot;xztar&quot;]</span>
+<span class="sd">        format : Literal[&quot;zip&quot;, &quot;tar&quot;, &quot;gztar&quot;, &quot;bztar&quot;, &quot;xztar&quot;], optional</span>
+<span class="sd">            By default ``&quot;zip&quot;``</span>
 <span class="sd">            - ``zip``: ZIP file (if the ``zlib`` module is available).</span>
 <span class="sd">            - ``tar``: Uncompressed tar file. Uses POSIX.1-2001 pax format for new archives.</span>
 <span class="sd">            - ``gztar``: gzip&#39;ed tar-file (if the ``zlib`` module is available).</span>
 <span class="sd">            - ``bztar``: bzip2&#39;ed tar-file (if the ``bz2`` module is available).</span>
 <span class="sd">            - ``xztar``: xz&#39;ed tar-file (if the ``lzma`` module is available).</span>
 
+<span class="sd">        delete_after_compress : bool, optional</span>
+<span class="sd">            Delete directory after compress, by default ``False``</span>
+
+<span class="sd">        move_inside : bool, optional</span>
+<span class="sd">            Move the commpressed file inside the directory,</span>
+<span class="sd">            by default ``True``</span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Path</span>
 <span class="sd">            Compressed path</span>
+
 <span class="sd">        None</span>
 <span class="sd">            When fail to compress</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zipping </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Zip</span>
             <span class="c1"># zip_name = self.source_path.parent.joinpath(self.source_path.name).__str__()</span>
             <span class="c1"># shutil.make_archive(zip_name, format=format, root_dir=self.source_path)</span>
             <span class="n">zip_path</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">make_archive</span><span class="p">(</span>
@@ -434,28 +483,98 @@
             <span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zipping </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="si">}</span><span class="s2">...DONE&quot;</span><span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Path: </span><span class="si">{</span><span class="n">zip_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Del</span>
+            <span class="k">if</span> <span class="n">delete_after_compress</span><span class="p">:</span>
+                <span class="n">move_inside</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="p">)</span>
+
+            <span class="c1"># Move</span>
+            <span class="k">if</span> <span class="n">move_inside</span><span class="p">:</span>
+                <span class="n">zf</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">zip_path</span><span class="p">)</span>
+                <span class="n">_move_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">zf</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">_move_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+                    <span class="n">_move_path</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">missing_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">_move</span> <span class="o">=</span> <span class="n">zf</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">_move_path</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">_move</span>
+
             <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">zip_path</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">FileExistsError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zipping </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="si">}</span><span class="s2">...FAILED</span><span class="se">\n</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">None</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
 
 
-<span class="k">class</span><span class="w"> </span><span class="nc">DirectoryTree</span><span class="p">(</span><span class="n">DirectoryBase</span><span class="p">):</span>
-    <span class="k">pass</span>
+<div class="viewcode-block" id="DirectoryArchiverMixin.register_extra_zip_format">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryArchiverMixin.register_extra_zip_format">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;5.1.0&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_extra_zip_format</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This register extra extension for zipfile&quot;&quot;&quot;</span>
+        <span class="n">extra_extension</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.zip&quot;</span><span class="p">,</span> <span class="s2">&quot;.cbz&quot;</span><span class="p">]</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">unregister_unpack_format</span><span class="p">(</span><span class="s2">&quot;zip&quot;</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">register_unpack_format</span><span class="p">(</span>
+            <span class="s2">&quot;zip&quot;</span><span class="p">,</span>
+            <span class="n">extra_extension</span><span class="p">,</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">_unpack_zipfile</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;ZIP file&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Directory">
-<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.Directory">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Directory</span><span class="p">(</span><span class="n">DirectoryBasicOperation</span><span class="p">,</span> <span class="n">DirectoryTree</span><span class="p">):</span>
+<div class="viewcode-block" id="DirectoryArchiverMixin.decompress">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryArchiverMixin.decompress">[docs]</a>
+    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;5.1.0&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decompress</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="nb">format</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;zip&quot;</span><span class="p">,</span> <span class="s2">&quot;tar&quot;</span><span class="p">,</span> <span class="s2">&quot;gztar&quot;</span><span class="p">,</span> <span class="s2">&quot;bztar&quot;</span><span class="p">,</span> <span class="s2">&quot;xztar&quot;</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">delete_after_done</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Decompress compressed file in directory (first level only)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        format : Literal[&quot;zip&quot;, &quot;tar&quot;, &quot;gztar&quot;, &quot;bztar&quot;, &quot;xztar&quot;] | None, optional</span>
+<span class="sd">            By default ``None``</span>
+<span class="sd">            - ``zip``: ZIP file (if the ``zlib`` module is available).</span>
+<span class="sd">            - ``tar``: Uncompressed tar file. Uses POSIX.1-2001 pax format for new archives.</span>
+<span class="sd">            - ``gztar``: gzip&#39;ed tar-file (if the ``zlib`` module is available).</span>
+<span class="sd">            - ``bztar``: bzip2&#39;ed tar-file (if the ``bz2`` module is available).</span>
+<span class="sd">            - ``xztar``: xz&#39;ed tar-file (if the ``lzma`` module is available).</span>
+
+<span class="sd">        delete_after_done : bool, optional</span>
+<span class="sd">            Delete compressed file when extracted, by default ``False``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Register extra extension</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_extra_zip_format</span><span class="p">()</span>
+
+        <span class="c1"># Decompress first level only</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">unpack_archive</span><span class="p">(</span>
+                    <span class="n">path</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">stem</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">delete_after_done</span> <span class="ow">and</span> <span class="n">path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+                    <span class="n">path</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">missing_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                <span class="k">continue</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="DirectoryOrganizerMixin">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryOrganizerMixin">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DirectoryOrganizerMixin</span><span class="p">(</span><span class="n">DirectoryBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Some shortcuts for directory</span>
-
-<span class="sd">    - list_structure</span>
-<span class="sd">    - delete, rename, copy, move</span>
-<span class="sd">    - zip</span>
-<span class="sd">    - quick_info</span>
+<span class="sd">    Directory - File organizer - SOON</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="DirectoryTreeMixin">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryTreeMixin">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DirectoryTreeMixin</span><span class="p">(</span><span class="n">DirectoryBase</span><span class="p">):</span>
     <span class="c1"># Directory structure</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_list_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">ignore</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -550,8 +669,8 @@
             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tab_symbol</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">}{</span><span class="n">sub_dir_symbol</span><span class="si">}{</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">temp</span>
         <span class="p">]</span>
 
-<div class="viewcode-block" id="Directory.list_structure">
-<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.Directory.list_structure">[docs]</a>
+<div class="viewcode-block" id="DirectoryTreeMixin.list_structure">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryTreeMixin.list_structure">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">list_structure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">ignore</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List folder structure</span>
@@ -583,8 +702,8 @@
         <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>  <span class="c1"># Join the list</span></div>
 
 
-<div class="viewcode-block" id="Directory.list_structure_pkg">
-<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.Directory.list_structure_pkg">[docs]</a>
+<div class="viewcode-block" id="DirectoryTreeMixin.list_structure_pkg">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.DirectoryTreeMixin.list_structure_pkg">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">list_structure_pkg</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        List folder structure of a typical python package</span>
@@ -599,12 +718,46 @@
 
 
 
+<div class="viewcode-block" id="Directory">
+<a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.Directory">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Directory</span><span class="p">(</span>
+    <span class="n">DirectoryTreeMixin</span><span class="p">,</span>
+    <span class="n">DirectoryOrganizerMixin</span><span class="p">,</span>
+    <span class="n">DirectoryArchiverMixin</span><span class="p">,</span>
+    <span class="n">DirectoryBasicOperationMixin</span><span class="p">,</span>
+    <span class="n">DirectoryInfoMixin</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Some shortcuts for directory</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    source_path : str | Path</span>
+<span class="sd">        Source folder</span>
+
+<span class="sd">    create_if_not_exist : bool</span>
+<span class="sd">        Create directory when not exist,</span>
+<span class="sd">        by default ``False``</span>
+
+
+<span class="sd">    Example:</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; # For a list of method</span>
+<span class="sd">    &gt;&gt;&gt; Directory.SUBCLASS_METHODS</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+
 <span class="c1"># Class - SaveFileAs</span>
 <span class="c1"># ---------------------------------------------------------------------------</span>
 <div class="viewcode-block" id="SaveFileAs">
 <a class="viewcode-back" href="../../../absfuyu.util.path.html#absfuyu.util.path.SaveFileAs">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SaveFileAs</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;File as multiple file type&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    File as multiple file type</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -653,12 +806,6 @@
     <span class="c1">#     from absfuyu.util.json_method import JsonFile</span>
     <span class="c1">#     temp = JsonFile(path, sort_keys=False)</span>
     <span class="c1">#     temp.save_json()</span>
-
-
-<span class="c1"># Dev and Test new feature before get added to the main class</span>
-<span class="c1"># ---------------------------------------------------------------------------</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">_NewDirFeature</span><span class="p">(</span><span class="n">Directory</span><span class="p">):</span>
-    <span class="k">pass</span>
 </pre></div>
 
            </div>

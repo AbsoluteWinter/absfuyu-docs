@@ -6,6 +6,14 @@ absfuyu.extra package
    :undoc-members:
    :show-inheritance:
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.extra.da
+
 Submodules
 ----------
 

@@ -18,4 +18,5 @@ Submodules
    absfuyu.util.path
    absfuyu.util.performance
    absfuyu.util.shorten_number
+   absfuyu.util.text_table
    absfuyu.util.zipped

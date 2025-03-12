@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.dxt.listext &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">absfuyu.dxt.listext</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.dxt.listext</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absfuyu: Data Extension</span>
+<span class="sd">-----------------------</span>
+<span class="sd">list extension</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 25/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module Package</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ListExt&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">operator</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">accumulate</span><span class="p">,</span> <span class="n">chain</span><span class="p">,</span> <span class="n">groupby</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Self</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ShowAllMethodsMixin</span><span class="p">,</span> <span class="n">deprecated</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_min</span><span class="p">,</span> <span class="n">set_min_max</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="ListExt">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ListExt</span><span class="p">(</span><span class="n">ShowAllMethodsMixin</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ``list`` extension</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ListExt.stringify">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.stringify">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stringify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert all item in ``list`` into string</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ListExt</span>
+<span class="sd">            A list with all items with type &lt;str`&gt;</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([1, 1, 1, 2, 2, 3])</span>
+<span class="sd">        &gt;&gt;&gt; test.stringify()</span>
+<span class="sd">        [&#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;2&#39;, &#39;2&#39;, &#39;3&#39;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="ListExt.head">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.head">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">head</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_items</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Show first ``number_of_items`` items in ``ListExt``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        number_of_items : int</span>
+<span class="sd">            | Number of items to shows at once</span>
+<span class="sd">            | (Default: ``5``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list</span>
+<span class="sd">            Filtered list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">number_of_items</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="n">set_min_max</span><span class="p">(</span><span class="n">number_of_items</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[:</span><span class="n">number_of_items</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="ListExt.tail">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.tail">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_items</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Show last ``number_of_items`` items in ``ListExt``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        number_of_items : int</span>
+<span class="sd">            | Number of items to shows at once</span>
+<span class="sd">            | (Default: ``5``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list</span>
+<span class="sd">            Filtered list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">number_of_items</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="n">set_min_max</span><span class="p">(</span><span class="n">number_of_items</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="n">number_of_items</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="ListExt.sorts">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.sorts">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sorts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reverse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sort all items (with different type) in ``list``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        reverse : bool</span>
+<span class="sd">            | if ``True`` then sort in descending order</span>
+<span class="sd">            | if ``False`` then sort in ascending order</span>
+<span class="sd">            | (Default: ``False``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ListExt</span>
+<span class="sd">            A sorted list</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([9, &quot;abc&quot;, 3.5, &quot;aaa&quot;, 1, 1.4])</span>
+<span class="sd">        &gt;&gt;&gt; test.sorts()</span>
+<span class="sd">        [1, 9, &#39;aaa&#39;, &#39;abc&#39;, 1.4, 3.5]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">lst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">type_weights</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">type_weights</span><span class="p">:</span>
+                <span class="n">type_weights</span><span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">type_weights</span><span class="p">)</span>
+        <span class="c1"># logger.debug(f&quot;Type weight: {type_weights}&quot;)</span>
+
+        <span class="n">output</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+            <span class="n">lst</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">type_weights</span><span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)],</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span>
+        <span class="p">)</span>
+
+        <span class="c1"># logger.debug(output)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ListExt.freq">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.freq">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">freq</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">sort</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">num_of_first_char</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">appear_increment</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find frequency of each item in list</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sort : bool</span>
+<span class="sd">            | if ``True``: Sorts the output in ascending order</span>
+<span class="sd">            | if ``False``: No sort</span>
+
+<span class="sd">        num_of_first_char : int | None</span>
+<span class="sd">            | Number of first character taken into account to sort</span>
+<span class="sd">            | (Default: ``None``)</span>
+<span class="sd">            | (num_of_first_char = ``1``: first character in each item)</span>
+
+<span class="sd">        appear_increment : bool</span>
+<span class="sd">            | return incremental index list of each item when sort</span>
+<span class="sd">            | (Default: ``False``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            A dict that show frequency</span>
+
+<span class="sd">        list[int]</span>
+<span class="sd">            Incremental index list</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([1, 1, 2, 3, 5, 5])</span>
+<span class="sd">        &gt;&gt;&gt; test.freq()</span>
+<span class="sd">        {1: 2, 2: 1, 3: 1, 5: 2}</span>
+
+<span class="sd">        &gt;&gt;&gt; test = ListExt([1, 1, 2, 3, 3, 4, 5, 6])</span>
+<span class="sd">        &gt;&gt;&gt; test.freq(appear_increment=True)</span>
+<span class="sd">        [2, 3, 5, 6, 7, 8]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">sort</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sorts</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">num_of_first_char</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">max_char</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
+            <span class="c1"># logger.debug(f&quot;Max character: {max_char}&quot;)</span>
+            <span class="k">if</span> <span class="n">num_of_first_char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_char</span><span class="p">):</span>
+                <span class="c1"># logger.debug(f&quot;Not in {range(1, max_char)}. Using default value...&quot;)</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># logger.debug(f&quot;Freq of first {num_of_first_char} char&quot;)</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[:</span><span class="n">num_of_first_char</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">times_appear</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">times_appear</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">items</span><span class="p">())</span><span class="o">.</span><span class="n">sorts</span><span class="p">())</span>
+        <span class="c1"># logger.debug(times_appear)</span>
+
+        <span class="k">if</span> <span class="n">appear_increment</span><span class="p">:</span>
+            <span class="n">times_appear_increment</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                <span class="n">accumulate</span><span class="p">(</span><span class="n">times_appear</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="c1"># logger.debug(times_appear_increment)</span>
+            <span class="k">return</span> <span class="n">times_appear_increment</span>  <span class="c1"># incremental index list</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">times_appear</span>  <span class="c1"># character frequency</span></div>
+
+
+<div class="viewcode-block" id="ListExt.slice_points">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.slice_points">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">slice_points</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Splits a list into sublists based on specified split points (indices).</span>
+
+<span class="sd">        This method divides the original list into multiple sublists. The ``points``</span>
+<span class="sd">        argument provides the indices at which the list should be split.  The resulting</span>
+<span class="sd">        list of lists contains the sublists created by these splits. The original</span>
+<span class="sd">        list is not modified.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        points : list</span>
+<span class="sd">            A list of integer indices representing the points at which to split</span>
+<span class="sd">            the list. These indices are *exclusive* of the starting sublist</span>
+<span class="sd">            but *inclusive* of the ending sublist.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list[list]</span>
+<span class="sd">            A list of lists, where each inner list is a slice of the original list</span>
+<span class="sd">            defined by the provided split points.</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([1, 1, 2, 3, 3, 4, 5, 6])</span>
+<span class="sd">        &gt;&gt;&gt; test.slice_points([2, 5])</span>
+<span class="sd">        [[1, 1], [2, 3, 3], [4, 5, 6]]</span>
+<span class="sd">        &gt;&gt;&gt; test.slice_points([0, 1, 2, 3, 4, 5, 6, 7, 8])</span>
+<span class="sd">        [[], [1], [1], [2], [3], [3], [4], [5], [6]]</span>
+<span class="sd">        &gt;&gt;&gt; test.slice_points([])</span>
+<span class="sd">        [[1, 1, 2, 3, 3, 4, 5, 6]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="c1"># return [data[points[i]:points[i+1]] for i in range(len(points)-1)]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">i1</span><span class="p">:</span><span class="n">i2</span><span class="p">]</span> <span class="k">for</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">points</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">points</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="ListExt.pick_one">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.pick_one">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pick_one</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Pick one random items from ``list``</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Any</span>
+<span class="sd">            Random value</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([&quot;foo&quot;, &quot;bar&quot;])</span>
+<span class="sd">        &gt;&gt;&gt; test.pick_one()</span>
+<span class="sd">        &#39;bar&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="c1"># logger.debug(out)</span>
+            <span class="k">return</span> <span class="n">out</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># logger.debug(&quot;List empty!&quot;)</span>
+            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;List empty!&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ListExt.get_random">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.get_random">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_random</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_items</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get ``number_of_items`` random items in ``ListExt``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        number_of_items : int</span>
+<span class="sd">            | Number random of items</span>
+<span class="sd">            | (Default: ``5``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list</span>
+<span class="sd">            Filtered list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">pick_one</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_items</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="ListExt.len_items">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.len_items">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">len_items</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ``len()`` for every item in ``list[str]``</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ListExt</span>
+<span class="sd">            List of ``len()``&#39;ed value</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([&quot;foo&quot;, &quot;bar&quot;, &quot;pizza&quot;])</span>
+<span class="sd">        &gt;&gt;&gt; test.len_items()</span>
+<span class="sd">        [3, 3, 5]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
+        <span class="c1"># out = ListExt(map(lambda x: len(str(x)), self))</span>
+        <span class="c1"># logger.debug(out)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
+<div class="viewcode-block" id="ListExt.mean_len">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.mean_len">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mean_len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Average length of every item</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            Average length</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([&quot;foo&quot;, &quot;bar&quot;, &quot;pizza&quot;])</span>
+<span class="sd">        &gt;&gt;&gt; test.mean_len()</span>
+<span class="sd">        3.6666666666666665</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">len_items</span><span class="p">())</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># logger.debug(out)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
+<div class="viewcode-block" id="ListExt.apply">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.apply">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply function to each entry</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        func : Callable</span>
+<span class="sd">            Callable function</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ListExt</span>
+<span class="sd">            ListExt</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([1, 2, 3])</span>
+<span class="sd">        &gt;&gt;&gt; test.apply(str)</span>
+<span class="sd">        [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># return __class__(func(x) for x in self)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="bp">self</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="ListExt.unique">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.unique">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">unique</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove duplicates</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ListExt</span>
+<span class="sd">            Duplicates removed list</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([1, 1, 1, 2, 2, 3])</span>
+<span class="sd">        &gt;&gt;&gt; test.unique()</span>
+<span class="sd">        [1, 2, 3]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="ListExt.group_by_unique">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.group_by_unique">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">group_by_unique</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Group duplicated elements into list</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ListExt</span>
+<span class="sd">            Grouped value</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([1, 2, 3, 1, 3, 3, 2])</span>
+<span class="sd">        &gt;&gt;&gt; test.group_by_unique()</span>
+<span class="sd">        [[1, 1], [2, 2], [3, 3, 3]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Old</span>
+        <span class="c1"># out = self.sorts().slice_points(self.freq(appear_increment=True))</span>
+        <span class="c1"># return __class__(out[:-1])</span>
+
+        <span class="c1"># New</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">groupby</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sorts</span><span class="p">())</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="ListExt.group_by_pair_value">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.group_by_pair_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">group_by_pair_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_loop</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Assume each ``list`` in ``list`` is a pair value,</span>
+<span class="sd">        returns a ``list`` contain all paired value</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        max_loop : int</span>
+<span class="sd">            Times to run functions (minimum: ``3``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list[list]</span>
+<span class="sd">            Grouped value</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([[1, 2], [2, 3], [4, 3], [5, 6]])</span>
+<span class="sd">        &gt;&gt;&gt; test.group_by_pair_value()</span>
+<span class="sd">        [[1, 2, 3, 4], [5, 6]]</span>
+
+<span class="sd">        &gt;&gt;&gt; test = ListExt([[8, 3], [4, 6], [6, 3], [5, 2], [7, 2]])</span>
+<span class="sd">        &gt;&gt;&gt; test.group_by_pair_value()</span>
+<span class="sd">        [[8, 3, 4, 6], [2, 5, 7]]</span>
+
+<span class="sd">        &gt;&gt;&gt; test = ListExt([[&quot;a&quot;, 4], [&quot;b&quot;, 4], [5, &quot;c&quot;]])</span>
+<span class="sd">        &gt;&gt;&gt; test.group_by_pair_value()</span>
+<span class="sd">        [[&#39;a&#39;, 4, &#39;b&#39;], [&#39;c&#39;, 5]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">iter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="c1"># Init loop</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">set_min</span><span class="p">(</span><span class="n">max_loop</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">3</span><span class="p">))):</span>
+            <span class="n">temp</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="c1"># Make dict{key: all `item` that contains `key`}</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">temp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">temp</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">temp</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+            <span class="c1"># Flatten dict.values</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">temp</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">temp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">v</span><span class="p">)))</span>
+
+            <span class="nb">iter</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">groupby</span><span class="p">(</span><span class="nb">iter</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="ListExt.flatten">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.flatten">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">flatten</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Flatten the list</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ListExt</span>
+<span class="sd">            Flattened list</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([[&quot;test&quot;], [&quot;test&quot;, &quot;test&quot;], [&quot;test&quot;]])</span>
+<span class="sd">        &gt;&gt;&gt; test.flatten()</span>
+<span class="sd">        [&#39;test&#39;, &#39;test&#39;, &#39;test&#39;, &#39;test&#39;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># return self.__class__(sum(self, start=[]))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="bp">self</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">temp</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="ListExt.numbering">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.numbering">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">numbering</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Number the item in list</span>
+<span class="sd">        (``enumerate`` wrapper)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        start : int</span>
+<span class="sd">            Start from which number</span>
+<span class="sd">            (Default: ``0``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ListExt</span>
+<span class="sd">            Counted list</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = ListExt([9, 9, 9])</span>
+<span class="sd">        &gt;&gt;&gt; test.numbering()</span>
+<span class="sd">        [(0, 9), (1, 9), (2, 9)]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">set_min</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">))</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@deprecated</span><span class="p">(</span><span class="s2">&quot;5.0.0&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_group_by_unique</span><span class="p">(</span><span class="n">iterable</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Static method for ``group_by_unique``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">groupby</span><span class="p">(</span><span class="n">iterable</span><span class="p">)])</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@deprecated</span><span class="p">(</span><span class="s2">&quot;5.0.0&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_numbering</span><span class="p">(</span><span class="n">iterable</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Static method for ``numbering``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">set_min</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">))</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+absfuyu.dxt.intext module
+=========================
+
+.. automodule:: absfuyu.dxt.intext
+   :members:
+   :undoc-members:
+   :show-inheritance:

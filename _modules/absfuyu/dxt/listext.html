@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.dxt.listext &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.dxt.listext &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -13,7 +13,7 @@
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -82,8 +82,8 @@
 <span class="sd">-----------------------</span>
 <span class="sd">list extension</span>
 
-<span class="sd">Version: 5.0.0</span>
-<span class="sd">Date updated: 25/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">Version: 5.1.0</span>
+<span class="sd">Date updated: 10/03/2025 (dd/mm/yyyy)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># Module Package</span>
@@ -101,6 +101,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Self</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ShowAllMethodsMixin</span><span class="p">,</span> <span class="n">deprecated</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core.docstring</span><span class="w"> </span><span class="kn">import</span> <span class="n">versionadded</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_min</span><span class="p">,</span> <span class="n">set_min_max</span>
 
 
@@ -436,7 +437,7 @@
 
 <div class="viewcode-block" id="ListExt.apply">
 <a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.apply">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Apply function to each entry</span>
 
@@ -617,6 +618,33 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">set_min</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="ListExt.split_chunk">
+<a class="viewcode-back" href="../../../absfuyu.dxt.listext.html#absfuyu.dxt.ListExt.split_chunk">[docs]</a>
+    <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;5.1.0&quot;</span><span class="p">)</span>  <span class="c1"># no test case yet</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">split_chunk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Split list into smaller chunks</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        chunk_size : int</span>
+<span class="sd">            Chunk size, minimum: ``1``</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list[list]</span>
+<span class="sd">            List of chunk</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; ListExt([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]).split_chunk(5)</span>
+<span class="sd">        [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">slice_points</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">slice_points</span><span class="p">(</span><span class="n">slice_points</span><span class="p">)</span></div>
 
 
     <span class="nd">@staticmethod</span>

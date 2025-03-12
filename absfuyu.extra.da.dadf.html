@@ -1,0 +1,957 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.extra.da.dadf module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=bfa18cfb"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=b612fa2f"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="absfuyu.extra.da.dadf_base module" href="absfuyu.extra.da.dadf_base.html" />
+    <link rel="prev" title="absfuyu.extra.da package" href="absfuyu.extra.da.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#license">LICENSE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu">ABSFUYU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#links">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#usage">USAGE</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.cli.html">absfuyu.cli package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.core.html">absfuyu.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="absfuyu.extra.html">absfuyu.extra package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.general.html">absfuyu.general package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html">absfuyu.pkg_data package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.tools.html">absfuyu.tools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html">absfuyu.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Module Documentation</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.html">absfuyu package</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.extra.html">absfuyu.extra package</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.extra.da.html">absfuyu.extra.da package</a></li>
+      <li class="breadcrumb-item active">absfuyu.extra.da.dadf module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-absfuyu.extra.da.dadf">
+<span id="absfuyu-extra-da-dadf-module"></span><h1>absfuyu.extra.da.dadf module<a class="headerlink" href="#module-absfuyu.extra.da.dadf" title="Link to this heading"></a></h1>
+<section id="absfuyu-data-analysis">
+<h2>Absfuyu: Data Analysis<a class="headerlink" href="#absfuyu-data-analysis" title="Link to this heading"></a></h2>
+<p>Data Analyst DataFrame</p>
+<p>Version: 5.1.0
+Date updated: 10/03/2025 (dd/mm/yyyy)</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DADF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extra.da.dadf.</span></span><span class="sig-name descname"><span class="pre">DADF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DADF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DADF" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.ShowAllMethodsMixin" title="absfuyu.core.baseclass.ShowAllMethodsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShowAllMethodsMixin</span></code></a>, <a class="reference internal" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameCityMixin" title="absfuyu.extra.da.dadf.DataAnalystDataFrameCityMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameCityMixin</span></code></a>, <a class="reference internal" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameDateMixin" title="absfuyu.extra.da.dadf.DataAnalystDataFrameDateMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameDateMixin</span></code></a>, <a class="reference internal" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameOtherMixin" title="absfuyu.extra.da.dadf.DataAnalystDataFrameOtherMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameOtherMixin</span></code></a>, <a class="reference internal" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin" title="absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameNAMixin</span></code></a>, <a class="reference internal" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin" title="absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameInfoMixin</span></code></a>, <a class="reference internal" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameRowMethodMixin" title="absfuyu.extra.da.dadf.DataAnalystDataFrameRowMethodMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameRowMethodMixin</span></code></a>, <a class="reference internal" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin" title="absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameColumnMethodMixin</span></code></a></p>
+<p>Data Analyst <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code></p>
+<p>For a list of extra methods:
+&gt;&gt;&gt; print(DADF.DADF_METHODS)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DADF.dadf_help">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dadf_help</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DADF.dadf_help"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DADF.dadf_help" title="Link to this definition"></a></dt>
+<dd><p>Show all available method of DataAnalystDataFrame</p>
+<p><em>Added in version 3.2.0</em></p>
+<p><em>Deprecated in version 5.1.0</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DADF.sample_df">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DADF.sample_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DADF.sample_df" title="Link to this definition"></a></dt>
+<dd><p>Create sample DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>size</strong> (<em>int</em>) – Number of observations, by default <code class="docutils literal notranslate"><span class="pre">100</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame with these columns:
+[number, number_big, number_range, missing_value, text, date]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DataAnalystDataFrame</span><span class="o">.</span><span class="n">sample_df</span><span class="p">()</span>
+<span class="go">      number  number_big number_range  missing_value      text       date</span>
+<span class="go">0  -2.089770         785          700            NaN  vwnlqoql 2013-11-20</span>
+<span class="go">1  -0.526689         182          100           24.0  prjjcvqc 2007-04-13</span>
+<span class="go">2  -1.596514         909          900            8.0  cbcpzlac 2023-05-24</span>
+<span class="go">3   2.982191         989          900           21.0  ivwqwuvd 2022-04-28</span>
+<span class="go">4   1.687803         878          800            NaN  aajtncum 2005-10-05</span>
+<span class="go">..       ...         ...          ...            ...       ...        ...</span>
+<span class="go">95 -1.295145         968          900           16.0  mgqunkhi 2016-04-12</span>
+<span class="go">96  1.296795         255          200            NaN  lwvytego 2014-05-10</span>
+<span class="go">97  1.440746         297          200            5.0  lqsoykun 2010-04-03</span>
+<span class="go">98  0.327702         845          800            NaN  leadkvsy 2005-08-05</span>
+<span class="go">99  0.556720         981          900           36.0  bozmxixy 2004-02-22</span>
+<span class="go">[100 rows x 6 columns]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extra.da.dadf.</span></span><span class="sig-name descname"><span class="pre">DataAnalystDataFrameColumnMethodMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameColumnMethodMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.extra.da.dadf_base.html#absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase" title="absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameBase</span></code></a></p>
+<p>Data Analyst <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> - Column method</p>
+<ul class="simple">
+<li><p>Rearrange rightmost column</p></li>
+<li><p>Drop columns</p></li>
+<li><p>Drop rightmost column</p></li>
+<li><p>Add blank column</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin.rearrange_rightmost_column">
+<span class="sig-name descname"><span class="pre">rearrange_rightmost_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">insert_to_col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_of_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameColumnMethodMixin.rearrange_rightmost_column"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin.rearrange_rightmost_column" title="Link to this definition"></a></dt>
+<dd><p>Move right-most columns to selected position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>insert_to_col</strong> (<em>str</em>) – Name of the column that the right-most column will be moved next to</p></li>
+<li><p><strong>num_of_cols</strong> (<em>int</em>) – Number of columns moved, by default <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id1">
+<h2>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">     number  number_big number_range  missing_value      text       date</span>
+<span class="go">0 -1.583590         756          700            NaN  eqklyckc 2023-05-20</span>
+<span class="go">1  0.203968         167          100            NaN  wzrsxinb 2011-02-27</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">rearrange_rightmost_column</span><span class="p">(</span><span class="s2">&quot;number&quot;</span><span class="p">)</span>
+<span class="go">     number       date  number_big number_range  missing_value      text</span>
+<span class="go">0 -1.583590 2023-05-20         756          700            NaN  eqklyckc</span>
+<span class="go">1  0.203968 2011-02-27         167          100            NaN  wzrsxinb</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin.drop_columns">
+<span class="sig-name descname"><span class="pre">drop_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameColumnMethodMixin.drop_columns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin.drop_columns" title="Link to this definition"></a></dt>
+<dd><p>Drop columns in DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>columns</strong> (<em>Iterable</em><em>[</em><em>str</em><em>]</em>) – List of columns need to drop</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id2">
+<h2>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">     number  number_big number_range  missing_value      text       date</span>
+<span class="go">0 -0.283019         666          600            NaN  ztoeeblx 2022-11-13</span>
+<span class="go">1  1.194725         939          900            NaN  fxardqvh 2005-08-04</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">drop_columns</span><span class="p">([</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">])</span>
+<span class="go">     number  number_big number_range  missing_value</span>
+<span class="go">0 -0.283019         666          600            NaN</span>
+<span class="go">1  1.194725         939          900            NaN</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin.drop_rightmost">
+<span class="sig-name descname"><span class="pre">drop_rightmost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_of_cols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameColumnMethodMixin.drop_rightmost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin.drop_rightmost" title="Link to this definition"></a></dt>
+<dd><p>Drop <code class="docutils literal notranslate"><span class="pre">num_of_cols</span></code> right-most columns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num_of_cols</strong> (<em>int</em>) – Number of columns to drop</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id3">
+<h2>Example:<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">     number  number_big number_range  missing_value      text       date</span>
+<span class="go">0  0.851953         572          500              5  ncpbnzef 2020-08-15</span>
+<span class="go">1  0.381643         595          500             53  iojogbgj 2011-12-04</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">drop_rightmost</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">     number</span>
+<span class="go">0  0.851953</span>
+<span class="go">1  0.381643</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin.add_blank_column">
+<span class="sig-name descname"><span class="pre">add_blank_column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameColumnMethodMixin.add_blank_column"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameColumnMethodMixin.add_blank_column" title="Link to this definition"></a></dt>
+<dd><p>Add a blank column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column_name</strong> (<em>str</em>) – Name of the column to add</p></li>
+<li><p><strong>fill</strong> (<em>Any</em>) – Fill the column with data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<p><em>Deprecated in version 5.1.0: Use pd.DataFrame.assign(…) method instead</em></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameRowMethodMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extra.da.dadf.</span></span><span class="sig-name descname"><span class="pre">DataAnalystDataFrameRowMethodMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameRowMethodMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameRowMethodMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.extra.da.dadf_base.html#absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase" title="absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameBase</span></code></a></p>
+<p>Data Analyst <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> - Row method</p>
+<ul class="simple">
+<li><p>Get different rows</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameRowMethodMixin.get_different_rows">
+<span class="sig-name descname"><span class="pre">get_different_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameRowMethodMixin.get_different_rows"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameRowMethodMixin.get_different_rows" title="Link to this definition"></a></dt>
+<dd><p>Subtract DataFrame to find the different rows</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<em>Self</em><em> | </em><em>pd.DataFrame</em>) – DataFrame to subtract</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Different row DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id4">
+<h2>Example:<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df1</span> <span class="o">=</span> <span class="n">DADF</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df2</span> <span class="o">=</span> <span class="n">DADF</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df1</span><span class="o">.</span><span class="n">get_different_rows</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+<span class="go">   A  B</span>
+<span class="go">0  1  7</span>
+<span class="go">2  3  6</span>
+</pre></div>
+</div>
+<p><em>Added in version 4.0.0</em></p>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extra.da.dadf.</span></span><span class="sig-name descname"><span class="pre">DataAnalystDataFrameInfoMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameInfoMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.extra.da.dadf_base.html#absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase" title="absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameBase</span></code></a></p>
+<p>Data Analyst <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> - Info</p>
+<ul class="simple">
+<li><p>Quick info</p></li>
+<li><p>Quick describe</p></li>
+<li><p>Show distribution</p></li>
+<li><p>Threshold filter</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin.qinfo">
+<span class="sig-name descname"><span class="pre">qinfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameInfoMixin.qinfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin.qinfo" title="Link to this definition"></a></dt>
+<dd><p>Show quick infomation about DataFrame</p>
+<section id="id5">
+<h2>Example:<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">()</span><span class="o">.</span><span class="n">qinfo</span><span class="p">()</span>
+<span class="go">Dataset Information:</span>
+<span class="go">- Number of Rows: 100</span>
+<span class="go">- Number of Columns: 6</span>
+<span class="go">- Total observation: 600</span>
+<span class="go">- Missing value: 13 (2.17%)</span>
+</pre></div>
+</div>
+<p>Column names:
+[‘number’, ‘number_big’, ‘number_range’, ‘missing_value’, ‘text’, ‘date’]</p>
+<p><em>Added in version 3.2.0</em></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin.describe">
+<span class="sig-name descname"><span class="pre">describe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percentiles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameInfoMixin.describe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin.describe" title="Link to this definition"></a></dt>
+<dd><p>pd.DataFrame.describe() override</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin.qdescribe">
+<span class="sig-name descname"><span class="pre">qdescribe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameInfoMixin.qdescribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin.qdescribe" title="Link to this definition"></a></dt>
+<dd><p>Quick <code class="docutils literal notranslate"><span class="pre">describe()</span></code> that exclude <code class="docutils literal notranslate"><span class="pre">object</span></code> and <code class="docutils literal notranslate"><span class="pre">datetime</span></code> dtype</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self</p>
+</dd>
+</dl>
+<section id="id6">
+<h2>Example:<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">()</span><span class="o">.</span><span class="n">qdescribe</span><span class="p">()</span>
+<span class="go">           number  number_big  missing_value</span>
+<span class="go">count  100.000000  100.000000      48.000000</span>
+<span class="go">mean    -0.052935  586.750000      22.916667</span>
+<span class="go">std      0.954170  237.248596      11.987286</span>
+<span class="go">min     -2.392952  105.000000       3.000000</span>
+<span class="go">25%     -0.738311  407.500000      13.000000</span>
+<span class="go">50%     -0.068014  607.000000      23.500000</span>
+<span class="go">75%      0.614025  790.250000      36.000000</span>
+<span class="go">max      2.512533  988.000000      42.000000</span>
+</pre></div>
+</div>
+<p><em>Added in version 3.2.0</em></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin.show_distribution">
+<span class="sig-name descname"><span class="pre">show_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropna</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_percentage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentage_round_up</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameInfoMixin.show_distribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin.show_distribution" title="Link to this definition"></a></dt>
+<dd><p>Show distribution of a column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column_name</strong> (<em>str</em>) – Column to show distribution</p></li>
+<li><p><strong>dropna</strong> (<em>bool</em>) – Count N/A when <code class="docutils literal notranslate"><span class="pre">False</span></code>
+(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><strong>show_percentage</strong> (<em>bool</em>) – Show proportion in range 0% - 100% instead of [0, 1]
+(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><strong>percentage_round_up</strong> (<em>int</em>) – Round up to which decimals
+(Default: <code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Distribution DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id7">
+<h2>Example:<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">()</span><span class="o">.</span><span class="n">show_distribution</span><span class="p">(</span><span class="s2">&quot;number_range&quot;</span><span class="p">)</span>
+<span class="go">  number_range  count  percentage</span>
+<span class="go">0          900     16        16.0</span>
+<span class="go">1          700     15        15.0</span>
+<span class="go">2          300     12        12.0</span>
+<span class="go">3          200     12        12.0</span>
+<span class="go">4          400     11        11.0</span>
+<span class="go">5          600     11        11.0</span>
+<span class="go">6          800     10        10.0</span>
+<span class="go">7          100      9         9.0</span>
+<span class="go">8          500      4         4.0</span>
+</pre></div>
+</div>
+<p><em>Added in version 3.2.0</em></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin.threshold_filter">
+<span class="sig-name descname"><span class="pre">threshold_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">replace_with</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Other'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameInfoMixin.threshold_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameInfoMixin.threshold_filter" title="Link to this definition"></a></dt>
+<dd><p>Filter out percentage of data that smaller than the <code class="docutils literal notranslate"><span class="pre">threshold</span></code>,
+replace all of the smaller data to <code class="docutils literal notranslate"><span class="pre">replace_with</span></code>.
+As a result, pie chart is less messy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>destination_column</strong> (<em>str</em>) – Column to be filtered</p></li>
+<li><p><strong>threshold</strong> (<em>int</em><em> | </em><em>float</em>) – Which percentage to cut-off
+(Default: 10%)</p></li>
+<li><p><strong>top</strong> (<em>int</em>) – Only show top <code class="docutils literal notranslate"><span class="pre">x</span></code> categories in pie chart
+(replace threshold mode)
+(Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+<li><p><strong>replace_with</strong> (<em>Any</em>) – Replace all of the smaller data with specified value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<p><em>Deprecated in version 5.1.0: Rework THIS</em></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extra.da.dadf.</span></span><span class="sig-name descname"><span class="pre">DataAnalystDataFrameNAMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameNAMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.extra.da.dadf_base.html#absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase" title="absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameBase</span></code></a></p>
+<p>Data Analyst <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> - Missing value</p>
+<ul class="simple">
+<li><p>Fill missing values</p></li>
+<li><p>Get missing values</p></li>
+<li><p>Split N/A</p></li>
+<li><p>Apply not null</p></li>
+<li><p>Apply not null row</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin.fill_missing_values">
+<span class="sig-name descname"><span class="pre">fill_missing_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_when_not_exist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">nan</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameNAMixin.fill_missing_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin.fill_missing_values" title="Link to this definition"></a></dt>
+<dd><p>Fill missing values in specified column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column_name</strong> (<em>str</em>) – Column name</p></li>
+<li><p><strong>fill</strong> (<em>Any</em>) – Fill the missing values with, by default <code class="docutils literal notranslate"><span class="pre">np.nan</span></code></p></li>
+<li><p><strong>fill_when_not_exist</strong> (<em>Any</em>) – When <code class="docutils literal notranslate"><span class="pre">column_name</span></code> does not exist,
+create a new column and fill with
+<code class="docutils literal notranslate"><span class="pre">fill_when_not_exist</span></code>, by default <code class="docutils literal notranslate"><span class="pre">np.nan</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id8">
+<h2>Example:<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">     number  number_big number_range  missing_value      text       date</span>
+<span class="go">0  0.174303         926          900            NaN  tenkiakh 2006-09-08</span>
+<span class="go">1  0.305137         140          100            NaN  jzuddamf 2012-04-04</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">fill_missing_values</span><span class="p">(</span><span class="s2">&quot;missing_value&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">     number  number_big number_range  missing_value      text       date</span>
+<span class="go">0  0.174303         926          900            0.0  tenkiakh 2006-09-08</span>
+<span class="go">1  0.305137         140          100            0.0  jzuddamf 2012-04-04</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">fill_missing_values</span><span class="p">(</span><span class="s2">&quot;missing_column&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fill_when_not_exist</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">     number  number_big number_range  missing_value      text       date  missing_column</span>
+<span class="go">0  0.174303         926          900            0.0  tenkiakh 2006-09-08               0</span>
+<span class="go">1  0.305137         140          100            0.0  jzuddamf 2012-04-04               0</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin.get_missing_values">
+<span class="sig-name descname"><span class="pre">get_missing_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hightlight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentage_round_up</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameNAMixin.get_missing_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin.get_missing_values" title="Link to this definition"></a></dt>
+<dd><p>Get a DataFrame contains count of missing values for each column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hightlight</strong> (<em>bool</em>) – Shows only columns with missing values when <code class="docutils literal notranslate"><span class="pre">True</span></code>, by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>percentage_round_up</strong> (<em>int</em>) – Round up to which decimals, by default <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Missing value DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id9">
+<h2>Example:<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">(</span><span class="mi">152</span><span class="p">)</span><span class="o">.</span><span class="n">get_missing_values</span><span class="p">()</span>
+<span class="go">               Num of N/A  Percentage</span>
+<span class="go">missing_value          42       27.63</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin.split_na">
+<span class="sig-name descname"><span class="pre">split_na</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">by_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="absfuyu.extra.da.dadf_base.html#absfuyu.extra.da.dadf_base.SplittedDF" title="absfuyu.extra.da.dadf_base.SplittedDF"><span class="pre">SplittedDF</span></a></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameNAMixin.split_na"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin.split_na" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Split DataFrame into 2 parts:</dt><dd><ul class="simple">
+<li><p>Without missing value in specified column</p></li>
+<li><p>With missing value in specified column</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>by_column</strong> (<em>str</em>) – Split by column</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Splitted DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="absfuyu.extra.da.dadf_base.html#absfuyu.extra.da.dadf_base.SplittedDF" title="absfuyu.extra.da.dadf_base.SplittedDF">SplittedDF</a></p>
+</dd>
+</dl>
+<section id="id10">
+<h2>Example:<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">split_na</span><span class="p">(</span><span class="s2">&quot;missing_value&quot;</span><span class="p">)</span>
+<span class="go">SplittedDF(</span>
+<span class="go">    df=     number  number_big number_range  missing_value      text       date</span>
+<span class="go">0         0.643254         690          600            3.0  cinvofwj 2018-08-15</span>
+<span class="go">2         0.499345         255          200           13.0  jasifzez 2005-06-01</span>
+<span class="go">3        -1.727036         804          800           38.0  esxjmger 2009-07-24</span>
+<span class="go">4         0.873058         690          600           32.0  htewfpld 2022-07-22</span>
+<span class="go">5        -2.389884         442          400           30.0  hbcnfogu 2006-02-25</span>
+<span class="go">8         0.264584         432          400            2.0  ejbvbmwn 2013-05-11</span>
+<span class="go">9         0.813655         137          100           20.0  oecttada 2024-11-22,</span>
+<span class="go">    df_na=     number  number_big number_range  missing_value      text       date</span>
+<span class="go">1           -0.411354         363          300            NaN  juzecani 2014-12-02</span>
+<span class="go">6           -0.833857         531          500            NaN  ybnntryh 2023-11-03</span>
+<span class="go">7            1.355589         472          400            NaN  zjltghjr 2024-10-09</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+<p><em>Added in version 3.1.0</em></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin.apply_notnull">
+<span class="sig-name descname"><span class="pre">apply_notnull</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_R</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameNAMixin.apply_notnull"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin.apply_notnull" title="Link to this definition"></a></dt>
+<dd><p>Only apply callable to not NaN value in column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>col</strong> (<em>str</em>) – Column to apply</p></li>
+<li><p><strong>callable</strong> (<em>Callable</em><em>[</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>_R</em><em>]</em>) – Callable</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Applied DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id11">
+<h2>Example:<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">apply_notnull</span><span class="p">(</span><span class="s2">&quot;missing_value&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="s2">&quot;REPLACED&quot;</span><span class="p">)</span>
+<span class="go">     number  number_big number_range missing_value      text       date</span>
+<span class="go">0  0.852218         157          100      REPLACED  dqzxaxxs 2006-03-08</span>
+<span class="go">1  1.522428         616          600           NaN  mivkaooe 2018-12-27</span>
+<span class="go">2  0.108506         745          700      REPLACED  qanwwjet 2005-07-14</span>
+<span class="go">3 -1.435079         400          400      REPLACED  ywahcasi 2024-05-20</span>
+<span class="go">4  0.118993         861          800      REPLACED  saoupuby 2019-04-28</span>
+</pre></div>
+</div>
+<p><em>Added in version 5.1.0</em></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin.apply_notnull_row">
+<span class="sig-name descname"><span class="pre">apply_notnull_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">apply_when_null</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_R</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_when_not_null</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">_R</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">_T</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameNAMixin.apply_notnull_row"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameNAMixin.apply_notnull_row" title="Link to this definition"></a></dt>
+<dd><p>Apply to DataFrame’s row with missing value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>apply_when_null</strong> (<em>Callable</em><em>[</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>R</em><em>] </em><em>| </em><em>T</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Callable or Any, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>: returns if entire row is not null</p></li>
+<li><p><strong>apply_when_not_null</strong> (<em>Callable</em><em>[</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>R</em><em>] </em><em>| </em><em>T</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Callable or Any, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>: returns if entire row is not null</p></li>
+<li><p><strong>col_name</strong> (<em>str</em><em> | </em><em>None</em><em>, </em><em>optional</em>) – Output column name, by default <code class="docutils literal notranslate"><span class="pre">None</span></code> (uses custom name)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataDrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id12">
+<h2>Example:<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">DADF</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">apply_notnull_row</span><span class="p">()</span>
+<span class="go">     A    B    C  applied_row_null</span>
+<span class="go">0  NaN  1.0  NaN             False</span>
+<span class="go">1  2.0  NaN  2.0             False</span>
+<span class="go">2  3.0  3.0  NaN             False</span>
+<span class="go">3  4.0  4.0  4.0              True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">apply_notnull_row</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">     A    B    C  applied_row_null</span>
+<span class="go">0  NaN  1.0  NaN                 0</span>
+<span class="go">1  2.0  NaN  2.0                 0</span>
+<span class="go">2  3.0  3.0  NaN                 0</span>
+<span class="go">3  4.0  4.0  4.0                 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">apply_notnull_row</span><span class="p">(</span><span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">col_name</span><span class="o">=</span><span class="s2">&quot;mod&quot;</span><span class="p">)</span>
+<span class="go">     A    B    C mod</span>
+<span class="go">0  NaN  1.0  NaN   n</span>
+<span class="go">1  2.0  NaN  2.0   n</span>
+<span class="go">2  3.0  3.0  NaN   n</span>
+<span class="go">3  4.0  4.0  4.0   y</span>
+</pre></div>
+</div>
+<p><em>Added in version 5.1.0</em></p>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameOtherMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extra.da.dadf.</span></span><span class="sig-name descname"><span class="pre">DataAnalystDataFrameOtherMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameOtherMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameOtherMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.extra.da.dadf_base.html#absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase" title="absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameBase</span></code></a></p>
+<p>Data Analyst <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> - Other method/Stuff</p>
+<ul class="simple">
+<li><p>Merge left</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameOtherMixin.merge_left">
+<span class="sig-name descname"><span class="pre">merge_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Self</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameOtherMixin.merge_left"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameOtherMixin.merge_left" title="Link to this definition"></a></dt>
+<dd><p>Merge left of 2 DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> (<em>Self</em><em> | </em><em>pd.DataFrame</em>) – DataFrame to merge</p></li>
+<li><p><strong>on</strong> (<em>str</em>) – Merge on which column</p></li>
+<li><p><strong>columns</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em><em>, </em><em>optional</em>) – Columns to take from other DataFrame, by default <code class="docutils literal notranslate"><span class="pre">None</span></code>
+(Take all columns)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Merged DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id13">
+<h2>Example:<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df1</span> <span class="o">=</span> <span class="n">DADF</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Rich&quot;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df2</span> <span class="o">=</span> <span class="n">DADF</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;HR&quot;</span><span class="p">,</span> <span class="s2">&quot;IT&quot;</span><span class="p">,</span> <span class="s2">&quot;PM&quot;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s2">&quot;salary&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">60000</span><span class="p">,</span> <span class="mi">55000</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df1</span><span class="o">.</span><span class="n">merge_left</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+<span class="go">   id   name  age_x  age_y department   salary</span>
+<span class="go">0   1  Alice     20   25.0         HR  50000.0</span>
+<span class="go">1   2    Bob     20   30.0         IT  60000.0</span>
+<span class="go">2   5   Rich     20    NaN        NaN      NaN</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df1</span><span class="o">.</span><span class="n">merge_left</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">])</span>
+<span class="go">   id   name   age department   salary</span>
+<span class="go">0   1  Alice  25.0         HR  50000.0</span>
+<span class="go">1   2    Bob  30.0         IT  60000.0</span>
+<span class="go">2   5   Rich   NaN        NaN      NaN</span>
+</pre></div>
+</div>
+<p><em>Added in version 4.0.0</em></p>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameDateMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extra.da.dadf.</span></span><span class="sig-name descname"><span class="pre">DataAnalystDataFrameDateMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameDateMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameDateMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.extra.da.dadf_base.html#absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase" title="absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameBase</span></code></a></p>
+<p>Data Analyst <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> - Date</p>
+<ul class="simple">
+<li><p>Add date column from month column</p></li>
+<li><p>Add detail date</p></li>
+<li><p>Delta date (How many days inbetween)</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameDateMixin.add_date_from_month">
+<span class="sig-name descname"><span class="pre">add_date_from_month</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">month_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'date'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameDateMixin.add_date_from_month"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameDateMixin.add_date_from_month" title="Link to this definition"></a></dt>
+<dd><p>Add dummy <code class="docutils literal notranslate"><span class="pre">date</span></code> column from <code class="docutils literal notranslate"><span class="pre">month</span></code> column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>month_column</strong> (<em>str</em>) – Month column</p></li>
+<li><p><strong>col_name</strong> (<em>str</em>) – New date column name, by default: <code class="docutils literal notranslate"><span class="pre">&quot;date&quot;</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id14">
+<h2>Example:<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">add_detail_date</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;m&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">drop_columns</span><span class="p">([</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="s2">&quot;number_range&quot;</span><span class="p">])</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">   number_big  missing_value      text  month</span>
+<span class="go">0         755            NaN  lincgqzl      4</span>
+<span class="go">1         907            NaN  gxltrjku     10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">add_date_from_month</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">)</span>
+<span class="go">   number_big  missing_value      text  month       date</span>
+<span class="go">0         755            NaN  lincgqzl      4 2025-04-01</span>
+<span class="go">1         907            NaN  gxltrjku     10 2025-10-01</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameDateMixin.add_detail_date">
+<span class="sig-name descname"><span class="pre">add_detail_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'dwmy'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameDateMixin.add_detail_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameDateMixin.add_detail_date" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Add these columns from <code class="docutils literal notranslate"><span class="pre">date_column</span></code>:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">date</span></code> (won’t add if <code class="docutils literal notranslate"><span class="pre">date_column</span></code> value is <code class="docutils literal notranslate"><span class="pre">&quot;date&quot;</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">day</span></code> (overwrite if already exist)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">week</span></code> (overwrite if already exist)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">month</span></code> (overwrite if already exist)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code>  (overwrite if already exist)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date_column</strong> (<em>str</em>) – Date column</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) – <div class="line-block">
+<div class="line">Detailed column to add</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">d</span></code>: day</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">w</span></code>: week number</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">m</span></code>: month</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">y</span></code>: year</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">&quot;dwmy&quot;</span></code>)</div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id15">
+<h2>Example:<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">     number  number_big number_range  missing_value      text       date</span>
+<span class="go">0  0.331195         902          900             20  fgyanxik 2021-10-18</span>
+<span class="go">1 -0.877727         378          300             13  dqvaggjo 2007-03-06</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">add_detail_date</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+<span class="go">     number  number_big number_range  missing_value      text       date  day  week  month  year</span>
+<span class="go">0  0.331195         902          900             20  fgyanxik 2021-10-18   18    42     10  2021</span>
+<span class="go">1 -0.877727         378          300             13  dqvaggjo 2007-03-06    6    10      3  2007</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameDateMixin.delta_date">
+<span class="sig-name descname"><span class="pre">delta_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'now'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'between_row'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'now'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'delta_date'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameDateMixin.delta_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameDateMixin.delta_date" title="Link to this definition"></a></dt>
+<dd><p>Calculate date interval</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date_column</strong> (<em>str</em>) – Date column</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) – <div class="line-block">
+<div class="line">Mode to calculate</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&quot;between_row&quot;</span></code>: Calculate date interval between each row</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&quot;now&quot;</span></code>: Calculate date interval to current date</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">&quot;now&quot;</span></code>)</div>
+</div>
+</p></li>
+<li><p><strong>col_name</strong> (<em>str</em>) – <div class="line-block">
+<div class="line">New delta date column name</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">&quot;delta_date&quot;</span></code>)</div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id16">
+<h2>Example:<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">DADF</span><span class="o">.</span><span class="n">sample_df</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">     number  number_big number_range  missing_value      text       date</span>
+<span class="go">0 -0.729988         435          400             21  xkrqqouf 2014-08-01</span>
+<span class="go">1 -0.846031         210          200              5  rbkmiqxt 2024-07-10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">delta_date</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+<span class="go">     number  number_big number_range  missing_value      text       date  delta_date</span>
+<span class="go">0 -0.729988         435          400             21  xkrqqouf 2014-08-01        3873</span>
+<span class="go">1 -0.846031         210          200              5  rbkmiqxt 2024-07-10         242</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameCityMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.extra.da.dadf.</span></span><span class="sig-name descname"><span class="pre">DataAnalystDataFrameCityMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Axes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameCityMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameCityMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.extra.da.dadf_base.html#absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase" title="absfuyu.extra.da.dadf_base.DataAnalystDataFrameBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataAnalystDataFrameBase</span></code></a></p>
+<p>Data Analyst <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> - City</p>
+<ul class="simple">
+<li><p>Convert city</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.extra.da.dadf.DataAnalystDataFrameCityMixin.convert_city">
+<span class="sig-name descname"><span class="pre">convert_city</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">city_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="absfuyu.extra.da.dadf_base.html#absfuyu.extra.da.dadf_base.CityData" title="absfuyu.extra.da.dadf_base.CityData"><span class="pre">CityData</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ra'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/extra/da/dadf.html#DataAnalystDataFrameCityMixin.convert_city"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.extra.da.dadf.DataAnalystDataFrameCityMixin.convert_city" title="Link to this definition"></a></dt>
+<dd><p>Get <code class="docutils literal notranslate"><span class="pre">region</span></code> and <code class="docutils literal notranslate"><span class="pre">area</span></code> of a city</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>city_column</strong> (<em>str</em>) – Column contains city data</p></li>
+<li><p><strong>city_list</strong> (<em>list</em><em>[</em><a class="reference internal" href="absfuyu.extra.da.dadf_base.html#absfuyu.extra.da.dadf_base.CityData" title="absfuyu.extra.da.dadf_base.CityData"><em>CityData</em></a><em>]</em>) – List of city in correct format
+(Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) – <div class="line-block">
+<div class="line">Detailed column to add</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">r</span></code>: region</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">a</span></code>: area</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">&quot;ra&quot;</span></code>)</div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Modified DataFrame</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataAnalystDataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="absfuyu.extra.da.html" class="btn btn-neutral float-left" title="absfuyu.extra.da package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absfuyu.extra.da.dadf_base.html" class="btn btn-neutral float-right" title="absfuyu.extra.da.dadf_base module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.util package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=b612fa2f"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="absfuyu.util.api module" href="absfuyu.util.api.html" />
+    <link rel="prev" title="absfuyu.tools.web module" href="absfuyu.tools.web.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#license">LICENSE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu">ABSFUYU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#links">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#usage">USAGE</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.cli.html">absfuyu.cli package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.core.html">absfuyu.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.extra.html">absfuyu.extra package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.general.html">absfuyu.general package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html">absfuyu.pkg_data package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.tools.html">absfuyu.tools package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">absfuyu.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Module Documentation</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.html">absfuyu package</a></li>
+      <li class="breadcrumb-item active">absfuyu.util package</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-absfuyu.util">
+<span id="absfuyu-util-package"></span><h1>absfuyu.util package<a class="headerlink" href="#module-absfuyu.util" title="Link to this heading"></a></h1>
+<section id="absufyu-utilities">
+<h2>Absufyu: Utilities<a class="headerlink" href="#absufyu-utilities" title="Link to this heading"></a></h2>
+<p>Some random utilities</p>
+<p>Version: 5.0.0
+Date updated: 25/02/2025 (dd/mm/yyyy)</p>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="absfuyu.util.get_installed_package">
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">get_installed_package</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util.html#get_installed_package"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.get_installed_package" title="Link to this definition"></a></dt>
+<dd><p>Return a list of installed packages</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of installed packages</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+<p><em>Changed in version 2.7.1: Use ``pkgutil`` lib</em></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="absfuyu.util.set_min">
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">set_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></span><a class="reference internal" href="_modules/absfuyu/util.html#set_min"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.set_min" title="Link to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">min_value</span></code> when <code class="docutils literal notranslate"><span class="pre">current_value</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">min_value</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current_value</strong> (<em>int</em><em> | </em><em>float</em>) – Current value</p></li>
+<li><p><strong>min_value</strong> (<em>int</em><em> | </em><em>float</em>) – Minimum value
+(Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Analyzed value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int | float</p>
+</dd>
+</dl>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_min</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p><em>Deprecated in version 5.0.0</em></p>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="absfuyu.util.set_max">
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">set_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></span><a class="reference internal" href="_modules/absfuyu/util.html#set_max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.set_max" title="Link to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">max_value</span></code> when <code class="docutils literal notranslate"><span class="pre">current_value</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">max_value</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current_value</strong> (<em>int</em><em> | </em><em>float</em>) – Current value</p></li>
+<li><p><strong>max_value</strong> (<em>int</em><em> | </em><em>float</em>) – Maximum value
+(Default: <code class="docutils literal notranslate"><span class="pre">100</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Analyzed value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int | float</p>
+</dd>
+</dl>
+<section id="id1">
+<h2>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_max</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+<span class="go">100</span>
+</pre></div>
+</div>
+<p><em>Deprecated in version 5.0.0</em></p>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="absfuyu.util.set_min_max">
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">set_min_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></span><a class="reference internal" href="_modules/absfuyu/util.html#set_min_max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.set_min_max" title="Link to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">min_value</span></code> | <code class="docutils literal notranslate"><span class="pre">max_value</span></code> when <code class="docutils literal notranslate"><span class="pre">current_value</span></code>
+is outside <code class="docutils literal notranslate"><span class="pre">[min_value,</span> <span class="pre">max_value]</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current_value</strong> (<em>int</em><em> | </em><em>float</em>) – Current value</p></li>
+<li><p><strong>min_value</strong> (<em>int</em><em> | </em><em>float</em>) – Minimum value
+(Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>)</p></li>
+<li><p><strong>max_value</strong> (<em>int</em><em> | </em><em>float</em>) – Maximum value
+(Default: <code class="docutils literal notranslate"><span class="pre">100</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Analyzed value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int | float</p>
+</dd>
+</dl>
+<section id="id2">
+<h2>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">set_min_max</span><span class="p">(</span><span class="mi">808</span><span class="p">)</span>
+<span class="go">100</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="absfuyu.util.stop_after_day">
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.</span></span><span class="sig-name descname"><span class="pre">stop_after_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/util.html#stop_after_day"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.stop_after_day" title="Link to this definition"></a></dt>
+<dd><p>Stop working after specified day.
+Put the function at the begining of the code is recommended.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>int</em>) – Desired year
+(Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+<li><p><strong>month</strong> (<em>int</em>) – Desired month
+(Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+<li><p><strong>day</strong> (<em>int</em>) – Desired day
+(Default: <code class="docutils literal notranslate"><span class="pre">None</span></code> - 1 day trial)</p></li>
+</ul>
+</dd>
+</dl>
+<p><em>Added in version 3.2.0</em></p>
+</dd></dl>
+
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.util.api.html">absfuyu.util.api module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.api.html#absufyu-api">Absufyu: API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.api.html#absfuyu.util.api.APIRequest"><code class="docutils literal notranslate"><span class="pre">APIRequest</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.api.html#absfuyu.util.api.APIRequest.fetch_data"><code class="docutils literal notranslate"><span class="pre">APIRequest.fetch_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.api.html#absfuyu.util.api.APIRequest.fetch_data_only"><code class="docutils literal notranslate"><span class="pre">APIRequest.fetch_data_only()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.api.html#absfuyu.util.api.ping_windows"><code class="docutils literal notranslate"><span class="pre">ping_windows()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.util.json_method.html">absfuyu.util.json_method module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.json_method.html#absfuyu-json-method">Absfuyu: Json Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.json_method.html#absfuyu.util.json_method.JsonFile"><code class="docutils literal notranslate"><span class="pre">JsonFile</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.json_method.html#absfuyu.util.json_method.JsonFile.load_json"><code class="docutils literal notranslate"><span class="pre">JsonFile.load_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.json_method.html#absfuyu.util.json_method.JsonFile.save_json"><code class="docutils literal notranslate"><span class="pre">JsonFile.save_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.json_method.html#absfuyu.util.json_method.JsonFile.update_data"><code class="docutils literal notranslate"><span class="pre">JsonFile.update_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.util.lunar.html">absfuyu.util.lunar module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.lunar.html#absfuyu-lunar-calendar">Absfuyu: Lunar calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.lunar.html#source">Source:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar"><code class="docutils literal notranslate"><span class="pre">LunarCalendar</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.to_lunar"><code class="docutils literal notranslate"><span class="pre">LunarCalendar.to_lunar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.to_solar"><code class="docutils literal notranslate"><span class="pre">LunarCalendar.to_solar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.convert_all"><code class="docutils literal notranslate"><span class="pre">LunarCalendar.convert_all()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.from_solar"><code class="docutils literal notranslate"><span class="pre">LunarCalendar.from_solar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.from_datetime"><code class="docutils literal notranslate"><span class="pre">LunarCalendar.from_datetime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.lunar.html#absfuyu.util.lunar.LunarCalendar.now"><code class="docutils literal notranslate"><span class="pre">LunarCalendar.now()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.util.path.html">absfuyu.util.path module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu-path">Absfuyu: Path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#feature">Feature:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.Directory"><code class="docutils literal notranslate"><span class="pre">Directory</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.Directory.list_structure"><code class="docutils literal notranslate"><span class="pre">Directory.list_structure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.Directory.list_structure_pkg"><code class="docutils literal notranslate"><span class="pre">Directory.list_structure_pkg()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.SaveFileAs"><code class="docutils literal notranslate"><span class="pre">SaveFileAs</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.SaveFileAs.to_txt"><code class="docutils literal notranslate"><span class="pre">SaveFileAs.to_txt()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.FileOrFolderWithModificationTime"><code class="docutils literal notranslate"><span class="pre">FileOrFolderWithModificationTime</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.FileOrFolderWithModificationTime.path"><code class="docutils literal notranslate"><span class="pre">FileOrFolderWithModificationTime.path</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.FileOrFolderWithModificationTime.modification_time"><code class="docutils literal notranslate"><span class="pre">FileOrFolderWithModificationTime.modification_time</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfo"><code class="docutils literal notranslate"><span class="pre">DirectoryInfo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfo.files"><code class="docutils literal notranslate"><span class="pre">DirectoryInfo.files</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfo.folders"><code class="docutils literal notranslate"><span class="pre">DirectoryInfo.folders</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfo.creation_time"><code class="docutils literal notranslate"><span class="pre">DirectoryInfo.creation_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfo.modification_time"><code class="docutils literal notranslate"><span class="pre">DirectoryInfo.modification_time</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.util.performance.html">absfuyu.util.performance module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu-performance">Absfuyu: Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.performance.html#feature">Feature:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.function_debug"><code class="docutils literal notranslate"><span class="pre">function_debug()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.measure_performance"><code class="docutils literal notranslate"><span class="pre">measure_performance()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.retry"><code class="docutils literal notranslate"><span class="pre">retry()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.Checker"><code class="docutils literal notranslate"><span class="pre">Checker</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.Checker.name"><code class="docutils literal notranslate"><span class="pre">Checker.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.Checker.value"><code class="docutils literal notranslate"><span class="pre">Checker.value</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.Checker.docstring"><code class="docutils literal notranslate"><span class="pre">Checker.docstring</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.Checker.class_"><code class="docutils literal notranslate"><span class="pre">Checker.class_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.Checker.id_"><code class="docutils literal notranslate"><span class="pre">Checker.id_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.Checker.dir_"><code class="docutils literal notranslate"><span class="pre">Checker.dir_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.Checker.source"><code class="docutils literal notranslate"><span class="pre">Checker.source</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.performance.html#absfuyu.util.performance.Checker.check"><code class="docutils literal notranslate"><span class="pre">Checker.check()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.util.shorten_number.html">absfuyu.util.shorten_number module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu-shorten-number">Absfuyu: Shorten number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.UnitSuffixFactory"><code class="docutils literal notranslate"><span class="pre">UnitSuffixFactory</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.UnitSuffixFactory.base"><code class="docutils literal notranslate"><span class="pre">UnitSuffixFactory.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.UnitSuffixFactory.short_name"><code class="docutils literal notranslate"><span class="pre">UnitSuffixFactory.short_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.UnitSuffixFactory.full_name"><code class="docutils literal notranslate"><span class="pre">UnitSuffixFactory.full_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.CommonUnitSuffixesFactory"><code class="docutils literal notranslate"><span class="pre">CommonUnitSuffixesFactory</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.CommonUnitSuffixesFactory.NUMBER"><code class="docutils literal notranslate"><span class="pre">CommonUnitSuffixesFactory.NUMBER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.CommonUnitSuffixesFactory.DATA_SIZE"><code class="docutils literal notranslate"><span class="pre">CommonUnitSuffixesFactory.DATA_SIZE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal"><code class="docutils literal notranslate"><span class="pre">Decimal</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.original_value"><code class="docutils literal notranslate"><span class="pre">Decimal.original_value</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.base"><code class="docutils literal notranslate"><span class="pre">Decimal.base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.suffixes"><code class="docutils literal notranslate"><span class="pre">Decimal.suffixes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.factory"><code class="docutils literal notranslate"><span class="pre">Decimal.factory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.suffix_full_name"><code class="docutils literal notranslate"><span class="pre">Decimal.suffix_full_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.value"><code class="docutils literal notranslate"><span class="pre">Decimal.value</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.suffix"><code class="docutils literal notranslate"><span class="pre">Decimal.suffix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.number"><code class="docutils literal notranslate"><span class="pre">Decimal.number()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.data_size"><code class="docutils literal notranslate"><span class="pre">Decimal.data_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.scientific_short"><code class="docutils literal notranslate"><span class="pre">Decimal.scientific_short()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.Decimal.to_text"><code class="docutils literal notranslate"><span class="pre">Decimal.to_text()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.shorten_number"><code class="docutils literal notranslate"><span class="pre">shorten_number()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.util.zipped.html">absfuyu.util.zipped module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.zipped.html#absfuyu-zipped">Absfuyu: Zipped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.zipped.html#absfuyu.util.zipped.Zipper"><code class="docutils literal notranslate"><span class="pre">Zipper</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.zipped.html#absfuyu.util.zipped.Zipper.zip_stuff"><code class="docutils literal notranslate"><span class="pre">Zipper.zip_stuff()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.zipped.html#absfuyu.util.zipped.Zipper.unzip"><code class="docutils literal notranslate"><span class="pre">Zipper.unzip()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="absfuyu.tools.web.html" class="btn btn-neutral float-left" title="absfuyu.tools.web module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absfuyu.util.api.html" class="btn btn-neutral float-right" title="absfuyu.util.api module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+absfuyu.fun.tarot module
+========================
+
+.. automodule:: absfuyu.fun.tarot
+   :members:
+   :undoc-members:
+   :show-inheritance:

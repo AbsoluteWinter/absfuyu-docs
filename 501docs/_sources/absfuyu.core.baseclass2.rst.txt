@@ -1,0 +1,7 @@
+absfuyu.core.baseclass2 module
+==============================
+
+.. automodule:: absfuyu.core.baseclass2
+   :members:
+   :undoc-members:
+   :show-inheritance:

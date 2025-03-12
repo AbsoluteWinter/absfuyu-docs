@@ -1,0 +1,7 @@
+absfuyu.util.api module
+=======================
+
+.. automodule:: absfuyu.util.api
+   :members:
+   :undoc-members:
+   :show-inheritance:

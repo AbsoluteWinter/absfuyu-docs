@@ -1,0 +1,7 @@
+absfuyu.extra.da.df\_func module
+================================
+
+.. automodule:: absfuyu.extra.da.df_func
+   :members:
+   :undoc-members:
+   :show-inheritance:

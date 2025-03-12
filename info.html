@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SUMMARY &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>SUMMARY &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -114,7 +114,7 @@
 </div>
 <section id="notable-features">
 <h2>Notable features<a class="headerlink" href="#notable-features" title="Link to this heading"></a></h2>
-<p><strong>absfuyu.core</strong>: Provides foundational components for additional functionalities.</p>
+<p><strong>absfuyu.core</strong>: Provides base components for additional functionalities.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Decorators that adds info to __doc__</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core.docstring</span><span class="w"> </span><span class="kn">import</span> <span class="n">versionadded</span><span class="p">,</span> <span class="n">versionchanged</span><span class="p">,</span> <span class="n">deprecated</span>
 
@@ -126,6 +126,11 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.dxt</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictExt</span><span class="p">,</span> <span class="n">IntExt</span><span class="p">,</span> <span class="n">ListExt</span><span class="p">,</span> <span class="n">Text</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">DictExt</span><span class="p">,</span> <span class="n">IntExt</span><span class="p">,</span> <span class="n">ListExt</span><span class="p">,</span> <span class="n">Text</span><span class="p">]:</span>
     <span class="n">x</span><span class="o">.</span><span class="n">show_all_methods</span><span class="p">(</span><span class="n">print_result</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>absfuyu.tools.Inspector</strong>: An object inspector</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">Inspector</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Inspector</span><span class="p">(</span><span class="n">Inspector</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>There are many additional features available to explore.</p>

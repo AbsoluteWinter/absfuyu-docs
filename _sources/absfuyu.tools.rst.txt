@@ -15,6 +15,7 @@ Submodules
    absfuyu.tools.checksum
    absfuyu.tools.converter
    absfuyu.tools.generator
+   absfuyu.tools.inspector
    absfuyu.tools.keygen
    absfuyu.tools.obfuscator
    absfuyu.tools.passwordlib

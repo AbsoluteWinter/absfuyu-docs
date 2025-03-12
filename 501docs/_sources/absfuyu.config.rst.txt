@@ -1,0 +1,7 @@
+absfuyu.config package
+======================
+
+.. automodule:: absfuyu.config
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,16 @@
+absfuyu.extra package
+=====================
+
+.. automodule:: absfuyu.extra
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.extra.beautiful
+   absfuyu.extra.data_analysis

@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.tools.obfuscator &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.tools.obfuscator &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -13,7 +13,7 @@
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -82,8 +82,8 @@
 <span class="sd">-------------------</span>
 <span class="sd">Obfuscate code</span>
 
-<span class="sd">Version: 5.0.0</span>
-<span class="sd">Date updated: 25/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">Version: 5.1.0</span>
+<span class="sd">Date updated: 10/03/2025 (dd/mm/yyyy)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># Module level</span>
@@ -101,7 +101,8 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">string</span><span class="w"> </span><span class="kn">import</span> <span class="n">Template</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseClass</span><span class="p">,</span> <span class="n">ShowAllMethodsMixin</span><span class="p">,</span> <span class="n">versionadded</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core.baseclass</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseClass</span><span class="p">,</span> <span class="n">ShowAllMethodsMixin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core.docstring</span><span class="w"> </span><span class="kn">import</span> <span class="n">versionadded</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.dxt</span><span class="w"> </span><span class="kn">import</span> <span class="n">Text</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.tools.generator</span><span class="w"> </span><span class="kn">import</span> <span class="n">Charset</span><span class="p">,</span> <span class="n">Generator</span>
@@ -110,10 +111,20 @@
 <span class="c1"># Class</span>
 <span class="c1"># ---------------------------------------------------------------------------</span>
 <div class="viewcode-block" id="StrShifter">
-<a class="viewcode-back" href="../../../absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.StrShifter">[docs]</a>
+<a class="viewcode-back" href="../../../absfuyu.tools.obfuscator.html#absfuyu.tools.StrShifter">[docs]</a>
 <span class="nd">@versionadded</span><span class="p">(</span><span class="s2">&quot;5.0.0&quot;</span><span class="p">)</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">StrShifter</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Shift characters in a string by a specified number of positions.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Shift characters in a string by a specified number of positions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    str_to_shift : str</span>
+<span class="sd">        The string whose characters will be shifted.</span>
+
+<span class="sd">    shift_by : int, optional</span>
+<span class="sd">        The number of positions to shift the characters, by default ``5``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;_str_to_shift&quot;</span><span class="p">,</span> <span class="s2">&quot;shift_by&quot;</span><span class="p">)</span>
 
@@ -169,7 +180,7 @@
         <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">convert_table</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_str_to_shift</span><span class="p">)])</span>
 
 <div class="viewcode-block" id="StrShifter.shift">
-<a class="viewcode-back" href="../../../absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.StrShifter.shift">[docs]</a>
+<a class="viewcode-back" href="../../../absfuyu.tools.obfuscator.html#absfuyu.tools.StrShifter.shift">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">shift</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Shift the characters in the string and return the new string.</span>
@@ -185,9 +196,31 @@
 
 
 <div class="viewcode-block" id="Obfuscator">
-<a class="viewcode-back" href="../../../absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.Obfuscator">[docs]</a>
+<a class="viewcode-back" href="../../../absfuyu.tools.obfuscator.html#absfuyu.tools.Obfuscator">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Obfuscator</span><span class="p">(</span><span class="n">ShowAllMethodsMixin</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Obfuscate code&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Obfuscate code</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    code : str</span>
+<span class="sd">        Code text</span>
+
+<span class="sd">    base64_only : bool, optional</span>
+<span class="sd">        - ``True``: encode in base64 form only</span>
+<span class="sd">        - ``False``: base64, compress, rot13 (default)</span>
+
+<span class="sd">    split_every : int, optional</span>
+<span class="sd">        Split the long line of code every ``x`` character.</span>
+<span class="sd">        Minimum is ``1``, by default ``60``</span>
+
+<span class="sd">    variable_length : int, optional</span>
+<span class="sd">        Length of variable name (when data string split).</span>
+<span class="sd">        Minimum is ``7``, by default ``12``</span>
+
+<span class="sd">    fake_data : bool, optional</span>
+<span class="sd">        Generate additional meaningless data, by default ``False``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Var</span>
     <span class="n">LIB_BASE64_ONLY</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;base64&quot;</span><span class="p">]</span>
@@ -263,7 +296,7 @@
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">repr_out</span><span class="si">}</span><span class="s2">)&quot;</span>
 
 <div class="viewcode-block" id="Obfuscator.to_single_line">
-<a class="viewcode-back" href="../../../absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.Obfuscator.to_single_line">[docs]</a>
+<a class="viewcode-back" href="../../../absfuyu.tools.obfuscator.html#absfuyu.tools.Obfuscator.to_single_line">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">to_single_line</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert multiple lines of code into one line</span>
@@ -309,8 +342,13 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert text into base64 and then return a code that decode that base64 code</span>
 
-<span class="sd">        text: Code that need to convert</span>
-<span class="sd">        raw: Return hex form only</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        text : str</span>
+<span class="sd">            Code that need to convert</span>
+
+<span class="sd">        raw : bool</span>
+<span class="sd">            Return hex form only, by default ``False``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">b64_encode_codec</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
         <span class="n">b64_decode_codec</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;base64.b64decode(&#39;</span><span class="si">{</span><span class="n">b64_encode_codec</span><span class="si">}</span><span class="s2">&#39;.encode()).decode()&quot;</span>
@@ -461,7 +499,7 @@
         <span class="k">return</span> <span class="n">output</span>
 
 <div class="viewcode-block" id="Obfuscator.obfuscate">
-<a class="viewcode-back" href="../../../absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.Obfuscator.obfuscate">[docs]</a>
+<a class="viewcode-back" href="../../../absfuyu.tools.obfuscator.html#absfuyu.tools.Obfuscator.obfuscate">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">obfuscate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Obfuscate code</span>

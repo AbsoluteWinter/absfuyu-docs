@@ -1,0 +1,7 @@
+absfuyu.core.typings module
+===========================
+
+.. automodule:: absfuyu.core.typings
+   :members:
+   :undoc-members:
+   :show-inheritance:

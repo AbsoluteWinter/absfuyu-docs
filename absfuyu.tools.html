@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.tools package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.tools package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -108,9 +108,503 @@
 <section id="absfuyu-tools">
 <h2>Absfuyu: Tools<a class="headerlink" href="#absfuyu-tools" title="Link to this heading"></a></h2>
 <p>Some useful tools</p>
-<p>Version: 5.0.0
-Date updated: 22/02/2025 (dd/mm/yyyy)</p>
+<p>Version: 5.1.0
+Date updated: 10/03/2025 (dd/mm/yyyy)</p>
 </section>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.tools.Checksum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.</span></span><span class="sig-name descname"><span class="pre">Checksum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hash_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="absfuyu.tools.checksum.html#absfuyu.tools.checksum.ChecksumMode" title="absfuyu.tools.checksum.ChecksumMode"><span class="pre">ChecksumMode</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'md5'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sha1'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sha256'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sha512'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ChecksumMode.SHA256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_result_to_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/tools/checksum.html#Checksum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Checksum" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.BaseClass" title="absfuyu.core.baseclass.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseClass</span></code></a></p>
+<p>Checksum engine</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em><em> | </em><em>Path</em>) – Path to file/directory to perform checksum</p></li>
+<li><p><strong>hash_mode</strong> (<a class="reference internal" href="absfuyu.tools.checksum.html#absfuyu.tools.checksum.ChecksumMode" title="absfuyu.tools.checksum.ChecksumMode"><em>ChecksumMode</em></a><em> | </em><em>Literal</em><em>[</em><em>&quot;md5&quot;</em><em>, </em><em>&quot;sha1&quot;</em><em>, </em><em>&quot;sha256&quot;</em><em>, </em><em>&quot;sha512&quot;</em><em>]</em><em>, </em><em>optional</em>) – Hash mode, by default <code class="docutils literal notranslate"><span class="pre">&quot;sha256&quot;</span></code></p></li>
+<li><p><strong>save_result_to_file</strong> (<em>bool</em><em>, </em><em>optional</em>) – Save checksum result(s) to file, by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p><em>Added in version 4.1.0</em></p>
+<p><em>Changed in version 4.1.1: Checksum for entire folder is possible</em></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Checksum.checksum">
+<span class="sig-name descname"><span class="pre">checksum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/checksum.html#Checksum.checksum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Checksum.checksum" title="Link to this definition"></a></dt>
+<dd><p>Perform checksum</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>recursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – Do checksum for every file in the folder (including child folder),
+by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Checksum hash</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.tools.Base64EncodeDecode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.</span></span><span class="sig-name descname"><span class="pre">Base64EncodeDecode</span></span><a class="reference internal" href="_modules/absfuyu/tools/converter.html#Base64EncodeDecode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Base64EncodeDecode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.BaseClass" title="absfuyu.core.baseclass.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseClass</span></code></a></p>
+<p>Encode and decode base64</p>
+<p><em>Added in version 3.0.0</em></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Base64EncodeDecode.encode">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/converter.html#Base64EncodeDecode.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Base64EncodeDecode.encode" title="Link to this definition"></a></dt>
+<dd><p>Base64 encode</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Base64EncodeDecode.decode">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/converter.html#Base64EncodeDecode.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Base64EncodeDecode.decode" title="Link to this definition"></a></dt>
+<dd><p>Base64 decode</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Base64EncodeDecode.encode_image">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encode_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/converter.html#Base64EncodeDecode.encode_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Base64EncodeDecode.encode_image" title="Link to this definition"></a></dt>
+<dd><p>Encode image file into base64 string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img_path</strong> (<em>Path</em><em> | </em><em>str</em>) – Path to image</p></li>
+<li><p><strong>data_tag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Add data tag before base64 string, by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Encoded image</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p><em>Added in version 4.1.0</em></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.tools.Text2Chemistry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.</span></span><span class="sig-name descname"><span class="pre">Text2Chemistry</span></span><a class="reference internal" href="_modules/absfuyu/tools/converter.html#Text2Chemistry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Text2Chemistry" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.BaseClass" title="absfuyu.core.baseclass.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseClass</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="absfuyu.tools.Text2Chemistry.unvailable_characters">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unvailable_characters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">set</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.tools.Text2Chemistry.unvailable_characters" title="Link to this definition"></a></dt>
+<dd><p>Characters that can not be converted (unvailable chemistry symbol)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Set of unvailable characters</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Text2Chemistry.convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ChemistryElement</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/converter.html#Text2Chemistry.convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Text2Chemistry.convert" title="Link to this definition"></a></dt>
+<dd><p>Convert text to chemistry symbol</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – Desired text</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Converted text (empty list when failed to convert)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[list[ChemistryElement]] | list</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – When text contains digit, whitespaces, …</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Text2Chemistry.beautify_result">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">beautify_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">ChemistryElement</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/converter.html#Text2Chemistry.beautify_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Text2Chemistry.beautify_result" title="Link to this definition"></a></dt>
+<dd><p>Beautify the result from <code class="docutils literal notranslate"><span class="pre">Text2Chemistry.convert()</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>result</strong> (<em>list</em><em>[</em><em>list</em><em>[</em><em>ChemistryElement</em><em>]</em><em>] </em><em>| </em><em>list</em>) – Convert <code class="docutils literal notranslate"><span class="pre">Text2Chemistry.convert()</span></code> result</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Beautified output</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p><em>Added in version 4.2.0</em></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.tools.Charset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.</span></span><span class="sig-name descname"><span class="pre">Charset</span></span><a class="reference internal" href="_modules/absfuyu/tools/generator.html#Charset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Charset" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Character set data class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Charset.DEFAULT">
+<span class="sig-name descname"><span class="pre">DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span></em><a class="headerlink" href="#absfuyu.tools.Charset.DEFAULT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Charset.ALPHABET">
+<span class="sig-name descname"><span class="pre">ALPHABET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'</span></em><a class="headerlink" href="#absfuyu.tools.Charset.ALPHABET" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Charset.FULL">
+<span class="sig-name descname"><span class="pre">FULL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~'</span></em><a class="headerlink" href="#absfuyu.tools.Charset.FULL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Charset.UPPERCASE">
+<span class="sig-name descname"><span class="pre">UPPERCASE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span></em><a class="headerlink" href="#absfuyu.tools.Charset.UPPERCASE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Charset.LOWERCASE">
+<span class="sig-name descname"><span class="pre">LOWERCASE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'abcdefghijklmnopqrstuvwxyz'</span></em><a class="headerlink" href="#absfuyu.tools.Charset.LOWERCASE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Charset.DIGIT">
+<span class="sig-name descname"><span class="pre">DIGIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0123456789'</span></em><a class="headerlink" href="#absfuyu.tools.Charset.DIGIT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Charset.SPECIAL">
+<span class="sig-name descname"><span class="pre">SPECIAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~'</span></em><a class="headerlink" href="#absfuyu.tools.Charset.SPECIAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Charset.ALL">
+<span class="sig-name descname"><span class="pre">ALL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~</span> <span class="pre">\t\n\r\x0b\x0c'</span></em><a class="headerlink" href="#absfuyu.tools.Charset.ALL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Charset.PRODUCT_KEY">
+<span class="sig-name descname"><span class="pre">PRODUCT_KEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BCDFGHJKMNPQRTVWXY2346789'</span></em><a class="headerlink" href="#absfuyu.tools.Charset.PRODUCT_KEY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.tools.Generator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.</span></span><span class="sig-name descname"><span class="pre">Generator</span></span><a class="reference internal" href="_modules/absfuyu/tools/generator.html#Generator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Generator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.BaseClass" title="absfuyu.core.baseclass.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseClass</span></code></a></p>
+<p>Generator that generate stuffs</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Generator.generate_string">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_type_if_1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/tools/generator.html#Generator.generate_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Generator.generate_string" title="Link to this definition"></a></dt>
+<dd><p>Generate a list of random string from character set (Random string generator)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>charset</strong> (<em>str</em>) – <ul>
+<li><p>Use custom character set or character sets already defined in <code class="docutils literal notranslate"><span class="pre">Charset</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Charset.DEFAULT</span></code>: character in [a-zA-Z0-9] (default)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Charset.ALPHABET</span></code>: character in [a-zA-Z]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Charset.FULL</span></code>: character in [a-zA-Z0-9] + special characters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Charset.UPPERCASE</span></code>: character in [A-Z]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Charset.LOWERCASE</span></code>: character in [a-z]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Charset.DIGIT</span></code>: character in [0-9]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Charset.SPECIAL</span></code>: character in [!&#64;#$%^&amp;*()_+=-]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Charset.ALL</span></code>: character in every printable character</p></li>
+</ul>
+</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – Length of each string in list
+(Default: <code class="docutils literal notranslate"><span class="pre">8</span></code>)</p></li>
+<li><p><strong>times</strong> (<em>int</em>) – How many random string generated
+(Default: <code class="docutils literal notranslate"><span class="pre">1</span></code>)</p></li>
+<li><p><strong>unique</strong> (<em>bool</em>) – Each generated text is unique
+(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><strong>string_type_if_1</strong> (<em>bool</em>) – Return a <code class="docutils literal notranslate"><span class="pre">str</span></code> type result if <code class="docutils literal notranslate"><span class="pre">times</span> <span class="pre">==</span> <span class="pre">1</span></code>
+(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>list</em> – List of random string generated</p></li>
+<li><p><em>str</em> – When <code class="docutils literal notranslate"><span class="pre">string_type_if_1</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><em>None</em> – When invalid option</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Generator</span><span class="o">.</span><span class="n">generate_string</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">[&#39;67Xfh1fv&#39;, &#39;iChcGz9P&#39;, &#39;u82fNzlm&#39;]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Generator.generate_key">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">charset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'BCDFGHJKMNPQRTVWXY2346789'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">letter_per_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'-'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/generator.html#Generator.generate_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Generator.generate_key" title="Link to this definition"></a></dt>
+<dd><p>Generate custom key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>charset</strong> (<em>str</em>) – Character set
+(Default: <code class="docutils literal notranslate"><span class="pre">Charset.PRODUCT_KEY</span></code>)</p></li>
+<li><p><strong>letter_per_block</strong> (<em>int</em>) – Number of letter per key block
+(Default: <code class="docutils literal notranslate"><span class="pre">5</span></code>)</p></li>
+<li><p><strong>number_of_block</strong> (<em>int</em>) – Number of key block
+(Default: <code class="docutils literal notranslate"><span class="pre">5</span></code>)</p></li>
+<li><p><strong>sep</strong> (<em>str</em>) – Key block separator
+(Default: <code class="docutils literal notranslate"><span class="pre">-</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Generated key</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<section id="id1">
+<h2>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Generator</span><span class="o">.</span><span class="n">generate_key</span><span class="p">(</span><span class="n">letter_per_block</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">number_of_block</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&#39;VKKPJVYD2H-M7R687QCV2&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Generator.generate_check_digit">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_check_digit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/generator.html#Generator.generate_check_digit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Generator.generate_check_digit" title="Link to this definition"></a></dt>
+<dd><p>Check digit generator</p>
+<blockquote>
+<div><p>“A check digit is a form of redundancy check used for
+error detection on identification numbers, such as
+bank account numbers, which are used in an application
+where they will at least sometimes be input manually.
+It is analogous to a binary parity bit used to
+check for errors in computer-generated data.
+It consists of one or more digits (or letters) computed
+by an algorithm from the other digits (or letters) in the sequence input.
+With a check digit, one can detect simple errors in
+the input of a series of characters (usually digits)
+such as a single mistyped digit or some permutations
+of two successive digits.” (Wikipedia)</p>
+<p>This function use Luhn’s algorithm to calculate</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>number</strong> (<em>int</em>) – Number to calculate check digit</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Check digit</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<section id="id2">
+<h2>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Generator</span><span class="o">.</span><span class="n">generate_check_digit</span><span class="p">(</span><span class="s2">&quot;4129984562545&quot;</span><span class="p">)</span>
+<span class="go">7</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Generator.combinations_range">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">combinations_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_len</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_len</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/tools/generator.html#Generator.combinations_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Generator.combinations_range" title="Link to this definition"></a></dt>
+<dd><p>Generate all combinations of a <code class="docutils literal notranslate"><span class="pre">sequence</span></code> from <code class="docutils literal notranslate"><span class="pre">min_len</span></code> to <code class="docutils literal notranslate"><span class="pre">max_len</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequence</strong> (<em>list</em>) – A sequence that need to generate combination</p></li>
+<li><p><strong>min_len</strong> (<em>int</em>) – Minimum <code class="docutils literal notranslate"><span class="pre">r</span></code> of <code class="docutils literal notranslate"><span class="pre">combinations</span></code>
+(Default: <code class="docutils literal notranslate"><span class="pre">1</span></code>)</p></li>
+<li><p><strong>max_len</strong> (<em>int</em>) – Maximum <code class="docutils literal notranslate"><span class="pre">r</span></code> of <code class="docutils literal notranslate"><span class="pre">combinations</span></code>
+(Default: <code class="docutils literal notranslate"><span class="pre">0</span></code> - len of <code class="docutils literal notranslate"><span class="pre">sequence</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of all combinations from range(<code class="docutils literal notranslate"><span class="pre">min_len</span></code>, <code class="docutils literal notranslate"><span class="pre">max_len</span></code>) of <code class="docutils literal notranslate"><span class="pre">sequence</span></code></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[tuple]</p>
+</dd>
+</dl>
+<section id="id3">
+<h2>Example:<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Generator</span><span class="o">.</span><span class="n">combinations_range</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">min_len</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">[(1, 2), (1, 3), (2, 3), (1, 2, 3)]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.tools.Inspector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.</span></span><span class="sig-name descname"><span class="pre">Inspector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">88</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_docs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_mro</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_attribute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_private</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/tools/inspector.html#Inspector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Inspector" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.AutoREPRMixin" title="absfuyu.core.baseclass.AutoREPRMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AutoREPRMixin</span></code></a></p>
+<p>Inspect an object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>Any</em>) – Object to inspect</p></li>
+<li><p><strong>line_length</strong> (<em>int</em><em> | </em><em>None</em>) – Number of cols in inspect output (Split line every line_length).
+Set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to use <code class="docutils literal notranslate"><span class="pre">os.get_terminal_size()</span></code>, by default <code class="docutils literal notranslate"><span class="pre">88</span></code></p></li>
+<li><p><strong>include_docs</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include docstring, by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>include_mro</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include class bases (__mro__), by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>include_method</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include object’s methods (if any), by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>include_property</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include object’s properties (if any), by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>include_attribute</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include object’s attributes (if any), by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>include_private</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include object’s private attributes, by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>include_all</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include all infomation availble, by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<section id="id4">
+<h2>Example:<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Inspector</span><span class="p">(</span><span class="o">&lt;</span><span class="nb">object</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Inspector.get_parameters">
+<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/inspector.html#Inspector.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Inspector.get_parameters" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Inspector.detail_str">
+<span class="sig-name descname"><span class="pre">detail_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/inspector.html#Inspector.detail_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Inspector.detail_str" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.tools.Obfuscator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.</span></span><span class="sig-name descname"><span class="pre">Obfuscator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base64_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_every</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fake_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/tools/obfuscator.html#Obfuscator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Obfuscator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.ShowAllMethodsMixin" title="absfuyu.core.baseclass.ShowAllMethodsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShowAllMethodsMixin</span></code></a></p>
+<p>Obfuscate code</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> (<em>str</em>) – Code text</p></li>
+<li><p><strong>base64_only</strong> (<em>bool</em><em>, </em><em>optional</em>) – <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: encode in base64 form only</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: base64, compress, rot13 (default)</p></li>
+</ul>
+</p></li>
+<li><p><strong>split_every</strong> (<em>int</em><em>, </em><em>optional</em>) – Split the long line of code every <code class="docutils literal notranslate"><span class="pre">x</span></code> character.
+Minimum is <code class="docutils literal notranslate"><span class="pre">1</span></code>, by default <code class="docutils literal notranslate"><span class="pre">60</span></code></p></li>
+<li><p><strong>variable_length</strong> (<em>int</em><em>, </em><em>optional</em>) – Length of variable name (when data string split).
+Minimum is <code class="docutils literal notranslate"><span class="pre">7</span></code>, by default <code class="docutils literal notranslate"><span class="pre">12</span></code></p></li>
+<li><p><strong>fake_data</strong> (<em>bool</em><em>, </em><em>optional</em>) – Generate additional meaningless data, by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Obfuscator.LIB_BASE64_ONLY">
+<span class="sig-name descname"><span class="pre">LIB_BASE64_ONLY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['base64']</span></em><a class="headerlink" href="#absfuyu.tools.Obfuscator.LIB_BASE64_ONLY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Obfuscator.LIB_FULL">
+<span class="sig-name descname"><span class="pre">LIB_FULL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['base64',</span> <span class="pre">'codecs',</span> <span class="pre">'zlib']</span></em><a class="headerlink" href="#absfuyu.tools.Obfuscator.LIB_FULL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Obfuscator.SINGLE_LINE_TEMPLATE">
+<span class="sig-name descname"><span class="pre">SINGLE_LINE_TEMPLATE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Template</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;string.Template</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#absfuyu.tools.Obfuscator.SINGLE_LINE_TEMPLATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Obfuscator.PRE_HEX_B64_TEMPLATE">
+<span class="sig-name descname"><span class="pre">PRE_HEX_B64_TEMPLATE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Template</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;string.Template</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#absfuyu.tools.Obfuscator.PRE_HEX_B64_TEMPLATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.Obfuscator.PRE_HEX_FULL_TEMPLATE">
+<span class="sig-name descname"><span class="pre">PRE_HEX_FULL_TEMPLATE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Template</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;string.Template</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#absfuyu.tools.Obfuscator.PRE_HEX_FULL_TEMPLATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Obfuscator.to_single_line">
+<span class="sig-name descname"><span class="pre">to_single_line</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/obfuscator.html#Obfuscator.to_single_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Obfuscator.to_single_line" title="Link to this definition"></a></dt>
+<dd><p>Convert multiple lines of code into one line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Converted code.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.Obfuscator.obfuscate">
+<span class="sig-name descname"><span class="pre">obfuscate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/obfuscator.html#Obfuscator.obfuscate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.Obfuscator.obfuscate" title="Link to this definition"></a></dt>
+<dd><p>Obfuscate code</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Obfuscated code</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.tools.StrShifter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.</span></span><span class="sig-name descname"><span class="pre">StrShifter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_to_shift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_by</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/tools/obfuscator.html#StrShifter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.StrShifter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.BaseClass" title="absfuyu.core.baseclass.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseClass</span></code></a></p>
+<p>Shift characters in a string by a specified number of positions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>str_to_shift</strong> (<em>str</em>) – The string whose characters will be shifted.</p></li>
+<li><p><strong>shift_by</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of positions to shift the characters, by default <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p><em>Added in version 5.0.0</em></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.tools.StrShifter.shift_by">
+<span class="sig-name descname"><span class="pre">shift_by</span></span><a class="headerlink" href="#absfuyu.tools.StrShifter.shift_by" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.tools.StrShifter.shift">
+<span class="sig-name descname"><span class="pre">shift</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/tools/obfuscator.html#StrShifter.shift"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.StrShifter.shift" title="Link to this definition"></a></dt>
+<dd><p>Shift the characters in the string and return the new string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The resulting string after shifting.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
@@ -133,6 +627,12 @@ Date updated: 22/02/2025 (dd/mm/yyyy)</p>
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.tools.converter.html">absfuyu.tools.converter module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.converter.html#absufyu-converter">Absufyu: Converter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.converter.html#feature">Feature:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode.encode"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode.encode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode.decode"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode.decode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode.encode_image"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode.encode_image()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Text2Chemistry"><code class="docutils literal notranslate"><span class="pre">Text2Chemistry</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Text2Chemistry.unvailable_characters"><code class="docutils literal notranslate"><span class="pre">Text2Chemistry.unvailable_characters</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Text2Chemistry.convert"><code class="docutils literal notranslate"><span class="pre">Text2Chemistry.convert()</span></code></a></li>
@@ -142,12 +642,6 @@ Date updated: 22/02/2025 (dd/mm/yyyy)</p>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Str2Pixel"><code class="docutils literal notranslate"><span class="pre">Str2Pixel</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Str2Pixel.PIXEL"><code class="docutils literal notranslate"><span class="pre">Str2Pixel.PIXEL</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Str2Pixel.convert"><code class="docutils literal notranslate"><span class="pre">Str2Pixel.convert()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode.encode"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode.encode()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode.decode"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode.decode()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode.encode_image"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode.encode_image()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -172,6 +666,15 @@ Date updated: 22/02/2025 (dd/mm/yyyy)</p>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Generator.generate_key"><code class="docutils literal notranslate"><span class="pre">Generator.generate_key()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Generator.generate_check_digit"><code class="docutils literal notranslate"><span class="pre">Generator.generate_check_digit()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Generator.combinations_range"><code class="docutils literal notranslate"><span class="pre">Generator.combinations_range()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.tools.inspector.html">absfuyu.tools.inspector module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.inspector.html#absfuyu-inspector">Absfuyu: Inspector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.inspector.html#absfuyu.tools.inspector.Inspector"><code class="docutils literal notranslate"><span class="pre">Inspector</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.inspector.html#absfuyu.tools.inspector.Inspector.get_parameters"><code class="docutils literal notranslate"><span class="pre">Inspector.get_parameters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.inspector.html#absfuyu.tools.inspector.Inspector.detail_str"><code class="docutils literal notranslate"><span class="pre">Inspector.detail_str()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -213,6 +716,11 @@ Date updated: 22/02/2025 (dd/mm/yyyy)</p>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.PasswordGenerator.password_check"><code class="docutils literal notranslate"><span class="pre">PasswordGenerator.password_check()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.PasswordGenerator.generate_password"><code class="docutils literal notranslate"><span class="pre">PasswordGenerator.generate_password()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.PasswordGenerator.generate_passphrase"><code class="docutils literal notranslate"><span class="pre">PasswordGenerator.generate_passphrase()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.PasswordHash"><code class="docutils literal notranslate"><span class="pre">PasswordHash</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.PasswordHash.salt"><code class="docutils literal notranslate"><span class="pre">PasswordHash.salt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.PasswordHash.key"><code class="docutils literal notranslate"><span class="pre">PasswordHash.key</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.TOTP"><code class="docutils literal notranslate"><span class="pre">TOTP</span></code></a><ul>

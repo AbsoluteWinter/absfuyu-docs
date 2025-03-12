@@ -1,0 +1,7 @@
+absfuyu.tools.inspector module
+==============================
+
+.. automodule:: absfuyu.tools.inspector
+   :members:
+   :undoc-members:
+   :show-inheritance:

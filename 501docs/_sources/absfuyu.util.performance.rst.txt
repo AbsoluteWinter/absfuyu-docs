@@ -1,0 +1,7 @@
+absfuyu.util.performance module
+===============================
+
+.. automodule:: absfuyu.util.performance
+   :members:
+   :undoc-members:
+   :show-inheritance:

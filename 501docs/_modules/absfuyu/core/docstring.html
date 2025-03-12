@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.core.docstring &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">absfuyu.core.docstring</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.core.docstring</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absfuyu: Core</span>
+<span class="sd">-------------</span>
+<span class="sd">Sphinx docstring decorator</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 23/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module Package</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;SphinxDocstring&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SphinxDocstringMode&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;versionadded&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;versionchanged&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;deprecated&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span><span class="p">,</span> <span class="n">wraps</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">string</span><span class="w"> </span><span class="kn">import</span> <span class="n">Template</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">ParamSpec</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">overload</span>
+
+<span class="c1"># Type</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">_P</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s2">&quot;_P&quot;</span><span class="p">)</span>  <span class="c1"># Parameter type</span>
+<span class="n">_R</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_R&quot;</span><span class="p">)</span>  <span class="c1"># Return type - Can be anything</span>
+<span class="n">_T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_T&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="nb">type</span><span class="p">)</span>  <span class="c1"># Type type - Can be any subtype of `type`</span>
+
+<span class="n">_SPHINX_DOCS_TEMPLATE</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s2">&quot;$line_break*$mode in version $version$reason*&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="SphinxDocstringMode">
+<a class="viewcode-back" href="../../../absfuyu.core.docstring.html#absfuyu.core.docstring.SphinxDocstringMode">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SphinxDocstringMode</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enum representing the mode of the version change</span>
+<span class="sd">    (added, changed, or deprecated)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ADDED</span> <span class="o">=</span> <span class="s2">&quot;Added&quot;</span>
+    <span class="n">CHANGED</span> <span class="o">=</span> <span class="s2">&quot;Changed&quot;</span>
+    <span class="n">DEPRECATED</span> <span class="o">=</span> <span class="s2">&quot;Deprecated&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="SphinxDocstring">
+<a class="viewcode-back" href="../../../absfuyu.core.docstring.html#absfuyu.core.docstring.SphinxDocstring">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SphinxDocstring</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class-based decorator to add a &#39;Version added&#39;,</span>
+<span class="sd">    &#39;Version changed&#39;, or &#39;Deprecated&#39; note to a function&#39;s docstring,</span>
+<span class="sd">    formatted for Sphinx documentation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_LINEBREAK</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span>  <span class="c1"># Use ClassVar for constant</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">version</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">reason</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">mode</span><span class="p">:</span> <span class="n">SphinxDocstringMode</span> <span class="o">=</span> <span class="n">SphinxDocstringMode</span><span class="o">.</span><span class="n">ADDED</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the SphinxDocstring decorator.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        version : str</span>
+<span class="sd">            The version in which the function was added, changed, or deprecated.</span>
+
+<span class="sd">        reason : str | None, optional</span>
+<span class="sd">            An optional reason or description for the change</span>
+<span class="sd">            or deprecation, by default ``None``</span>
+
+<span class="sd">        mode : SphinxDocstringMode | int, optional</span>
+<span class="sd">            Specifies whether the function was &#39;added&#39;, &#39;changed&#39;, or &#39;deprecated&#39;,</span>
+<span class="sd">            by default SphinxDocstringMode.ADDED</span>
+
+<span class="sd">        Usage</span>
+<span class="sd">        -----</span>
+<span class="sd">        Use this as a decorator (``@SphinxDocstring(&lt;parameters&gt;)``)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">version</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reason</span> <span class="o">=</span> <span class="n">reason</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span>
+
+    <span class="nd">@overload</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">_T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_T</span><span class="p">:</span> <span class="o">...</span>  <span class="c1"># Class overload</span>
+
+    <span class="nd">@overload</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">_P</span><span class="p">,</span> <span class="n">_R</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="n">_P</span><span class="p">,</span> <span class="n">_R</span><span class="p">]:</span> <span class="o">...</span>  <span class="c1"># Function overload</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">_T</span> <span class="o">|</span> <span class="n">Callable</span><span class="p">[</span><span class="n">_P</span><span class="p">,</span> <span class="n">_R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">_T</span> <span class="o">|</span> <span class="n">Callable</span><span class="p">[</span><span class="n">_P</span><span class="p">,</span> <span class="n">_R</span><span class="p">]:</span>
+        <span class="c1"># Class wrapper</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>  <span class="c1"># if inspect.isclass(obj):</span>
+            <span class="n">obj</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_version_note</span><span class="p">(</span>
+                <span class="n">num_of_white_spaces</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_white_space</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">obj</span>
+
+        <span class="c1"># Function wrapper</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">_P</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">_P</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_R</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># Add docstring</span>
+        <span class="c1"># version_note = self._generate_version_note()</span>
+        <span class="c1"># if wrapper.__doc__ is None:</span>
+        <span class="c1">#     wrapper.__doc__ = version_note</span>
+        <span class="c1"># else:</span>
+        <span class="c1">#     wrapper.__doc__ += version_note</span>
+
+        <span class="n">wrapper</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_version_note</span><span class="p">(</span>
+            <span class="n">num_of_white_spaces</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_calculate_white_space</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_white_space</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">docs</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates the number of leading white spaces</span>
+<span class="sd">        in __doc__ of original function</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">docs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">res</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Replace tabs with space and split line</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">docs</span><span class="o">.</span><span class="n">expandtabs</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">UnicodeError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">res</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Get indentation of each line and unique it</span>
+            <span class="n">indent_set</span> <span class="o">=</span> <span class="p">{</span><span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">lstrip</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]}</span>
+            <span class="c1"># Drop 0</span>
+            <span class="n">res_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">indent_set</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">res_list</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">res_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_generate_version_note</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_of_white_spaces</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates the version note string based on the mode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">reason_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">reason</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reason</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+        <span class="c1"># return f&quot;{self._LINEBREAK}*{self.mode.value} in version {self.version}{reason_str}*&quot;</span>
+        <span class="k">return</span> <span class="n">_SPHINX_DOCS_TEMPLATE</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span>
+            <span class="n">line_break</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_LINEBREAK</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="n">num_of_white_spaces</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">,</span>
+            <span class="n">reason</span><span class="o">=</span><span class="n">reason_str</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+
+<span class="c1"># Partial</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">versionadded</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">SphinxDocstring</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">SphinxDocstringMode</span><span class="o">.</span><span class="n">ADDED</span><span class="p">)</span>
+<span class="n">versionchanged</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">SphinxDocstring</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">SphinxDocstringMode</span><span class="o">.</span><span class="n">CHANGED</span><span class="p">)</span>
+<span class="n">deprecated</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">SphinxDocstring</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">SphinxDocstringMode</span><span class="o">.</span><span class="n">DEPRECATED</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

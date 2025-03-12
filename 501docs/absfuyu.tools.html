@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.tools package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=b612fa2f"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="absfuyu.tools.checksum module" href="absfuyu.tools.checksum.html" />
+    <link rel="prev" title="absfuyu.pkg_data.deprecated module" href="absfuyu.pkg_data.deprecated.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#license">LICENSE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu">ABSFUYU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#links">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#usage">USAGE</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.cli.html">absfuyu.cli package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.core.html">absfuyu.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.extra.html">absfuyu.extra package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.general.html">absfuyu.general package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html">absfuyu.pkg_data package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">absfuyu.tools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html">absfuyu.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Module Documentation</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.html">absfuyu package</a></li>
+      <li class="breadcrumb-item active">absfuyu.tools package</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-absfuyu.tools">
+<span id="absfuyu-tools-package"></span><h1>absfuyu.tools package<a class="headerlink" href="#module-absfuyu.tools" title="Link to this heading"></a></h1>
+<section id="absfuyu-tools">
+<h2>Absfuyu: Tools<a class="headerlink" href="#absfuyu-tools" title="Link to this heading"></a></h2>
+<p>Some useful tools</p>
+<p>Version: 5.0.0
+Date updated: 22/02/2025 (dd/mm/yyyy)</p>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.tools.checksum.html">absfuyu.tools.checksum module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.checksum.html#absufyu-checksum">Absufyu: Checksum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.checksum.html#absfuyu.tools.checksum.Checksum"><code class="docutils literal notranslate"><span class="pre">Checksum</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.checksum.html#absfuyu.tools.checksum.Checksum.checksum"><code class="docutils literal notranslate"><span class="pre">Checksum.checksum()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.checksum.html#absfuyu.tools.checksum.ChecksumMode"><code class="docutils literal notranslate"><span class="pre">ChecksumMode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.checksum.html#absfuyu.tools.checksum.ChecksumMode.MD5"><code class="docutils literal notranslate"><span class="pre">ChecksumMode.MD5</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.checksum.html#absfuyu.tools.checksum.ChecksumMode.SHA1"><code class="docutils literal notranslate"><span class="pre">ChecksumMode.SHA1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.checksum.html#absfuyu.tools.checksum.ChecksumMode.SHA256"><code class="docutils literal notranslate"><span class="pre">ChecksumMode.SHA256</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.checksum.html#absfuyu.tools.checksum.ChecksumMode.SHA512"><code class="docutils literal notranslate"><span class="pre">ChecksumMode.SHA512</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.tools.converter.html">absfuyu.tools.converter module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.converter.html#absufyu-converter">Absufyu: Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.converter.html#feature">Feature:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Text2Chemistry"><code class="docutils literal notranslate"><span class="pre">Text2Chemistry</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Text2Chemistry.unvailable_characters"><code class="docutils literal notranslate"><span class="pre">Text2Chemistry.unvailable_characters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Text2Chemistry.convert"><code class="docutils literal notranslate"><span class="pre">Text2Chemistry.convert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Text2Chemistry.beautify_result"><code class="docutils literal notranslate"><span class="pre">Text2Chemistry.beautify_result()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Str2Pixel"><code class="docutils literal notranslate"><span class="pre">Str2Pixel</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Str2Pixel.PIXEL"><code class="docutils literal notranslate"><span class="pre">Str2Pixel.PIXEL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Str2Pixel.convert"><code class="docutils literal notranslate"><span class="pre">Str2Pixel.convert()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode.encode"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode.encode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode.decode"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode.decode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.converter.html#absfuyu.tools.converter.Base64EncodeDecode.encode_image"><code class="docutils literal notranslate"><span class="pre">Base64EncodeDecode.encode_image()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.tools.generator.html">absfuyu.tools.generator module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu-generator">Absfuyu: Generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.generator.html#features">Features:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Charset"><code class="docutils literal notranslate"><span class="pre">Charset</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Charset.DEFAULT"><code class="docutils literal notranslate"><span class="pre">Charset.DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Charset.ALPHABET"><code class="docutils literal notranslate"><span class="pre">Charset.ALPHABET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Charset.FULL"><code class="docutils literal notranslate"><span class="pre">Charset.FULL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Charset.UPPERCASE"><code class="docutils literal notranslate"><span class="pre">Charset.UPPERCASE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Charset.LOWERCASE"><code class="docutils literal notranslate"><span class="pre">Charset.LOWERCASE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Charset.DIGIT"><code class="docutils literal notranslate"><span class="pre">Charset.DIGIT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Charset.SPECIAL"><code class="docutils literal notranslate"><span class="pre">Charset.SPECIAL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Charset.ALL"><code class="docutils literal notranslate"><span class="pre">Charset.ALL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Charset.PRODUCT_KEY"><code class="docutils literal notranslate"><span class="pre">Charset.PRODUCT_KEY</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Generator"><code class="docutils literal notranslate"><span class="pre">Generator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Generator.generate_string"><code class="docutils literal notranslate"><span class="pre">Generator.generate_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Generator.generate_key"><code class="docutils literal notranslate"><span class="pre">Generator.generate_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Generator.generate_check_digit"><code class="docutils literal notranslate"><span class="pre">Generator.generate_check_digit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.generator.html#absfuyu.tools.generator.Generator.combinations_range"><code class="docutils literal notranslate"><span class="pre">Generator.combinations_range()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.tools.keygen.html">absfuyu.tools.keygen module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.keygen.html#absfuyu-keygen">Absfuyu: Keygen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.keygen.html#absfuyu.tools.keygen.Keygen"><code class="docutils literal notranslate"><span class="pre">Keygen</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.keygen.html#absfuyu.tools.keygen.Keygen.mod7_cd_key"><code class="docutils literal notranslate"><span class="pre">Keygen.mod7_cd_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.keygen.html#absfuyu.tools.keygen.Keygen.mod7_11_digit_key"><code class="docutils literal notranslate"><span class="pre">Keygen.mod7_11_digit_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.keygen.html#absfuyu.tools.keygen.Keygen.mod7_oem_key"><code class="docutils literal notranslate"><span class="pre">Keygen.mod7_oem_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.keygen.html#absfuyu.tools.keygen.Keygen.mod7_combo"><code class="docutils literal notranslate"><span class="pre">Keygen.mod7_combo()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.tools.obfuscator.html">absfuyu.tools.obfuscator module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu-obfuscator">Absfuyu: Obfuscator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.Obfuscator"><code class="docutils literal notranslate"><span class="pre">Obfuscator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.Obfuscator.LIB_BASE64_ONLY"><code class="docutils literal notranslate"><span class="pre">Obfuscator.LIB_BASE64_ONLY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.Obfuscator.LIB_FULL"><code class="docutils literal notranslate"><span class="pre">Obfuscator.LIB_FULL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.Obfuscator.SINGLE_LINE_TEMPLATE"><code class="docutils literal notranslate"><span class="pre">Obfuscator.SINGLE_LINE_TEMPLATE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.Obfuscator.PRE_HEX_B64_TEMPLATE"><code class="docutils literal notranslate"><span class="pre">Obfuscator.PRE_HEX_B64_TEMPLATE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.Obfuscator.PRE_HEX_FULL_TEMPLATE"><code class="docutils literal notranslate"><span class="pre">Obfuscator.PRE_HEX_FULL_TEMPLATE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.Obfuscator.to_single_line"><code class="docutils literal notranslate"><span class="pre">Obfuscator.to_single_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.Obfuscator.obfuscate"><code class="docutils literal notranslate"><span class="pre">Obfuscator.obfuscate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.StrShifter"><code class="docutils literal notranslate"><span class="pre">StrShifter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.StrShifter.shift_by"><code class="docutils literal notranslate"><span class="pre">StrShifter.shift_by</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.obfuscator.html#absfuyu.tools.obfuscator.StrShifter.shift"><code class="docutils literal notranslate"><span class="pre">StrShifter.shift()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.tools.passwordlib.html">absfuyu.tools.passwordlib module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu-passwordlib">Absfuyu: Passwordlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.PasswordGenerator"><code class="docutils literal notranslate"><span class="pre">PasswordGenerator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.PasswordGenerator.password_hash"><code class="docutils literal notranslate"><span class="pre">PasswordGenerator.password_hash()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.PasswordGenerator.password_check"><code class="docutils literal notranslate"><span class="pre">PasswordGenerator.password_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.PasswordGenerator.generate_password"><code class="docutils literal notranslate"><span class="pre">PasswordGenerator.generate_password()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.PasswordGenerator.generate_passphrase"><code class="docutils literal notranslate"><span class="pre">PasswordGenerator.generate_passphrase()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.TOTP"><code class="docutils literal notranslate"><span class="pre">TOTP</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.TOTP.URL_SCHEME"><code class="docutils literal notranslate"><span class="pre">TOTP.URL_SCHEME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.passwordlib.html#absfuyu.tools.passwordlib.TOTP.to_url"><code class="docutils literal notranslate"><span class="pre">TOTP.to_url()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.tools.shutdownizer.html">absfuyu.tools.shutdownizer module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu-shutdownizer">Absfuyu: Shutdownizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutDownizer"><code class="docutils literal notranslate"><span class="pre">ShutDownizer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutDownizer.os"><code class="docutils literal notranslate"><span class="pre">ShutDownizer.os</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutDownizer.engine"><code class="docutils literal notranslate"><span class="pre">ShutDownizer.engine</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutDownizer.shutdown"><code class="docutils literal notranslate"><span class="pre">ShutDownizer.shutdown()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutDownizer.restart"><code class="docutils literal notranslate"><span class="pre">ShutDownizer.restart()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutDownizer.cancel"><code class="docutils literal notranslate"><span class="pre">ShutDownizer.cancel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine"><code class="docutils literal notranslate"><span class="pre">ShutdownEngine</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine.shutdown"><code class="docutils literal notranslate"><span class="pre">ShutdownEngine.shutdown()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine.restart"><code class="docutils literal notranslate"><span class="pre">ShutdownEngine.restart()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine.sleep"><code class="docutils literal notranslate"><span class="pre">ShutdownEngine.sleep()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine.abort"><code class="docutils literal notranslate"><span class="pre">ShutdownEngine.abort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.tools.shutdownizer.html#absfuyu.tools.shutdownizer.ShutdownEngine.cancel"><code class="docutils literal notranslate"><span class="pre">ShutdownEngine.cancel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.tools.web.html">absfuyu.tools.web module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.web.html#absfuyu-web">Absfuyu: Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.web.html#absfuyu.tools.web.soup_link"><code class="docutils literal notranslate"><span class="pre">soup_link()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.tools.web.html#absfuyu.tools.web.gen_random_commit_msg"><code class="docutils literal notranslate"><span class="pre">gen_random_commit_msg()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="absfuyu.pkg_data.deprecated.html" class="btn btn-neutral float-left" title="absfuyu.pkg_data.deprecated module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absfuyu.tools.checksum.html" class="btn btn-neutral float-right" title="absfuyu.tools.checksum module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

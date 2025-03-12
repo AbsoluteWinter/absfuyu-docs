@@ -1,0 +1,7 @@
+absfuyu.core.docstring module
+=============================
+
+.. automodule:: absfuyu.core.docstring
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+absfuyu.logger module
+=====================
+
+.. automodule:: absfuyu.logger
+   :members:
+   :undoc-members:
+   :show-inheritance:

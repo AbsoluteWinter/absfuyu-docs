@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.tools.obfuscator module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.tools.obfuscator module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -109,14 +109,31 @@
 <section id="absfuyu-obfuscator">
 <h2>Absfuyu: Obfuscator<a class="headerlink" href="#absfuyu-obfuscator" title="Link to this heading"></a></h2>
 <p>Obfuscate code</p>
-<p>Version: 5.0.0
-Date updated: 25/02/2025 (dd/mm/yyyy)</p>
+<p>Version: 5.1.0
+Date updated: 10/03/2025 (dd/mm/yyyy)</p>
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.tools.obfuscator.Obfuscator">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.obfuscator.</span></span><span class="sig-name descname"><span class="pre">Obfuscator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base64_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_every</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fake_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/tools/obfuscator.html#Obfuscator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.obfuscator.Obfuscator" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.ShowAllMethodsMixin" title="absfuyu.core.baseclass.ShowAllMethodsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShowAllMethodsMixin</span></code></a></p>
 <p>Obfuscate code</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> (<em>str</em>) – Code text</p></li>
+<li><p><strong>base64_only</strong> (<em>bool</em><em>, </em><em>optional</em>) – <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: encode in base64 form only</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: base64, compress, rot13 (default)</p></li>
+</ul>
+</p></li>
+<li><p><strong>split_every</strong> (<em>int</em><em>, </em><em>optional</em>) – Split the long line of code every <code class="docutils literal notranslate"><span class="pre">x</span></code> character.
+Minimum is <code class="docutils literal notranslate"><span class="pre">1</span></code>, by default <code class="docutils literal notranslate"><span class="pre">60</span></code></p></li>
+<li><p><strong>variable_length</strong> (<em>int</em><em>, </em><em>optional</em>) – Length of variable name (when data string split).
+Minimum is <code class="docutils literal notranslate"><span class="pre">7</span></code>, by default <code class="docutils literal notranslate"><span class="pre">12</span></code></p></li>
+<li><p><strong>fake_data</strong> (<em>bool</em><em>, </em><em>optional</em>) – Generate additional meaningless data, by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.tools.obfuscator.Obfuscator.LIB_BASE64_ONLY">
 <span class="sig-name descname"><span class="pre">LIB_BASE64_ONLY</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['base64']</span></em><a class="headerlink" href="#absfuyu.tools.obfuscator.Obfuscator.LIB_BASE64_ONLY" title="Link to this definition"></a></dt>
@@ -177,6 +194,14 @@ Date updated: 25/02/2025 (dd/mm/yyyy)</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.obfuscator.</span></span><span class="sig-name descname"><span class="pre">StrShifter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_to_shift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_by</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/tools/obfuscator.html#StrShifter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.obfuscator.StrShifter" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.BaseClass" title="absfuyu.core.baseclass.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseClass</span></code></a></p>
 <p>Shift characters in a string by a specified number of positions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>str_to_shift</strong> (<em>str</em>) – The string whose characters will be shifted.</p></li>
+<li><p><strong>shift_by</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of positions to shift the characters, by default <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
 <p><em>Added in version 5.0.0</em></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.tools.obfuscator.StrShifter.shift_by">

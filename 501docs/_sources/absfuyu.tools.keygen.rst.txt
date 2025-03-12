@@ -1,0 +1,7 @@
+absfuyu.tools.keygen module
+===========================
+
+.. automodule:: absfuyu.tools.keygen
+   :members:
+   :undoc-members:
+   :show-inheritance:

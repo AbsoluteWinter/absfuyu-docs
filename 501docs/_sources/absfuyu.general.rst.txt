@@ -1,0 +1,17 @@
+absfuyu.general package
+=======================
+
+.. automodule:: absfuyu.general
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.general.content
+   absfuyu.general.human
+   absfuyu.general.shape

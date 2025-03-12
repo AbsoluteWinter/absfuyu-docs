@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.core.decorator module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.core.decorator module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -109,8 +109,8 @@
 <section id="absfuyu-core">
 <h2>Absfuyu: Core<a class="headerlink" href="#absfuyu-core" title="Link to this heading"></a></h2>
 <p>Decorator</p>
-<p>Version: 5.0.0
-Date updated: 22/02/2025 (dd/mm/yyyy)</p>
+<p>Version: 5.1.0
+Date updated: 10/03/2025 (dd/mm/yyyy)</p>
 </section>
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.core.decorator.dummy_decorator">
@@ -124,6 +124,41 @@ Date updated: 22/02/2025 (dd/mm/yyyy)</p>
 <dt class="sig sig-object py" id="absfuyu.core.decorator.dummy_decorator_with_args">
 <span class="sig-prename descclassname"><span class="pre">absfuyu.core.decorator.</span></span><span class="sig-name descname"><span class="pre">dummy_decorator_with_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/core/decorator.html#dummy_decorator_with_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.decorator.dummy_decorator_with_args" title="Link to this definition"></a></dt>
 <dd><p>This is a decorator with args and kwargs that does nothing. Normally used as a placeholder</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="absfuyu.core.decorator.add_subclass_methods_decorator">
+<span class="sig-prename descclassname"><span class="pre">absfuyu.core.decorator.</span></span><span class="sig-name descname"><span class="pre">add_subclass_methods_decorator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">T</span></span></span><a class="reference internal" href="_modules/absfuyu/core/decorator.html#add_subclass_methods_decorator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.decorator.add_subclass_methods_decorator" title="Link to this definition"></a></dt>
+<dd><p>Class decorator replace the <code class="docutils literal notranslate"><span class="pre">__init_subclass__</span></code> method.</p>
+<p>This method populates a dictionary with subclass names as keys
+and their available methods as values.</p>
+<ul class="simple">
+<li><p>Create 2 class attributes: <code class="docutils literal notranslate"><span class="pre">_METHOD_INCLUDE</span></code> (bool) and <code class="docutils literal notranslate"><span class="pre">SUBCLASS_METHODS</span></code> (dict[str, list[str]])</p></li>
+<li><p>Automatically add subclass methods to class variable: <code class="docutils literal notranslate"><span class="pre">SUBCLASS_METHODS</span></code></p></li>
+<li><p>Set class attribute <code class="docutils literal notranslate"><span class="pre">_METHOD_INCLUDE</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code> to exclude from <code class="docutils literal notranslate"><span class="pre">SUBCLASS_METHODS</span></code></p></li>
+</ul>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Normal behavior</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@add_subclass_methods_decorator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">TestParent</span><span class="p">:</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">TestChild</span><span class="p">(</span><span class="n">TestParent</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TestChild</span><span class="o">.</span><span class="n">SUBCLASS_METHODS</span>
+<span class="go">{&#39;__main__.TestChild&#39;: [&#39;method1&#39;]}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Hidden from ``SUBCLASS_METHODS``</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@add_subclass_methods_decorator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">TestParent</span><span class="p">:</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">TestChildHidden</span><span class="p">(</span><span class="n">TestParent</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">_METHOD_INCLUDE</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TestChildHidden</span><span class="o">.</span><span class="n">SUBCLASS_METHODS</span>
+<span class="go">{}</span>
+</pre></div>
+</div>
+</section>
 </dd></dl>
 
 </section>

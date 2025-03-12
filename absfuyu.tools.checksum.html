@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.tools.checksum module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.tools.checksum module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -109,13 +109,23 @@
 <section id="absufyu-checksum">
 <h2>Absufyu: Checksum<a class="headerlink" href="#absufyu-checksum" title="Link to this heading"></a></h2>
 <p>Check MD5, SHA256, …</p>
-<p>Version: 5.0.0
-Date updated: 25/02/2025 (dd/mm/yyyy)</p>
+<p>Version: 5.1.0
+Date updated: 10/03/2025 (dd/mm/yyyy)</p>
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.tools.checksum.Checksum">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.tools.checksum.</span></span><span class="sig-name descname"><span class="pre">Checksum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hash_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#absfuyu.tools.checksum.ChecksumMode" title="absfuyu.tools.checksum.ChecksumMode"><span class="pre">ChecksumMode</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'md5'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sha1'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sha256'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'sha512'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">ChecksumMode.SHA256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_result_to_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/tools/checksum.html#Checksum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.tools.checksum.Checksum" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.BaseClass" title="absfuyu.core.baseclass.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseClass</span></code></a></p>
+<p>Checksum engine</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em><em> | </em><em>Path</em>) – Path to file/directory to perform checksum</p></li>
+<li><p><strong>hash_mode</strong> (<a class="reference internal" href="#absfuyu.tools.checksum.ChecksumMode" title="absfuyu.tools.checksum.ChecksumMode"><em>ChecksumMode</em></a><em> | </em><em>Literal</em><em>[</em><em>&quot;md5&quot;</em><em>, </em><em>&quot;sha1&quot;</em><em>, </em><em>&quot;sha256&quot;</em><em>, </em><em>&quot;sha512&quot;</em><em>]</em><em>, </em><em>optional</em>) – Hash mode, by default <code class="docutils literal notranslate"><span class="pre">&quot;sha256&quot;</span></code></p></li>
+<li><p><strong>save_result_to_file</strong> (<em>bool</em><em>, </em><em>optional</em>) – Save checksum result(s) to file, by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</dd>
+</dl>
 <p><em>Added in version 4.1.0</em></p>
 <p><em>Changed in version 4.1.1: Checksum for entire folder is possible</em></p>
 <dl class="py method">
@@ -124,7 +134,8 @@ Date updated: 25/02/2025 (dd/mm/yyyy)</p>
 <dd><p>Perform checksum</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>recursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – Do checksum for every file in the folder (including child folder), by default True</p>
+<dd class="field-odd"><p><strong>recursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – Do checksum for every file in the folder (including child folder),
+by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Checksum hash</p>

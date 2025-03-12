@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.core package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.core package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -108,8 +108,8 @@
 <section id="absfuyu-core">
 <h2>Absfuyu: Core<a class="headerlink" href="#absfuyu-core" title="Link to this heading"></a></h2>
 <p>Bases for other features</p>
-<p>Version: 5.0.0
-Date updated: 25/02/2025 (dd/mm/yyyy)</p>
+<p>Version: 5.1.0
+Date updated: 10/03/2025 (dd/mm/yyyy)</p>
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.core.CLITextColor">
@@ -174,6 +174,25 @@ Date updated: 25/02/2025 (dd/mm/yyyy)</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Show all methods of the class and its parent class minus <code class="docutils literal notranslate"><span class="pre">object</span></code> class</p>
 <p><em>This class is meant to be used with other class</em></p>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">TestClass</span><span class="p">(</span><span class="n">ShowAllMethodsMixin</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TestClass</span><span class="o">.</span><span class="n">_get_methods_and_properties</span><span class="p">()</span>
+<span class="go">{</span>
+<span class="go">    &quot;ShowAllMethodsMixin&quot;: MethodNPropertyList(</span>
+<span class="go">        classmethods=[</span>
+<span class="go">            &quot;_get_methods_and_properties&quot;,</span>
+<span class="go">            &quot;show_all_methods&quot;,</span>
+<span class="go">            &quot;show_all_properties&quot;,</span>
+<span class="go">        ]</span>
+<span class="go">    ),</span>
+<span class="go">    &quot;TestClass&quot;: MethodNPropertyList(</span>
+<span class="go">        methods=[&quot;method1&quot;]</span>
+<span class="go">    ),</span>
+<span class="go">}</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.core.ShowAllMethodsMixin.show_all_methods">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">show_all_methods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_classmethod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classmethod_indicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&lt;classmethod&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_staticmethod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">staticmethod_indicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&lt;staticmethod&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_private_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/core/baseclass.html#ShowAllMethodsMixin.show_all_methods"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.ShowAllMethodsMixin.show_all_methods" title="Link to this definition"></a></dt>
@@ -221,6 +240,7 @@ including the class in which they are defined in alphabetical order.</p>
 </dl>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 <dl class="py class">
@@ -263,6 +283,22 @@ install package <code class="docutils literal notranslate"><span class="pre">uni
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.CLITextColor.RESET"><code class="docutils literal notranslate"><span class="pre">CLITextColor.RESET</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyList"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyList.methods"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyList.methods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyList.classmethods"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyList.classmethods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyList.staticmethods"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyList.staticmethods</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyList.properties"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyList.properties</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyList.is_empty"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyList.is_empty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyList.pack"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyList.pack()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyResult"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyResult</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyResult.flatten_value"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyResult.flatten_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyResult.pack_value"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyResult.pack_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyResult.prioritize_value"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyResult.prioritize_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.MethodNPropertyResult.print_output"><code class="docutils literal notranslate"><span class="pre">MethodNPropertyResult.print_output()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.ShowAllMethodsMixin"><code class="docutils literal notranslate"><span class="pre">ShowAllMethodsMixin</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.ShowAllMethodsMixin.show_all_methods"><code class="docutils literal notranslate"><span class="pre">ShowAllMethodsMixin.show_all_methods()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.ShowAllMethodsMixin.show_all_properties"><code class="docutils literal notranslate"><span class="pre">ShowAllMethodsMixin.show_all_properties()</span></code></a></li>
@@ -287,6 +323,7 @@ install package <code class="docutils literal notranslate"><span class="pre">uni
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.core.decorator.html#absfuyu-core">Absfuyu: Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.core.decorator.html#absfuyu.core.decorator.dummy_decorator"><code class="docutils literal notranslate"><span class="pre">dummy_decorator()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.core.decorator.html#absfuyu.core.decorator.dummy_decorator_with_args"><code class="docutils literal notranslate"><span class="pre">dummy_decorator_with_args()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.core.decorator.html#absfuyu.core.decorator.add_subclass_methods_decorator"><code class="docutils literal notranslate"><span class="pre">add_subclass_methods_decorator()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.core.docstring.html">absfuyu.core.docstring module</a><ul>
@@ -309,6 +346,12 @@ install package <code class="docutils literal notranslate"><span class="pre">uni
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.core.dummy_func.html#absfuyu-core">Absfuyu: Core</a></li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.core.dummy_func.html#absfuyu.core.dummy_func.tqdm"><code class="docutils literal notranslate"><span class="pre">tqdm()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.core.dummy_func.html#absfuyu.core.dummy_func.unidecode"><code class="docutils literal notranslate"><span class="pre">unidecode()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.core.dummy_func.html#absfuyu.core.dummy_func.dummy_function"><code class="docutils literal notranslate"><span class="pre">dummy_function()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.core.typings.html">absfuyu.core.typings module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.core.typings.html#absfuyu-core">Absfuyu: Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.core.typings.html#absfuyu.core.typings.override"><code class="docutils literal notranslate"><span class="pre">override()</span></code></a></li>
 </ul>
 </li>
 </ul>

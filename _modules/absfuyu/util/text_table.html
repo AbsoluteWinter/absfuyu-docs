@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.util.text_table &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=bfa18cfb"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../util.html">absfuyu.util</a></li>
+      <li class="breadcrumb-item active">absfuyu.util.text_table</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.util.text_table</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absufyu: Utilities</span>
+<span class="sd">------------------</span>
+<span class="sd">Text table</span>
+
+<span class="sd">Version: 5.1.0</span>
+<span class="sd">Date updated: 10/03/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module level</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;OneColumnTableMaker&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">StrEnum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">textwrap</span><span class="w"> </span><span class="kn">import</span> <span class="n">TextWrapper</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseClass</span>
+
+
+<span class="c1"># Style</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BoxDrawingCharacter</span><span class="p">(</span><span class="n">StrEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Box drawing characters - Normal</span>
+
+<span class="sd">    Characters reference: https://en.wikipedia.org/wiki/Box-drawing_characters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">UPPER_LEFT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u250c</span><span class="s2">&quot;</span>
+    <span class="n">UPPER_RIGHT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2510</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2500</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2502</span><span class="s2">&quot;</span>
+    <span class="n">LOWER_LEFT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2514</span><span class="s2">&quot;</span>
+    <span class="n">LOWER_RIGHT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2518</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL_RIGHT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u251c</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL_LEFT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2524</span><span class="s2">&quot;</span>
+    <span class="n">CROSS</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u253c</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL_UP</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2534</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL_DOWN</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u252c</span><span class="s2">&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BoxDrawingCharacterBold</span><span class="p">(</span><span class="n">StrEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Box drawing characters - Bold</span>
+
+<span class="sd">    Characters reference: https://en.wikipedia.org/wiki/Box-drawing_characters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">UPPER_LEFT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u250f</span><span class="s2">&quot;</span>
+    <span class="n">UPPER_RIGHT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2513</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2501</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2503</span><span class="s2">&quot;</span>
+    <span class="n">LOWER_LEFT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2517</span><span class="s2">&quot;</span>
+    <span class="n">LOWER_RIGHT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u251b</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL_RIGHT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2523</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL_LEFT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u252b</span><span class="s2">&quot;</span>
+    <span class="n">CROSS</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u254b</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL_UP</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u253b</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL_DOWN</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2533</span><span class="s2">&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BoxDrawingCharacterDashed</span><span class="p">(</span><span class="n">StrEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Box drawing characters - Dashed</span>
+
+<span class="sd">    Characters reference: https://en.wikipedia.org/wiki/Box-drawing_characters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">UPPER_LEFT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u250c</span><span class="s2">&quot;</span>
+    <span class="n">UPPER_RIGHT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2510</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u254c</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u254e</span><span class="s2">&quot;</span>
+    <span class="n">LOWER_LEFT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2514</span><span class="s2">&quot;</span>
+    <span class="n">LOWER_RIGHT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2518</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL_RIGHT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u251c</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL_LEFT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2524</span><span class="s2">&quot;</span>
+    <span class="n">CROSS</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u253c</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL_UP</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2534</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL_DOWN</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u252c</span><span class="s2">&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BoxDrawingCharacterDouble</span><span class="p">(</span><span class="n">StrEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Box drawing characters - Double</span>
+
+<span class="sd">    Characters reference: https://en.wikipedia.org/wiki/Box-drawing_characters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">UPPER_LEFT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2554</span><span class="s2">&quot;</span>
+    <span class="n">UPPER_RIGHT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2557</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2550</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2551</span><span class="s2">&quot;</span>
+    <span class="n">LOWER_LEFT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u255a</span><span class="s2">&quot;</span>
+    <span class="n">LOWER_RIGHT_CORNER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u255d</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL_RIGHT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2560</span><span class="s2">&quot;</span>
+    <span class="n">VERTICAL_LEFT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2563</span><span class="s2">&quot;</span>
+    <span class="n">CROSS</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u256c</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL_UP</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2569</span><span class="s2">&quot;</span>
+    <span class="n">HORIZONTAL_DOWN</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u2566</span><span class="s2">&quot;</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="OneColumnTableMaker">
+<a class="viewcode-back" href="../../../absfuyu.util.text_table.html#absfuyu.util.text_table.OneColumnTableMaker">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">OneColumnTableMaker</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Table Maker instance</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ncols : int | None, optional</span>
+<span class="sd">        Length of the table (include content). Must be &gt;= 5.</span>
+<span class="sd">        Set to ``None`` to use maximum length,</span>
+<span class="sd">        defaults to ``88`` when failed to use ``os.get_terminal_size()``.</span>
+<span class="sd">        By default ``None``</span>
+
+<span class="sd">    style : Literal[&quot;normal&quot;, &quot;bold&quot;, &quot;dashed&quot;, &quot;double&quot;], optional</span>
+<span class="sd">        Style for the table, by default ``&quot;normal&quot;``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;ncols&quot;</span><span class="p">,</span> <span class="s2">&quot;_title&quot;</span><span class="p">,</span> <span class="s2">&quot;_paragraphs&quot;</span><span class="p">,</span> <span class="s2">&quot;_table_char&quot;</span><span class="p">,</span> <span class="s2">&quot;_text_wrapper&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ncols</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">style</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="s2">&quot;double&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Table Maker instance</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ncols : int | None, optional</span>
+<span class="sd">            Length of the table (include content). Must be &gt;= 5.</span>
+<span class="sd">            Set to ``None`` to use maximum length,</span>
+<span class="sd">            defaults to ``88`` when failed to use ``os.get_terminal_size()``.</span>
+<span class="sd">            By default ``None``</span>
+
+<span class="sd">        style : Literal[&quot;normal&quot;, &quot;bold&quot;, &quot;dashed&quot;, &quot;double&quot;], optional</span>
+<span class="sd">            Style for the table, by default ``&quot;normal&quot;``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Text length</span>
+        <span class="k">if</span> <span class="n">ncols</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ncols</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">()</span><span class="o">.</span><span class="n">columns</span>
+            <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ncols</span> <span class="o">=</span> <span class="mi">88</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ncols</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">ncols</span><span class="p">)</span>
+
+        <span class="c1"># Title &amp; paragraph</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_title</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_paragraphs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Style</span>
+        <span class="k">if</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">&quot;normal&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span> <span class="o">=</span> <span class="n">BoxDrawingCharacter</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">&quot;bold&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span> <span class="o">=</span> <span class="n">BoxDrawingCharacterBold</span>  <span class="c1"># type: ignore</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">&quot;dashed&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span> <span class="o">=</span> <span class="n">BoxDrawingCharacterDashed</span>  <span class="c1"># type: ignore</span>
+        <span class="k">elif</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">&quot;double&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span> <span class="o">=</span> <span class="n">BoxDrawingCharacterDouble</span>  <span class="c1"># type: ignore</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span> <span class="o">=</span> <span class="n">BoxDrawingCharacter</span>  <span class="c1"># type: ignore</span>
+
+        <span class="c1"># Text wrapper</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_text_wrapper</span> <span class="o">=</span> <span class="n">TextWrapper</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ncols</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="n">initial_indent</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">subsequent_indent</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">tabsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+            <span class="n">break_long_words</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="OneColumnTableMaker.add_title">
+<a class="viewcode-back" href="../../../absfuyu.util.text_table.html#absfuyu.util.text_table.OneColumnTableMaker.add_title">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add title to Table</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        title : str</span>
+<span class="sd">            Title to add.</span>
+<span class="sd">            When ``len(title) &gt; ncols``: title will not show</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">max_padding_length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncols</span> <span class="o">-</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">max_padding_length</span> <span class="o">&lt;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">_title</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2"> &quot;</span>
+
+        <span class="n">line</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">UPPER_LEFT_CORNER</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_title</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">max_padding_length</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">HORIZONTAL</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">UPPER_RIGHT_CORNER</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_title</span> <span class="o">=</span> <span class="n">line</span></div>
+
+
+<div class="viewcode-block" id="OneColumnTableMaker.add_paragraph">
+<a class="viewcode-back" href="../../../absfuyu.util.text_table.html#absfuyu.util.text_table.OneColumnTableMaker.add_paragraph">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_paragraph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paragraph</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add paragraph into Table</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        paragraph : Sequence[str]</span>
+<span class="sd">            An iterable of str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">paragraph</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_paragraphs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">paragraph</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_paragraphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">paragraph</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_make_line</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">UPPER_LEFT_CORNER</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">UPPER_RIGHT_CORNER</span><span class="p">),</span>
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">VERTICAL_RIGHT</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">VERTICAL_LEFT</span><span class="p">),</span>
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">LOWER_LEFT_CORNER</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">LOWER_RIGHT_CORNER</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">max_line_length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncols</span> <span class="o">-</span> <span class="mi">2</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">options</span><span class="p">[</span><span class="n">option</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">max_line_length</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">HORIZONTAL</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">options</span><span class="p">[</span><span class="n">option</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">line</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_make_table</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Check if empty</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_paragraphs</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_paragraphs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="c1"># Make table</span>
+        <span class="n">max_content_length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncols</span> <span class="o">-</span> <span class="mi">4</span>
+        <span class="n">paragraph_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_paragraphs</span><span class="p">)</span>
+
+        <span class="c1"># Line prep</span>
+        <span class="n">_first_line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_line</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">_sep_line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_line</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">_last_line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_line</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># Table</span>
+        <span class="n">table</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">_first_line</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_title</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_title</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_paragraphs</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">paragraph</span><span class="p">:</span>
+                <span class="n">splitted_line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_text_wrapper</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+                <span class="n">mod_lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">VERTICAL</span><span class="si">}</span><span class="s2"> &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">line</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">max_content_length</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_table_char</span><span class="o">.</span><span class="n">VERTICAL</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">splitted_line</span>
+                <span class="p">]</span>
+                <span class="n">table</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">mod_lines</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">paragraph_length</span><span class="p">:</span>
+                <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_sep_line</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_last_line</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">table</span>
+
+<div class="viewcode-block" id="OneColumnTableMaker.make_table">
+<a class="viewcode-back" href="../../../absfuyu.util.text_table.html#absfuyu.util.text_table.OneColumnTableMaker.make_table">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">make_table</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_table</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">table</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">table</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

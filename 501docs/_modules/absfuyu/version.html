@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.version &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">absfuyu.version</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.version</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absfuyu: Version</span>
+<span class="sd">----------------</span>
+<span class="sd">Package versioning module</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 25/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module level</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Options</span>
+    <span class="s2">&quot;ReleaseOption&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ReleaseLevel&quot;</span><span class="p">,</span>
+    <span class="c1"># Class</span>
+    <span class="s2">&quot;Version&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Bumper&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PkgVersion&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">StrEnum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Self</span><span class="p">,</span> <span class="n">TypedDict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.error</span><span class="w"> </span><span class="kn">import</span> <span class="n">URLError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">urlopen</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseClass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="ReleaseOption">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.ReleaseOption">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ReleaseOption</span><span class="p">(</span><span class="n">StrEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ``MAJOR``, ``MINOR``, ``PATCH``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">MAJOR</span> <span class="o">=</span> <span class="s2">&quot;major&quot;</span>
+    <span class="n">MINOR</span> <span class="o">=</span> <span class="s2">&quot;minor&quot;</span>
+    <span class="n">PATCH</span> <span class="o">=</span> <span class="s2">&quot;patch&quot;</span>
+
+<div class="viewcode-block" id="ReleaseOption.all_option">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.ReleaseOption.all_option">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">all_option</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a list of release options&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="n">MAJOR</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">MINOR</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">PATCH</span><span class="o">.</span><span class="n">value</span><span class="p">]</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ReleaseLevel">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.ReleaseLevel">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ReleaseLevel</span><span class="p">(</span><span class="n">StrEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ``FINAL``, ``DEV``, ``RC``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">FINAL</span> <span class="o">=</span> <span class="s2">&quot;final&quot;</span>
+    <span class="n">DEV</span> <span class="o">=</span> <span class="s2">&quot;dev&quot;</span>
+    <span class="n">RC</span> <span class="o">=</span> <span class="s2">&quot;rc&quot;</span>  <span class="c1"># Release candidate</span>
+
+<div class="viewcode-block" id="ReleaseLevel.all_level">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.ReleaseLevel.all_level">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">all_level</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a list of release levels&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="n">FINAL</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">DEV</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">RC</span><span class="o">.</span><span class="n">value</span><span class="p">]</span></div>
+</div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">VersionDictFormat</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Format for the ``version`` section in ``config``</span>
+
+<span class="sd">    :param major: Major changes</span>
+<span class="sd">    :param minor: Minor changes</span>
+<span class="sd">    :param patch: Patches and fixes</span>
+<span class="sd">    :param release_level: Release level</span>
+<span class="sd">    :param serial: Release serial</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">major</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">minor</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">patch</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">release_level</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">serial</span><span class="p">:</span> <span class="nb">int</span>
+
+
+<div class="viewcode-block" id="Version">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.Version">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Version</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Version&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">major</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">minor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">patch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">release_level</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">FINAL</span><span class="p">,</span>
+        <span class="n">serial</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create ``Version`` instance</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        major : int | str</span>
+<span class="sd">            Major change</span>
+
+<span class="sd">        minor : int | str</span>
+<span class="sd">            Minor change</span>
+
+<span class="sd">        patch : int | str</span>
+<span class="sd">            Patch</span>
+
+<span class="sd">        release_level : str, optional</span>
+<span class="sd">            Release level: ``final`` | ``rc`` | ``dev``, by default ``ReleaseLevel.FINAL``</span>
+
+<span class="sd">        serial : int | str, optional</span>
+<span class="sd">            Serial for release level ``rc`` | ``dev``, by default ``0``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">major</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">major</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">major</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="n">major</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">minor</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">minor</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="n">minor</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">patch</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">patch</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">release_level</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">release_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serial</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">serial</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">serial</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="n">serial</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span>
+
+    <span class="c1"># def __repr__(self) -&gt; str:</span>
+    <span class="c1">#     cls_name = self.__class__.__name__</span>
+    <span class="c1">#     if self.release_level.startswith(ReleaseLevel.FINAL):</span>
+    <span class="c1">#         return f&quot;{cls_name}(major={self.major}, minor={self.minor}, patch={self.patch})&quot;</span>
+    <span class="c1">#     else:</span>
+    <span class="c1">#         return (</span>
+    <span class="c1">#             f&quot;{cls_name}(&quot;</span>
+    <span class="c1">#             f&quot;major={self.major}, minor={self.minor}, patch={self.patch}, &quot;</span>
+    <span class="c1">#             f&quot;release_level={self.release_level}, serial={self.serial})&quot;</span>
+    <span class="c1">#         )</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__format__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">format_spec</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Change format of an object.</span>
+<span class="sd">        Avaiable option: ``full``</span>
+
+<span class="sd">        Usage</span>
+<span class="sd">        -----</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;{&lt;object&gt;:&lt;format_spec&gt;}&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; print(&lt;object&gt;.__format__(&lt;format_spec&gt;))</span>
+<span class="sd">        &gt;&gt;&gt; print(format(&lt;object&gt;, &lt;format_spec&gt;))</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = Version(1, 0, 0)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;{test:full}&quot;)</span>
+<span class="sd">        1.0.0.final0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Logic</span>
+        <span class="k">if</span> <span class="n">format_spec</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;full&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">major</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">minor</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">release_level</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">serial</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Else</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return version string</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = Version(1, 0, 0)</span>
+<span class="sd">        &gt;&gt;&gt; test.version</span>
+<span class="sd">        1.0.0</span>
+<span class="sd">        &gt;&gt;&gt; str(test) # test.__str__()</span>
+<span class="sd">        1.0.0</span>
+
+<span class="sd">        &gt;&gt;&gt; test_serial = Version(1, 0, 0, &quot;dev&quot;, 1)</span>
+<span class="sd">        &gt;&gt;&gt; test_serial.version</span>
+<span class="sd">        1.0.0.dev1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">release_level</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">FINAL</span><span class="p">):</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">major</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">minor</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">major</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">minor</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">release_level</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">serial</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<div class="viewcode-block" id="Version.from_tuple">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.Version.from_tuple">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_tuple</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">iterable</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert to ``Version`` from a ``tuple``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        iterable : tuple[int, int, int] | tuple[int, int, int, str, int]</span>
+<span class="sd">            Version tuple in correct format</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Version</span>
+<span class="sd">            Version</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            Wrong tuple format</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = Version.from_tuple((1, 0, 0))</span>
+<span class="sd">        &gt;&gt;&gt; test.version</span>
+<span class="sd">        1.0.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+                <span class="n">iterable</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">iterable</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">iterable</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">iterable</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">iterable</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+            <span class="p">)</span>  <span class="c1"># Full</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">iterable</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">iterable</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">iterable</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># major.minor.patch only</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;iterable must have len of 5 or 3&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Version.from_str">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.Version.from_str">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_str</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">version_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert to ``Version`` from a ``str``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        version_string : str</span>
+<span class="sd">            | Version str in correct format</span>
+<span class="sd">            | ``&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;``</span>
+<span class="sd">            | ``&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;.&lt;release level&gt;&lt;serial&gt;``</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Version</span>
+<span class="sd">            Version</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            Wrong version_string format</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = Version.from_str(&quot;1.0.0&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; test.version</span>
+<span class="sd">        1.0.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">short_ver_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b(\d)+\.(\d+)\.(\d+)\b&quot;</span><span class="p">)</span>
+        <span class="n">long_ver_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b(\d)+\.(\d+)\.(\d+)\.(dev|rc|final)(\d+)\b&quot;</span><span class="p">)</span>
+        <span class="n">ver</span> <span class="o">=</span> <span class="n">version_string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="n">long_ver</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">long_ver_pattern</span><span class="p">,</span> <span class="n">ver</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">long_ver</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_tuple</span><span class="p">(</span><span class="n">long_ver</span><span class="o">.</span><span class="n">groups</span><span class="p">())</span>  <span class="c1"># type: ignore</span>
+
+        <span class="n">short_ver</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">short_ver_pattern</span><span class="p">,</span> <span class="n">ver</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">short_ver</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_tuple</span><span class="p">(</span><span class="n">short_ver</span><span class="o">.</span><span class="n">groups</span><span class="p">())</span>  <span class="c1"># type: ignore</span>
+
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Wrong version_string format&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Version.to_dict">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.Version.to_dict">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VersionDictFormat</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert ``Version`` into ``dict``</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        VersionDictFormat</span>
+<span class="sd">            Version dict</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = Version(1, 0, 0)</span>
+<span class="sd">        &gt;&gt;&gt; test.to_dict()</span>
+<span class="sd">        {</span>
+<span class="sd">            &quot;major&quot;: 1,</span>
+<span class="sd">            &quot;minor&quot;: 0,</span>
+<span class="sd">            &quot;patch&quot;: 0,</span>
+<span class="sd">            &quot;release_level&quot;: &quot;final&quot;,</span>
+<span class="sd">            &quot;serial&quot;: 0</span>
+<span class="sd">        }</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">out</span><span class="p">:</span> <span class="n">VersionDictFormat</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;major&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">major</span><span class="p">,</span>
+            <span class="s2">&quot;minor&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">minor</span><span class="p">,</span>
+            <span class="s2">&quot;patch&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="p">,</span>
+            <span class="s2">&quot;release_level&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">release_level</span><span class="p">,</span>
+            <span class="s2">&quot;serial&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">serial</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Bumper">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.Bumper">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Bumper</span><span class="p">(</span><span class="n">Version</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Version bumper&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_bump_ver</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">release_option</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Bumping major, minor, patch</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">release_option</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">ReleaseOption</span><span class="o">.</span><span class="n">MAJOR</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">major</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">minor</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">patch</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">release_option</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">ReleaseOption</span><span class="o">.</span><span class="n">MINOR</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">minor</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">patch</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">patch</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<div class="viewcode-block" id="Bumper.bump">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.Bumper.bump">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bump</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">option</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ReleaseOption</span><span class="o">.</span><span class="n">PATCH</span><span class="p">,</span> <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">FINAL</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Bump current version (internally)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        option : str</span>
+<span class="sd">            Release option</span>
+<span class="sd">            (Default: ``&quot;patch&quot;``)</span>
+
+<span class="sd">        channel : str</span>
+<span class="sd">            Release channel</span>
+<span class="sd">            (Default: ``&quot;final&quot;``)</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = Bumper(1, 0, 0)</span>
+<span class="sd">        &gt;&gt;&gt; test.version</span>
+<span class="sd">        1.0.0</span>
+<span class="sd">        &gt;&gt;&gt; test.bump()</span>
+<span class="sd">        &gt;&gt;&gt; test.version</span>
+<span class="sd">        1.0.1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check conditions - use default values if fail</span>
+        <span class="k">if</span> <span class="n">option</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ReleaseOption</span><span class="o">.</span><span class="n">all_option</span><span class="p">():</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Available option: </span><span class="si">{</span><span class="n">ReleaseOption</span><span class="o">.</span><span class="n">all_option</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">option</span> <span class="o">=</span> <span class="n">ReleaseOption</span><span class="o">.</span><span class="n">PATCH</span>
+        <span class="k">if</span> <span class="n">channel</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">all_level</span><span class="p">():</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Available level: </span><span class="si">{</span><span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">all_level</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">channel</span> <span class="o">=</span> <span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">FINAL</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target: </span><span class="si">{</span><span class="n">option</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Bump ver</span>
+        <span class="k">if</span> <span class="n">channel</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">FINAL</span><span class="p">):</span>  <span class="c1"># Final release level</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">release_level</span> <span class="ow">in</span> <span class="p">[</span>
+                <span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">RC</span><span class="p">,</span>
+                <span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">DEV</span><span class="p">,</span>
+            <span class="p">]:</span>  <span class="c1"># current release channel is dev or rc</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">release_level</span> <span class="o">=</span> <span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">FINAL</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">serial</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">serial</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># final channel does not need serial</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_bump_ver</span><span class="p">(</span><span class="n">option</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">channel</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">RC</span><span class="p">):</span>  <span class="c1"># release candidate release level</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">release_level</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span>
+                <span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">DEV</span>
+            <span class="p">):</span>  <span class="c1"># current release channel is dev</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">release_level</span> <span class="o">=</span> <span class="n">ReleaseLevel</span><span class="o">.</span><span class="n">RC</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">serial</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># reset serial</span>
+            <span class="k">elif</span> <span class="n">channel</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">release_level</span><span class="p">:</span>  <span class="c1"># current release channel is rc</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">serial</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># current release channel is final</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">release_level</span> <span class="o">=</span> <span class="n">channel</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">serial</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># reset serial</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_bump_ver</span><span class="p">(</span><span class="n">option</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># dev release level</span>
+            <span class="k">if</span> <span class="n">channel</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">release_level</span><span class="p">:</span>  <span class="c1"># current release channel is dev</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">serial</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># current release channel is final or rc</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">release_level</span> <span class="o">=</span> <span class="n">channel</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">serial</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_bump_ver</span><span class="p">(</span><span class="n">option</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="PkgVersion">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.PkgVersion">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PkgVersion</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Package Version</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">package_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">package_name</span> <span class="o">=</span> <span class="n">package_name</span>
+
+    <span class="c1"># Check for update</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fetch_data_from_server</span><span class="p">(</span><span class="n">link</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fetch data from API&quot;&quot;&quot;</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+            <span class="c1"># return response</span>
+        <span class="k">except</span> <span class="n">URLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s2">&quot;reason&quot;</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Failed to reach server.&quot;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Reason: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s2">&quot;code&quot;</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The server couldn&#39;t fulfill the request.&quot;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Error code: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Fetch failed!&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_latest_version_legacy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load data from PyPI&#39;s RSS -- OLD</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">rss</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://pypi.org/rss/project/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">package_name</span><span class="si">}</span><span class="s2">/releases.xml&quot;</span>
+        <span class="n">xml_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fetch_data_from_server</span><span class="p">(</span><span class="n">rss</span><span class="p">)</span>
+        <span class="n">ver</span> <span class="o">=</span> <span class="n">xml_file</span><span class="p">[</span>
+            <span class="n">xml_file</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;&lt;item&gt;&quot;</span><span class="p">)</span> <span class="p">:</span> <span class="n">xml_file</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+                <span class="s2">&quot;&lt;/item&gt;&quot;</span>
+            <span class="p">)</span>  <span class="c1"># noqa: E203</span>
+        <span class="p">]</span>  <span class="c1"># First item</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="n">ver</span><span class="p">[</span>
+            <span class="n">ver</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;&lt;title&gt;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;&lt;title&gt;&quot;</span><span class="p">)</span> <span class="p">:</span> <span class="n">ver</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+                <span class="s2">&quot;&lt;/title&gt;&quot;</span>
+            <span class="p">)</span>  <span class="c1"># noqa: E203</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="n">version</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_data_from_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json_link</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load data from api then convert to json</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">json_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fetch_data_from_server</span><span class="p">(</span><span class="n">json_link</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_latest_version</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get latest version from PyPI&#39;s API</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">link</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://pypi.org/pypi/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">package_name</span><span class="si">}</span><span class="s2">/json&quot;</span>
+        <span class="n">ver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_data_from_json</span><span class="p">(</span><span class="n">link</span><span class="p">)[</span><span class="s2">&quot;info&quot;</span><span class="p">][</span><span class="s2">&quot;version&quot;</span><span class="p">]</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Latest: </span><span class="si">{</span><span class="n">ver</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ver</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run pip upgrade command</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;pip install -U </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">package_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PkgVersion.check_for_update">
+<a class="viewcode-back" href="../../absfuyu.version.html#absfuyu.version.PkgVersion.check_for_update">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_for_update</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">force_update</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check for latest update</span>
+
+<span class="sd">        :param force_update: Auto update the package when run (Default: ``False``)</span>
+<span class="sd">        :type force_update: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">latest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_latest_version</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">latest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_latest_version_legacy</span><span class="p">()</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+
+            <span class="n">_pk</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">__import__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">package_name</span><span class="p">)</span>
+            <span class="n">current</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">_pk</span><span class="o">.</span><span class="n">__version__</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current: </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2"> | Lastest: </span><span class="si">{</span><span class="n">latest</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">current</span> <span class="o">==</span> <span class="n">latest</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;You are using the latest version (</span><span class="si">{</span><span class="n">latest</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">force_update</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Newer version (</span><span class="si">{</span><span class="n">latest</span><span class="si">}</span><span class="s2">) available. Upgrading...&quot;</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_get_update</span><span class="p">()</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                    Unable to perform update.</span>
+<span class="s2">                    Please update manually with:</span>
+<span class="s2">                    pip install -U </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">package_name</span><span class="si">}</span><span class="s2">==</span><span class="si">{</span><span class="n">latest</span><span class="si">}</span>
+<span class="s2">                    &quot;&quot;&quot;</span>
+                    <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Newer version (</span><span class="si">{</span><span class="n">latest</span><span class="si">}</span><span class="s2">) available. Upgrade with:</span><span class="se">\n</span><span class="s2">pip install -U </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">package_name</span><span class="si">}</span><span class="s2">==</span><span class="si">{</span><span class="n">latest</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

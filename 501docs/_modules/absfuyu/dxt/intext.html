@@ -1,0 +1,755 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.dxt.intext &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=b612fa2f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../info.html#license">LICENSE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Module Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">absfuyu.dxt.intext</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for absfuyu.dxt.intext</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Absfuyu: Data Extension</span>
+<span class="sd">-----------------------</span>
+<span class="sd">int extension</span>
+
+<span class="sd">Version: 5.0.0</span>
+<span class="sd">Date updated: 25/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Module Package</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;IntExt&quot;</span><span class="p">,</span> <span class="s2">&quot;Pow&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># Library</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Self</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ShowAllMethodsMixin</span><span class="p">,</span> <span class="n">versionchanged</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">absfuyu.dxt.dxt_support</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictBoolTrue</span>
+
+
+<span class="c1"># Class</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="Pow">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.Pow">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Pow</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Number power by a number&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">power_by</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="n">number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power_by</span> <span class="o">=</span> <span class="n">power_by</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">power_by</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="si">}</span><span class="s2">^</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">power_by</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="c1"># return f&quot;{self.__class__.__name__}({self.number}, {self.power_by})&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Pow.to_list">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.Pow.to_list">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert into list</span>
+
+<span class="sd">        :rtype: list[int | float]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">power_by</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="Pow.calculate">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.Pow.calculate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate the ``self.number`` to the power of ``self.power_by``</span>
+
+<span class="sd">        :rtype: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># return self.number**self.power_by</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">power_by</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="IntExt">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">IntExt</span><span class="p">(</span><span class="n">ShowAllMethodsMixin</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ``int`` extension</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># convert stuff</span>
+<div class="viewcode-block" id="IntExt.to_binary">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.to_binary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_binary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert to binary number</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            Binary number</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(10)</span>
+<span class="sd">        &gt;&gt;&gt; test.to_binary()</span>
+<span class="sd">        &#39;1010&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="IntExt.to_celcius_degree">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.to_celcius_degree">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_celcius_degree</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert into Celcius degree as if ``self`` is Fahrenheit degree</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            Celcius degree</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(10)</span>
+<span class="sd">        &gt;&gt;&gt; test.to_celcius_degree()</span>
+<span class="sd">        -12.222222222222221</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">c_degree</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.8</span>
+        <span class="k">return</span> <span class="n">c_degree</span></div>
+
+
+<div class="viewcode-block" id="IntExt.to_fahrenheit_degree">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.to_fahrenheit_degree">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_fahrenheit_degree</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert into Fahrenheit degree as if ``self`` is Celcius degree</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            Fahrenheit degree</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(10)</span>
+<span class="sd">        &gt;&gt;&gt; test.to_fahrenheit_degree()</span>
+<span class="sd">        50.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">f_degree</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span> <span class="o">*</span> <span class="mf">1.8</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span>
+        <span class="k">return</span> <span class="n">f_degree</span></div>
+
+
+<div class="viewcode-block" id="IntExt.reverse">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.reverse">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reverse a number. Reverse ``abs(number)`` if ``number &lt; 0``</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        IntNumber</span>
+<span class="sd">            Reversed number</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(102)</span>
+<span class="sd">        &gt;&gt;&gt; test.reverse()</span>
+<span class="sd">        201</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">number</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></div>
+
+
+    <span class="c1"># is_stuff</span>
+<div class="viewcode-block" id="IntExt.is_even">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.is_even">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_even</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        An even number is a number which divisible by 2</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            | ``True`` if an even number</span>
+<span class="sd">            | ``False`` if not an even number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="IntExt.is_prime">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.is_prime">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_prime</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the integer is a prime number or not</span>
+
+<span class="sd">            A prime number is a natural number greater than ``1``</span>
+<span class="sd">            that is not a product of two smaller natural numbers.</span>
+<span class="sd">            A natural number greater than ``1`` that is not prime</span>
+<span class="sd">            is called a composite number.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            | ``True`` if a prime number</span>
+<span class="sd">            | ``False`` if not a prime number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="bp">self</span>
+
+        <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">number</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># divisor range</span>
+            <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="IntExt.is_twisted_prime">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.is_twisted_prime">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_twisted_prime</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A number is said to be twisted prime if</span>
+<span class="sd">        it is a prime number and</span>
+<span class="sd">        reverse of the number is also a prime number</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            | ``True`` if a twisted prime number</span>
+<span class="sd">            | ``False`` if not a twisted prime number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">prime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_prime</span><span class="p">()</span>
+        <span class="n">rev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span><span class="o">.</span><span class="n">is_prime</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">prime</span> <span class="ow">and</span> <span class="n">rev</span></div>
+
+
+<div class="viewcode-block" id="IntExt.is_perfect">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.is_perfect">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_perfect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if integer is perfect number</span>
+
+<span class="sd">            Perfect number: a positive integer that is</span>
+<span class="sd">            equal to the sum of its proper divisors.</span>
+<span class="sd">            The smallest perfect number is ``6``, which is</span>
+<span class="sd">            the sum of ``1``, ``2``, and ``3``.</span>
+<span class="sd">            Other perfect numbers are ``28``, ``496``, and ``8,128``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            | ``True`` if a perfect number</span>
+<span class="sd">            | ``False`` if not a perfect number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># ---</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        # List of known perfect number</span>
+<span class="sd">        # Source: https://en.wikipedia.org/wiki/List_of_Mersenne_primes_and_perfect_numbers</span>
+<span class="sd">        perfect_number_index = [</span>
+<span class="sd">            2, 3, 5, 7,</span>
+<span class="sd">            13, 17, 19, 31, 61, 89,</span>
+<span class="sd">            107, 127, 521, 607,</span>
+<span class="sd">            1279, 2203, 2281, 3217, 4253, 4423, 9689, 9941,</span>
+<span class="sd">            11_213, 19_937, 21_701, 23_209, 44_497, 86_243,</span>
+<span class="sd">            110_503, 132_049, 216_091, 756_839, 859_433,</span>
+<span class="sd">            # 1_257_787, 1_398_269, 2_976_221, 3_021_377, 6_972_593,</span>
+<span class="sd">            # 13_466_917, 20_996_011, 24_036_583, 25_964_951,</span>
+<span class="sd">            # 30_402_457, 32_582_657, 37_156_667, 42_643_801,</span>
+<span class="sd">            # 43_112_609, 57_885_161,</span>
+<span class="sd">            ## 74_207_281, 77_232_917, 82_589_933</span>
+<span class="sd">        ]</span>
+<span class="sd">        perfect_number = []</span>
+<span class="sd">        for x in perfect_number_index:</span>
+<span class="sd">            # a perfect number have a form of (2**(n-1))*((2**n)-1)</span>
+<span class="sd">            perfect_number.append((2**(x-1))*((2**x)-1))</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">perfect_number</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="mi">6</span><span class="p">,</span>
+            <span class="mi">28</span><span class="p">,</span>
+            <span class="mi">496</span><span class="p">,</span>
+            <span class="mi">8128</span><span class="p">,</span>
+            <span class="mi">33_550_336</span><span class="p">,</span>
+            <span class="mi">8_589_869_056</span><span class="p">,</span>
+            <span class="mi">137_438_691_328</span><span class="p">,</span>
+            <span class="mi">2_305_843_008_139_952_128</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">perfect_number</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">elif</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="n">perfect_number</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Faster way to check</span>
+            <span class="n">perfect_number_index</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="mi">61</span><span class="p">,</span>
+                <span class="mi">89</span><span class="p">,</span>
+                <span class="mi">107</span><span class="p">,</span>
+                <span class="mi">127</span><span class="p">,</span>
+                <span class="mi">521</span><span class="p">,</span>
+                <span class="mi">607</span><span class="p">,</span>
+                <span class="mi">1279</span><span class="p">,</span>
+                <span class="mi">2203</span><span class="p">,</span>
+                <span class="mi">2281</span><span class="p">,</span>
+                <span class="mi">3217</span><span class="p">,</span>
+                <span class="mi">4253</span><span class="p">,</span>
+                <span class="mi">4423</span><span class="p">,</span>
+                <span class="mi">9689</span><span class="p">,</span>
+                <span class="mi">9941</span><span class="p">,</span>
+                <span class="mi">11_213</span><span class="p">,</span>
+                <span class="mi">19_937</span><span class="p">,</span>
+                <span class="mi">21_701</span><span class="p">,</span>
+                <span class="mi">23_209</span><span class="p">,</span>
+                <span class="mi">44_497</span><span class="p">,</span>
+                <span class="mi">86_243</span><span class="p">,</span>
+                <span class="mi">110_503</span><span class="p">,</span>
+                <span class="mi">132_049</span><span class="p">,</span>
+                <span class="mi">216_091</span><span class="p">,</span>
+                <span class="mi">756_839</span><span class="p">,</span>
+                <span class="mi">859_433</span><span class="p">,</span>
+                <span class="mi">1_257_787</span><span class="p">,</span>
+                <span class="c1"># 1_398_269,</span>
+                <span class="c1"># 2_976_221,</span>
+                <span class="c1"># 3_021_377,</span>
+                <span class="c1"># 6_972_593,</span>
+                <span class="c1"># 13_466_917,</span>
+                <span class="c1"># 20_996_011,</span>
+                <span class="c1"># 24_036_583,</span>
+                <span class="c1"># 25_964_951,</span>
+                <span class="c1"># 30_402_457,</span>
+                <span class="c1"># 32_582_657,</span>
+                <span class="c1"># 37_156_667,</span>
+                <span class="c1"># 42_643_801,</span>
+                <span class="c1"># 43_112_609,</span>
+                <span class="c1"># 57_885_161,</span>
+                <span class="c1">## 74_207_281,</span>
+                <span class="c1">## 77_232_917,</span>
+                <span class="c1">## 82_589_933</span>
+            <span class="p">]</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">perfect_number_index</span><span class="p">:</span>
+                <span class="c1"># a perfect number have a form of (2**(n-1))*((2**n)-1)</span>
+                <span class="n">perfect_number</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="mi">2</span><span class="o">**</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="n">perfect_number</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+                <span class="k">elif</span> <span class="n">number</span> <span class="o">==</span> <span class="n">perfect_number</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+
+            <span class="c1"># Manual way when above method not working</span>
+            <span class="c1"># sum</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="c1"># add all divisors</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+            <span class="k">while</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">number</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">s</span> <span class="o">+=</span> <span class="o">+</span><span class="n">i</span> <span class="o">+</span> <span class="n">number</span> <span class="o">/</span> <span class="n">i</span>  <span class="c1"># type: ignore</span>
+                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="c1"># s == number -&gt; perfect</span>
+            <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="n">number</span> <span class="ow">and</span> <span class="n">number</span> <span class="o">!=</span> <span class="mi">1</span> <span class="k">else</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="IntExt.is_narcissistic">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.is_narcissistic">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_narcissistic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if a narcissistic number</span>
+
+<span class="sd">            In number theory, a narcissistic number</span>
+<span class="sd">            (also known as a pluperfect digital invariant (PPDI),</span>
+<span class="sd">            an Armstrong number (after Michael F. Armstrong)</span>
+<span class="sd">            or a plus perfect number) in a given number base ``b``</span>
+<span class="sd">            is a number that is the sum of its own digits</span>
+<span class="sd">            each raised to the power of the number of digits.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            | ``True`` if a narcissistic number</span>
+<span class="sd">            | ``False`` if not a narcissistic number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">check</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)])</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="n">check</span>
+            <span class="k">return</span> <span class="n">res</span>  <span class="c1"># type: ignore</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="IntExt.is_palindromic">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.is_palindromic">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_palindromic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A palindromic number (also known as a numeral palindrome</span>
+<span class="sd">        or a numeric palindrome) is a number (such as ``16461``)</span>
+<span class="sd">        that remains the same when its digits are reversed.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            | ``True`` if a palindromic number</span>
+<span class="sd">            | ``False`` if not a palindromic number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="IntExt.is_palindromic_prime">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.is_palindromic_prime">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_palindromic_prime</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A palindormic prime is a number which is both palindromic and prime</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            | ``True`` if a palindormic prime number</span>
+<span class="sd">            | ``False`` if not a palindormic prime number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_palindromic</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_prime</span><span class="p">()</span></div>
+
+
+    <span class="c1"># calculation stuff</span>
+<div class="viewcode-block" id="IntExt.lcm">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.lcm">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">with_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Least common multiple of ``self`` and ``with_number``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        with_number : int</span>
+<span class="sd">            The number that want to find LCM with</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        IntNumber</span>
+<span class="sd">            Least common multiple</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(102)</span>
+<span class="sd">        &gt;&gt;&gt; test.lcm(5)</span>
+<span class="sd">        510</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">lcm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">with_number</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="IntExt.gcd">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.gcd">[docs]</a>
+    <span class="nd">@versionchanged</span><span class="p">(</span><span class="s2">&quot;3.3.0&quot;</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;Updated functionality&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gcd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">with_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Greatest common divisor of ``self`` and ``with_number``</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        with_number : int</span>
+<span class="sd">            The number that want to find GCD with</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        IntNumber</span>
+<span class="sd">            Greatest common divisor</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(1024)</span>
+<span class="sd">        &gt;&gt;&gt; test.gcd(8)</span>
+<span class="sd">        8</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">with_number</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="IntExt.add_to_one_digit">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.add_to_one_digit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_to_one_digit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master_number</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert ``self`` into 1-digit number</span>
+<span class="sd">        by adding all of the digits together</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        master_number : bool</span>
+<span class="sd">            | Break when sum = ``22`` or ``11`` (numerology)</span>
+<span class="sd">            | (Default: ``False``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        IntNumber</span>
+<span class="sd">            IntNumber</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(119)</span>
+<span class="sd">        &gt;&gt;&gt; test.add_to_one_digit()</span>
+<span class="sd">        2</span>
+
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(119)</span>
+<span class="sd">        &gt;&gt;&gt; test.add_to_one_digit(master_number=True)</span>
+<span class="sd">        11</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">number</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">number</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">master_number</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">22</span> <span class="ow">or</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">11</span><span class="p">:</span>
+                    <span class="k">break</span>  <span class="c1"># Master number</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="n">number</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="IntExt.divisible_list">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.divisible_list">[docs]</a>
+    <span class="nd">@versionchanged</span><span class="p">(</span><span class="s2">&quot;5.0.0&quot;</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;Removed ``short_form`` parameter&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">divisible_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A list of divisible number</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list[int]</span>
+<span class="sd">            A list of divisible number</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(1024)</span>
+<span class="sd">        &gt;&gt;&gt; test.divisible_list()</span>
+<span class="sd">        [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">divi_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span> <span class="o">%</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">divi_list</span></div>
+
+
+<div class="viewcode-block" id="IntExt.prime_factor">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.prime_factor">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">prime_factor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">short_form</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">Pow</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prime factor</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        short_form : bool</span>
+<span class="sd">            | Show prime list in short form</span>
+<span class="sd">            | Normal example: ``[2, 2, 2, 3, 3]``</span>
+<span class="sd">            | Short form example: ``[2^3, 3^2]``</span>
+<span class="sd">            | (Default: ``True``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list[int] | list[Pow]</span>
+<span class="sd">            | List of prime number that when multiplied together == ``self``</span>
+<span class="sd">            | list[int]: Long form</span>
+<span class="sd">            | list[Pow]: Short form</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(1024)</span>
+<span class="sd">        &gt;&gt;&gt; test.prime_factor()</span>
+<span class="sd">        [2^10]</span>
+
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(1024)</span>
+<span class="sd">        &gt;&gt;&gt; test.prime_factor(short_form=False)</span>
+<span class="sd">        [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Generate list</span>
+        <span class="n">factors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">divisor</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">number</span><span class="p">]</span>
+        <span class="k">while</span> <span class="n">divisor</span> <span class="o">&lt;=</span> <span class="n">number</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="n">divisor</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">factors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span>
+                <span class="n">number</span> <span class="o">//=</span> <span class="n">divisor</span>  <span class="c1"># number = number // divisor</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">divisor</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="c1"># Output</span>
+        <span class="k">if</span> <span class="n">short_form</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">factors</span><span class="p">))</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">Pow</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">temp</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+        <span class="k">return</span> <span class="n">factors</span></div>
+
+
+    <span class="c1"># analyze</span>
+<div class="viewcode-block" id="IntExt.analyze">
+<a class="viewcode-back" href="../../../absfuyu.dxt.intext.html#absfuyu.dxt.IntExt.analyze">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">analyze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">short_form</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Analyze the number with almost all ``IntNumber`` method</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        short_form : bool</span>
+<span class="sd">            | Enable short form for some items</span>
+<span class="sd">            | (Default: ``True``)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict[str, dict[str, Any]]</span>
+<span class="sd">            Detailed analysis</span>
+
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; test = IntNumber(1024)</span>
+<span class="sd">        &gt;&gt;&gt; test.analyze()</span>
+<span class="sd">        {</span>
+<span class="sd">            &#39;summary&#39;: {&#39;number&#39;: 1024, &#39;length&#39;: 4, &#39;even&#39;: True, &#39;prime factor&#39;: [2^10], &#39;divisible&#39;: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]},</span>
+<span class="sd">            &#39;convert&#39;: {&#39;binary&#39;: &#39;10000000000&#39;, &#39;octa&#39;: &#39;2000&#39;, &#39;hex&#39;: &#39;400&#39;, &#39;reverse&#39;: 4201, &#39;add to one&#39;: 7},</span>
+<span class="sd">            &#39;characteristic&#39;: {&#39;prime&#39;: False, &#39;twisted prime&#39;: False, &#39;perfect&#39;: False, &#39;narcissistic&#39;: False, &#39;palindromic&#39;: False, &#39;palindromic prime&#39;: False}</span>
+<span class="sd">        }</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;number&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="p">,</span>
+                <span class="s2">&quot;length&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)),</span>
+                <span class="s2">&quot;even&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_even</span><span class="p">(),</span>
+                <span class="s2">&quot;prime factor&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prime_factor</span><span class="p">(</span><span class="n">short_form</span><span class="o">=</span><span class="n">short_form</span><span class="p">),</span>
+                <span class="s2">&quot;divisible&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">divisible_list</span><span class="p">(),</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;convert&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;binary&quot;</span><span class="p">:</span> <span class="nb">bin</span><span class="p">(</span><span class="bp">self</span><span class="p">)[</span><span class="mi">2</span><span class="p">:],</span>
+                <span class="s2">&quot;octa&quot;</span><span class="p">:</span> <span class="nb">oct</span><span class="p">(</span><span class="bp">self</span><span class="p">)[</span><span class="mi">2</span><span class="p">:],</span>
+                <span class="s2">&quot;hex&quot;</span><span class="p">:</span> <span class="nb">hex</span><span class="p">(</span><span class="bp">self</span><span class="p">)[</span><span class="mi">2</span><span class="p">:],</span>
+                <span class="c1"># &quot;hash&quot;: hash(self),</span>
+                <span class="s2">&quot;reverse&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reverse</span><span class="p">(),</span>
+                <span class="s2">&quot;add to one&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_to_one_digit</span><span class="p">(),</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+        <span class="n">characteristic</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;prime&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_prime</span><span class="p">(),</span>
+            <span class="s2">&quot;twisted prime&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_twisted_prime</span><span class="p">(),</span>
+            <span class="s2">&quot;perfect&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_perfect</span><span class="p">(),</span>
+            <span class="s2">&quot;narcissistic&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_narcissistic</span><span class="p">(),</span>
+            <span class="s2">&quot;palindromic&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_palindromic</span><span class="p">(),</span>
+            <span class="s2">&quot;palindromic prime&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_palindromic_prime</span><span class="p">(),</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">short_form</span><span class="p">:</span>
+            <span class="n">characteristic</span> <span class="o">=</span> <span class="n">DictBoolTrue</span><span class="p">(</span><span class="n">characteristic</span><span class="p">)</span>
+
+        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;characteristic&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">characteristic</span>
+        <span class="k">return</span> <span class="n">output</span>  <span class="c1"># type: ignore</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+absfuyu package
+===============
+
+.. automodule:: absfuyu
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.cli
+   absfuyu.config
+   absfuyu.core
+   absfuyu.dxt
+   absfuyu.extra
+   absfuyu.fun
+   absfuyu.game
+   absfuyu.general
+   absfuyu.pkg_data
+   absfuyu.tools
+   absfuyu.util
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.logger
+   absfuyu.sort
+   absfuyu.version

@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.core.decorator &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.core.decorator &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -13,7 +13,7 @@
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -82,13 +82,17 @@
 <span class="sd">-------------</span>
 <span class="sd">Decorator</span>
 
-<span class="sd">Version: 5.0.0</span>
-<span class="sd">Date updated: 22/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">Version: 5.1.0</span>
+<span class="sd">Date updated: 10/03/2025 (dd/mm/yyyy)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># Module Package</span>
 <span class="c1"># ---------------------------------------------------------------------------</span>
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;dummy_decorator&quot;</span><span class="p">,</span> <span class="s2">&quot;dummy_decorator_with_args&quot;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;dummy_decorator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dummy_decorator_with_args&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;add_subclass_methods_decorator&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
 
 <span class="c1"># Library</span>
@@ -136,8 +140,10 @@
 
     <span class="nd">@overload</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span> <span class="o">...</span>
+
     <span class="nd">@overload</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">]:</span> <span class="o">...</span>
+
     <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">]</span> <span class="o">|</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">]</span> <span class="o">|</span> <span class="n">T</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">obj</span>
@@ -149,6 +155,69 @@
         <span class="k">return</span> <span class="n">wrapper</span>
 
     <span class="k">return</span> <span class="n">decorator</span></div>
+
+
+
+<div class="viewcode-block" id="add_subclass_methods_decorator">
+<a class="viewcode-back" href="../../../absfuyu.core.decorator.html#absfuyu.core.decorator.add_subclass_methods_decorator">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_subclass_methods_decorator</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class decorator replace the ``__init_subclass__`` method.</span>
+
+<span class="sd">    This method populates a dictionary with subclass names as keys</span>
+<span class="sd">    and their available methods as values.</span>
+
+<span class="sd">    - Create 2 class attributes: ``_METHOD_INCLUDE`` (bool) and ``SUBCLASS_METHODS`` (dict[str, list[str]])</span>
+<span class="sd">    - Automatically add subclass methods to class variable: ``SUBCLASS_METHODS``</span>
+<span class="sd">    - Set class attribute ``_METHOD_INCLUDE`` to ``False`` to exclude from ``SUBCLASS_METHODS``</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; # Normal behavior</span>
+<span class="sd">    &gt;&gt;&gt; @add_subclass_methods_decorator</span>
+<span class="sd">    &gt;&gt;&gt; class TestParent: ...</span>
+<span class="sd">    &gt;&gt;&gt; class TestChild(TestParent):</span>
+<span class="sd">    ...     def method1(self): ...</span>
+<span class="sd">    &gt;&gt;&gt; TestChild.SUBCLASS_METHODS</span>
+<span class="sd">    {&#39;__main__.TestChild&#39;: [&#39;method1&#39;]}</span>
+
+<span class="sd">    &gt;&gt;&gt; # Hidden from ``SUBCLASS_METHODS``</span>
+<span class="sd">    &gt;&gt;&gt; @add_subclass_methods_decorator</span>
+<span class="sd">    &gt;&gt;&gt; class TestParent: ...</span>
+<span class="sd">    &gt;&gt;&gt; class TestChildHidden(TestParent):</span>
+<span class="sd">    ...     _METHOD_INCLUDE = False</span>
+<span class="sd">    ...     def method1(self): ...</span>
+<span class="sd">    &gt;&gt;&gt; TestChildHidden.SUBCLASS_METHODS</span>
+<span class="sd">    {}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Check for class</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Object is not a class&quot;</span><span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">AutoSubclassMixin</span><span class="p">:</span>
+        <span class="n">_METHOD_INCLUDE</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Include in SUBCLASS_METHODS</span>
+        <span class="n">SUBCLASS_METHODS</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">__init_subclass__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            This create a dictionary with:</span>
+<span class="sd">            - key   (str)      : Subclass</span>
+<span class="sd">            - value (list[str]): List of available methods</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init_subclass__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_METHOD_INCLUDE</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">SUBCLASS_METHODS</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+            <span class="p">):</span>
+                <span class="n">methods_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">methods_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__module__</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="bp">cls</span><span class="o">.</span><span class="n">SUBCLASS_METHODS</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">methods_list</span><span class="p">)})</span>
+
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="s2">&quot;AutoSubclass&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">AutoSubclassMixin</span><span class="p">,</span> <span class="bp">cls</span><span class="p">),</span> <span class="p">{})</span>  <span class="c1"># type: ignore[return-value]</span></div>
 
 </pre></div>
 

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.util package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.util package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -108,8 +108,8 @@
 <section id="absufyu-utilities">
 <h2>Absufyu: Utilities<a class="headerlink" href="#absufyu-utilities" title="Link to this heading"></a></h2>
 <p>Some random utilities</p>
-<p>Version: 5.0.0
-Date updated: 25/02/2025 (dd/mm/yyyy)</p>
+<p>Version: 5.1.0
+Date updated: 10/03/2025 (dd/mm/yyyy)</p>
 </section>
 <dl class="py function">
 <dt class="sig sig-object py" id="absfuyu.util.get_installed_package">
@@ -276,13 +276,33 @@ Put the function at the begining of the code is recommended.</p>
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.util.path.html">absfuyu.util.path module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu-path">Absfuyu: Path</a></li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#feature">Feature:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.Directory"><code class="docutils literal notranslate"><span class="pre">Directory</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.Directory.list_structure"><code class="docutils literal notranslate"><span class="pre">Directory.list_structure()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.Directory.list_structure_pkg"><code class="docutils literal notranslate"><span class="pre">Directory.list_structure_pkg()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryBase"><code class="docutils literal notranslate"><span class="pre">DirectoryBase</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.Directory"><code class="docutils literal notranslate"><span class="pre">Directory</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.SaveFileAs"><code class="docutils literal notranslate"><span class="pre">SaveFileAs</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.SaveFileAs.to_txt"><code class="docutils literal notranslate"><span class="pre">SaveFileAs.to_txt()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfoMixin"><code class="docutils literal notranslate"><span class="pre">DirectoryInfoMixin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfoMixin.quick_info"><code class="docutils literal notranslate"><span class="pre">DirectoryInfoMixin.quick_info()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryBasicOperationMixin"><code class="docutils literal notranslate"><span class="pre">DirectoryBasicOperationMixin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryBasicOperationMixin.rename"><code class="docutils literal notranslate"><span class="pre">DirectoryBasicOperationMixin.rename()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryBasicOperationMixin.copy"><code class="docutils literal notranslate"><span class="pre">DirectoryBasicOperationMixin.copy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryBasicOperationMixin.move"><code class="docutils literal notranslate"><span class="pre">DirectoryBasicOperationMixin.move()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryBasicOperationMixin.delete"><code class="docutils literal notranslate"><span class="pre">DirectoryBasicOperationMixin.delete()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryArchiverMixin"><code class="docutils literal notranslate"><span class="pre">DirectoryArchiverMixin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryArchiverMixin.compress"><code class="docutils literal notranslate"><span class="pre">DirectoryArchiverMixin.compress()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryArchiverMixin.register_extra_zip_format"><code class="docutils literal notranslate"><span class="pre">DirectoryArchiverMixin.register_extra_zip_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryArchiverMixin.decompress"><code class="docutils literal notranslate"><span class="pre">DirectoryArchiverMixin.decompress()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryOrganizerMixin"><code class="docutils literal notranslate"><span class="pre">DirectoryOrganizerMixin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryTreeMixin"><code class="docutils literal notranslate"><span class="pre">DirectoryTreeMixin</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryTreeMixin.list_structure"><code class="docutils literal notranslate"><span class="pre">DirectoryTreeMixin.list_structure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryTreeMixin.list_structure_pkg"><code class="docutils literal notranslate"><span class="pre">DirectoryTreeMixin.list_structure_pkg()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.FileOrFolderWithModificationTime"><code class="docutils literal notranslate"><span class="pre">FileOrFolderWithModificationTime</span></code></a><ul>
@@ -291,8 +311,6 @@ Put the function at the begining of the code is recommended.</p>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfo"><code class="docutils literal notranslate"><span class="pre">DirectoryInfo</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfo.files"><code class="docutils literal notranslate"><span class="pre">DirectoryInfo.files</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfo.folders"><code class="docutils literal notranslate"><span class="pre">DirectoryInfo.folders</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfo.creation_time"><code class="docutils literal notranslate"><span class="pre">DirectoryInfo.creation_time</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.util.path.html#absfuyu.util.path.DirectoryInfo.modification_time"><code class="docutils literal notranslate"><span class="pre">DirectoryInfo.modification_time</span></code></a></li>
 </ul>
@@ -346,6 +364,17 @@ Put the function at the begining of the code is recommended.</p>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.util.shorten_number.html#absfuyu.util.shorten_number.shorten_number"><code class="docutils literal notranslate"><span class="pre">shorten_number()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.util.text_table.html">absfuyu.util.text_table module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.text_table.html#absufyu-utilities">Absufyu: Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.util.text_table.html#absfuyu.util.text_table.OneColumnTableMaker"><code class="docutils literal notranslate"><span class="pre">OneColumnTableMaker</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.text_table.html#absfuyu.util.text_table.OneColumnTableMaker.ncols"><code class="docutils literal notranslate"><span class="pre">OneColumnTableMaker.ncols</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.text_table.html#absfuyu.util.text_table.OneColumnTableMaker.add_title"><code class="docutils literal notranslate"><span class="pre">OneColumnTableMaker.add_title()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.text_table.html#absfuyu.util.text_table.OneColumnTableMaker.add_paragraph"><code class="docutils literal notranslate"><span class="pre">OneColumnTableMaker.add_paragraph()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.util.text_table.html#absfuyu.util.text_table.OneColumnTableMaker.make_table"><code class="docutils literal notranslate"><span class="pre">OneColumnTableMaker.make_table()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="absfuyu.util.zipped.html">absfuyu.util.zipped module</a><ul>

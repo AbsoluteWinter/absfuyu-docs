@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.dxt.intext module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=b612fa2f"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="absfuyu.dxt.listext module" href="absfuyu.dxt.listext.html" />
+    <link rel="prev" title="absfuyu.dxt.dxt_support module" href="absfuyu.dxt.dxt_support.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#license">LICENSE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu">ABSFUYU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#links">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#usage">USAGE</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.cli.html">absfuyu.cli package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.core.html">absfuyu.core package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.extra.html">absfuyu.extra package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.general.html">absfuyu.general package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html">absfuyu.pkg_data package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.tools.html">absfuyu.tools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html">absfuyu.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Module Documentation</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.html">absfuyu package</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+      <li class="breadcrumb-item active">absfuyu.dxt.intext module</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-absfuyu.dxt.intext">
+<span id="absfuyu-dxt-intext-module"></span><h1>absfuyu.dxt.intext module<a class="headerlink" href="#module-absfuyu.dxt.intext" title="Link to this heading"></a></h1>
+<section id="absfuyu-data-extension">
+<h2>Absfuyu: Data Extension<a class="headerlink" href="#absfuyu-data-extension" title="Link to this heading"></a></h2>
+<p>int extension</p>
+<p>Version: 5.0.0
+Date updated: 25/02/2025 (dd/mm/yyyy)</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.dxt.intext.</span></span><span class="sig-name descname"><span class="pre">IntExt</span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="absfuyu.core.baseclass.html#absfuyu.core.baseclass.ShowAllMethodsMixin" title="absfuyu.core.baseclass.ShowAllMethodsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShowAllMethodsMixin</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code> extension</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.to_binary">
+<span class="sig-name descname"><span class="pre">to_binary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.to_binary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.to_binary" title="Link to this definition"></a></dt>
+<dd><p>Convert to binary number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Binary number</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">to_binary</span><span class="p">()</span>
+<span class="go">&#39;1010&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.to_celcius_degree">
+<span class="sig-name descname"><span class="pre">to_celcius_degree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.to_celcius_degree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.to_celcius_degree" title="Link to this definition"></a></dt>
+<dd><p>Convert into Celcius degree as if <code class="docutils literal notranslate"><span class="pre">self</span></code> is Fahrenheit degree</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Celcius degree</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+<section id="id1">
+<h2>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">to_celcius_degree</span><span class="p">()</span>
+<span class="go">-12.222222222222221</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.to_fahrenheit_degree">
+<span class="sig-name descname"><span class="pre">to_fahrenheit_degree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.to_fahrenheit_degree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.to_fahrenheit_degree" title="Link to this definition"></a></dt>
+<dd><p>Convert into Fahrenheit degree as if <code class="docutils literal notranslate"><span class="pre">self</span></code> is Celcius degree</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Fahrenheit degree</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+<section id="id2">
+<h2>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">to_fahrenheit_degree</span><span class="p">()</span>
+<span class="go">50.0</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.reverse">
+<span class="sig-name descname"><span class="pre">reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.reverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.reverse" title="Link to this definition"></a></dt>
+<dd><p>Reverse a number. Reverse <code class="docutils literal notranslate"><span class="pre">abs(number)</span></code> if <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">&lt;</span> <span class="pre">0</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Reversed number</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>IntNumber</p>
+</dd>
+</dl>
+<section id="id3">
+<h2>Example:<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">102</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="go">201</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.is_even">
+<span class="sig-name descname"><span class="pre">is_even</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.is_even"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.is_even" title="Link to this definition"></a></dt>
+<dd><p>An even number is a number which divisible by 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code> if an even number</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code> if not an even number</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.is_prime">
+<span class="sig-name descname"><span class="pre">is_prime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.is_prime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.is_prime" title="Link to this definition"></a></dt>
+<dd><p>Check if the integer is a prime number or not</p>
+<blockquote>
+<div><p>A prime number is a natural number greater than <code class="docutils literal notranslate"><span class="pre">1</span></code>
+that is not a product of two smaller natural numbers.
+A natural number greater than <code class="docutils literal notranslate"><span class="pre">1</span></code> that is not prime
+is called a composite number.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code> if a prime number</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code> if not a prime number</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.is_twisted_prime">
+<span class="sig-name descname"><span class="pre">is_twisted_prime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.is_twisted_prime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.is_twisted_prime" title="Link to this definition"></a></dt>
+<dd><p>A number is said to be twisted prime if
+it is a prime number and
+reverse of the number is also a prime number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code> if a twisted prime number</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code> if not a twisted prime number</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.is_perfect">
+<span class="sig-name descname"><span class="pre">is_perfect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.is_perfect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.is_perfect" title="Link to this definition"></a></dt>
+<dd><p>Check if integer is perfect number</p>
+<blockquote>
+<div><p>Perfect number: a positive integer that is
+equal to the sum of its proper divisors.
+The smallest perfect number is <code class="docutils literal notranslate"><span class="pre">6</span></code>, which is
+the sum of <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, and <code class="docutils literal notranslate"><span class="pre">3</span></code>.
+Other perfect numbers are <code class="docutils literal notranslate"><span class="pre">28</span></code>, <code class="docutils literal notranslate"><span class="pre">496</span></code>, and <code class="docutils literal notranslate"><span class="pre">8,128</span></code>.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code> if a perfect number</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code> if not a perfect number</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.is_narcissistic">
+<span class="sig-name descname"><span class="pre">is_narcissistic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.is_narcissistic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.is_narcissistic" title="Link to this definition"></a></dt>
+<dd><p>Check if a narcissistic number</p>
+<blockquote>
+<div><p>In number theory, a narcissistic number
+(also known as a pluperfect digital invariant (PPDI),
+an Armstrong number (after Michael F. Armstrong)
+or a plus perfect number) in a given number base <code class="docutils literal notranslate"><span class="pre">b</span></code>
+is a number that is the sum of its own digits
+each raised to the power of the number of digits.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code> if a narcissistic number</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code> if not a narcissistic number</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.is_palindromic">
+<span class="sig-name descname"><span class="pre">is_palindromic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.is_palindromic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.is_palindromic" title="Link to this definition"></a></dt>
+<dd><p>A palindromic number (also known as a numeral palindrome
+or a numeric palindrome) is a number (such as <code class="docutils literal notranslate"><span class="pre">16461</span></code>)
+that remains the same when its digits are reversed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code> if a palindromic number</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code> if not a palindromic number</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.is_palindromic_prime">
+<span class="sig-name descname"><span class="pre">is_palindromic_prime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.is_palindromic_prime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.is_palindromic_prime" title="Link to this definition"></a></dt>
+<dd><p>A palindormic prime is a number which is both palindromic and prime</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code> if a palindormic prime number</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code> if not a palindormic prime number</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.lcm">
+<span class="sig-name descname"><span class="pre">lcm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.lcm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.lcm" title="Link to this definition"></a></dt>
+<dd><p>Least common multiple of <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">with_number</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>with_number</strong> (<em>int</em>) – The number that want to find LCM with</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Least common multiple</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>IntNumber</p>
+</dd>
+</dl>
+<section id="id4">
+<h2>Example:<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">102</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">lcm</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">510</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.gcd">
+<span class="sig-name descname"><span class="pre">gcd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.gcd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.gcd" title="Link to this definition"></a></dt>
+<dd><p>Greatest common divisor of <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">with_number</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>with_number</strong> (<em>int</em>) – The number that want to find GCD with</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Greatest common divisor</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>IntNumber</p>
+</dd>
+</dl>
+<section id="id5">
+<h2>Example:<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="go">8</span>
+</pre></div>
+</div>
+<p><em>Changed in version 3.3.0: Updated functionality</em></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.add_to_one_digit">
+<span class="sig-name descname"><span class="pre">add_to_one_digit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.add_to_one_digit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.add_to_one_digit" title="Link to this definition"></a></dt>
+<dd><p>Convert <code class="docutils literal notranslate"><span class="pre">self</span></code> into 1-digit number
+by adding all of the digits together</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>master_number</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line">Break when sum = <code class="docutils literal notranslate"><span class="pre">22</span></code> or <code class="docutils literal notranslate"><span class="pre">11</span></code> (numerology)</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>IntNumber</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>IntNumber</p>
+</dd>
+</dl>
+<section id="id6">
+<h2>Example:<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">119</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">add_to_one_digit</span><span class="p">()</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">119</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">add_to_one_digit</span><span class="p">(</span><span class="n">master_number</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">11</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.divisible_list">
+<span class="sig-name descname"><span class="pre">divisible_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.divisible_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.divisible_list" title="Link to this definition"></a></dt>
+<dd><p>A list of divisible number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of divisible number</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[int]</p>
+</dd>
+</dl>
+<section id="id7">
+<h2>Example:<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">divisible_list</span><span class="p">()</span>
+<span class="go">[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]</span>
+</pre></div>
+</div>
+<p><em>Changed in version 5.0.0: Removed ``short_form`` parameter</em></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.prime_factor">
+<span class="sig-name descname"><span class="pre">prime_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">short_form</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#absfuyu.dxt.intext.Pow" title="absfuyu.dxt.intext.Pow"><span class="pre">Pow</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.prime_factor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.prime_factor" title="Link to this definition"></a></dt>
+<dd><p>Prime factor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>short_form</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line">Show prime list in short form</div>
+<div class="line">Normal example: <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">2,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">3]</span></code></div>
+<div class="line">Short form example: <code class="docutils literal notranslate"><span class="pre">[2^3,</span> <span class="pre">3^2]</span></code></div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><div class="line-block">
+<div class="line">List of prime number that when multiplied together == <code class="docutils literal notranslate"><span class="pre">self</span></code></div>
+<div class="line">list[int]: Long form</div>
+<div class="line">list[Pow]: Short form</div>
+</div>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int] | list[<a class="reference internal" href="#absfuyu.dxt.intext.Pow" title="absfuyu.dxt.intext.Pow">Pow</a>]</p>
+</dd>
+</dl>
+<section id="id8">
+<h2>Example:<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">prime_factor</span><span class="p">()</span>
+<span class="go">[2^10]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">prime_factor</span><span class="p">(</span><span class="n">short_form</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">[2, 2, 2, 2, 2, 2, 2, 2, 2, 2]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.IntExt.analyze">
+<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">short_form</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.analyze"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.IntExt.analyze" title="Link to this definition"></a></dt>
+<dd><p>Analyze the number with almost all <code class="docutils literal notranslate"><span class="pre">IntNumber</span></code> method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>short_form</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line">Enable short form for some items</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Detailed analysis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, dict[str, Any]]</p>
+</dd>
+</dl>
+<section id="id9">
+<h2>Example:<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">IntNumber</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">analyze</span><span class="p">()</span>
+<span class="go">{</span>
+<span class="go">    &#39;summary&#39;: {&#39;number&#39;: 1024, &#39;length&#39;: 4, &#39;even&#39;: True, &#39;prime factor&#39;: [2^10], &#39;divisible&#39;: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]},</span>
+<span class="go">    &#39;convert&#39;: {&#39;binary&#39;: &#39;10000000000&#39;, &#39;octa&#39;: &#39;2000&#39;, &#39;hex&#39;: &#39;400&#39;, &#39;reverse&#39;: 4201, &#39;add to one&#39;: 7},</span>
+<span class="go">    &#39;characteristic&#39;: {&#39;prime&#39;: False, &#39;twisted prime&#39;: False, &#39;perfect&#39;: False, &#39;narcissistic&#39;: False, &#39;palindromic&#39;: False, &#39;palindromic prime&#39;: False}</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.Pow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.dxt.intext.</span></span><span class="sig-name descname"><span class="pre">Pow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_by</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#Pow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.Pow" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Number power by a number</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.Pow.to_list">
+<span class="sig-name descname"><span class="pre">to_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#Pow.to_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.Pow.to_list" title="Link to this definition"></a></dt>
+<dd><p>Convert into list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int | float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.intext.Pow.calculate">
+<span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#Pow.calculate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.intext.Pow.calculate" title="Link to this definition"></a></dt>
+<dd><p>Calculate the <code class="docutils literal notranslate"><span class="pre">self.number</span></code> to the power of <code class="docutils literal notranslate"><span class="pre">self.power_by</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="absfuyu.dxt.dxt_support.html" class="btn btn-neutral float-left" title="absfuyu.dxt.dxt_support module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absfuyu.dxt.listext.html" class="btn btn-neutral float-right" title="absfuyu.dxt.listext module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

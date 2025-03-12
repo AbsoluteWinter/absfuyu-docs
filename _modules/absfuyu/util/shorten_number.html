@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.util.shorten_number &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.util.shorten_number &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -13,7 +13,7 @@
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="../../../_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="../../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -83,8 +83,8 @@
 <span class="sd">-----------------------</span>
 <span class="sd">Short number base on suffixes</span>
 
-<span class="sd">Version: 5.0.0</span>
-<span class="sd">Date updated: 24/02/2025 (dd/mm/yyyy)</span>
+<span class="sd">Version: 5.1.0</span>
+<span class="sd">Date updated: 10/03/2025 (dd/mm/yyyy)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># Module level</span>
@@ -244,11 +244,28 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Shorten large number</span>
 
-<span class="sd">    :param original_value: Value to shorten</span>
-<span class="sd">    :param base: Short by base (must be &gt; 0)</span>
-<span class="sd">    :param suffixes: List of suffixes to use (ascending order)</span>
-<span class="sd">    :param factory: ``UnitSuffixFactory`` to use (will overwrite ``base`` and ``suffixes``)</span>
-<span class="sd">    :param suffix_full_name: Use suffix full name (default: False)</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    original_value : int | float</span>
+<span class="sd">        Value to shorten</span>
+
+<span class="sd">    base : int</span>
+<span class="sd">        Short by base (must be &gt; 0)</span>
+
+<span class="sd">    suffixes : list[str]</span>
+<span class="sd">        List of suffixes to use (ascending order)</span>
+
+<span class="sd">    factory : UnitSuffixFactory | None</span>
+<span class="sd">        ``UnitSuffixFactory`` to use</span>
+<span class="sd">        (will overwrite ``base`` and ``suffixes``)</span>
+
+<span class="sd">    suffix_full_name : bool</span>
+<span class="sd">        Use suffix full name (available with ``UnitSuffixFactory``), by default ``False``</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Decimal</span>
+<span class="sd">        Decimal instance</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">original_value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -261,6 +278,7 @@
     <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>  <span class="c1"># Make sure that base &gt;= 1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_get_factory</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_decimal</span><span class="p">()</span>
 
@@ -327,9 +345,21 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert to string</span>
 
-<span class="sd">        :param decimal: Round up to which decimal</span>
-<span class="sd">        :param separator: Character between value and suffix, default: ``&quot; &quot;``</span>
-<span class="sd">        :param float_only: Returns value as &lt;float&gt; instead of &lt;int&gt; when ``decimal = 0``</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        decimal : int, optional</span>
+<span class="sd">            Round up to which decimal, by default ``2``</span>
+
+<span class="sd">        separator : str, optional</span>
+<span class="sd">            Character between value and suffix, by default ``&quot; &quot;``</span>
+
+<span class="sd">        float_only : bool, optional</span>
+<span class="sd">            Returns value as &lt;float&gt; instead of &lt;int&gt; when ``decimal = 0``, by default ``True``</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            Decimal string</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="fm">__round__</span><span class="p">(</span><span class="n">decimal</span><span class="p">)</span>
         <span class="n">formatted_value</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span>

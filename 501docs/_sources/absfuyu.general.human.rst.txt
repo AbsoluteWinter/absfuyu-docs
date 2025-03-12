@@ -1,0 +1,7 @@
+absfuyu.general.human module
+============================
+
+.. automodule:: absfuyu.general.human
+   :members:
+   :undoc-members:
+   :show-inheritance:

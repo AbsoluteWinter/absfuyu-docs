@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.core.baseclass module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.core.baseclass module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -109,8 +109,8 @@
 <section id="absfuyu-core">
 <h2>Absfuyu: Core<a class="headerlink" href="#absfuyu-core" title="Link to this heading"></a></h2>
 <p>Bases for other features</p>
-<p>Version: 5.0.0
-Date updated: 25/02/2025 (dd/mm/yyyy)</p>
+<p>Version: 5.1.0
+Date updated: 10/03/2025 (dd/mm/yyyy)</p>
 </section>
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.core.baseclass.CLITextColor">
@@ -170,11 +170,238 @@ Date updated: 25/02/2025 (dd/mm/yyyy)</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.core.baseclass.</span></span><span class="sig-name descname"><span class="pre">MethodNPropertyList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methods</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classmethods</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">staticmethods</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/core/baseclass.html#MethodNPropertyList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyList" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<p>Contains lists of methods, classmethods, staticmethods, and properties of a class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>methods</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List contains method names of a class.</p></li>
+<li><p><strong>classmethods</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List contains classmethod names of a class.</p></li>
+<li><p><strong>staticmethods</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List contains staticmethod names of a class.</p></li>
+<li><p><strong>properties</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List contains property names of a class.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyList.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyList.methods" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyList.classmethods">
+<span class="sig-name descname"><span class="pre">classmethods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyList.classmethods" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyList.staticmethods">
+<span class="sig-name descname"><span class="pre">staticmethods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyList.staticmethods" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyList.properties">
+<span class="sig-name descname"><span class="pre">properties</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyList.properties" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyList.is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/absfuyu/core/baseclass.html#MethodNPropertyList.is_empty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyList.is_empty" title="Link to this definition"></a></dt>
+<dd><p>Checks if all lists (methods, classmethods, staticmethods, properties) are empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyList.pack">
+<span class="sig-name descname"><span class="pre">pack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_classmethod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classmethod_indicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&lt;classmethod&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_staticmethod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">staticmethod_indicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&lt;staticmethod&gt;'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/core/baseclass.html#MethodNPropertyList.pack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyList.pack" title="Link to this definition"></a></dt>
+<dd><p>Combines methods, classmethods, and staticmethods into one list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>include_method</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to include methods in the output, by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>include_classmethod</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to include classmethods in the output, by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>classmethod_indicator</strong> (<em>str</em><em>, </em><em>optional</em>) – A string used to mark classmethod in the output. This string is appended
+to the name of each classmethod to visually differentiate it from regular
+instance methods, by default <code class="docutils literal notranslate"><span class="pre">&quot;&lt;classmethod&gt;&quot;</span></code></p></li>
+<li><p><strong>include_staticmethod</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to include staticmethods in the output, by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>staticmethod_indicator</strong> (<em>str</em><em>, </em><em>optional</em>) – A string used to mark staticmethod in the output. This string is appended
+to the name of each staticmethod to visually differentiate it from regular
+instance methods, by default <code class="docutils literal notranslate"><span class="pre">&quot;&lt;staticmethod&gt;&quot;</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>MethodNPropertyList (combined methods lists)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">MethodNPropertyList</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+<span class="go">MethodNPropertyList(methods=[&#39;a&#39;, &#39;b &lt;classmethod&gt;&#39;, &#39;c &lt;staticmethod&gt;&#39;], properties=[&#39;d&#39;])</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.core.baseclass.</span></span><span class="sig-name descname"><span class="pre">MethodNPropertyResult</span></span><a class="reference internal" href="_modules/absfuyu/core/baseclass.html#MethodNPropertyResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#absfuyu.core.baseclass.MethodNPropertyList" title="absfuyu.core.baseclass.MethodNPropertyList"><code class="xref py py-class docutils literal notranslate"><span class="pre">MethodNPropertyList</span></code></a>]</p>
+<p>All methods and properties of a class and its parent classes.</p>
+<p>Sorted in ascending order.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyResult.flatten_value">
+<span class="sig-name descname"><span class="pre">flatten_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#absfuyu.core.baseclass.MethodNPropertyList" title="absfuyu.core.baseclass.MethodNPropertyList"><span class="pre">MethodNPropertyList</span></a></span></span><a class="reference internal" href="_modules/absfuyu/core/baseclass.html#MethodNPropertyResult.flatten_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyResult.flatten_value" title="Link to this definition"></a></dt>
+<dd><p>Merge all attributes of <code class="docutils literal notranslate"><span class="pre">dict</span></code>’s values into one <code class="docutils literal notranslate"><span class="pre">MethodNPropertyList</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Flattened value</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.core.baseclass.MethodNPropertyList" title="absfuyu.core.baseclass.MethodNPropertyList">MethodNPropertyList</a></p>
+</dd>
+</dl>
+<section id="id1">
+<h2>Example:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">MethodNPropertyResult</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">ABC</span><span class="o">=</span><span class="n">MethodNPropertyList</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]),</span>
+<span class="gp">... </span>    <span class="n">DEF</span><span class="o">=</span><span class="n">MethodNPropertyList</span><span class="p">([</span><span class="s2">&quot;e&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;f&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;h&quot;</span><span class="p">]),</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">flatten_value</span><span class="p">()</span>
+<span class="go">MethodNPropertyList(methods=[&quot;a&quot;, &quot;e&quot;], classmethods=[&quot;b&quot;, &quot;f&quot;], staticmethods=[&quot;c&quot;, &quot;g&quot;], properties=[&quot;d&quot;, &quot;h&quot;])</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyResult.pack_value">
+<span class="sig-name descname"><span class="pre">pack_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_classmethod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classmethod_indicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&lt;classmethod&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_staticmethod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">staticmethod_indicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&lt;staticmethod&gt;'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/core/baseclass.html#MethodNPropertyResult.pack_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyResult.pack_value" title="Link to this definition"></a></dt>
+<dd><p>Join method, classmethod, staticmethod into one list for each value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>include_method</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to include method in the output, by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>include_classmethod</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to include classmethod in the output, by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>classmethod_indicator</strong> (<em>str</em><em>, </em><em>optional</em>) – A string used to mark classmethod in the output. This string is appended
+to the name of each classmethod to visually differentiate it from regular
+instance methods, by default <code class="docutils literal notranslate"><span class="pre">&quot;&lt;classmethod&gt;&quot;</span></code></p></li>
+<li><p><strong>include_staticmethod</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to include staticmethod in the output, by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><strong>staticmethod_indicator</strong> (<em>str</em><em>, </em><em>optional</em>) – A string used to mark staticmethod in the output. This string is appended
+to the name of each staticmethod to visually differentiate it from regular
+instance methods, by default <code class="docutils literal notranslate"><span class="pre">&quot;&lt;staticmethod&gt;&quot;</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>MethodNPropertyResult with packed value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Self</p>
+</dd>
+</dl>
+<section id="id2">
+<h2>Example:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">MethodNPropertyResult</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">ABC</span><span class="o">=</span><span class="n">MethodNPropertyList</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]),</span>
+<span class="gp">... </span>    <span class="n">DEF</span><span class="o">=</span><span class="n">MethodNPropertyList</span><span class="p">([</span><span class="s2">&quot;e&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;f&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;h&quot;</span><span class="p">]),</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">pack_value</span><span class="p">()</span>
+<span class="go">{</span>
+<span class="go">    &quot;ABC&quot;: MethodNPropertyList(</span>
+<span class="go">        methods=[&quot;a&quot;, &quot;b &lt;classmethod&gt;&quot;, &quot;c &lt;staticmethod&gt;&quot;], properties=[&quot;d&quot;]</span>
+<span class="go">    ),</span>
+<span class="go">    &quot;DEF&quot;: MethodNPropertyList(</span>
+<span class="go">        methods=[&quot;e&quot;, &quot;f &lt;classmethod&gt;&quot;, &quot;g &lt;staticmethod&gt;&quot;], properties=[&quot;h&quot;]</span>
+<span class="go">    ),</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyResult.prioritize_value">
+<span class="sig-name descname"><span class="pre">prioritize_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'methods'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'classmethods'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'staticmethods'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'properties'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'methods'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/core/baseclass.html#MethodNPropertyResult.prioritize_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyResult.prioritize_value" title="Link to this definition"></a></dt>
+<dd><p>Prioritize which field of value to show.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value_name</strong> (<em>Literal</em><em>[</em><em>&quot;methods&quot;</em><em>, </em><em>&quot;classmethods&quot;</em><em>, </em><em>&quot;staticmethods&quot;</em><em>, </em><em>&quot;properties&quot;</em><em>]</em><em>, </em><em>optional</em>) – The type of value to prioritize, by default <code class="docutils literal notranslate"><span class="pre">&quot;methods&quot;</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary with prioritized values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, list[str]]</p>
+</dd>
+</dl>
+<section id="id3">
+<h2>Example:<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">MethodNPropertyResult</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">ABC</span><span class="o">=</span><span class="n">MethodNPropertyList</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]),</span>
+<span class="gp">... </span>    <span class="n">DEF</span><span class="o">=</span><span class="n">MethodNPropertyList</span><span class="p">([</span><span class="s2">&quot;e&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;f&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;h&quot;</span><span class="p">]),</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">prioritize_value</span><span class="p">(</span><span class="s2">&quot;methods&quot;</span><span class="p">)</span>
+<span class="go">{&#39;ABC&#39;: [&#39;a&#39;], &#39;DEF&#39;: [&#39;e&#39;]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">prioritize_value</span><span class="p">(</span><span class="s2">&quot;classmethods&quot;</span><span class="p">)</span>
+<span class="go">{&#39;ABC&#39;: [&#39;b&#39;], &#39;DEF&#39;: [&#39;f&#39;]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">prioritize_value</span><span class="p">(</span><span class="s2">&quot;staticmethods&quot;</span><span class="p">)</span>
+<span class="go">{&#39;ABC&#39;: [&#39;c&#39;], &#39;DEF&#39;: [&#39;g&#39;]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">prioritize_value</span><span class="p">(</span><span class="s2">&quot;properties&quot;</span><span class="p">)</span>
+<span class="go">{&#39;ABC&#39;: [&#39;d&#39;], &#39;DEF&#39;: [&#39;h&#39;]}</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.core.baseclass.MethodNPropertyResult.print_output">
+<span class="sig-name descname"><span class="pre">print_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">where_to_print</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'methods'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'properties'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'methods'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_in_one_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/core/baseclass.html#MethodNPropertyResult.print_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.baseclass.MethodNPropertyResult.print_output" title="Link to this definition"></a></dt>
+<dd><p>Beautifully print the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>where_to_print</strong> (<em>Literal</em><em>[</em><em>&quot;methods&quot;</em><em>, </em><em>&quot;properties&quot;</em><em>]</em><em>, </em><em>optional</em>) – Whether to print <code class="docutils literal notranslate"><span class="pre">self.methods</span></code> or <code class="docutils literal notranslate"><span class="pre">self.properties</span></code>, by default <code class="docutils literal notranslate"><span class="pre">&quot;methods&quot;</span></code></p></li>
+<li><p><strong>print_in_one_column</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to print in one column, by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.core.baseclass.ShowAllMethodsMixin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.core.baseclass.</span></span><span class="sig-name descname"><span class="pre">ShowAllMethodsMixin</span></span><a class="reference internal" href="_modules/absfuyu/core/baseclass.html#ShowAllMethodsMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.baseclass.ShowAllMethodsMixin" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Show all methods of the class and its parent class minus <code class="docutils literal notranslate"><span class="pre">object</span></code> class</p>
 <p><em>This class is meant to be used with other class</em></p>
+<section id="id4">
+<h2>Example:<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">TestClass</span><span class="p">(</span><span class="n">ShowAllMethodsMixin</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TestClass</span><span class="o">.</span><span class="n">_get_methods_and_properties</span><span class="p">()</span>
+<span class="go">{</span>
+<span class="go">    &quot;ShowAllMethodsMixin&quot;: MethodNPropertyList(</span>
+<span class="go">        classmethods=[</span>
+<span class="go">            &quot;_get_methods_and_properties&quot;,</span>
+<span class="go">            &quot;show_all_methods&quot;,</span>
+<span class="go">            &quot;show_all_properties&quot;,</span>
+<span class="go">        ]</span>
+<span class="go">    ),</span>
+<span class="go">    &quot;TestClass&quot;: MethodNPropertyList(</span>
+<span class="go">        methods=[&quot;method1&quot;]</span>
+<span class="go">    ),</span>
+<span class="go">}</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.core.baseclass.ShowAllMethodsMixin.show_all_methods">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">show_all_methods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">print_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_classmethod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classmethod_indicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&lt;classmethod&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_staticmethod</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">staticmethod_indicator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'&lt;staticmethod&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_private_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/core/baseclass.html#ShowAllMethodsMixin.show_all_methods"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.core.baseclass.ShowAllMethodsMixin.show_all_methods" title="Link to this definition"></a></dt>
@@ -222,6 +449,7 @@ including the class in which they are defined in alphabetical order.</p>
 </dl>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 <dl class="py class">
@@ -230,8 +458,8 @@ including the class in which they are defined in alphabetical order.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Generate <code class="docutils literal notranslate"><span class="pre">repr()</span></code> output as <code class="docutils literal notranslate"><span class="pre">&lt;class(param1=any,</span> <span class="pre">param2=any,</span> <span class="pre">...)&gt;</span></code></p>
 <p><em>This class is meant to be used with other class</em></p>
-<section id="example">
-<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<section id="id5">
+<h2>Example:<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span><span class="w"> </span><span class="nc">Test</span><span class="p">(</span><span class="n">AutoREPRMixin</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>
 <span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">param</span> <span class="o">=</span> <span class="n">param</span>

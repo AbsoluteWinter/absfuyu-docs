@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.dxt package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.dxt package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="absfuyu.dxt.dictext module" href="absfuyu.dxt.dictext.html" />
-    <link rel="prev" title="absfuyu.core.dummy_func module" href="absfuyu.core.dummy_func.html" /> 
+    <link rel="prev" title="absfuyu.core.typings module" href="absfuyu.core.typings.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -108,8 +108,8 @@
 <section id="absfuyu-data-extension">
 <h2>Absfuyu: Data Extension<a class="headerlink" href="#absfuyu-data-extension" title="Link to this heading"></a></h2>
 <p>Extension for data type such as <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, …</p>
-<p>Version: 5.0.0
-Date updated: 22/02/2025 (dd/mm/yyyy)</p>
+<p>Version: 5.1.0
+Date updated: 10/03/2025 (dd/mm/yyyy)</p>
 </section>
 <section id="features">
 <h2>Features:<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
@@ -686,6 +686,31 @@ by adding all of the digits together</p>
 </section>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.IntExt.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/intext.html#IntExt.split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.IntExt.split" title="Link to this definition"></a></dt>
+<dd><p>Evenly split the number into <code class="docutils literal notranslate"><span class="pre">parts</span></code> parts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parts</strong> (<em>int</em>) – Split by how many parts</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of evenly splitted numbers</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[int]</p>
+</dd>
+</dl>
+<section id="id14">
+<h2>Example:<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">IntExt</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">[2, 2, 3, 3]</span>
+</pre></div>
+</div>
+<p><em>Added in version 5.1.0</em></p>
+</section>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -705,8 +730,8 @@ by adding all of the digits together</p>
 <dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.ListExt" title="absfuyu.dxt.ListExt">ListExt</a></p>
 </dd>
 </dl>
-<section id="id14">
-<h2>Example:<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<section id="id15">
+<h2>Example:<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">stringify</span><span class="p">()</span>
 <span class="go">[&#39;1&#39;, &#39;1&#39;, &#39;1&#39;, &#39;2&#39;, &#39;2&#39;, &#39;3&#39;]</span>
@@ -777,8 +802,8 @@ by adding all of the digits together</p>
 <dd class="field-odd"><p><a class="reference internal" href="#absfuyu.dxt.ListExt" title="absfuyu.dxt.ListExt">ListExt</a></p>
 </dd>
 </dl>
-<section id="id15">
-<h2>Example:<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<section id="id16">
+<h2>Example:<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="s2">&quot;aaa&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">sorts</span><span class="p">()</span>
 <span class="go">[1, 9, &#39;aaa&#39;, &#39;abc&#39;, 1.4, 3.5]</span>
@@ -820,8 +845,8 @@ by adding all of the digits together</p>
 </p>
 </dd>
 </dl>
-<section id="id16">
-<h2>Example:<a class="headerlink" href="#id16" title="Link to this heading"></a></h2>
+<section id="id17">
+<h2>Example:<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">freq</span><span class="p">()</span>
 <span class="go">{1: 2, 2: 1, 3: 1, 5: 2}</span>
@@ -857,8 +882,8 @@ defined by the provided split points.</p>
 <dd class="field-odd"><p>list[list]</p>
 </dd>
 </dl>
-<section id="id17">
-<h2>Example:<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
+<section id="id18">
+<h2>Example:<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">slice_points</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 <span class="go">[[1, 1], [2, 3, 3], [4, 5, 6]]</span>
@@ -883,8 +908,8 @@ defined by the provided split points.</p>
 <dd class="field-even"><p>Any</p>
 </dd>
 </dl>
-<section id="id18">
-<h2>Example:<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
+<section id="id19">
+<h2>Example:<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">pick_one</span><span class="p">()</span>
 <span class="go">&#39;bar&#39;</span>
@@ -926,8 +951,8 @@ defined by the provided split points.</p>
 <dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.ListExt" title="absfuyu.dxt.ListExt">ListExt</a></p>
 </dd>
 </dl>
-<section id="id19">
-<h2>Example:<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<section id="id20">
+<h2>Example:<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;pizza&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">len_items</span><span class="p">()</span>
 <span class="go">[3, 3, 5]</span>
@@ -948,8 +973,8 @@ defined by the provided split points.</p>
 <dd class="field-even"><p>float</p>
 </dd>
 </dl>
-<section id="id20">
-<h2>Example:<a class="headerlink" href="#id20" title="Link to this heading"></a></h2>
+<section id="id21">
+<h2>Example:<a class="headerlink" href="#id21" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;pizza&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">mean_len</span><span class="p">()</span>
 <span class="go">3.6666666666666665</span>
@@ -960,7 +985,7 @@ defined by the provided split points.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="absfuyu.dxt.ListExt.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.ListExt.apply" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.ListExt.apply" title="Link to this definition"></a></dt>
 <dd><p>Apply function to each entry</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -973,8 +998,8 @@ defined by the provided split points.</p>
 <dd class="field-odd"><p><a class="reference internal" href="#absfuyu.dxt.ListExt" title="absfuyu.dxt.ListExt">ListExt</a></p>
 </dd>
 </dl>
-<section id="id21">
-<h2>Example:<a class="headerlink" href="#id21" title="Link to this heading"></a></h2>
+<section id="id22">
+<h2>Example:<a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 <span class="go">[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]</span>
@@ -995,8 +1020,8 @@ defined by the provided split points.</p>
 <dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.ListExt" title="absfuyu.dxt.ListExt">ListExt</a></p>
 </dd>
 </dl>
-<section id="id22">
-<h2>Example:<a class="headerlink" href="#id22" title="Link to this heading"></a></h2>
+<section id="id23">
+<h2>Example:<a class="headerlink" href="#id23" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="go">[1, 2, 3]</span>
@@ -1017,8 +1042,8 @@ defined by the provided split points.</p>
 <dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.ListExt" title="absfuyu.dxt.ListExt">ListExt</a></p>
 </dd>
 </dl>
-<section id="id23">
-<h2>Example:<a class="headerlink" href="#id23" title="Link to this heading"></a></h2>
+<section id="id24">
+<h2>Example:<a class="headerlink" href="#id24" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">group_by_unique</span><span class="p">()</span>
 <span class="go">[[1, 1], [2, 2], [3, 3, 3]]</span>
@@ -1043,8 +1068,8 @@ returns a <code class="docutils literal notranslate"><span class="pre">list</spa
 <dd class="field-odd"><p>list[list]</p>
 </dd>
 </dl>
-<section id="id24">
-<h2>Example:<a class="headerlink" href="#id24" title="Link to this heading"></a></h2>
+<section id="id25">
+<h2>Example:<a class="headerlink" href="#id25" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">group_by_pair_value</span><span class="p">()</span>
 <span class="go">[[1, 2, 3, 4], [5, 6]]</span>
@@ -1075,8 +1100,8 @@ returns a <code class="docutils literal notranslate"><span class="pre">list</spa
 <dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.ListExt" title="absfuyu.dxt.ListExt">ListExt</a></p>
 </dd>
 </dl>
-<section id="id25">
-<h2>Example:<a class="headerlink" href="#id25" title="Link to this heading"></a></h2>
+<section id="id26">
+<h2>Example:<a class="headerlink" href="#id26" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([[</span><span class="s2">&quot;test&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="go">[&#39;test&#39;, &#39;test&#39;, &#39;test&#39;, &#39;test&#39;]</span>
@@ -1102,13 +1127,38 @@ returns a <code class="docutils literal notranslate"><span class="pre">list</spa
 <dd class="field-odd"><p><a class="reference internal" href="#absfuyu.dxt.ListExt" title="absfuyu.dxt.ListExt">ListExt</a></p>
 </dd>
 </dl>
-<section id="id26">
-<h2>Example:<a class="headerlink" href="#id26" title="Link to this heading"></a></h2>
+<section id="id27">
+<h2>Example:<a class="headerlink" href="#id27" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">ListExt</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">numbering</span><span class="p">()</span>
 <span class="go">[(0, 9), (1, 9), (2, 9)]</span>
 </pre></div>
 </div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.dxt.ListExt.split_chunk">
+<span class="sig-name descname"><span class="pre">split_chunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/absfuyu/dxt/listext.html#ListExt.split_chunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.dxt.ListExt.split_chunk" title="Link to this definition"></a></dt>
+<dd><p>Split list into smaller chunks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chunk_size</strong> (<em>int</em>) – Chunk size, minimum: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of chunk</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[list]</p>
+</dd>
+</dl>
+<section id="id28">
+<h2>Example:<a class="headerlink" href="#id28" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ListExt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">split_chunk</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">[[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1]]</span>
+</pre></div>
+</div>
+<p><em>Added in version 5.1.0</em></p>
 </section>
 </dd></dl>
 
@@ -1137,8 +1187,8 @@ string with the size of <code class="docutils literal notranslate"><span class="
 <dd class="field-odd"><p>list[str]</p>
 </dd>
 </dl>
-<section id="id27">
-<h2>Example:<a class="headerlink" href="#id27" title="Link to this heading"></a></h2>
+<section id="id29">
+<h2>Example:<a class="headerlink" href="#id29" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;This is an extremely long line of text!&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">string_split_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="go">[&#39;This is an extremely&#39;, &#39; long line of text!&#39;]</span>
@@ -1172,8 +1222,8 @@ and a way to concaternate them (when using <code class="docutils literal notrans
 <dd class="field-odd"><p>list[str]</p>
 </dd>
 </dl>
-<section id="id28">
-<h2>Example:<a class="headerlink" href="#id28" title="Link to this heading"></a></h2>
+<section id="id30">
+<h2>Example:<a class="headerlink" href="#id30" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;This is an extremely long line of text!&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">divide_with_variable</span><span class="p">(</span><span class="n">split_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="go">[</span>
@@ -1215,8 +1265,8 @@ special character</p>
 <dd class="field-odd"><p>dict | <a class="reference internal" href="#absfuyu.dxt.TextAnalyzeDictFormat" title="absfuyu.dxt.TextAnalyzeDictFormat">TextAnalyzeDictFormat</a></p>
 </dd>
 </dl>
-<section id="id29">
-<h2>Example:<a class="headerlink" href="#id29" title="Link to this heading"></a></h2>
+<section id="id31">
+<h2>Example:<a class="headerlink" href="#id31" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Random T3xt!&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">analyze</span><span class="p">()</span>
 <span class="go">{&#39;digit&#39;: 1, &#39;uppercase&#39;: 2, &#39;lowercase&#39;: 7, &#39;other&#39;: 2}</span>
@@ -1238,8 +1288,8 @@ special character</p>
 <dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.Text" title="absfuyu.dxt.Text">Text</a></p>
 </dd>
 </dl>
-<section id="id30">
-<h2>Example:<a class="headerlink" href="#id30" title="Link to this heading"></a></h2>
+<section id="id32">
+<h2>Example:<a class="headerlink" href="#id32" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
 <span class="go">&#39;!dlroW ,olleH&#39;</span>
@@ -1314,8 +1364,8 @@ or a number that reads the same backward or forward</p>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
-<section id="id31">
-<h2>Example:<a class="headerlink" href="#id31" title="Link to this heading"></a></h2>
+<section id="id33">
+<h2>Example:<a class="headerlink" href="#id33" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">to_hex</span><span class="p">()</span>
 <span class="go">&#39;\\x48\\x65\\x6c\\x6c\\x6f\\x2c\\x20\\x57\\x6f\\x72\\x6c\\x64\\x21&#39;</span>
@@ -1340,8 +1390,8 @@ or a number that reads the same backward or forward</p>
 <dd class="field-odd"><p><a class="reference internal" href="#absfuyu.dxt.Text" title="absfuyu.dxt.Text">Text</a></p>
 </dd>
 </dl>
-<section id="id32">
-<h2>Example:<a class="headerlink" href="#id32" title="Link to this heading"></a></h2>
+<section id="id34">
+<h2>Example:<a class="headerlink" href="#id34" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;This is an extremely long line of text!&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">random_capslock</span><span class="p">()</span>
 <span class="go">&#39;tHis iS An ExtREmELY loNg liNE oF tExT!&#39;</span>
@@ -1362,8 +1412,8 @@ or a number that reads the same backward or forward</p>
 <dd class="field-even"><p><a class="reference internal" href="#absfuyu.dxt.Text" title="absfuyu.dxt.Text">Text</a></p>
 </dd>
 </dl>
-<section id="id33">
-<h2>Example:<a class="headerlink" href="#id33" title="Link to this heading"></a></h2>
+<section id="id35">
+<h2>Example:<a class="headerlink" href="#id35" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">reverse_capslock</span><span class="p">()</span>
 <span class="go">&#39;fOO&#39;</span>
@@ -1385,8 +1435,8 @@ or a number that reads the same backward or forward</p>
 <dd class="field-even"><p>list[str]</p>
 </dd>
 </dl>
-<section id="id34">
-<h2>Example:<a class="headerlink" href="#id34" title="Link to this heading"></a></h2>
+<section id="id36">
+<h2>Example:<a class="headerlink" href="#id36" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 <span class="go">[&#39;t&#39;, &#39;e&#39;, &#39;s&#39;, &#39;t&#39;]</span>
@@ -1421,8 +1471,8 @@ or a number that reads the same backward or forward</p>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
-<section id="id35">
-<h2>Example:<a class="headerlink" href="#id35" title="Link to this heading"></a></h2>
+<section id="id37">
+<h2>Example:<a class="headerlink" href="#id37" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count_pattern</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
 <span class="go">2</span>
 </pre></div>
@@ -1452,8 +1502,8 @@ an author, or in a single text.</p>
 <dd class="field-odd"><p>list[str]</p>
 </dd>
 </dl>
-<section id="id36">
-<h2>Example:<a class="headerlink" href="#id36" title="Link to this heading"></a></h2>
+<section id="id38">
+<h2>Example:<a class="headerlink" href="#id38" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;A a. a, b c c= C| d d&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">hapax</span><span class="p">()</span>
 <span class="go">[&#39;a&#39;, &#39;a.&#39;, &#39;a,&#39;, &#39;b&#39;, &#39;c&#39;, &#39;c=&#39;, &#39;c|&#39;]</span>
@@ -1483,8 +1533,8 @@ Minimum is <code class="docutils literal notranslate"><span class="pre">1</span>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
-<section id="id37">
-<h2>Example:<a class="headerlink" href="#id37" title="Link to this heading"></a></h2>
+<section id="id39">
+<h2>Example:<a class="headerlink" href="#id39" title="Link to this heading"></a></h2>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;a&quot;</span> <span class="o">*</span> <span class="mi">200</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test</span><span class="o">.</span><span class="n">shorten</span><span class="p">()</span>
 <span class="go">(</span>
@@ -1686,6 +1736,7 @@ Minimum is <code class="docutils literal notranslate"><span class="pre">1</span>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.dxt.intext.html#absfuyu.dxt.intext.IntExt.divisible_list"><code class="docutils literal notranslate"><span class="pre">IntExt.divisible_list()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.dxt.intext.html#absfuyu.dxt.intext.IntExt.prime_factor"><code class="docutils literal notranslate"><span class="pre">IntExt.prime_factor()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.dxt.intext.html#absfuyu.dxt.intext.IntExt.analyze"><code class="docutils literal notranslate"><span class="pre">IntExt.analyze()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.dxt.intext.html#absfuyu.dxt.intext.IntExt.split"><code class="docutils literal notranslate"><span class="pre">IntExt.split()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="absfuyu.dxt.intext.html#absfuyu.dxt.intext.Pow"><code class="docutils literal notranslate"><span class="pre">Pow</span></code></a><ul>
@@ -1714,6 +1765,7 @@ Minimum is <code class="docutils literal notranslate"><span class="pre">1</span>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.dxt.listext.html#absfuyu.dxt.listext.ListExt.group_by_pair_value"><code class="docutils literal notranslate"><span class="pre">ListExt.group_by_pair_value()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.dxt.listext.html#absfuyu.dxt.listext.ListExt.flatten"><code class="docutils literal notranslate"><span class="pre">ListExt.flatten()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="absfuyu.dxt.listext.html#absfuyu.dxt.listext.ListExt.numbering"><code class="docutils literal notranslate"><span class="pre">ListExt.numbering()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.dxt.listext.html#absfuyu.dxt.listext.ListExt.split_chunk"><code class="docutils literal notranslate"><span class="pre">ListExt.split_chunk()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1757,7 +1809,7 @@ Minimum is <code class="docutils literal notranslate"><span class="pre">1</span>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="absfuyu.core.dummy_func.html" class="btn btn-neutral float-left" title="absfuyu.core.dummy_func module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absfuyu.core.typings.html" class="btn btn-neutral float-left" title="absfuyu.core.typings module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="absfuyu.dxt.dictext.html" class="btn btn-neutral float-right" title="absfuyu.dxt.dictext module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

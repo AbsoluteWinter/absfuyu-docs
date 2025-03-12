@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>absfuyu.util.path module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+  <title>absfuyu.util.path module &mdash; ABSFUYU&#39;S DOCUMENTATION v5.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/documentation_options.js?v=bfa18cfb"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -109,8 +109,8 @@
 <section id="absfuyu-path">
 <h2>Absfuyu: Path<a class="headerlink" href="#absfuyu-path" title="Link to this heading"></a></h2>
 <p>Path related</p>
-<p>Version: 5.0.0
-Date updated: 22/02/2025 (dd/mm/yyyy)</p>
+<p>Version: 5.1.0
+Date updated: 10/03/2025 (dd/mm/yyyy)</p>
 </section>
 <section id="feature">
 <h2>Feature:<a class="headerlink" href="#feature" title="Link to this heading"></a></h2>
@@ -119,20 +119,235 @@ Date updated: 22/02/2025 (dd/mm/yyyy)</p>
 <li><p>SaveFileAs</p></li>
 </ul>
 </section>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryBase">
+<span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">DirectoryBase</span></span><a class="headerlink" href="#absfuyu.util.path.DirectoryBase" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">AutoSubclass</span></code></p>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.util.path.Directory">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">Directory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_if_not_exist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/path.html#Directory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.Directory" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DirectoryBasicOperation</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">DirectoryTree</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#absfuyu.util.path.DirectoryTreeMixin" title="absfuyu.util.path.DirectoryTreeMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DirectoryTreeMixin</span></code></a>, <a class="reference internal" href="#absfuyu.util.path.DirectoryOrganizerMixin" title="absfuyu.util.path.DirectoryOrganizerMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DirectoryOrganizerMixin</span></code></a>, <a class="reference internal" href="#absfuyu.util.path.DirectoryArchiverMixin" title="absfuyu.util.path.DirectoryArchiverMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DirectoryArchiverMixin</span></code></a>, <a class="reference internal" href="#absfuyu.util.path.DirectoryBasicOperationMixin" title="absfuyu.util.path.DirectoryBasicOperationMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DirectoryBasicOperationMixin</span></code></a>, <a class="reference internal" href="#absfuyu.util.path.DirectoryInfoMixin" title="absfuyu.util.path.DirectoryInfoMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DirectoryInfoMixin</span></code></a></p>
 <p>Some shortcuts for directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_path</strong> (<em>str</em><em> | </em><em>Path</em>) – Source folder</p></li>
+<li><p><strong>create_if_not_exist</strong> (<em>bool</em>) – Create directory when not exist,
+by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># For a list of method</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Directory</span><span class="o">.</span><span class="n">SUBCLASS_METHODS</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.util.path.SaveFileAs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">SaveFileAs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/path.html#SaveFileAs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.SaveFileAs" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>File as multiple file type</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.path.SaveFileAs.to_txt">
+<span class="sig-name descname"><span class="pre">to_txt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#SaveFileAs.to_txt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.SaveFileAs.to_txt" title="Link to this definition"></a></dt>
+<dd><p>Save as <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>Path</em>) – Save location</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfoMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">DirectoryInfoMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_if_not_exist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryInfoMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryInfoMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AutoSubclass</span></code></p>
+<p>Directory - Info</p>
 <ul class="simple">
-<li><p>list_structure</p></li>
-<li><p>delete, rename, copy, move</p></li>
-<li><p>zip</p></li>
-<li><p>quick_info</p></li>
+<li><p>Quick info</p></li>
 </ul>
 <dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.util.path.Directory.list_structure">
-<span class="sig-name descname"><span class="pre">list_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ignore</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#Directory.list_structure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.Directory.list_structure" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfoMixin.quick_info">
+<span class="sig-name descname"><span class="pre">quick_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#absfuyu.util.path.DirectoryInfo" title="absfuyu.util.path.DirectoryInfo"><span class="pre">DirectoryInfo</span></a></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryInfoMixin.quick_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryInfoMixin.quick_info" title="Link to this definition"></a></dt>
+<dd><p>Quick information about this Directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DirectoryInfo</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#absfuyu.util.path.DirectoryInfo" title="absfuyu.util.path.DirectoryInfo">DirectoryInfo</a></p>
+</dd>
+</dl>
+<p><em>Added in version 3.3.0</em></p>
+<p><em>Deprecated in version 5.1.0: Not efficient</em></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryBasicOperationMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">DirectoryBasicOperationMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_if_not_exist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryBasicOperationMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryBasicOperationMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AutoSubclass</span></code></p>
+<p>Directory - Basic operation</p>
+<ul class="simple">
+<li><p>Rename</p></li>
+<li><p>Copy</p></li>
+<li><p>Move</p></li>
+<li><p>Delete</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryBasicOperationMixin.rename">
+<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryBasicOperationMixin.rename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryBasicOperationMixin.rename" title="Link to this definition"></a></dt>
+<dd><p>Rename directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>new_name</strong> (<em>str</em>) – Name only (not the entire path)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryBasicOperationMixin.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryBasicOperationMixin.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryBasicOperationMixin.copy" title="Link to this definition"></a></dt>
+<dd><p>Copy entire directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dst</strong> (<em>Path</em>) – Destination</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryBasicOperationMixin.move">
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dst</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryBasicOperationMixin.move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryBasicOperationMixin.move" title="Link to this definition"></a></dt>
+<dd><p>Move entire directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dst</strong> (<em>Path</em>) – Destination</p></li>
+<li><p><strong>content_only</strong> (<em>bool</em>) – Only move content inside the folder (Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>; Move entire folder)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryBasicOperationMixin.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entire</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">based_on_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'Y'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'M'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'D'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Y'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryBasicOperationMixin.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryBasicOperationMixin.delete" title="Link to this definition"></a></dt>
+<dd><p>Deletes everything</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entire</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code>: Deletes the folder itself</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code>: Deletes content inside only</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</div>
+</div>
+</p></li>
+<li><p><strong>based_on_time</strong> (<em>bool</em>) – <div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">True</span></code>: Deletes everything except <code class="docutils literal notranslate"><span class="pre">keep</span></code> period</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">False</span></code>: Works normal</div>
+<div class="line">(Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)</div>
+</div>
+</p></li>
+<li><p><strong>keep</strong> (<em>Literal</em><em>[</em><em>&quot;Y&quot;</em><em>, </em><em>&quot;M&quot;</em><em>, </em><em>&quot;D&quot;</em><em>]</em>) – Delete all file except current <code class="docutils literal notranslate"><span class="pre">Year</span></code> | <code class="docutils literal notranslate"><span class="pre">Month</span></code> | <code class="docutils literal notranslate"><span class="pre">Day</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryArchiverMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">DirectoryArchiverMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_if_not_exist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryArchiverMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryArchiverMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AutoSubclass</span></code></p>
+<p>Directory - Archiver/Compress</p>
+<ul class="simple">
+<li><p>Compress</p></li>
+<li><p>Decompress</p></li>
+<li><p>Register extra zip format &lt;staticmethod&gt;</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryArchiverMixin.compress">
+<span class="sig-name descname"><span class="pre">compress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'zip'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'tar'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'gztar'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'bztar'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'xztar'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'zip'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delete_after_compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">move_inside</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryArchiverMixin.compress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryArchiverMixin.compress" title="Link to this definition"></a></dt>
+<dd><p>Compress the directory (Default: Create <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>format</strong> (<em>Literal</em><em>[</em><em>&quot;zip&quot;</em><em>, </em><em>&quot;tar&quot;</em><em>, </em><em>&quot;gztar&quot;</em><em>, </em><em>&quot;bztar&quot;</em><em>, </em><em>&quot;xztar&quot;</em><em>]</em><em>, </em><em>optional</em>) – By default <code class="docutils literal notranslate"><span class="pre">&quot;zip&quot;</span></code>
+- <code class="docutils literal notranslate"><span class="pre">zip</span></code>: ZIP file (if the <code class="docutils literal notranslate"><span class="pre">zlib</span></code> module is available).
+- <code class="docutils literal notranslate"><span class="pre">tar</span></code>: Uncompressed tar file. Uses POSIX.1-2001 pax format for new archives.
+- <code class="docutils literal notranslate"><span class="pre">gztar</span></code>: gzip’ed tar-file (if the <code class="docutils literal notranslate"><span class="pre">zlib</span></code> module is available).
+- <code class="docutils literal notranslate"><span class="pre">bztar</span></code>: bzip2’ed tar-file (if the <code class="docutils literal notranslate"><span class="pre">bz2</span></code> module is available).
+- <code class="docutils literal notranslate"><span class="pre">xztar</span></code>: xz’ed tar-file (if the <code class="docutils literal notranslate"><span class="pre">lzma</span></code> module is available).</p></li>
+<li><p><strong>delete_after_compress</strong> (<em>bool</em><em>, </em><em>optional</em>) – Delete directory after compress, by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><strong>move_inside</strong> (<em>bool</em><em>, </em><em>optional</em>) – Move the commpressed file inside the directory,
+by default <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>Path</em> – Compressed path</p></li>
+<li><p><em>None</em> – When fail to compress</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p><em>Changed in version 5.1.0: Update funcionality (new parameter)</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryArchiverMixin.register_extra_zip_format">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register_extra_zip_format</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryArchiverMixin.register_extra_zip_format"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryArchiverMixin.register_extra_zip_format" title="Link to this definition"></a></dt>
+<dd><p>This register extra extension for zipfile</p>
+<p><em>Added in version 5.1.0</em></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryArchiverMixin.decompress">
+<span class="sig-name descname"><span class="pre">decompress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'zip'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'tar'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'gztar'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'bztar'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'xztar'</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delete_after_done</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryArchiverMixin.decompress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryArchiverMixin.decompress" title="Link to this definition"></a></dt>
+<dd><p>Decompress compressed file in directory (first level only)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>format</strong> (<em>Literal</em><em>[</em><em>&quot;zip&quot;</em><em>, </em><em>&quot;tar&quot;</em><em>, </em><em>&quot;gztar&quot;</em><em>, </em><em>&quot;bztar&quot;</em><em>, </em><em>&quot;xztar&quot;</em><em>] </em><em>| </em><em>None</em><em>, </em><em>optional</em>) – By default <code class="docutils literal notranslate"><span class="pre">None</span></code>
+- <code class="docutils literal notranslate"><span class="pre">zip</span></code>: ZIP file (if the <code class="docutils literal notranslate"><span class="pre">zlib</span></code> module is available).
+- <code class="docutils literal notranslate"><span class="pre">tar</span></code>: Uncompressed tar file. Uses POSIX.1-2001 pax format for new archives.
+- <code class="docutils literal notranslate"><span class="pre">gztar</span></code>: gzip’ed tar-file (if the <code class="docutils literal notranslate"><span class="pre">zlib</span></code> module is available).
+- <code class="docutils literal notranslate"><span class="pre">bztar</span></code>: bzip2’ed tar-file (if the <code class="docutils literal notranslate"><span class="pre">bz2</span></code> module is available).
+- <code class="docutils literal notranslate"><span class="pre">xztar</span></code>: xz’ed tar-file (if the <code class="docutils literal notranslate"><span class="pre">lzma</span></code> module is available).</p></li>
+<li><p><strong>delete_after_done</strong> (<em>bool</em><em>, </em><em>optional</em>) – Delete compressed file when extracted, by default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p><em>Added in version 5.1.0</em></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryOrganizerMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">DirectoryOrganizerMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_if_not_exist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryOrganizerMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryOrganizerMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AutoSubclass</span></code></p>
+<p>Directory - File organizer - SOON</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryTreeMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">DirectoryTreeMixin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_if_not_exist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryTreeMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryTreeMixin" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AutoSubclass</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryTreeMixin.list_structure">
+<span class="sig-name descname"><span class="pre">list_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ignore</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryTreeMixin.list_structure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryTreeMixin.list_structure" title="Link to this definition"></a></dt>
 <dd><p>List folder structure</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -161,8 +376,8 @@ Date updated: 22/02/2025 (dd/mm/yyyy)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.util.path.Directory.list_structure_pkg">
-<span class="sig-name descname"><span class="pre">list_structure_pkg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#Directory.list_structure_pkg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.Directory.list_structure_pkg" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryTreeMixin.list_structure_pkg">
+<span class="sig-name descname"><span class="pre">list_structure_pkg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryTreeMixin.list_structure_pkg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryTreeMixin.list_structure_pkg" title="Link to this definition"></a></dt>
 <dd><p>List folder structure of a typical python package</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -170,24 +385,6 @@ Date updated: 22/02/2025 (dd/mm/yyyy)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="absfuyu.util.path.SaveFileAs">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">SaveFileAs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/path.html#SaveFileAs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.SaveFileAs" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>File as multiple file type</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="absfuyu.util.path.SaveFileAs.to_txt">
-<span class="sig-name descname"><span class="pre">to_txt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/absfuyu/util/path.html#SaveFileAs.to_txt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.SaveFileAs.to_txt" title="Link to this definition"></a></dt>
-<dd><p>Save as <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>path</strong> (<em>Path</em>) – Save location</p>
 </dd>
 </dl>
 </dd></dl>
@@ -224,32 +421,21 @@ Date updated: 22/02/2025 (dd/mm/yyyy)</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">DirectoryInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folders</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">creation_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modification_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryInfo" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">absfuyu.util.path.</span></span><span class="sig-name descname"><span class="pre">DirectoryInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">creation_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modification_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/absfuyu/util/path.html#DirectoryInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#absfuyu.util.path.DirectoryInfo" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>Information of a directory</p>
 <p><em>Added in version 3.3.0</em></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfo.files">
-<span class="sig-name descname"><span class="pre">files</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.util.path.DirectoryInfo.files" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 0</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfo.folders">
-<span class="sig-name descname"><span class="pre">folders</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#absfuyu.util.path.DirectoryInfo.folders" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 1</p>
-</dd></dl>
-
+<p><em>Deprecated in version 5.1.0: Support for ``DirectoryInfoMixin`` which is also deprecated</em></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfo.creation_time">
 <span class="sig-name descname"><span class="pre">creation_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#absfuyu.util.path.DirectoryInfo.creation_time" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 2</p>
+<dd><p>Alias for field number 0</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="absfuyu.util.path.DirectoryInfo.modification_time">
 <span class="sig-name descname"><span class="pre">modification_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#absfuyu.util.path.DirectoryInfo.modification_time" title="Link to this definition"></a></dt>
-<dd><p>Alias for field number 3</p>
+<dd><p>Alias for field number 1</p>
 </dd></dl>
 
 </dd></dl>

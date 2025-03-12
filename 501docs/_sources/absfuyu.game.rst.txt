@@ -1,0 +1,18 @@
+absfuyu.game package
+====================
+
+.. automodule:: absfuyu.game
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.game.game_stat
+   absfuyu.game.sudoku
+   absfuyu.game.tictactoe
+   absfuyu.game.wordle

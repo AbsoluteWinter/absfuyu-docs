@@ -1,0 +1,21 @@
+absfuyu.util package
+====================
+
+.. automodule:: absfuyu.util
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   absfuyu.util.api
+   absfuyu.util.json_method
+   absfuyu.util.lunar
+   absfuyu.util.path
+   absfuyu.util.performance
+   absfuyu.util.shorten_number
+   absfuyu.util.zipped

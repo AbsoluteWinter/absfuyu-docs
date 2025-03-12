@@ -1,0 +1,7 @@
+absfuyu.util.text\_table module
+===============================
+
+.. automodule:: absfuyu.util.text_table
+   :members:
+   :undoc-members:
+   :show-inheritance:

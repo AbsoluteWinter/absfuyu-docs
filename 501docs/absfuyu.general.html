@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>absfuyu.general package &mdash; ABSFUYU&#39;S DOCUMENTATION v5.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6a0c42bb"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=b612fa2f"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="absfuyu.general.content module" href="absfuyu.general.content.html" />
+    <link rel="prev" title="absfuyu.game.wordle module" href="absfuyu.game.wordle.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            absfuyu
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="info.html">SUMMARY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#installation">INSTALLATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#usage">USAGE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#development-setup">DEVELOPMENT SETUP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html#license">LICENSE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Module Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="absfuyu.html">absfuyu package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#absfuyu">ABSFUYU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#links">LINKS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#usage">USAGE</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="absfuyu.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.cli.html">absfuyu.cli package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.config.html">absfuyu.config package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.core.html">absfuyu.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.dxt.html">absfuyu.dxt package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.extra.html">absfuyu.extra package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.fun.html">absfuyu.fun package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.game.html">absfuyu.game package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">absfuyu.general package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.pkg_data.html">absfuyu.pkg_data package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.tools.html">absfuyu.tools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="absfuyu.util.html">absfuyu.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">absfuyu</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Module Documentation</a></li>
+          <li class="breadcrumb-item"><a href="absfuyu.html">absfuyu package</a></li>
+      <li class="breadcrumb-item active">absfuyu.general package</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-absfuyu.general">
+<span id="absfuyu-general-package"></span><h1>absfuyu.general package<a class="headerlink" href="#module-absfuyu.general" title="Link to this heading"></a></h1>
+<section id="absfuyu-general">
+<h2>Absfuyu: General<a class="headerlink" href="#absfuyu-general" title="Link to this heading"></a></h2>
+<p>Collection of useful classes</p>
+<p>Version: 5.0.0
+Date updated: 22/02/2025 (dd/mm/yyyy)</p>
+</section>
+<section id="features">
+<h2>Features:<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>content</p></li>
+<li><p>generator</p></li>
+<li><p>human</p></li>
+</ul>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.general.content.html">absfuyu.general.content module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.content.html#absfuyu-content">Absfuyu: Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.content.html#usage">Usage:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.ContentLoader"><code class="docutils literal notranslate"><span class="pre">ContentLoader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.ContentLoader.content_format"><code class="docutils literal notranslate"><span class="pre">ContentLoader.content_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.ContentLoader.load"><code class="docutils literal notranslate"><span class="pre">ContentLoader.load()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.ContentLoader.load_content"><code class="docutils literal notranslate"><span class="pre">ContentLoader.load_content()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.Content"><code class="docutils literal notranslate"><span class="pre">Content</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.Content.unidecoded"><code class="docutils literal notranslate"><span class="pre">Content.unidecoded()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.Content.to_text"><code class="docutils literal notranslate"><span class="pre">Content.to_text()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.Content.short_form"><code class="docutils literal notranslate"><span class="pre">Content.short_form()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.Content.handle_address"><code class="docutils literal notranslate"><span class="pre">Content.handle_address()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent"><code class="docutils literal notranslate"><span class="pre">LoadedContent</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent.apply"><code class="docutils literal notranslate"><span class="pre">LoadedContent.apply()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent.load_from_json"><code class="docutils literal notranslate"><span class="pre">LoadedContent.load_from_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent.tags"><code class="docutils literal notranslate"><span class="pre">LoadedContent.tags</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent.tag_count"><code class="docutils literal notranslate"><span class="pre">LoadedContent.tag_count()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent.filter"><code class="docutils literal notranslate"><span class="pre">LoadedContent.filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent.find"><code class="docutils literal notranslate"><span class="pre">LoadedContent.find()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent.short_form"><code class="docutils literal notranslate"><span class="pre">LoadedContent.short_form()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent.pick_one"><code class="docutils literal notranslate"><span class="pre">LoadedContent.pick_one()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent.handle_address"><code class="docutils literal notranslate"><span class="pre">LoadedContent.handle_address()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent.to_json"><code class="docutils literal notranslate"><span class="pre">LoadedContent.to_json()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.content.html#absfuyu.general.content.LoadedContent.to_text"><code class="docutils literal notranslate"><span class="pre">LoadedContent.to_text()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.general.human.html">absfuyu.general.human module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.human.html#absfuyu-human">Absfuyu: Human</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.human.html#absfuyu.general.human.Human"><code class="docutils literal notranslate"><span class="pre">Human</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.human.html#absfuyu.general.human.Human.JohnDoe"><code class="docutils literal notranslate"><span class="pre">Human.JohnDoe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.human.html#absfuyu.general.human.Human.is_male"><code class="docutils literal notranslate"><span class="pre">Human.is_male</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.human.html#absfuyu.general.human.Human.age"><code class="docutils literal notranslate"><span class="pre">Human.age</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.human.html#absfuyu.general.human.Human.is_adult"><code class="docutils literal notranslate"><span class="pre">Human.is_adult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.human.html#absfuyu.general.human.Human.bmi"><code class="docutils literal notranslate"><span class="pre">Human.bmi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.human.html#absfuyu.general.human.Human.update"><code class="docutils literal notranslate"><span class="pre">Human.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.human.html#absfuyu.general.human.Person"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.human.html#absfuyu.general.human.Person.zodiac_sign"><code class="docutils literal notranslate"><span class="pre">Person.zodiac_sign</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.human.html#absfuyu.general.human.Person.zodiac_sign_13"><code class="docutils literal notranslate"><span class="pre">Person.zodiac_sign_13</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.human.html#absfuyu.general.human.Person.numerology"><code class="docutils literal notranslate"><span class="pre">Person.numerology</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="absfuyu.general.shape.html">absfuyu.general.shape module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu-shape">Absfuyu: Shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle"><code class="docutils literal notranslate"><span class="pre">Triangle</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.perimeter"><code class="docutils literal notranslate"><span class="pre">Triangle.perimeter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.area"><code class="docutils literal notranslate"><span class="pre">Triangle.area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_right_angled"><code class="docutils literal notranslate"><span class="pre">Triangle.is_right_angled()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_equilateral"><code class="docutils literal notranslate"><span class="pre">Triangle.is_equilateral()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_isosceles"><code class="docutils literal notranslate"><span class="pre">Triangle.is_isosceles()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.triangle_type"><code class="docutils literal notranslate"><span class="pre">Triangle.triangle_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_acute"><code class="docutils literal notranslate"><span class="pre">Triangle.is_acute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_obtuse"><code class="docutils literal notranslate"><span class="pre">Triangle.is_obtuse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.get_angles"><code class="docutils literal notranslate"><span class="pre">Triangle.get_angles()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.scale"><code class="docutils literal notranslate"><span class="pre">Triangle.scale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.is_similar"><code class="docutils literal notranslate"><span class="pre">Triangle.is_similar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Triangle.vis"><code class="docutils literal notranslate"><span class="pre">Triangle.vis()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Circle"><code class="docutils literal notranslate"><span class="pre">Circle</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Circle.diameter"><code class="docutils literal notranslate"><span class="pre">Circle.diameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Circle.perimeter"><code class="docutils literal notranslate"><span class="pre">Circle.perimeter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Circle.circumference"><code class="docutils literal notranslate"><span class="pre">Circle.circumference()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Circle.area"><code class="docutils literal notranslate"><span class="pre">Circle.area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Circle.scale"><code class="docutils literal notranslate"><span class="pre">Circle.scale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Circle.from_area"><code class="docutils literal notranslate"><span class="pre">Circle.from_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Circle.from_circumference"><code class="docutils literal notranslate"><span class="pre">Circle.from_circumference()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Square"><code class="docutils literal notranslate"><span class="pre">Square</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Square.area"><code class="docutils literal notranslate"><span class="pre">Square.area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Square.diagonal"><code class="docutils literal notranslate"><span class="pre">Square.diagonal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Square.from_perimeter"><code class="docutils literal notranslate"><span class="pre">Square.from_perimeter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Square.from_area"><code class="docutils literal notranslate"><span class="pre">Square.from_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Square.scale"><code class="docutils literal notranslate"><span class="pre">Square.scale()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Rectangle"><code class="docutils literal notranslate"><span class="pre">Rectangle</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Rectangle.perimeter"><code class="docutils literal notranslate"><span class="pre">Rectangle.perimeter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Rectangle.area"><code class="docutils literal notranslate"><span class="pre">Rectangle.area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Rectangle.diagonal"><code class="docutils literal notranslate"><span class="pre">Rectangle.diagonal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Rectangle.is_square"><code class="docutils literal notranslate"><span class="pre">Rectangle.is_square()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Rectangle.scale"><code class="docutils literal notranslate"><span class="pre">Rectangle.scale()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Pentagon"><code class="docutils literal notranslate"><span class="pre">Pentagon</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Pentagon.area"><code class="docutils literal notranslate"><span class="pre">Pentagon.area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Pentagon.apothem"><code class="docutils literal notranslate"><span class="pre">Pentagon.apothem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Pentagon.area2"><code class="docutils literal notranslate"><span class="pre">Pentagon.area2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Pentagon.from_area"><code class="docutils literal notranslate"><span class="pre">Pentagon.from_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Pentagon.from_perimeter"><code class="docutils literal notranslate"><span class="pre">Pentagon.from_perimeter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Hexagon"><code class="docutils literal notranslate"><span class="pre">Hexagon</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Hexagon.area"><code class="docutils literal notranslate"><span class="pre">Hexagon.area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Hexagon.apothem"><code class="docutils literal notranslate"><span class="pre">Hexagon.apothem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Hexagon.area2"><code class="docutils literal notranslate"><span class="pre">Hexagon.area2()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Hexagon.from_area"><code class="docutils literal notranslate"><span class="pre">Hexagon.from_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Hexagon.from_perimeter"><code class="docutils literal notranslate"><span class="pre">Hexagon.from_perimeter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Parallelogram"><code class="docutils literal notranslate"><span class="pre">Parallelogram</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Parallelogram.perimeter"><code class="docutils literal notranslate"><span class="pre">Parallelogram.perimeter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Parallelogram.area"><code class="docutils literal notranslate"><span class="pre">Parallelogram.area()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Rhombus"><code class="docutils literal notranslate"><span class="pre">Rhombus</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Rhombus.perimeter"><code class="docutils literal notranslate"><span class="pre">Rhombus.perimeter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Rhombus.area"><code class="docutils literal notranslate"><span class="pre">Rhombus.area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Rhombus.side"><code class="docutils literal notranslate"><span class="pre">Rhombus.side()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Trapezoid"><code class="docutils literal notranslate"><span class="pre">Trapezoid</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Trapezoid.perimeter"><code class="docutils literal notranslate"><span class="pre">Trapezoid.perimeter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Trapezoid.area"><code class="docutils literal notranslate"><span class="pre">Trapezoid.area()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cube"><code class="docutils literal notranslate"><span class="pre">Cube</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cube.surface_area"><code class="docutils literal notranslate"><span class="pre">Cube.surface_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cube.surface_area_side"><code class="docutils literal notranslate"><span class="pre">Cube.surface_area_side()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cube.volume"><code class="docutils literal notranslate"><span class="pre">Cube.volume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cube.face_area"><code class="docutils literal notranslate"><span class="pre">Cube.face_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cube.diagonal"><code class="docutils literal notranslate"><span class="pre">Cube.diagonal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cube.scale"><code class="docutils literal notranslate"><span class="pre">Cube.scale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cube.from_surface_area"><code class="docutils literal notranslate"><span class="pre">Cube.from_surface_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cube.from_volume"><code class="docutils literal notranslate"><span class="pre">Cube.from_volume()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cuboid"><code class="docutils literal notranslate"><span class="pre">Cuboid</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cuboid.surface_area"><code class="docutils literal notranslate"><span class="pre">Cuboid.surface_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cuboid.surface_area_side"><code class="docutils literal notranslate"><span class="pre">Cuboid.surface_area_side()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cuboid.volume"><code class="docutils literal notranslate"><span class="pre">Cuboid.volume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cuboid.diagonal"><code class="docutils literal notranslate"><span class="pre">Cuboid.diagonal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cuboid.scale"><code class="docutils literal notranslate"><span class="pre">Cuboid.scale()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Sphere"><code class="docutils literal notranslate"><span class="pre">Sphere</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Sphere.surface_area"><code class="docutils literal notranslate"><span class="pre">Sphere.surface_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Sphere.volume"><code class="docutils literal notranslate"><span class="pre">Sphere.volume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Sphere.from_volume"><code class="docutils literal notranslate"><span class="pre">Sphere.from_volume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Sphere.from_surface_area"><code class="docutils literal notranslate"><span class="pre">Sphere.from_surface_area()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere"><code class="docutils literal notranslate"><span class="pre">HemiSphere</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.surface_area"><code class="docutils literal notranslate"><span class="pre">HemiSphere.surface_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.surface_area_curved"><code class="docutils literal notranslate"><span class="pre">HemiSphere.surface_area_curved()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.surface_area_base"><code class="docutils literal notranslate"><span class="pre">HemiSphere.surface_area_base()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.volume"><code class="docutils literal notranslate"><span class="pre">HemiSphere.volume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.from_volume"><code class="docutils literal notranslate"><span class="pre">HemiSphere.from_volume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.HemiSphere.from_surface_area"><code class="docutils literal notranslate"><span class="pre">HemiSphere.from_surface_area()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cylinder"><code class="docutils literal notranslate"><span class="pre">Cylinder</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cylinder.surface_area"><code class="docutils literal notranslate"><span class="pre">Cylinder.surface_area()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cylinder.surface_area_curved"><code class="docutils literal notranslate"><span class="pre">Cylinder.surface_area_curved()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="absfuyu.general.shape.html#absfuyu.general.shape.Cylinder.volume"><code class="docutils literal notranslate"><span class="pre">Cylinder.volume()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="absfuyu.game.wordle.html" class="btn btn-neutral float-left" title="absfuyu.game.wordle module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absfuyu.general.content.html" class="btn btn-neutral float-right" title="absfuyu.general.content module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022-2025, AbsoluteWinter.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

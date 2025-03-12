@@ -1,0 +1,7 @@
+absfuyu.extra.da.dadf\_base module
+==================================
+
+.. automodule:: absfuyu.extra.da.dadf_base
+   :members:
+   :undoc-members:
+   :show-inheritance:
